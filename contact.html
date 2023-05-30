@@ -8,59 +8,60 @@ body {
   background-image: url("https://davem97.github.io/project_background.jpg");
   background-size: cover;
 }
-/* Style the header links */
-.header a {
-color: rgb(235, 238, 205);
-text-align: center;
-padding: 12px;
-text-decoration: none;
-font-size: 18px;
-line-height: 25px;
+/* The sidebar menu */
+.sidenav {
+height: 100%; /* Full-height: remove this if you want "auto" height */
+width: 160px; /* Set the width of the sidebar */
+position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+z-index: 1; /* Stay on top */
+top: 0; /* Stay at the top */
+left: 0;
+background-color: #111; /* Black */
+overflow-x: hidden; /* Disable horizontal scroll */
+padding-top: 20px;
 border-radius: 4px;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
-font-size: 25px;
-font-weight: bold;
+/* The navigation menu links */
+.sidenav a {
+padding: 6px 8px 6px 16px;
+text-decoration: none;
+font-size: 20px;
+color: #c7ca22;
+display: block;
 }
 
-/* Change the background color on mouse-over */
-.header a:hover {
-background-color: #ddd;
-color: black;
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+color: #c7ca22;
+background-color: #a39393;
 }
 
-/* Style the active/current link*/
-.header a.active {
-background-color: dodgerblue;
-color: white;
+/* Style page content */
+.main {
+margin-left: 330px; /* Same as the width of the sidenav */
+font-size: 22px; /* Increased text to enable scrolling */
+padding: 0px 10px;
 }
 
-/* Float the link section to the right */
-.header-right {
-float: right;
-}
-h1 {
-text-align: center;
-}
-p {
-text-align: center;
-}
 </style>
 </head>
 
 <body>
-<h1> Contact </h1>
-<p>Temp</p>
-<div class="header">
-  <a href="https://davem97.github.io">Home</a><br>
+  <div class="sidenav">
+    <a href="https://davem97.github.io">Home</a><br>
 <a href="https://davem97.github.io/gettingstarted">Getting Started</a><br>
 <a href="https://davem97.github.io/charactercontroller">Character-Controller</a><br>
 <a href="https://davem97.github.io/gallery">Gallery</a><br>
 <a href="https://davem97.github.io/faq">FAQ</a><br>
 </div>
 
+<div class="main">
+    <h1>First Person Character Controller</h1><br>
+    <p>Hello and welcome to my website, based on the First Person Character Controller asset that I have created.</p>
+    <p>This website will provide information about the asset, including general info, setup tips, features, changes and also contains a FAQ section.</p>
+  </div>
 </body>
+
 
 </html>
