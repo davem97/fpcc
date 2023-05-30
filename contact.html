@@ -2,34 +2,50 @@
 <html>
 
 <head>
+  <title>davem97.github.io</title>
 <style>
 body {
-    background-image: url("https://davem97.github.io/project_background.jpg");
-    background-size: cover;
+  background-image: url("https://davem97.github.io/project_background.jpg");
+  background-size: cover;
+}
+/* Style the header links */
+.header a {
+color: rgb(235, 238, 205);
+text-align: center;
+padding: 12px;
+text-decoration: none;
+font-size: 18px;
+line-height: 25px;
+border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+font-size: 25px;
+font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+background-color: #ddd;
+color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+background-color: dodgerblue;
+color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+float: right;
 }
 h1 {
-    text-align: center;
-    color: white;
+text-align: center;
 }
 p {
-    text-align: center;
-    color: white;
-    line-height: 0;
-    }
-    a {
-    margin: 56px;  
-    top: 34px;
-    color: yellow;
-    line-height: 1.8;
-    font-size: 23px;
-    }
-    a:hover
-{
-  background-color: #AABBFF;	
-}
-ul {
-  margin: 0;
-  padding: 0;
+text-align: center;
 }
 </style>
 </head>
