@@ -7,45 +7,39 @@
         background-image: url("https://davem97.github.io/project_background.jpg");
         background-size: cover;
     }
-/* Style the header links */
-.header a {
-  color: rgb(235, 238, 205);
-  text-align: left;
-  padding: 12px;
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-}
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
   font-size: 25px;
-  font-weight: bold;
+  color: #818181;
+  display: block;
 }
 
-/* Change the background color on mouse-over */
-.header a:hover {
-  background-color: #ddd;
-  color: black;
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-/* Style the active/current link*/
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
 }
 
-/* Float the link section to the right */
-.header-right {
-  float: right;
-}
-h1 {
-    text-align: center;
-}
-p {
-    text-align: center;
-}
     </style>
     </head>
 <body> 
