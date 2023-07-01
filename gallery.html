@@ -136,7 +136,7 @@ padding: 0px 10px;
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
     <div class="numbertext">1 / 4</div>
-    <img src="img1.jpg" style="width:100%">
+    <img onclick="enlargeImg(this)" src="img1.jpg" style="width:100%">
   </div>
 
   <div class="mySlides fade">
@@ -191,4 +191,10 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+function enlargeImg(img) {
+                img.style.transform = "scale(1.5)";
+                img.style.transition =
+                  "transform 0.25s ease";
+            }
 </script>
