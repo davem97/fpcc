@@ -62,9 +62,44 @@ padding: 0px 10px;
 </div>
 
 <div class="main">
-    <h1>First Person Character Controller</h1><br>
-    <p>Hello and welcome to my website, based on the First Person Character Controller asset that I have created.</p>
-    <p>This website will provide information about the asset, including general info, setup tips, features, changes and also contains a FAQ section.</p>
+    <h1>FAQ</h1><br>
+    <p>Disclaimer: This asset is intended to strictly be a First Person character controller (which means 3D) 
+      and as a result, all features and aspects of this project have been designed and coded with 
+      that in mind. Minimal testing has been done to verify whether all aspects of this asset 
+      support 2D physics and movement, however nothing has actively been done to prevent this asset
+      from usage of either of the two. 
+
+What is your "First Person" character controller?
+This character controller is a first-person based character which uses a capsule as the default player 
+character and also uses the in-built character controller as well as a script that goes along with it 
+which expands on that much more and handles all of the character requirements.   
+
+Is there Third Person available?
+Currently there is no third-person view/movement available on this asset as it is aimed at being a 
+first-person project first.
+
+What type of games is this asset aimed at producing?
+The main design focus was to turn this into a fast-paced, arcadey
+first-person shooter game. But this asset can be used to create any type of game,
+such as a horror game, survival game, RTS game (with some custom adjustments) and so on. 
+
+How is collision handled?
+The character controller can collide with other controllers and the enviroment including other colliders 
+and has very basic interactions with Rigidbodies. The asset was created with more of a "sandbox" shooter 
+feel, so essentially collision works at a standard level but in its current state, the character controller
+cannot push around objects that contain a Rigidbody, and Rigidbody objects cannot push around the controller
+with proper physics and mechanics. 
+
+How do you handle the camera?
+There are 2 different cameras that are used, with one specifically intended for movements with the character 
+itself, and the other which deals with anything attached to the player (hands, arms, weapons, or other objects), 
+and contain different settings for rendering, etc.  
+
+Can a humanoid character be used in place of the default capsule?
+Yes, there is no reason that a humanoid character would not work in place of the default capsule that this asset
+comes with. Nothing has been implemented to tie this asset to a capsule character, but you will need to
+make some custom adjustments to get your humanoid character to function as you would like.</p>
+
   </div>
 </body>
 
