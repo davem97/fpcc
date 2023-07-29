@@ -29,7 +29,7 @@
 }
 
 .fcf-input-group {
-    position: relative;
+    position: center;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
