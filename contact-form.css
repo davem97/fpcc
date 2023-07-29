@@ -34,7 +34,7 @@
 }
 
 .fcf-form-control {
-    display: block;
+    display: right;
     width: 50%;
     height: calc(1em + 0.5rem + 1px);
     padding: 0.5rem 0.5rem;
