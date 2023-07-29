@@ -1,11 +1,9 @@
 #fcf-form {
     display:block;
     width: 50%;
-    margin: 10px 50px 20px;
 }
 
 .fcf-body {
-    margin: 10px 50px 20px;
     font-family: -apple-system, Arial, sans-serif;
     font-size: 1rem;
     font-weight: 400;
