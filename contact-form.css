@@ -1,9 +1,7 @@
 #fcf-form {
     display:block;
     width: 50%;
-    background-color: #8b0e0e;
-    color: #212529;
-    border: 1px solid #012141;
+    background-size: 50%;
 }
 
 .fcf-body {
@@ -46,9 +44,9 @@
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
-    background-color: #700606;
+    background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #0364c5;
+    border: 1px solid #ced4da;
     outline: none;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
