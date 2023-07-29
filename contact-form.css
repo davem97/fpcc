@@ -1,6 +1,7 @@
 #fcf-form {
     display:block;
     width: 50%;
+    position: center;
 }
 
 .fcf-body {
