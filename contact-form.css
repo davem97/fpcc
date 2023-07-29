@@ -12,7 +12,8 @@
     color: #212529;
     text-align: left;
     background-color: #fff;
-    background-size: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
     padding: 30px;
     padding-bottom: 10px;
     border: 1px solid #ced4da;
