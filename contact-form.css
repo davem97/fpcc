@@ -18,6 +18,8 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     width: 50%;
+   /* maybe add some height? */
+   height: 500px;
 }
 
 .fcf-form-group {
