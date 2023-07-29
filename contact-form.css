@@ -31,7 +31,7 @@
     flex-wrap: wrap;
     -ms-flex-align: stretch;
     align-items: stretch;
-    width: 50%;
+    width: 100%;
 }
 
 .fcf-form-control {
