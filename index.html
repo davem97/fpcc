@@ -43,20 +43,34 @@
   color: white;
 }
 
-/* Style page content */
 .main {
-  margin-left: 430px; /* Same as the width of the sidenav */
-  font-size: 22px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-div.content-right {
-   
-  position:relative; left:710px; bottom:500px;
+.content-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  margin-top: 20px;
 }
 
-ul li {
- font-size:20px;
+.content-right img {
+  flex-shrink: 0;
+  margin-right: 20px; /* Adjust spacing as needed */
+}
+
+.text-content {
+  max-width: 600px; /* Adjust as needed */
+  text-align: left;
+}
+
+.text-content ul, .text-content p {
+  margin: 0 0 10px 0;
 }
 
     </style>
