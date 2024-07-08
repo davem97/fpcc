@@ -7,6 +7,12 @@
         background-image: url("https://davem97.github.io/fpcc/project_background.jpg");
         background-size: cover;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+         align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
     }
 /* The sidebar menu */
 .sidenav {
@@ -43,35 +49,33 @@
   color: white;
 }
 
+
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  width: 80%;
+  text-align: left;
 }
 
 .content-right {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 1200px; /* Adjust as needed */
+  align-items: center;
   margin-top: 20px;
 }
 
 .content-right img {
-  flex-shrink: 0;
-  margin-right: 20px; /* Adjust spacing as needed */
+  max-width: 45%;
+  height: auto;
+  margin-right: 20px;
+  border: 1px solid #000; /* Optional: to match the border in your example */
 }
 
 .text-content {
-  max-width: 600px; /* Adjust as needed */
-  text-align: left;
+  max-width: 50%;
 }
 
 .text-content ul, .text-content p {
   margin: 0 0 10px 0;
 }
+
 
     </style>
     </head>
