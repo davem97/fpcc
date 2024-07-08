@@ -7,12 +7,6 @@
         background-image: url("https://davem97.github.io/fpcc/project_background.jpg");
         background-size: cover;
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-         align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
     }
 /* The sidebar menu */
 .sidenav {
@@ -49,33 +43,21 @@
   color: white;
 }
 
-
+/* Style page content */
 .main {
-  width: 80%;
-  text-align: left;
+  margin-left: 330px; /* Same as the width of the sidenav */
+  font-size: 22px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
-.content-right {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
+div.content-right {
+   
+  position:relative; left:710px; bottom:500px;
 }
 
-.content-right img {
-  max-width: 45%;
-  height: auto;
-  margin-right: 20px;
-  border: 1px solid #000; /* Optional: to match the border in your example */
+ul li {
+ font-size:20px;
 }
-
-.text-content {
-  max-width: 50%;
-}
-
-.text-content ul, .text-content p {
-  margin: 0 0 10px 0;
-}
-
 
     </style>
     </head>
