@@ -97,32 +97,37 @@ h2 {
 
 <body>
   <div class="sidenav">
-<a href="https://davem97.github.io/fpcc">Home</a><br>
-<a href="https://davem97.github.io/fpcc/features">Features</a><br>
-<a href="https://davem97.github.io/fpcc/gallery">Gallery</a><br>
-<a href="https://davem97.github.io/fpcc/faq">FAQ</a><br>
-<a class = "active" href = "https://davem97.github.io/fpcc/contact">Contact</a><br>
+<a href="https://davem97.github.io/fpcc" rel="noopener noreferrer">Home</a><br>
+<a href="https://davem97.github.io/fpcc/features" rel="noopener noreferrer">Features</a><br>
+<a href="https://davem97.github.io/fpcc/gallery" rel="noopener noreferrer">Gallery</a><br>
+<a href="https://davem97.github.io/fpcc/faq" rel="noopener noreferrer">FAQ</a><br>
+<a class = "active" href = "https://davem97.github.io/fpcc/contact" rel="noopener noreferrer">Contact</a><br>
 </div>
 
 
 <div class="container">
   <h2>Contact Form</h2><br>
-  <form action="https://formspree.io/f/mleygdjg"
-  method="POST">
-
+  <form action="https://formspree.io/f/mleygdjg" method="POST">
     <label>Name</label>
-    <input type="text" name="firstname" placeholder="Your name">
+    <input type="text" name="firstname" placeholder="Your name" required pattern="[A-Za-z\s]+" title="Name should contain only letters and spaces">
 
     <label>Email</label>
-    <input type="email" name="email" placeholder="Your email address">
+    <input type="email" name="email" placeholder="Your email address" required>
 
     <label>Message</label>
-    <textarea id="subject" name="subject" placeholder="Write a message" style="height:200px"></textarea>
+    <textarea id="subject" name="subject" placeholder="Write a message" style="height:200px" required></textarea>
 
+    <input type="text" name="honeypot" style="display:none" tabindex="-1">
+
+    <!-- Add Google reCAPTCHA widget -->
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+    
     <input type="submit" value="Submit">
-
   </form>
 </div>
+
+<!-- Include the reCAPTCHA API script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 
