@@ -1,70 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>davem97.github.io</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>davem97.github.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    body {
-        background-image: url("https://davem97.github.io/fpcc/project_background.jpg");
-        background-size: cover;
-        overflow: hidden;
-    }
-/* The sidebar menu */
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #252525; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-  border-radius: 4px;
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #c7ca22;
-  display: block;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #c7ca22;
-  background-color: #a39393;
-  transition: all .4s ease;
-}
-
-.sidenav a.active{
-    background-color: dodgerblue;
-  color: white;
-}
-
-/* Style page content */
-.main {
-  margin-left: 330px; /* Same as the width of the sidenav */
-  font-size: 22px; /* Increased text to enable scrolling */
-  padding: 0px 10px; 
-}
-
-div.content-right { 
-  position:relative; left:710px; bottom:465px;
-}
-
-ul li p {
-  font-size: 20px;
-}
-
+        body {
+            background-image: url("https://davem97.github.io/fpcc/project_background.jpg");
+            background-size: cover;
+            overflow: hidden;
+            margin: 0;
+        }
+        /* The sidebar menu */
+        .sidenav {
+            height: 100%; /* Full-height */
+            width: 160px; /* Set the width of the sidebar */
+            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            background-color: #252525; /* Black */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 20px;
+            border-radius: 4px;
+        }
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #c7ca22;
+            display: block;
+        }
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #c7ca22;
+            background-color: #a39393;
+            transition: all .4s ease;
+        }
+        .sidenav a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+        /* Style page content */
+        .main {
+            margin-left: 180px; /* Same as the width of the sidenav */
+            font-size: 22px; /* Increased text to enable scrolling */
+            padding: 20px; 
+        }
+        .content-right { 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul li p {
+            font-size: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media screen and (max-width: 600px) {
+            .sidenav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .sidenav a {
+                float: left;
+                padding: 8px;
+                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .main {
+                margin-left: 0;
+                padding: 10px;
+            }
+        }
     </style>
-    </head>
+</head>
 <body> 
 
 <div class="sidenav">
-    <a class = "active" href="https://davem97.github.io/fpcc" rel="noopener noreferrer">Home</a><br>
+    <a class="active" href="https://davem97.github.io/fpcc" rel="noopener noreferrer">Home</a><br>
     <a href="https://davem97.github.io/fpcc/features" rel="noopener noreferrer">Features</a><br>
     <a href="https://davem97.github.io/fpcc/gallery" rel="noopener noreferrer">Gallery</a><br>
     <a href="https://davem97.github.io/fpcc/faq" rel="noopener noreferrer">FAQ</a><br>
@@ -73,7 +90,7 @@ ul li p {
 
 <div class="main">
     <h1>First Person Character Controller</h1>
-    <h2><img src="Game Logo.jpg" style="width:45%; margin-top: 50px;"></h2>
+    <h2><img src="Game Logo.jpg" alt="Game Logo" style="margin-top: 50px;"></h2>
     <div class="content-right">
     <p>First Person Character Controller is a 3D Capsule based character controller. The aim of this<br> asset is to provide the following:</p>
     <ul>
@@ -85,7 +102,7 @@ ul li p {
     </ul>  
     <p><a href="http://u3d.as/3jrN" target="_blank" rel="noopener noreferrer">Asset Store Page</a></p>
     </div>
-  </div>
+</div>
 
 </body>
 </html>
