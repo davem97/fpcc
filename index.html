@@ -72,10 +72,10 @@ ul li p {
 
 h1 {
   text-align: center;
+  position: relative;
+  z-index: 10; /* Ensures it stays on top */
   width: 100%;
   margin: 0 auto;
-  display: block;
-  clear: both; /* Ensures it is placed above any floated elements */
 }
 
 
@@ -94,8 +94,6 @@ h1 {
 
 <div class="main">
   <h1>First Person Character Controller</h1>
-<div style="clear: both;"></div>
-
 
   <!-- First image and paragraph -->
   <div style="float: left; width: 35%; margin-right: 100px; padding-top: 100px;">
