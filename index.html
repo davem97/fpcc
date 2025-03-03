@@ -8,7 +8,8 @@
         background-size: cover;
         overflow: hidden;
     }
-/* The sidebar menu */
+/* The s
+idebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 180px; /* Set the width of the sidebar */
@@ -20,22 +21,19 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
   border-radius: 4px;
-  
-  display: flex; /* Enable flexbox */
-  flex-direction: column; /* Stack the links vertically */
-  justify-content: flex-start; /* Align links to the top */
-  align-items: center; /* Center links horizontally */
+
+  text-align: center; /* Center the links horizontally inside the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px; /* Adjust padding */
   text-decoration: none;
   font-size: 20px;
   color: #c7ca22;
   display: block;
-  width: 100%; /* Make each link take up the full width of the sidenav */
-  text-align: center; /* Center the text inside each link */
+  margin: 0 auto; /* Center the links */
+  width: auto; /* Use auto width to prevent stretching */
 }
 
 
@@ -64,6 +62,12 @@ div.content-right {
 
 ul li p {
   font-size: 20px;
+}
+
+h1 {
+  text-align: center; /* Center the text */
+  width: 100%; /* Make the h1 take up the full width */
+  margin: 0; /* Remove default margin */
 }
 
     </style>
