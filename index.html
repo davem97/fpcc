@@ -20,16 +20,24 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
   border-radius: 4px;
+  
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack the links vertically */
+  justify-content: flex-start; /* Align links to the top */
+  align-items: center; /* Center links horizontally */
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 6px 16px;
+  padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
   color: #c7ca22;
   display: block;
+  width: 100%; /* Make each link take up the full width of the sidenav */
+  text-align: center; /* Center the text inside each link */
 }
+
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
