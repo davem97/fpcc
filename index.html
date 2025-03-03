@@ -8,6 +8,7 @@
         background-size: cover;
         overflow: hidden;
     }
+
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -26,20 +27,21 @@
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px; /* Adjust padding */
+  padding: 10px 16px; /* Increase padding to make the clickbox larger */
   text-decoration: none;
   font-size: 20px;
   color: #c7ca22;
   display: block;
   margin: 0 auto; /* Center the links */
   width: auto; /* Use auto width to prevent stretching */
+  min-height: 40px; /* Increase the minimum height for a larger click area */
+  line-height: 40px; /* Vertically center the text within the link */
 }
 
 /* Image styling */
 .sidenav-logo {
   margin-bottom: 20px; /* Add gap between the image and the first link */
 }
-
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
