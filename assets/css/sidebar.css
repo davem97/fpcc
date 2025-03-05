@@ -28,21 +28,21 @@
 
 /* Specific styling for the link containing the logo */
 .sidenav a:first-child {
-  padding: 0; /* Remove padding to match original image position */
-  min-height: 0; /* Remove min-height to avoid extra space */
-  line-height: 0; /* Remove line-height to prevent vertical shift */
-  margin: 0; /* Ensure no margin pushes things around */
-  display: block; /* Keep it block but without flex to match original flow */
+  padding: 0;
+  min-height: 0;
+  line-height: 0;
+  margin: 0;
+  display: block;
 }
 
 /* Image styling */
 .sidenav-logo {
-  margin-bottom: 20px; /* Maintain gap below image as before */
-  display: block; /* Ensure image behaves as a block naturally */
+  margin-bottom: 20px;
+  display: block;
 }
 
-/* Hover effect only for regular links */
-.sidenav a:not(:first-child):hover {
+/* Hover effect only for text links (not image links) */
+.sidenav a:not(:has(img)):hover {
   color: #c7ca22;
   background-color: #a39393;
   transition: all .4s ease;
