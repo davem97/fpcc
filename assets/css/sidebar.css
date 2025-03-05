@@ -30,14 +30,9 @@
  /* Image styling */
 .sidenav-logo {
   display: block; /* Ensures it behaves like a block element */
-  margin: auto;
-  max-width: 80%; /* Ensures it does not exceed the sidebar width */
+  margin: 0 auto 20px; /* Centers the image horizontally and adds bottom spacing */
+  max-width: 90%; /* Ensures it does not exceed the sidebar width */
   height: auto; /* Maintains aspect ratio */
-}
-
-/* Special styling for logo inside the <a> tag */
-.sidenav a:first-child .sidenav-logo {
-  max-width: 120%; /* Increase the size of the logo when inside the <a> */
 }
 
 /* Move the logo and all <a> links up a little bit */
