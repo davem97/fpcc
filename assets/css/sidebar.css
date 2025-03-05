@@ -30,7 +30,7 @@
  /* Image styling */
 .sidenav-logo {
   display: block; /* Ensures it behaves like a block element */
-  margin: 0 auto 20px; /* Centers the image horizontally and adds bottom spacing */
+  margin: auto;
   max-width: 80%; /* Ensures it does not exceed the sidebar width */
   height: auto; /* Maintains aspect ratio */
 }
