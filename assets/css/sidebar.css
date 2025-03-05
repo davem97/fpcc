@@ -35,26 +35,29 @@
   height: auto; /* Maintains aspect ratio */
 }
 
-  
-  /* When you mouse over the navigation links, change their color */
-  /* Prevent hover effect on the logo link */
-.sidenav a:hover:not(:has(img)) {
-    color: #c7ca22;
-    background-color: #a39393;
-    transition: all .4s ease;
-}
-
-.sidenav a:first-child {
-  display: flex;
-  justify-content: center; /* Centers the content (image) inside */
-}
-
 /* Special styling for logo inside the <a> tag */
 .sidenav a:first-child .sidenav-logo {
   max-width: 120%; /* Increase the size of the logo when inside the <a> */
 }
-  
-  .sidenav a.active{
-      background-color: dodgerblue;
-    color: white;
-  }
+
+/* Move the logo and all <a> links up a little bit */
+.sidenav a:first-child {
+  margin-top: -10px; /* Adjust the value to move the logo up */
+}
+
+/* Optionally, move all other links up as well */
+.sidenav a:not(:first-child) {
+  margin-top: -5px; /* Adjust this for the links */
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover:not(:has(img)) {
+  color: #c7ca22;
+  background-color: #a39393;
+  transition: all .4s ease;
+}
+
+.sidenav a.active {
+  background-color: dodgerblue;
+  color: white;
+}
