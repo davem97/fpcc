@@ -35,16 +35,6 @@
   height: auto; /* Maintains aspect ratio */
 }
 
-/* Move the logo and all <a> links up a little bit */
-.sidenav a:first-child {
-  margin-top: -10px; /* Adjust the value to move the logo up */
-}
-
-/* Optionally, move all other links up as well */
-.sidenav a:not(:first-child) {
-  margin-top: -5px; /* Adjust this for the links */
-}
-
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover:not(:has(img)) {
   color: #c7ca22;
