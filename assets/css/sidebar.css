@@ -44,3 +44,8 @@
       background-color: dodgerblue;
     color: white;
   }
+
+  .sidenav a img {
+    display: block; /* Ensures the image is treated as a block inside the anchor */
+    margin: 0 auto; /* Centers the image inside the anchor */
+}
