@@ -1,55 +1,46 @@
 /* The sidebar menu */
 .sidenav {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #252525;
-  overflow-x: hidden;
-  padding-top: 20px;
-  border-radius: 4px;
-  text-align: center;
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 10px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #c7ca22;
-  display: block;
-  margin: 0 auto;
-  width: auto;
-  min-height: 40px;
-  line-height: 40px;
-}
-
-/* Specific styling for the link containing the logo */
-.sidenav a:first-child {
-  padding: 0;
-  min-height: 0;
-  line-height: 0;
-  margin: 0;
-  display: block;
-}
-
-/* Image styling */
-.sidenav-logo {
-  margin-bottom: 20px;
-  display: block;
-}
-
-/* Hover effect only for text links (not image links) */
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 180px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #252525; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    border-radius: 4px;
+  
+    text-align: center; /* Center the links horizontally inside the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 10px 16px; /* Increase padding to make the clickbox larger */
+    text-decoration: none;
+    font-size: 20px;
+    color: #c7ca22;
+    display: block;
+    margin: 0 auto; /* Center the links */
+    width: auto; /* Use auto width to prevent stretching */
+    min-height: 40px; /* Increase the minimum height for a larger click area */
+    line-height: 40px; /* Vertically center the text within the link */
+  }
+  
+  /* Image styling */
+  .sidenav-logo {
+    margin-bottom: 20px; /* Add gap between the image and the first link */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+ /* Hover effect only for text links (not image links) */
 .sidenav a:not(:has(img)):hover {
   color: #c7ca22;
   background-color: #a39393;
   transition: all .4s ease;
 }
-
-/* Active link styling */
-.sidenav a.active {
-  background-color: dodgerblue;
-  color: white;
-}
+  
+  .sidenav a.active{
+      background-color: dodgerblue;
+    color: white;
+  }
