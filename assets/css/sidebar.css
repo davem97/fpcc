@@ -37,6 +37,10 @@
   margin: 0 auto 20px auto; /* Keeps the image centered and adds spacing */
 }
 
+.sidenav-logo-container a {
+  display: block; /* Make the link behave like a block element */
+}
+
 /* ✅ Prevent hover effect on the logo link */
 .sidenav a.logo-link {
   pointer-events: none; /* Prevents hover effects */
