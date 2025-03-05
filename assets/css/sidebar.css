@@ -48,6 +48,11 @@
   display: flex;
   justify-content: center; /* Centers the content (image) inside */
 }
+
+/* Special styling for logo inside the <a> tag */
+.sidenav a:first-child .sidenav-logo {
+  max-width: 120%; /* Increase the size of the logo when inside the <a> */
+}
   
   .sidenav a.active{
       background-color: dodgerblue;
