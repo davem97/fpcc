@@ -28,18 +28,17 @@
 
 /* Specific styling for the link containing the logo */
 .sidenav a:first-child {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Vertically center the image */
-  padding: 0; /* Remove padding to avoid shifting */
-  min-height: auto; /* Override min-height to prevent extra space */
-  line-height: normal; /* Reset line-height for the image link */
+  padding: 0; /* Remove padding to match original image position */
+  min-height: 0; /* Remove min-height to avoid extra space */
+  line-height: 0; /* Remove line-height to prevent vertical shift */
+  margin: 0; /* Ensure no margin pushes things around */
+  display: block; /* Keep it block but without flex to match original flow */
 }
 
 /* Image styling */
 .sidenav-logo {
-  margin-bottom: 20px; /* Keep the gap below the image */
-  display: block; /* Ensure the image behaves as a block within the flex container */
+  margin-bottom: 20px; /* Maintain gap below image as before */
+  display: block; /* Ensure image behaves as a block naturally */
 }
 
 /* Hover effect only for regular links */
