@@ -27,12 +27,13 @@
     line-height: 40px; /* Vertically center the text within the link */
   }
   
-  /* Image styling */
+ /* Image styling */
 .sidenav-logo {
   display: block; /* Ensures it behaves like a block element */
-  margin: 0 auto 20px; /* Centers the image horizontally and keeps the bottom margin */
-  max-width: 100%; /* Ensures it does not exceed the sidebar width */
+  margin: 0 auto 20px; /* Centers the image horizontally and adds bottom spacing */
+  max-width: 80%; /* Ensures it does not exceed the sidebar width */
 }
+
   
   /* When you mouse over the navigation links, change their color */
   /* Prevent hover effect on the logo link */
