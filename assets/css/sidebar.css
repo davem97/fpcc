@@ -33,10 +33,11 @@
   }
   
   /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #c7ca22;
-    background-color: #a39393;
-    transition: all .4s ease;
+  /* Prevent hover effect on the logo link */
+  .sidenav a:hover:not(:has(img)) {
+  color: #c7ca22;
+  background-color: #a39393;
+  transition: all .4s ease;
   }
   
   .sidenav a.active{
