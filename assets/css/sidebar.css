@@ -31,7 +31,7 @@
 .sidenav-logo {
   display: block; /* Ensures it behaves like a block element */
   margin: 0 auto 20px; /* Centers the image horizontally and adds bottom spacing */
-  width: 100px; /* Ensures it does not exceed the sidebar width */
+  max-width: 100%; /* Ensures it does not exceed the sidebar width */
   height: auto; /* Maintains aspect ratio */
 }
 
