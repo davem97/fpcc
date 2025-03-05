@@ -28,16 +28,18 @@
   }
   
   /* Image styling */
-  .sidenav-logo {
-    margin-bottom: 20px; /* Add gap between the image and the first link */
-  }
+.sidenav-logo {
+  display: block; /* Ensures it behaves like a block element */
+  margin: 0 auto 20px; /* Centers the image horizontally and keeps the bottom margin */
+  max-width: 100%; /* Ensures it does not exceed the sidebar width */
+}
   
   /* When you mouse over the navigation links, change their color */
- /* Hover effect only for text links (not image links) */
-.sidenav a:not(:has(img)):hover {
-  color: #c7ca22;
-  background-color: #a39393;
-  transition: all .4s ease;
+  /* Prevent hover effect on the logo link */
+.sidenav a:hover:not(:has(img)) {
+    color: #c7ca22;
+    background-color: #a39393;
+    transition: all .4s ease;
 }
   
   .sidenav a.active{
