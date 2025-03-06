@@ -35,6 +35,14 @@
   height: auto; /* Maintains aspect ratio */
 }
 
+/* Make the <a> wrap the image tightly */
+.sidenav a:has(.sidenav-logo) {
+  display: inline-block; /* Shrink-wraps the <a> around the image */
+  padding: 0; /* Remove padding for logo links */
+  min-height: 0; /* Override min-height for logo links */
+  line-height: normal; /* Reset line-height */
+}
+
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover:not(:has(img)) {
   color: #c7ca22;
