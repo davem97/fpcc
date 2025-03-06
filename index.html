@@ -36,22 +36,20 @@
 
 /* Force the <a> to match the image exactly */
   .image-block a {
-  display: inline-block; /* Make the <a> only as wide as the image */
-  width: fit-content; /* Shrinks to the size of the content (image) */
+  display: inline-block; /* Make the <a> wrap tightly around the image */
+  width: 80%; /* Match the image width */
   padding: 0;
   margin: 0;
-  text-decoration: none; /* Ensure no underline affects size */
+  text-decoration: none; /* Remove underline */
 }
 
 /* Image styling */
 .image-block img {
-  width: 80%; /* Keep the image smaller at 80% width */
+  width: 100%; /* Image takes up the full width of the <a> */
   height: auto; /* Maintain aspect ratio */
   display: block;
   margin: 0 auto;
 }
-
-
 
 .image-block p {
   font-size: 20px;
