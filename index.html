@@ -22,27 +22,33 @@
 
 /* Container for the images */
 .image-container {
-  display: flex; /* Use Flexbox for centering */
-  justify-content: center; /* Center items horizontally */
-  gap: 100px; /* Space between the two images */
-  padding-top: 100px; /* Keep your vertical spacing */
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding-top: 100px;
 }
 
 /* Styling for each image block */
 .image-block {
-  width: 35%; /* Keep your desired width */
-  text-align: center; /* Center the text below images */
+  width: 35%;
+  text-align: center;
 }
 
+/* Shrink the <a> to fit the image */
+.image-block a {
+  display: inline-block; /* Makes the <a> match the image’s size */
+}
+
+/* Image styling */
 .image-block img {
-  width: 80%; /* Responsive image width */
-  display: block; /* Remove any inline spacing */
-  margin: 0 auto; /* Centers the image horizontally within .image-block */
+  width: 80%; /* Reduced size */
+  display: block;
+  margin: 0 auto; /* Centers the image within .image-block */
 }
 
 .image-block p {
   font-size: 20px;
-  margin-top: 10px; /* Spacing between image and text */
+  margin-top: 10px;
 }
 
 ul li p {
