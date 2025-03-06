@@ -38,27 +38,28 @@ ul li p {
     padding-top: 100px; /* Adjust this to move the text box down */
 }
 
-        /* Text Box */
-        .text-box {
-            width: 800px;
-            height: 450px;
-            background-color: #444; /* Moderate-dark grey */
+/* Text Box */
+.text-box {
+    width: 900px; /* Slightly wider than 800px */
+    height: 450px;
+    background-color: #444; /* Moderate-dark grey */
     border-radius: 20px; /* Rounded edges */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 18px;
-        }
+    position: relative; /* Ensure the image positions relative to this box */
+}
 
-        /* Position the image inside the text box */
+/* Position the image inside the text box */
 .text-box img {
     position: absolute;
-    top: 10px;  /* Adjust to where you want the image */
+    top: 20px; /* Adjusted to be near the top */
     left: 50%;
-    transform: translateX(-50%);  /* Center the image horizontally */
-    max-width: 80%;  /* Ensure the image fits inside the box */
-    height: auto;    /* Maintain aspect ratio */
+    transform: translateX(-50%); /* Center the image horizontally */
+    max-width: 80%; /* Ensure the image fits inside the box */
+    height: auto; /* Maintain aspect ratio */
 }
 
     </style>
