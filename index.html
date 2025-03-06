@@ -34,16 +34,19 @@
   text-align: center;
 }
 
-/* Shrink the <a> to fit the image */
+/* Explicitly shrink-wrap the <a> around the image */
 .image-block a {
-  display: inline-block; /* Makes the <a> match the image’s size */
+  display: inline-block; /* Shrink to content */
+  width: auto; /* Prevent stretching */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
 }
 
 /* Image styling */
 .image-block img {
   width: 80%; /* Reduced size */
   display: block;
-  margin: 0 auto; /* Centers the image within .image-block */
+  margin: 0 auto; /* Center within .image-block */
 }
 
 .image-block p {
