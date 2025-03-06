@@ -37,24 +37,25 @@ ul li p {
 
 /* Page Layout */
 .content {
-            margin-left: 180px; /* Offsets content by sidebar width */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    margin-left: 180px; /* Offset content to exclude sidebar */
+    display: flex;
+    justify-content: center; /* Keeps it centered horizontally */
+    align-items: flex-start; /* Moves items to the top */
+    height: 100vh; /* Full viewport height */
+    padding-top: 100px; /* Adjust this to move the text box down */
+}
 
         /* Text Box */
         .text-box {
             width: 400px;
             height: 450px;
             background-color: #444; /* Moderate-dark grey */
-            border-radius: 20px; /* Rounded edges */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 18px;
+    border-radius: 20px; /* Rounded edges */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
         }
 
     </style>
