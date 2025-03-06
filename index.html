@@ -14,13 +14,34 @@
 
 /* Style page content */
 .main {
-  margin-left: 330px; /* Same as the width of the sidenav */
-  font-size: 22px; /* Increased text to enable scrolling */
-  padding: 0px 10px; 
+  margin-left: 180px; /* Matches the sidebar width (adjust if needed) */
+  padding: 20px; /* Adjusted padding for consistency */
+  font-size: 22px;
+  min-height: 100vh; /* Optional: ensures the main content takes full height */
 }
 
-div.content-right { 
-  position:relative; left:710px; bottom:465px;
+/* Container for the images */
+.image-container {
+  display: flex; /* Use Flexbox for centering */
+  justify-content: center; /* Center items horizontally */
+  gap: 100px; /* Space between the two images */
+  padding-top: 100px; /* Keep your vertical spacing */
+}
+
+/* Styling for each image block */
+.image-block {
+  width: 35%; /* Keep your desired width */
+  text-align: center; /* Center the text below images */
+}
+
+.image-block img {
+  width: 100%; /* Responsive image width */
+  display: block; /* Remove any inline spacing */
+}
+
+.image-block p {
+  font-size: 20px;
+  margin-top: 10px; /* Spacing between image and text */
 }
 
 ul li p {
@@ -47,28 +68,24 @@ ul li p {
 </h1>
 
 <div class="main">
+  <div class="image-container">
+    <!-- First image and paragraph -->
+    <div class="image-block">
+      <a href="assets/fpcc/index.html" target="_blank">
+        <img src="assets/images/Game Photo.png" alt="FPCharacter Controller Image">
+      </a>
+      <p>FPCharacter Controller</p>
+    </div>
 
-  <!-- First image and paragraph -->
-<div style="float: left; width: 35%; margin-right: 100px; padding-top: 100px;">
-  <a href="assets/fpcc/index.html" target="_blank">
-    <img src="assets/images/Game Photo.png" alt="FPCharacter Controller Image" style="width: 100%; display: block;">
-  </a>
-  <p style="text-align: center;">FPCharacter Controller</p> <!-- Centering text -->
-</div>
-
-
-  <!-- Second image and paragraph (with extra margin-left for spacing) -->
-  <div style="float: left; width: 35%; padding-top: 100px; margin-left: 50px;">
-    <a href="assets/westernguns/index.html" target="_blank">
-    <img src="assets/images/asset2.png" style="width: 100%; display: block;"></a>
-    <p style="text-align: center;">Western FPS Weapon System</p>
+    <!-- Second image and paragraph -->
+    <div class="image-block">
+      <a href="assets/westernguns/index.html" target="_blank">
+        <img src="assets/images/asset2.png" alt="Western FPS Weapon System">
+      </a>
+      <p>Western FPS Weapon System</p>
+    </div>
   </div>
-
-  <!-- Clear floats to avoid layout issues -->
-  <div style="clear: both;"></div>
 </div>
-
-
 
 </body>
 </html>
