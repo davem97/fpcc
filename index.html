@@ -35,21 +35,23 @@
 }
 
 /* Force the <a> to match the image exactly */
-.image-block a {
-  display: inline-block;
-  width: fit-content; /* Shrink to content width */
+  .image-block a {
+  display: inline-block; /* Make the <a> only as wide as the image */
+  width: fit-content; /* Shrinks to the size of the content (image) */
   padding: 0;
   margin: 0;
-  line-height: 0; /* Remove vertical space */
   text-decoration: none; /* Ensure no underline affects size */
 }
 
 /* Image styling */
 .image-block img {
-  width: 80%;
+  width: 80%; /* Keep the image smaller at 80% width */
+  height: auto; /* Maintain aspect ratio */
   display: block;
   margin: 0 auto;
 }
+
+
 
 .image-block p {
   font-size: 20px;
