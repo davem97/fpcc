@@ -3,3 +3,11 @@
     font-size: 56px;
     color: darkorange;
   }
+
+  .page-title {
+    text-align: center; /* Centers the text itself */
+    width: calc(100% - 180px); /* Excludes the sidebar width */
+    margin-left: 180px; /* Shifts it right to start after the sidebar */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px; /* Adjust size as needed */
+}
