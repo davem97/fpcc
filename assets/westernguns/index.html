@@ -29,11 +29,13 @@ ul li p {
 }
 
 .page-title {
-  text-align: center; /* Center the text */
-  width: 100%; /* Make the h1 take up the full width */
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 48px; /* Adjust size as needed */
+    text-align: center; /* Centers the text itself */
+    width: calc(100% - 180px); /* Excludes the sidebar width */
+    margin-left: 180px; /* Shifts it right to start after the sidebar */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px; /* Adjust size as needed */
 }
+
 
 /* Page Layout */
 .content {
