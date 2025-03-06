@@ -34,19 +34,21 @@
   text-align: center;
 }
 
-/* Explicitly shrink-wrap the <a> around the image */
+/* Force the <a> to match the image exactly */
 .image-block a {
-  display: inline-block; /* Shrink to content */
-  width: auto; /* Prevent stretching */
-  padding: 0; /* Remove any padding */
-  margin: 0; /* Remove any margin */
+  display: inline-block;
+  width: fit-content; /* Shrink to content width */
+  padding: 0;
+  margin: 0;
+  line-height: 0; /* Remove vertical space */
+  text-decoration: none; /* Ensure no underline affects size */
 }
 
 /* Image styling */
 .image-block img {
-  width: 80%; /* Reduced size */
+  width: 80%;
   display: block;
-  margin: 0 auto; /* Center within .image-block */
+  margin: 0 auto;
 }
 
 .image-block p {
