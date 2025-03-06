@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>davem97.github.io</title>
 
         <link rel="stylesheet" href="assets/css/sidebar.css">
@@ -14,13 +12,15 @@
         overflow: hidden;
     }
 
-    .main {
+/* Style page content */
+.main {
   margin-left: 180px; /* Matches the sidebar width */
   padding: 20px;
   font-size: 22px;
   min-height: 100vh;
 }
 
+/* Container for the images */
 .image-container {
   display: flex;
   justify-content: center;
@@ -28,22 +28,25 @@
   padding-top: 100px;
 }
 
+/* Styling for each image block */
 .image-block {
   width: 35%;
   text-align: center;
 }
 
-.image-block a {
-  display: inline-block;
-  width: 80%;
+/* Force the <a> to match the image exactly */
+  .image-block a {
+  display: inline-block; /* Make the <a> wrap tightly around the image */
+  width: 80%; /* Match the image width */
   padding: 0;
   margin: 0;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
 }
 
+/* Image styling */
 .image-block img {
-  width: 100%;
-  height: auto;
+  width: 100%; /* Image takes up the full width of the <a> */
+  height: auto; /* Maintain aspect ratio */
   display: block;
   margin: 0 auto;
 }
@@ -51,55 +54,6 @@
 .image-block p {
   font-size: 20px;
   margin-top: 10px;
-}
-
-/* Media query for tablets (devices with a max width of 768px) */
-@media (max-width: 768px) {
-  .image-container {
-    flex-direction: column; /* Stack images vertically */
-    gap: 50px; /* Adjust space between images */
-    padding-top: 50px;
-  }
-
-  .image-block {
-    width: 80%; /* Make image blocks wider for smaller screens */
-  }
-
-  .image-block img {
-    width: 100%; /* Ensure images take up full width */
-  }
-
-  .main {
-    margin-left: 0; /* Remove margin for smaller screens */
-    padding: 15px;
-  }
-
-  h1.page-title {
-    font-size: 24px; /* Adjust font size for mobile */
-  }
-}
-
-/* Media query for mobile devices (devices with a max width of 480px) */
-@media (max-width: 480px) {
-  .image-container {
-    gap: 20px; /* Less gap for smaller screens */
-  }
-
-  .image-block {
-    width: 100%; /* Full width image block for mobile */
-  }
-
-  .image-block img {
-    width: 100%; /* Ensure image takes up full width */
-  }
-
-  .main {
-    padding: 10px;
-  }
-
-  h1.page-title {
-    font-size: 20px; /* Further adjust font size for mobile */
-  }
 }
 
 ul li p {
