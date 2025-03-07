@@ -55,10 +55,11 @@ p {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
-  width: calc(100% - 200px); /* Adjust width so it aligns with collapsible button */
-  margin-left: 180px; /* Ensure it starts after the sidebar */
+  width: calc(100% - 220px); /* Adjust width to fit within collapsible */
+  margin-left: 180px; /* Aligns with sidebar */
+  box-sizing: border-box; /* Ensures padding doesn't increase width */
+  border: 1px solid #ccc; /* Optional: Add a border to make it look better */
 }
-
 
 .collapsible:after {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
