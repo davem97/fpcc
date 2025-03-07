@@ -113,23 +113,11 @@ h2 {
 <div id="changelog-container"></div>
 
 <script>
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-  
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("changelog-container");
+
+  // Optional: Show loading message
+  container.innerHTML = "<p>Loading changelog...</p>";
 
   // Fetch the JSON data
   fetch("updates.json")
@@ -138,19 +126,19 @@ h2 {
       return response.json();
     })
     .then(updates => {
+      // Clear loading message
+      container.innerHTML = "";
+
       // Generate collapsibles
       updates.forEach(update => {
-        // Create collapsible button
-        let button = document.createElement("button");
+        const button = document.createElement("button");
         button.className = "collapsible";
         button.textContent = update.version;
 
-        // Create collapsible content
-        let content = document.createElement("div");
+        const content = document.createElement("div");
         content.className = "content";
         content.innerHTML = `<p>${update.details}</p>`;
 
-        // Append to container
         container.appendChild(button);
         container.appendChild(content);
       });
