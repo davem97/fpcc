@@ -70,9 +70,11 @@ p {
   margin-left: 5px;
 }
 
-.active:after {
+/* Change .active to .expanded in the collapsible section */
+.expanded:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
+
 
 </style>
 </head>
@@ -112,41 +114,42 @@ p {
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    const updates = [
-        { version: "Version 1.0.0", details: "Initial release with core features." },
-        { version: "Version 1.0.1", details: "Fixed minor bugs and improved performance." },
-        { version: "Version 1.1.0", details: "Added new features and UI improvements." },
-        { version: "Version 2.0.0", details: "Major update with revamped gameplay mechanics." }
-    ];
+  const updates = [
+    { version: "Version 1.0.3", details: "Initial release with core features." },
+    { version: "Version 1.0.2", details: "Fixed minor bugs and improved performance." },
+    { version: "Version 1.0.1", details: "Added new features and UI improvements." },
+    { version: "Version 1.0.0", details: "Major update with revamped gameplay mechanics." }
+  ];
 
-    const container = document.getElementById("changelog-container");
+  const container = document.getElementById("changelog-container");
 
-    updates.forEach(update => {
-        // Create collapsible button
-        let button = document.createElement("button");
-        button.className = "collapsible";
-        button.textContent = update.version;
+  updates.forEach(update => {
+    // Create collapsible button
+    let button = document.createElement("button");
+    button.className = "collapsible";
+    button.textContent = update.version;
 
-        // Create collapsible content
-        let content = document.createElement("div");
-        content.className = "content";
-        content.innerHTML = `<p>${update.details}</p>`;
+    // Create collapsible content
+    let content = document.createElement("div");
+    content.className = "content";
+    content.innerHTML = `<p>${update.details}</p>`;
 
-        // Append elements to the container
-        container.appendChild(button);
-        container.appendChild(content);
+    // Append elements to the container
+    container.appendChild(button);
+    container.appendChild(content);
 
-        // Add event listener for collapsible behavior
-        button.addEventListener("click", function () {
-            this.classList.toggle("active");
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
+    // Add event listener for collapsible behavior
+    button.addEventListener("click", function () {
+      this.classList.toggle("expanded");  // Use 'expanded' instead of 'active'
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
     });
+  });
 });
+
 
   </script>
 
