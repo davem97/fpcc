@@ -40,13 +40,13 @@ p {
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: calc(100% - 200px); /* Subtract sidebar width + extra padding */
-  margin-left: 180px; /* Move collapsible content to start after sidebar */
+  width: calc(100% - 180px); /* Same width as .content */
+  margin-left: 180px; /* Align with sidebar */
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
-  display: block; /* Ensure it doesn't stretch full width */
+  box-sizing: border-box; /* Ensures padding does not affect width */
 }
 
 .content {
@@ -55,11 +55,12 @@ p {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
-  width: calc(100% - 220px); /* Adjust width to fit within collapsible */
-  margin-left: 180px; /* Aligns with sidebar */
-  box-sizing: border-box; /* Ensures padding doesn't increase width */
-  border: 1px solid #ccc; /* Optional: Add a border to make it look better */
+  width: calc(100% - 180px); /* Match collapsible button width */
+  margin-left: 180px; /* Align with sidebar */
+  box-sizing: border-box;
+  border: 1px solid #ccc; /* Optional */
 }
+
 
 .collapsible:after {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
