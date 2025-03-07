@@ -41,19 +41,22 @@ ul li p {
 .text-box {
     width: 550px;
     height: 600px;
-    background-color: #444;
+    background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Keeps everything centered except the list */
+    align-items: center;
     color: white;
     font-size: 18px;
     position: relative;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), /* Shadow for depth */
+                -4px -4px 10px rgba(255, 255, 255, 0.1); /* Soft light reflection */
 }
+
 
 
 .title {
