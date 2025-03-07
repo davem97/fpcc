@@ -38,18 +38,31 @@ ul li p {
     padding-top: 100px; /* Adjust this to move the text box down */
 }
 
-/* Text Box */
 .text-box {
-    width: 550px; /* Slightly wider than 800px */
+    width: 550px;
     height: 600px;
-    background-color: #444; /* Moderate-dark grey */
-    border-radius: 20px; /* Rounded edges */
+    background-color: #444;
+    border-radius: 20px;
     display: flex;
+    flex-direction: column; /* Stack elements vertically */
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 18px;
-    position: relative; /* Ensure the image positions relative to this box */
+    position: relative;
+    text-align: center; /* Centers the text */
+    padding: 20px; /* Adds some spacing */
+}
+
+.memberList {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+    margin-top: 20px; /* Pushes the list down */
+}
+
+.memberList li {
+    font-size: 16px;
+    margin: 5px 0; /* Adds spacing between list items */
 }
 
 /* Position the image inside the text box */
