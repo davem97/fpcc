@@ -46,14 +46,15 @@ ul li p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Keeps everything centered except the list */
     color: white;
     font-size: 18px;
     position: relative;
     text-align: center;
-    padding: 20px; /* Keeps spacing inside */
-    box-sizing: border-box; /* Ensures padding doesn’t increase the box size */
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 
 .title {
   margin-top: 25px;
@@ -62,9 +63,12 @@ ul li p {
     list-style-type: none; /* Removes bullet points */
     padding: 0;
     margin-top: 15px; /* Pushes the list down */
-    text-align: left;
-    align-items: left;
+    text-align: left; /* Aligns text to the left */
+    align-self: flex-start; /* Moves the list to the left */
+    width: 100%; /* Ensures it spans full width */
+    padding-left: 20px; /* Adds some left spacing inside the box */
 }
+
 
 .memberList li {
     font-size: 16px;
