@@ -43,7 +43,7 @@
         }
 
         .title {
-            margin-top: 120px;
+            margin-top: 155px;
             font-size: 24px;
             font-weight: bold;
             align-self: flex-start; /* Moves the title to the left */
@@ -59,9 +59,12 @@
         }
 
         .memberList li {
-            font-size: 16px;
-            margin: 8px 0; /* Adds spacing between list items */
-        }
+    font-size: 16px;
+    margin: 8px 0; /* Adds spacing between list items */
+    word-wrap: break-word; /* Breaks long words to wrap */
+    overflow-wrap: break-word; /* Modern equivalent, better support */
+    max-width: 100%; /* Ensures it doesn’t exceed the parent’s width */
+}
 
         /* Position the image inside the text box */
         .text-box img {
