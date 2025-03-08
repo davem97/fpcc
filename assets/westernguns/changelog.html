@@ -40,13 +40,12 @@ p {
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: calc(100% - 180px); /* Same width as .content */
-  margin-left: 180px; /* Align with sidebar */
+  width: 100%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
-  box-sizing: border-box; /* Ensures padding does not affect width */
+  box-sizing: border-box;
 }
 
 .content {
@@ -55,11 +54,11 @@ p {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
-  width: calc(100% - 180px); /* Match collapsible button width */
-  margin-left: 180px; /* Align with sidebar */
+  width: 100%;
   box-sizing: border-box;
-  border: 1px solid #ccc; /* Optional */
+  border: 1px solid #ccc;
 }
+
 
 
 .collapsible:after {
@@ -89,6 +88,8 @@ h2 {
 </head>
 
 <body>
+  <div class="triangle"></div>
+
   <div class="sidenav">
     <a href="https://davem97.github.io/fpcc">
         <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
