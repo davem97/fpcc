@@ -45,31 +45,36 @@
                 -4px -4px 10px rgba(255, 255, 255, 0.1);
 }
 
-    /* Arrow Styles */
-    .arrow {
-        position: absolute;
-        top: 50%; /* Vertically center arrows */
-        transform: translateY(-50%); /* Adjust for height */
-        font-size: 30px;
-        color: white;
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 50%; /* Circular buttons */
-    }
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px; /* Larger for thickness */
+    font-weight: bold; /* Makes < and > chunky */
+    color: white; /* Matches your text-box text */
+    border: none; /* No border */
+    background: none; /* No background or glow */
+    cursor: pointer;
+    padding: 0; /* Minimal padding */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    z-index: 10; /* Above content */
+}
 
-    .left-arrow {
-        left: 10px; /* Position on left side */
-    }
+.left-arrow {
+    left: 15px; /* Position from left edge */
+}
 
-    .right-arrow {
-        right: 10px; /* Position on right side */
-    }
+.right-arrow {
+    right: 15px; /* Position from right edge */
+}
 
-    .arrow:hover {
-        background: rgba(0, 0, 0, 0.8); /* Darker on hover */
-    }
+.arrow:hover {
+    transform: translateY(-50%) translateX(5px); /* Slide right on hover */
+}
+
+.left-arrow:hover {
+    transform: translateY(-50%) translateX(-5px); /* Slide left on hover */
+}
 
     /* Existing content styles */
     .title {
