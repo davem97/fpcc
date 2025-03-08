@@ -13,14 +13,17 @@
 }
 
 body {
-  background: linear-gradient(145deg, rgba(173, 216, 230, 0.6), rgba(255, 182, 193, 0.6)); 
+  background: 
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%), /* Subtle shine */
+    linear-gradient(145deg, rgba(173, 216, 230, 0.6), rgba(255, 182, 193, 0.6)); /* Main gradient */
+  
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh; /* Ensures background takes up full viewport height */
+  height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevents scrolling */
-  position: relative; /* Needed for absolute positioning of the triangle */
+  overflow: hidden;
+  position: relative;
 }
 
 
