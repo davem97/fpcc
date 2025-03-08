@@ -14,30 +14,14 @@
 
 body {
   background: 
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%),
-    linear-gradient(145deg, rgba(173, 216, 230, 0.6), rgba(255, 182, 193, 0.6));
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%), /* Subtle shine */
+    linear-gradient(145deg, rgba(173, 216, 230, 0.6), rgba(255, 182, 193, 0.6)); /* Main gradient */
   
-  background-size: 100% 100%; /* Prevents horizontal stretching */
+  background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  width: 100vw; /* Prevents content from expanding beyond viewport */
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Hides only horizontal scrolling */
+  overflow: hidden;
   position: relative;
-  box-sizing: border-box;
 }
-
-
-.triangle {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 180px;
-  height: 180px;
-  background-color: #5a6d6e;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
-  pointer-events: none; /* Ensures it doesn't interfere */
-  z-index: -1; /* Moves it behind everything */
-}
-
