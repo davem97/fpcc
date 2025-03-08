@@ -51,7 +51,7 @@
     transform: translateY(-50%);
     font-size: 40px; /* Thick V shape */
     font-weight: bold; /* Extra boldness */
-    color: white; /* Default color */
+    color: rgb(255, 255, 255); /* Default color */
     border: none; /* No border */
     background: none; /* No background or glow */
     cursor: pointer;
@@ -68,7 +68,7 @@
 }
 
 .arrow:hover {
-    color: darkorange; /* Highlight on hover */
+    color: rgb(0, 0, 0); /* Highlight on hover */
 }
 
 
@@ -207,11 +207,11 @@
       
               const leftArrow = document.createElement("button");
               leftArrow.className = "arrow left-arrow";
-              leftArrow.textContent = "◄";
+              leftArrow.textContent = "&lt;";
       
               const rightArrow = document.createElement("button");
               rightArrow.className = "arrow right-arrow";
-              rightArrow.textContent = "►";
+              rightArrow.textContent = "&gt;";
       
               // Function to update content based on page index
               function updateContent(index) {
