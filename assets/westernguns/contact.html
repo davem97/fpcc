@@ -45,16 +45,15 @@ input[type=submit]:hover {
 .container {
   border-radius: 0.25rem;
   background-color: #f2f2f2;
-  margin-top: 200px; /* Keeps your vertical positioning */
-  margin-left: 180px; /* Matches sidebar width to start after it */
-  margin-right: 0; /* Reset right margin */
-  width: calc(100% - 180px); /* Full width minus sidebar */
-  max-width: 600px; /* Optional: Caps the form width for readability */
+  margin-top: 200px;
+  margin-left: auto; /* Centers within remaining space */
+  margin-right: auto;
+  width: 50%; /* Or a fixed value like 600px */
+  max-width: calc(100% - 200px); /* Ensures it fits after sidebar with a small buffer */
   padding: 10px;
+  box-sizing: border-box;
   position: relative;
-  left: 50%; /* Shifts it halfway across the remaining space */
-  transform: translateX(-50%); /* Pulls it back by half its width to center */
-  box-sizing: border-box; /* Ensures padding doesn’t mess with width */
+  left: 90px; /* Half the sidebar width to shift it right */
 }
 
 h2 {
