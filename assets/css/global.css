@@ -16,12 +16,8 @@ body {
   background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5)), 
                     url("../images/project_background.jpg");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  
-  /* Ensure content and background start after the sidebar */
-  margin-left: 180px;
-  width: calc(100vw - 180px); /* Prevent overflow */
-  height: 100vh;
   overflow: hidden;
+  background-blend-mode: overlay; /* Blends gradient with your image */
 }
