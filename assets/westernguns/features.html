@@ -50,20 +50,19 @@
         }
 
         .memberList {
-            padding: 0;
-            margin-top: 10px; /* Pushes the list down */
-            text-align: left; /* Aligns text to the left */
-            align-self: flex-start; /* Moves the list to the left */
-            width: 100%; /* Ensures it spans full width */
-            padding-left: 25px; /* Adds left spacing inside the box */
-        }
+    padding: 0;
+    margin-top: 10px; /* Pushes the list down */
+    text-align: left; /* Aligns text to the left */
+    align-self: flex-start; /* Moves the list to the left */
+    width: 100%; /* Spans full width as intended */
+    padding-left: 25px; /* Adds left spacing inside the box */
+}
 
-        .memberList li {
+.memberList li {
     font-size: 16px;
     margin: 8px 0; /* Adds spacing between list items */
-    word-wrap: break-word; /* Breaks long words to wrap */
-    overflow-wrap: break-word; /* Modern equivalent, better support */
-    max-width: 100%; /* Ensures it doesn’t exceed the parent’s width */
+    overflow-wrap: break-word; /* Ensures wrapping; drop word-wrap */
+    max-width: 100%; /* Stays within parent naturally */
 }
 
         /* Position the image inside the text box */
