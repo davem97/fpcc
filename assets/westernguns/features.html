@@ -50,8 +50,8 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 40px; /* Thick V shape */
-    font-weight: bold; /* Extra boldness */
-    color: rgb(255, 255, 255); /* Default color */
+    
+    color: rgb(0, 0, 0); /* Default color */
     border: none; /* No border */
     background: none; /* No background or glow */
     cursor: pointer;
@@ -68,7 +68,7 @@
 }
 
 .arrow:hover {
-    color: rgb(0, 0, 0); /* Highlight on hover */
+    color: rgb(206, 183, 183); /* Highlight on hover */
 }
 
 
@@ -96,14 +96,55 @@
         max-width: 100%;
     }
 
-    .text-box img {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        max-width: 100%;
-        height: auto;
-    }
+    /* Overlay for enlarged image */
+.image-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    z-index: 100; /* Above everything */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Enlarged image */
+.image-overlay img {
+    max-width: 90vw; /* 90% of viewport width */
+    max-height: 90vh; /* 90% of viewport height */
+    border-radius: 10px; /* Optional: slight rounding */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Optional: shadow */
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101; /* Above image */
+}
+
+.close-btn:hover {
+    color: darkorange; /* Matches your arrow hover */
+}
+
+/* Existing image style (make clickable) */
+.text-box img {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 80%;
+    height: auto;
+    cursor: pointer; /* Indicates it’s clickable */
+}
 </style>
     </style>
 </head>
@@ -130,69 +171,48 @@
       document.addEventListener("DOMContentLoaded", function () {
           const container = document.getElementById("text-box-container");
       
-          // Define unique pages for each text box
+          // Create overlay once, append to body
+          const overlay = document.createElement("div");
+          overlay.className = "image-overlay";
+          const enlargedImg = document.createElement("img");
+          const closeBtn = document.createElement("button");
+          closeBtn.className = "close-btn";
+          closeBtn.textContent = "✕"; // X symbol (U+2715)
+          overlay.appendChild(enlargedImg);
+          overlay.appendChild(closeBtn);
+          document.body.appendChild(overlay);
+      
+          // Close overlay when clicking X or outside image
+          closeBtn.addEventListener("click", () => {
+              overlay.style.display = "none";
+          });
+          overlay.addEventListener("click", (e) => {
+              if (e.target === overlay) overlay.style.display = "none"; // Close if clicking background
+          });
+      
+          // Define unique pages (unchanged from your setup)
           const leftPages = [
-              {
-                  title: "Left - Exploration",
-                  img: "../images/asset2small.png",
-                  members: ["Discover new lands", "Adventure awaits", "Map the unknown"]
-              },
-              {
-                  title: "Left - Combat",
-                  img: "../images/asset2small.png",
-                  members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"]
-              },
-              {
-                  title: "Left - Story",
-                  img: "../images/asset2small.png",
-                  members: ["Rich narrative", "Deep characters", "Twist and turns"]
-              }
+              { title: "Left - Exploration", img: "../images/asset2small.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
+              { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
+              { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
           ];
-      
           const middlePages = [
-              {
-                  title: "Middle - Multiplayer",
-                  img: "../images/asset2small.png",
-                  members: ["Team up online", "Compete globally", "Friends or foes"]
-              },
-              {
-                  title: "Middle - Customization",
-                  img: "../images/asset2small.png",
-                  members: ["Gear up", "Style your way", "Unique builds"]
-              },
-              {
-                  title: "Middle - Challenges",
-                  img: "../images/asset2small.png",
-                  members: ["Daily quests", "Tough trials", "Earn rewards"]
-              }
+              { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
+              { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
+              { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
           ];
-      
           const rightPages = [
-              {
-                  title: "Right - World",
-                  img: "../images/asset2small.png",
-                  members: ["Vast open plains", "Dynamic weather", "Living ecosystem"]
-              },
-              {
-                  title: "Right - Weapons",
-                  img: "../images/asset2small.png",
-                  members: ["Gunslinger", "Sharpshooter", "Explosive fun"]
-              },
-              {
-                  title: "Right - Lore",
-                  img: "../images/asset2small.png",
-                  members: ["Western tales", "Hidden secrets", "Legendary heroes"]
-              }
+              { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
+              { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
+              { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
           ];
-      
-          // Array of page sets for each text box
           const allPages = [leftPages, middlePages, rightPages];
       
-          // Create 3 text boxes with unique content
+          // Create text boxes
           allPages.forEach((pages, boxIndex) => {
               const textBox = document.createElement("div");
               textBox.className = "text-box";
-              textBox.dataset.pageIndex = 0; // Start at page 0
+              textBox.dataset.pageIndex = 0;
       
               const content = document.createElement("div");
               content.className = "text-box-content";
@@ -207,19 +227,19 @@
       
               const leftArrow = document.createElement("button");
               leftArrow.className = "arrow left-arrow";
-              leftArrow.textContent = "&lt;";
+              leftArrow.textContent = "<";
       
               const rightArrow = document.createElement("button");
               rightArrow.className = "arrow right-arrow";
-              rightArrow.textContent = "&gt;";
+              rightArrow.textContent = ">";
       
-              // Function to update content based on page index
+              // Function to update content
               function updateContent(index) {
                   const page = pages[index];
                   title.textContent = page.title;
                   img.src = page.img;
                   img.alt = "Logo";
-                  ul.innerHTML = ""; // Clear existing list
+                  ul.innerHTML = "";
                   page.members.forEach(member => {
                       const li = document.createElement("li");
                       li.textContent = member;
@@ -227,22 +247,28 @@
                   });
               }
       
-              // Initial content (page 0)
+              // Initial content
               updateContent(0);
       
               // Arrow click handlers
               leftArrow.addEventListener("click", () => {
                   let index = parseInt(textBox.dataset.pageIndex);
-                  index = (index - 1 + pages.length) % pages.length; // Cycle left
+                  index = (index - 1 + pages.length) % pages.length;
                   textBox.dataset.pageIndex = index;
                   updateContent(index);
               });
       
               rightArrow.addEventListener("click", () => {
                   let index = parseInt(textBox.dataset.pageIndex);
-                  index = (index + 1) % pages.length; // Cycle right
+                  index = (index + 1) % pages.length;
                   textBox.dataset.pageIndex = index;
                   updateContent(index);
+              });
+      
+              // Image click to enlarge
+              img.addEventListener("click", () => {
+                  enlargedImg.src = img.src; // Set enlarged image source
+                  overlay.style.display = "flex"; // Show overlay
               });
       
               // Assemble the text box
