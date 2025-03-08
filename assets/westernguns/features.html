@@ -14,33 +14,36 @@
 
     /* Existing styles unchanged except where noted */
     .content {
-        margin-left: 180px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        height: 100vh;
-        padding-top: 100px;
-        gap: 30px; /* Your updated gap */
-    }
+    margin-left: 180px; /* Offset for sidebar */
+    display: flex;
+    justify-content: center; /* Center the boxes */
+    align-items: flex-start; /* Align tops */
+    height: 100vh; /* Full height */
+    padding-top: 100px; /* Vertical offset */
+    gap: 30px; /* Restore your bigger gap */
+    width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
+    flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
+}
 
-    .text-box {
-        width: 467.5px;
-        height: 510px;
-        background: linear-gradient(145deg, #555, #333);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 18px;
-        position: relative; /* For absolute positioning of arrows */
-        text-align: center;
-        padding: 20px;
-        box-sizing: border-box;
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
-                    -4px -4px 10px rgba(255, 255, 255, 0.1);
-    }
+.text-box {
+    width: 467.5px; /* Locked width */
+    height: 510px; /* Locked height */
+    background: linear-gradient(145deg, #555, #333);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
+                -4px -4px 10px rgba(255, 255, 255, 0.1);
+}
 
     /* Arrow Styles */
     .arrow {
