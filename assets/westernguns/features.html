@@ -20,7 +20,7 @@
     align-items: flex-start; /* Align tops */
     height: 100vh; /* Full height */
     padding-top: 100px; /* Vertical offset */
-    gap: 30px; /* Restore your bigger gap */
+    gap: 50px; /* Restore your bigger gap */
     width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
     flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
 }
@@ -100,7 +100,7 @@
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        max-width: 80%;
+        max-width: 100%;
         height: auto;
     }
 </style>
@@ -129,32 +129,70 @@
       document.addEventListener("DOMContentLoaded", function () {
           const container = document.getElementById("text-box-container");
       
-          // Define 3 pages of content (same for all boxes, but could be unique)
-          const pages = [
+          // Define unique pages for each text box
+          const leftPages = [
               {
-                  title: "Description - Page 1",
-                  img: "../images/asset2small.png",
-                  members: ["Test 1", "Test Test 1", "Hello test 1"]
+                  title: "Left - Exploration",
+                  img: "../images/explore.png",
+                  members: ["Discover new lands", "Adventure awaits", "Map the unknown"]
               },
               {
-                  title: "Description - Page 2",
-                  img: "../images/asset3small.png",
-                  members: ["Test 2", "Test Test Test 2", "Hello test Hello test 2"]
+                  title: "Left - Combat",
+                  img: "../images/combat.png",
+                  members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"]
               },
               {
-                  title: "Description - Page 3",
-                  img: "../images/asset4small.png",
-                  members: ["Test 3", "Long Test 3", "Hello testHello test 3"]
+                  title: "Left - Story",
+                  img: "../images/story.png",
+                  members: ["Rich narrative", "Deep characters", "Twist and turns"]
               }
           ];
       
-          // Create 3 text boxes
-          for (let i = 0; i < 3; i++) {
+          const middlePages = [
+              {
+                  title: "Middle - Multiplayer",
+                  img: "../images/multiplayer.png",
+                  members: ["Team up online", "Compete globally", "Friends or foes"]
+              },
+              {
+                  title: "Middle - Customization",
+                  img: "../images/custom.png",
+                  members: ["Gear up", "Style your way", "Unique builds"]
+              },
+              {
+                  title: "Middle - Challenges",
+                  img: "../images/challenge.png",
+                  members: ["Daily quests", "Tough trials", "Earn rewards"]
+              }
+          ];
+      
+          const rightPages = [
+              {
+                  title: "Right - World",
+                  img: "../images/world.png",
+                  members: ["Vast open plains", "Dynamic weather", "Living ecosystem"]
+              },
+              {
+                  title: "Right - Weapons",
+                  img: "../images/weapons.png",
+                  members: ["Gunslinger", "Sharpshooter", "Explosive fun"]
+              },
+              {
+                  title: "Right - Lore",
+                  img: "../images/lore.png",
+                  members: ["Western tales", "Hidden secrets", "Legendary heroes"]
+              }
+          ];
+      
+          // Array of page sets for each text box
+          const allPages = [leftPages, middlePages, rightPages];
+      
+          // Create 3 text boxes with unique content
+          allPages.forEach((pages, boxIndex) => {
               const textBox = document.createElement("div");
               textBox.className = "text-box";
               textBox.dataset.pageIndex = 0; // Start at page 0
       
-              // Inner content container (to update easily)
               const content = document.createElement("div");
               content.className = "text-box-content";
       
@@ -166,12 +204,10 @@
               const ul = document.createElement("ul");
               ul.className = "memberList";
       
-              // Left arrow
               const leftArrow = document.createElement("button");
               leftArrow.className = "arrow left-arrow";
               leftArrow.textContent = "◄";
       
-              // Right arrow
               const rightArrow = document.createElement("button");
               rightArrow.className = "arrow right-arrow";
               rightArrow.textContent = "►";
@@ -196,14 +232,14 @@
               // Arrow click handlers
               leftArrow.addEventListener("click", () => {
                   let index = parseInt(textBox.dataset.pageIndex);
-                  index = (index - 1 + pages.length) % pages.length; // Cycle left, wrap around
+                  index = (index - 1 + pages.length) % pages.length; // Cycle left
                   textBox.dataset.pageIndex = index;
                   updateContent(index);
               });
       
               rightArrow.addEventListener("click", () => {
                   let index = parseInt(textBox.dataset.pageIndex);
-                  index = (index + 1) % pages.length; // Cycle right, wrap around
+                  index = (index + 1) % pages.length; // Cycle right
                   textBox.dataset.pageIndex = index;
                   updateContent(index);
               });
@@ -216,7 +252,7 @@
               textBox.appendChild(content);
               textBox.appendChild(rightArrow);
               container.appendChild(textBox);
-          }
+          });
       });
       </script>
 </body>
