@@ -12,67 +12,96 @@
             padding: 0px 10px; 
         }
 
-        /* Page Layout */
-        .content {
-            margin-left: 180px; /* Offset content to exclude sidebar */
-            display: flex;
-            justify-content: center; /* Center all boxes horizontally */
-            align-items: flex-start; /* Align items to the top */
-            height: 100vh; /* Full viewport height */
-            padding-top: 100px; /* Move content down */
-            gap: 20px; /* Slight gaps between boxes */
-        }
+        <style>
+    /* Existing styles unchanged except where noted */
+    .content {
+        margin-left: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        padding-top: 100px;
+        gap: 30px; /* Your updated gap */
+    }
 
-        .text-box {
-            width: 467.5px; /* 550px * 0.85 (15% reduction) */
-            height: 510px; /* 600px * 0.85 (15% reduction) */
-            background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 18px;
-            position: relative;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), /* Shadow for depth */
-                        -4px -4px 10px rgba(255, 255, 255, 0.1); /* Soft light reflection */
-        }
+    .text-box {
+        width: 467.5px;
+        height: 510px;
+        background: linear-gradient(145deg, #555, #333);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+        position: relative; /* For absolute positioning of arrows */
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
+                    -4px -4px 10px rgba(255, 255, 255, 0.1);
+    }
 
-        .title {
-            margin-top: 155px;
-            font-size: 24px;
-            font-weight: bold;
-            align-self: flex-start; /* Moves the title to the left */
-        }
+    /* Arrow Styles */
+    .arrow {
+        position: absolute;
+        top: 50%; /* Vertically center arrows */
+        transform: translateY(-50%); /* Adjust for height */
+        font-size: 30px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%; /* Circular buttons */
+    }
 
-        .memberList {
-    padding: 0 20px 0 20px; /* 20px each side, total 40px, fits within 427.5px */
-    margin-top: 10px;
-    text-align: left;
-    align-self: flex-start;
-    width: 100%; /* 427.5px */
-}
+    .left-arrow {
+        left: 10px; /* Position on left side */
+    }
 
-.memberList li {
-    font-size: 16px;
-    margin: 8px 0;
-    overflow-wrap: break-word;
-    max-width: 100%;
-}
+    .right-arrow {
+        right: 10px; /* Position on right side */
+    }
 
-        /* Position the image inside the text box */
-        .text-box img {
-            position: absolute;
-            top: 20px; /* Near the top */
-            left: 50%;
-            transform: translateX(-50%); /* Center the image horizontally */
-            max-width: 80%; /* Ensure the image fits inside the box */
-            height: auto; /* Maintain aspect ratio */
-        }
+    .arrow:hover {
+        background: rgba(0, 0, 0, 0.8); /* Darker on hover */
+    }
+
+    /* Existing content styles */
+    .title {
+        margin-top: 120px; /* Your updated value */
+        font-size: 24px;
+        font-weight: bold;
+        align-self: flex-start;
+    }
+
+    .memberList {
+        padding: 0 40px 0 40px;
+        margin-top: 10px;
+        text-align: left;
+        align-self: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .memberList li {
+        font-size: 16px;
+        margin: 8px 0;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .text-box img {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 80%;
+        height: auto;
+    }
+</style>
     </style>
 </head>
 <body> 
@@ -95,47 +124,98 @@
     <div class="content" id="text-box-container"></div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("text-box-container");
-            const boxData = {
-                title: "Description",
-                img: "../images/asset2small.png",
-                members: [
-                    "Test",
-                    "Test Test TestTest",
-                    "Test Test Test Test Test Test TestTest",
-                    "Hello test Hello test",
-                    "Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test"
-                ]
-            };
-
-            // Create 3 identical boxes
-            for (let i = 0; i < 3; i++) {
-                const textBox = document.createElement("div");
-                textBox.className = "text-box";
-
-                const title = document.createElement("div");
-                title.className = "title";
-                title.textContent = boxData.title;
-
-                const img = document.createElement("img");
-                img.src = boxData.img;
-                img.alt = "Logo";
-
-                const ul = document.createElement("ul");
-                ul.className = "memberList";
-                boxData.members.forEach(member => {
-                    const li = document.createElement("li");
-                    li.textContent = member;
-                    ul.appendChild(li);
-                });
-
-                textBox.appendChild(title);
-                textBox.appendChild(img);
-                textBox.appendChild(ul);
-                container.appendChild(textBox);
-            }
-        });
-    </script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const container = document.getElementById("text-box-container");
+      
+          // Define 3 pages of content (same for all boxes, but could be unique)
+          const pages = [
+              {
+                  title: "Description - Page 1",
+                  img: "../images/asset2small.png",
+                  members: ["Test 1", "Test Test 1", "Hello test 1"]
+              },
+              {
+                  title: "Description - Page 2",
+                  img: "../images/asset3small.png",
+                  members: ["Test 2", "Test Test Test 2", "Hello test Hello test 2"]
+              },
+              {
+                  title: "Description - Page 3",
+                  img: "../images/asset4small.png",
+                  members: ["Test 3", "Long Test 3", "Hello testHello test 3"]
+              }
+          ];
+      
+          // Create 3 text boxes
+          for (let i = 0; i < 3; i++) {
+              const textBox = document.createElement("div");
+              textBox.className = "text-box";
+              textBox.dataset.pageIndex = 0; // Start at page 0
+      
+              // Inner content container (to update easily)
+              const content = document.createElement("div");
+              content.className = "text-box-content";
+      
+              const title = document.createElement("div");
+              title.className = "title";
+      
+              const img = document.createElement("img");
+      
+              const ul = document.createElement("ul");
+              ul.className = "memberList";
+      
+              // Left arrow
+              const leftArrow = document.createElement("button");
+              leftArrow.className = "arrow left-arrow";
+              leftArrow.textContent = "◄";
+      
+              // Right arrow
+              const rightArrow = document.createElement("button");
+              rightArrow.className = "arrow right-arrow";
+              rightArrow.textContent = "►";
+      
+              // Function to update content based on page index
+              function updateContent(index) {
+                  const page = pages[index];
+                  title.textContent = page.title;
+                  img.src = page.img;
+                  img.alt = "Logo";
+                  ul.innerHTML = ""; // Clear existing list
+                  page.members.forEach(member => {
+                      const li = document.createElement("li");
+                      li.textContent = member;
+                      ul.appendChild(li);
+                  });
+              }
+      
+              // Initial content (page 0)
+              updateContent(0);
+      
+              // Arrow click handlers
+              leftArrow.addEventListener("click", () => {
+                  let index = parseInt(textBox.dataset.pageIndex);
+                  index = (index - 1 + pages.length) % pages.length; // Cycle left, wrap around
+                  textBox.dataset.pageIndex = index;
+                  updateContent(index);
+              });
+      
+              rightArrow.addEventListener("click", () => {
+                  let index = parseInt(textBox.dataset.pageIndex);
+                  index = (index + 1) % pages.length; // Cycle right, wrap around
+                  textBox.dataset.pageIndex = index;
+                  updateContent(index);
+              });
+      
+              // Assemble the text box
+              content.appendChild(title);
+              content.appendChild(img);
+              content.appendChild(ul);
+              textBox.appendChild(leftArrow);
+              textBox.appendChild(content);
+              textBox.appendChild(rightArrow);
+              container.appendChild(textBox);
+          }
+      });
+      </script>
 </body>
 </html>
