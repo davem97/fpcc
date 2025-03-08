@@ -13,15 +13,16 @@
 }
 
 body {
-  /* Light blue and light magenta gradient */
   background: linear-gradient(145deg, rgba(173, 216, 230, 0.6), rgba(255, 182, 193, 0.6)); 
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh; /* Ensures background takes up full viewport height */
   margin: 0;
   padding: 0;
-  position: relative; /* So the triangle can be placed inside */
+  overflow: hidden; /* Prevents scrolling */
+  position: relative; /* Needed for absolute positioning of the triangle */
 }
+
 
 /* Triangle in bottom-right corner */
 .triangle {
