@@ -42,15 +42,19 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-/* Add a background color and some padding around the form */
 .container {
   border-radius: 0.25rem;
   background-color: #f2f2f2;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 200px;
-  width: calc(50% - 180px); /* Same width as .content */
+  margin-top: 200px; /* Keeps your vertical positioning */
+  margin-left: 180px; /* Matches sidebar width to start after it */
+  margin-right: 0; /* Reset right margin */
+  width: calc(100% - 180px); /* Full width minus sidebar */
+  max-width: 600px; /* Optional: Caps the form width for readability */
   padding: 10px;
+  position: relative;
+  left: 50%; /* Shifts it halfway across the remaining space */
+  transform: translateX(-50%); /* Pulls it back by half its width to center */
+  box-sizing: border-box; /* Ensures padding doesn’t mess with width */
 }
 
 h2 {
