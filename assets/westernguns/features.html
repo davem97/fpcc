@@ -48,15 +48,14 @@
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px; /* Larger for thickness */
-    font-weight: bold; /* Makes < and > chunky */
-    color: white; /* Matches your text-box text */
+    transform: translateY(-50%); /* Only for vertical centering */
+    font-size: 40px; /* Larger for a thick look */
+    font-weight: bold; /* Makes < and > bolder */
+    color: white; /* Default color */
     border: none; /* No border */
-    background: none; /* No background or glow */
+    background: none; /* No background */
     cursor: pointer;
-    padding: 0; /* Minimal padding */
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    padding: 0; /* No extra space */
     z-index: 10; /* Above content */
 }
 
@@ -69,11 +68,7 @@
 }
 
 .arrow:hover {
-    transform: translateY(-50%) translateX(5px); /* Slide right on hover */
-}
-
-.left-arrow:hover {
-    transform: translateY(-50%) translateX(-5px); /* Slide left on hover */
+    color: darkorange; /* Highlight on hover */
 }
 
     /* Existing content styles */
