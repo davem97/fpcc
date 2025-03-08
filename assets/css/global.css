@@ -21,7 +21,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 10px; /* Add padding to create a gap */
   overflow: hidden;
   position: relative;
 }
