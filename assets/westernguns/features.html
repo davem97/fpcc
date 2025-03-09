@@ -15,10 +15,11 @@
         .headers {
     margin-left: 180px; /* Matches sidebar offset */
     display: flex;
-    justify-content: center; /* Center the headers like .content */
+    justify-content: center; /* Center overall like .content */
     gap: 50px; /* Matches .content gap */
     width: calc(100% - 180px);
-    padding-top: 20px; /* Reduced from 60px for closer positioning */
+    padding-top: 80px; /* Increased from 20px to move down */
+    padding-left: 100px; /* Pushes headers right */
 }
 
 .headers h2 {
@@ -26,22 +27,26 @@
     font-size: 28px;
     color: white;
     width: 467.5px; /* Matches text-box width */
-    text-align: left; /* Left-aligned within width */
-    margin: 0 0 10px 0; /* Small bottom margin */
+    text-align: left;
+    margin: 0 0 10px 0;
 }
 
 /* Responsive adjustment */
 @media (max-width: 1552px) {
     .headers, .content {
         flex-direction: column;
-        align-items: center; /* Center on smaller screens */
-        gap: 10px; /* Tighter gap for stacking */
-        padding-top: 10px; /* Reduced padding */
+        align-items: center;
+        gap: 10px;
+        padding-top: 10px; /* .content overrides this below */
+    }
+    .headers {
+        padding-left: 0; /* Reset padding-left on small screens */
+        padding-top: 10px; /* Closer on small screens */
     }
     .headers h2 {
         width: 100%;
-        max-width: 467.5px; /* Caps at text-box width */
-        text-align: left; /* Still left-aligned */
+        max-width: 467.5px;
+        text-align: left;
     }
     .text-box {
         width: 100%;
@@ -49,17 +54,17 @@
     }
 }
 
-    /* Existing styles unchanged except where noted */
-    .content {
-    margin-left: 180px; /* Offset for sidebar */
+/* Ensure .content stays unchanged */
+.content {
+    margin-left: 180px;
     display: flex;
-    justify-content: center; /* Center the boxes */
-    align-items: flex-start; /* Align tops */
-    height: 100vh; /* Full height */
-    padding-top: 100px; /* Vertical offset */
-    gap: 50px; /* Restore your bigger gap */
-    width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
-    flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-top: 100px; /* Keeps text boxes in place */
+    gap: 50px;
+    width: calc(100% - 180px);
+    flex-wrap: nowrap;
 }
 
 .text-box {
