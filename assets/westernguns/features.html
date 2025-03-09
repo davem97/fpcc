@@ -50,6 +50,11 @@
     width: 100%; /* Ensure it spans the text-box width */
     text-align: left; /* Align title and list to the left */
     padding-left: 50px; /* Shift content slightly left (adjustable) */
+    transition: opacity 0.3s ease; /* Fades opacity over 0.3 seconds */
+}
+
+.fade {
+    opacity: 0; /* Briefly fades content out */
 }
 
 .text-box-header {
@@ -263,43 +268,48 @@
         rightArrow.className = "arrow right-arrow";
         rightArrow.textContent = "￫";
 
-        // Function to update content
-        function updateContent(index) {
-            const page = pages[index];
-            title.textContent = page.title;
-            img.src = page.img;
-            img.alt = "Logo";
-            ul.innerHTML = "";
-            page.members.forEach(member => {
-                const li = document.createElement("li");
-                li.textContent = member;
-                ul.appendChild(li);
-            });
-        }
-
-        // Initial content
-        updateContent(0);
-
-        // Arrow click handlers
-        leftArrow.addEventListener("click", () => {
-            let index = parseInt(textBox.dataset.pageIndex);
-            index = (index - 1 + pages.length) % pages.length;
-            textBox.dataset.pageIndex = index;
-            updateContent(index);
+        // Function to update content with fade effect
+function updateContent(index) {
+    const page = pages[index];
+    content.classList.add("fade"); // Start fade out
+    setTimeout(() => {
+        // Update content after fade out
+        title.textContent = page.title;
+        img.src = page.img;
+        img.alt = "Logo";
+        ul.innerHTML = "";
+        page.members.forEach(member => {
+            const li = document.createElement("li");
+            li.textContent = member;
+            ul.appendChild(li);
         });
+        content.classList.remove("fade"); // Fade back in
+    }, 150); // Half the transition time (0.3s / 2)
+}
 
-        rightArrow.addEventListener("click", () => {
-            let index = parseInt(textBox.dataset.pageIndex);
-            index = (index + 1) % pages.length;
-            textBox.dataset.pageIndex = index;
-            updateContent(index);
-        });
+// Initial content (no fade needed on load)
+updateContent(0);
 
-        // Image click to enlarge
-        img.addEventListener("click", () => {
-            enlargedImg.src = img.src; // Set enlarged image source
-            overlay.style.display = "flex"; // Show overlay
-        });
+// Arrow click handlers
+leftArrow.addEventListener("click", () => {
+    let index = parseInt(textBox.dataset.pageIndex);
+    index = (index - 1 + pages.length) % pages.length;
+    textBox.dataset.pageIndex = index;
+    updateContent(index);
+});
+
+rightArrow.addEventListener("click", () => {
+    let index = parseInt(textBox.dataset.pageIndex);
+    index = (index + 1) % pages.length;
+    textBox.dataset.pageIndex = index;
+    updateContent(index);
+});
+
+// Image click to enlarge
+img.addEventListener("click", () => {
+    enlargedImg.src = img.src; // Set enlarged image source
+    overlay.style.display = "flex"; // Show overlay
+});
 
         // Assemble the text box
         content.appendChild(title);
