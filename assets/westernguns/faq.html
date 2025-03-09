@@ -96,24 +96,27 @@
             margin: 8px 0; /* Adds spacing between list items */
         }
 
-        .title-right {
-    margin-top: 5px;
-    font-size: 20px;
-    font-weight: bold;
+        /* Container for right-side questions */
+.right-side-container {
     position: absolute;
     left: 55%; /* Positions it right of the vertical line */
     width: 45%; /* Matches left-side width */
+    top: 20px; /* Aligns the top of Q6 with Q1 */
     padding-left: 20px; /* Adds spacing from the line */
 }
 
+/* Styles for right-side titles */
+.title-right {
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Styles for right-side lists */
 .memberList-right {
     padding: 0;
     margin-top: 10px; /* Pushes the list down */
     text-align: left;
-    position: absolute;
-    left: 55%; /* Positions it right of the vertical line */
-    width: 45%; /* Matches left-side width */
-    padding-left: 20px; /* Adds spacing from the line */
     color: rgb(226, 211, 211);
 }
 
@@ -198,38 +201,38 @@
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
 
-            <!-- Inside .text-box, replace Question 6 and add 7-10 -->
-<!-- Question 6 -->
-<div class="title-right">Question 6 test and test test test?</div>
-<ul class="memberList-right">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
-</ul>
+            <!-- Inside .text-box, after Question 5 -->
+<div class="right-side-container">
+    <!-- Question 6 -->
+    <div class="title-right">Question 6 test and test test test?</div>
+    <ul class="memberList-right">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
+    </ul>
 
-<!-- Question 7 -->
-<div class="title-right">Question 7 test and test test test?</div>
-<ul class="memberList-right">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-</ul>
+    <!-- Question 7 -->
+    <div class="title-right">Question 7 test and test test test?</div>
+    <ul class="memberList-right">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
 
-<!-- Question 8 -->
-<div class="title-right">Question 8 test and test test test?</div>
-<ul class="memberList-right">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-</ul>
+    <!-- Question 8 -->
+    <div class="title-right">Question 8 test and test test test?</div>
+    <ul class="memberList-right">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
 
-<!-- Question 9 -->
-<div class="title-right">Question 9 test and test test test?</div>
-<ul class="memberList-right">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-</ul>
+    <!-- Question 9 -->
+    <div class="title-right">Question 9 test and test test test?</div>
+    <ul class="memberList-right">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
 
-<!-- Question 10 -->
-<div class="title-right">Question 10 test and test test test?</div>
-<ul class="memberList-right">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-</ul>
-
-        </div>
+    <!-- Question 10 -->
+    <div class="title-right">Question 10 test and test test test?</div>
+    <ul class="memberList-right">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
+</div>
     </div>
 </body>
 </html>
