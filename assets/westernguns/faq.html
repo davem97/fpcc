@@ -38,9 +38,9 @@
             background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
             border-radius: 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: top;
-            align-items: center;
+            flex-direction: row; /* Changed to row for side-by-side */
+            justify-content: space-between; /* Space pairs evenly */
+            align-items: flex-start; /* Align tops of pairs */
             color: white;
             font-size: 18px;
             position: relative; /* Anchor for absolute positioning of header */
@@ -73,11 +73,20 @@
             z-index: 1; /* Ensures it’s above content but below header if needed */
         }
 
+        .qa-pair {
+            display: flex;
+            flex-direction: column; /* Stack title and list vertically within pair */
+            width: 48%; /* Slightly less than half to fit padding and gap */
+        }
+
         .title {
             margin-top: 5px;
+            margin-bottom: 5px; /* Space before answer */
             font-size: 20px;
             font-weight: bold;
-            align-self: flex-start; /* Moves the list to the left */
+            text-align: left; /* Align text left within pair */
+            white-space: normal;
+            max-width: 100%; /* Fit within qa-pair */
         }
 
         .memberList {
@@ -119,15 +128,19 @@
             <h2 class="text-box-header">FAQ</h2> <!-- Added header here -->
             <div class="vertical-line"></div> <!-- New vertical line -->
             <!-- Question 1 -->
-            <div class="title">Question 1 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
-            </ul>
+            <div class="qa-pair">
+                <div class="title">Question 1 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
+                </ul>
+            </div>
             <!-- Question 2 -->
-            <div class="title">Question 2 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-            </ul>
+            <div class="qa-pair">
+                <div class="title">Question 2 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+            </div>
             <!-- Question 3 -->
             <div class="title">Question 3 test and test test test?</div>
             <ul class="memberList">
