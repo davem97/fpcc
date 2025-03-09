@@ -95,47 +95,6 @@
             font-size: 16px;
             margin: 8px 0; /* Adds spacing between list items */
         }
-
-        .right-side {
-    left: 55%; /* Moves it to the right of the vertical line */
-    width: 45%; /* Matches the left side width to avoid overlap */
-    padding-left: 20px; /* Adds spacing from the line */
-    align-self: flex-start; /* Keeps alignment consistent */
-}
-
-.title.right-side {
-    margin-top: 5px; /* Matches existing title spacing */
-}
-
-.memberList.right-side {
-    padding: 0;
-    margin-top: 10px; /* Matches existing spacing */
-    text-align: left;
-    color: rgb(226, 211, 211); /* Matches existing color */
-}
-
-.memberList.right-side li {
-    font-size: 16px;
-    margin: 8px 0; /* Matches existing list item spacing */
-}
-
-/* Add vertical spacing for right-side elements */
-.text-box .right-side:nth-child(odd) { /* Targets titles */
-    margin-top: 20px; /* Initial offset for the first right-side title */
-}
-
-.text-box .right-side:nth-child(even) { /* Targets memberLists */
-    margin-bottom: 20px; /* Space between Q6 and Q7 blocks */
-}
-
-/* Specific adjustments for Question 6 and 7 */
-.text-box .right-side:nth-child(11) { /* Question 6 title (adjust based on actual child index) */
-    margin-top: 20px; /* Starting point for right-side content */
-}
-
-.text-box .right-side:nth-child(13) { /* Question 7 title (adjust based on actual child index) */
-    margin-top: 100px; /* Adjust this value to space Q7 below Q6 */
-}
     </style>
 </head>
 <body> 
@@ -159,21 +118,25 @@
         <div class="text-box">
             <h2 class="text-box-header">FAQ</h2> <!-- Added header here -->
             <div class="vertical-line"></div> <!-- New vertical line -->
+
             <!-- Question 1 -->
             <div class="title">Question 1 test and test test test?</div>
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
             </ul>
+
             <!-- Question 2 -->
             <div class="title">Question 2 test and test test test?</div>
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
+
             <!-- Question 3 -->
             <div class="title">Question 3 test and test test test?</div>
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
+
             <!-- Question 4 -->
             <div class="title">Question 4 test and test test test?</div>
             <ul class="memberList">
@@ -181,21 +144,13 @@
                     Hello test Hello test test Hello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test test
                 </li>
             </ul>
+
             <!-- Question 5 -->
             <div class="title">Question 5 test and test test test?</div>
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
-            <!-- Question 6 (Right Side) -->
-<div class="title right-side">Question 6 test and test test test?</div>
-<ul class="memberList right-side">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
-</ul>
-<!-- Question 7 (Right Side) -->
-<div class="title right-side">Question 7 test and test test test?</div>
-<ul class="memberList right-side">
-    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
-</ul>
+            
         </div>
     </div>
 </body>
