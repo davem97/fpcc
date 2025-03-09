@@ -95,6 +95,30 @@
             font-size: 16px;
             margin: 8px 0; /* Adds spacing between list items */
         }
+
+        .right-side {
+    position: absolute;
+    left: 55%; /* Moves it to the right of the vertical line */
+    width: 45%; /* Matches the left side width to avoid overlap */
+    padding-left: 20px; /* Adds spacing from the line */
+    align-self: flex-start; /* Keeps alignment consistent */
+}
+
+.title.right-side {
+    margin-top: 5px; /* Matches existing title spacing */
+}
+
+.memberList.right-side {
+    padding: 0;
+    margin-top: 10px; /* Matches existing spacing */
+    text-align: left;
+    color: rgb(226, 211, 211); /* Matches existing color */
+}
+
+.memberList.right-side li {
+    font-size: 16px;
+    margin: 8px 0; /* Matches existing list item spacing */
+}
     </style>
 </head>
 <body> 
@@ -145,6 +169,16 @@
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
+            <!-- Question 6 (Right Side) -->
+<div class="title right-side">Question 6 test and test test test?</div>
+<ul class="memberList right-side">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
+</ul>
+<!-- Question 7 (Right Side) -->
+<div class="title right-side">Question 7 test and test test test?</div>
+<ul class="memberList right-side">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
+</ul>
         </div>
     </div>
 </body>
