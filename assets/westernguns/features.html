@@ -45,6 +45,19 @@
                 -4px -4px 10px rgba(255, 255, 255, 0.1);
 }
 
+.text-box-header {
+    position: absolute;
+    top: -40px; /* Places header 40px above the text box */
+    left: 0;
+    width: 100%; /* Matches text box width */
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: for readability */
+    z-index: 5; /* Ensures it’s above the text box but below overlay */
+}
+
 .arrow {
     position: absolute;
     top: 50%;
@@ -169,118 +182,127 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-          const container = document.getElementById("text-box-container");
-      
-          // Create overlay once, append to body
-          const overlay = document.createElement("div");
-          overlay.className = "image-overlay";
-          const enlargedImg = document.createElement("img");
-          const closeBtn = document.createElement("button");
-          closeBtn.className = "close-btn";
-          closeBtn.textContent = "✕"; // X symbol (U+2715)
-          overlay.appendChild(enlargedImg);
-          overlay.appendChild(closeBtn);
-          document.body.appendChild(overlay);
-      
-          // Close overlay when clicking X or outside image
-          closeBtn.addEventListener("click", () => {
-              overlay.style.display = "none";
-          });
-          overlay.addEventListener("click", (e) => {
-              if (e.target === overlay) overlay.style.display = "none"; // Close if clicking background
-          });
-      
-          // Define unique pages (unchanged from your setup)
-          const leftPages = [
-              { title: "Left - Exploration", img: "../images/asset2.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
-              { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
-              { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
-          ];
-          const middlePages = [
-              { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
-              { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
-              { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
-          ];
-          const rightPages = [
-              { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
-              { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
-              { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
-          ];
-          const allPages = [leftPages, middlePages, rightPages];
-      
-          // Create text boxes
-          allPages.forEach((pages, boxIndex) => {
-              const textBox = document.createElement("div");
-              textBox.className = "text-box";
-              textBox.dataset.pageIndex = 0;
-      
-              const content = document.createElement("div");
-              content.className = "text-box-content";
-      
-              const title = document.createElement("div");
-              title.className = "title";
-      
-              const img = document.createElement("img");
-      
-              const ul = document.createElement("ul");
-              ul.className = "memberList";
-      
-              const leftArrow = document.createElement("button");
-              leftArrow.className = "arrow left-arrow";
-              leftArrow.textContent = "<";
-      
-              const rightArrow = document.createElement("button");
-              rightArrow.className = "arrow right-arrow";
-              rightArrow.textContent = ">";
-      
-              // Function to update content
-              function updateContent(index) {
-                  const page = pages[index];
-                  title.textContent = page.title;
-                  img.src = page.img;
-                  img.alt = "Logo";
-                  ul.innerHTML = "";
-                  page.members.forEach(member => {
-                      const li = document.createElement("li");
-                      li.textContent = member;
-                      ul.appendChild(li);
-                  });
-              }
-      
-              // Initial content
-              updateContent(0);
-      
-              // Arrow click handlers
-              leftArrow.addEventListener("click", () => {
-                  let index = parseInt(textBox.dataset.pageIndex);
-                  index = (index - 1 + pages.length) % pages.length;
-                  textBox.dataset.pageIndex = index;
-                  updateContent(index);
-              });
-      
-              rightArrow.addEventListener("click", () => {
-                  let index = parseInt(textBox.dataset.pageIndex);
-                  index = (index + 1) % pages.length;
-                  textBox.dataset.pageIndex = index;
-                  updateContent(index);
-              });
-      
-              // Image click to enlarge
-              img.addEventListener("click", () => {
-                  enlargedImg.src = img.src; // Set enlarged image source
-                  overlay.style.display = "flex"; // Show overlay
-              });
-      
-              // Assemble the text box
-              content.appendChild(title);
-              content.appendChild(img);
-              content.appendChild(ul);
-              textBox.appendChild(leftArrow);
-              textBox.appendChild(content);
-              textBox.appendChild(rightArrow);
-              container.appendChild(textBox);
-          });
-      });
+    const container = document.getElementById("text-box-container");
+
+    // Create overlay once, append to body
+    const overlay = document.createElement("div");
+    overlay.className = "image-overlay";
+    const enlargedImg = document.createElement("img");
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "close-btn";
+    closeBtn.textContent = "✕"; // X symbol (U+2715)
+    overlay.appendChild(enlargedImg);
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
+
+    // Close overlay when clicking X or outside image
+    closeBtn.addEventListener("click", () => {
+        overlay.style.display = "none";
+    });
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) overlay.style.display = "none"; // Close if clicking background
+    });
+
+    // Define unique pages
+    const leftPages = [
+        { title: "Left - Exploration", img: "../images/asset2.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
+        { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
+        { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
+    ];
+    const middlePages = [
+        { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
+        { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
+        { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
+    ];
+    const rightPages = [
+        { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
+        { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
+        { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
+    ];
+    const allPages = [leftPages, middlePages, rightPages];
+
+    // Define unique headers for each text box
+    const headers = ["Explore the Unknown", "Engage in Battle", "Unravel the Tale"];
+
+    // Create text boxes
+    allPages.forEach((pages, boxIndex) => {
+        const textBox = document.createElement("div");
+        textBox.className = "text-box";
+        textBox.dataset.pageIndex = 0;
+
+        // Create header
+        const header = document.createElement("div");
+        header.className = "text-box-header";
+        header.textContent = headers[boxIndex]; // Assign unique header
+        textBox.appendChild(header); // Add header as a child of textBox
+
+        const content = document.createElement("div");
+        content.className = "text-box-content";
+
+        const title = document.createElement("div");
+        title.className = "title";
+
+        const img = document.createElement("img");
+
+        const ul = document.createElement("ul");
+        ul.className = "memberList";
+
+        const leftArrow = document.createElement("button");
+        leftArrow.className = "arrow left-arrow";
+        leftArrow.textContent = "<";
+
+        const rightArrow = document.createElement("button");
+        rightArrow.className = "arrow right-arrow";
+        rightArrow.textContent = ">";
+
+        // Function to update content
+        function updateContent(index) {
+            const page = pages[index];
+            title.textContent = page.title;
+            img.src = page.img;
+            img.alt = "Logo";
+            ul.innerHTML = "";
+            page.members.forEach(member => {
+                const li = document.createElement("li");
+                li.textContent = member;
+                ul.appendChild(li);
+            });
+        }
+
+        // Initial content
+        updateContent(0);
+
+        // Arrow click handlers
+        leftArrow.addEventListener("click", () => {
+            let index = parseInt(textBox.dataset.pageIndex);
+            index = (index - 1 + pages.length) % pages.length;
+            textBox.dataset.pageIndex = index;
+            updateContent(index);
+        });
+
+        rightArrow.addEventListener("click", () => {
+            let index = parseInt(textBox.dataset.pageIndex);
+            index = (index + 1) % pages.length;
+            textBox.dataset.pageIndex = index;
+            updateContent(index);
+        });
+
+        // Image click to enlarge
+        img.addEventListener("click", () => {
+            enlargedImg.src = img.src; // Set enlarged image source
+            overlay.style.display = "flex"; // Show overlay
+        });
+
+        // Assemble the text box
+        content.appendChild(title);
+        content.appendChild(img);
+        content.appendChild(ul);
+        textBox.appendChild(leftArrow);
+        textBox.appendChild(content);
+        textBox.appendChild(rightArrow);
+        container.appendChild(textBox);
+    });
+});
       </script>
 </body>
 </html>
