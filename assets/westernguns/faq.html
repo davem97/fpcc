@@ -95,6 +95,20 @@
             font-size: 16px;
             margin: 8px 0; /* Adds spacing between list items */
         }
+
+        /* Right page container */
+.right-page {
+    position: absolute;
+    left: 50%; /* Starts exactly at the vertical line */
+    width: 50%; /* Takes up the right half of the text-box */
+    top: 0; /* Aligns with the top of the left page */
+}
+
+/* Override .memberList for right-page to mirror left-page */
+.right-page .memberList {
+    padding-left: 25px; /* Same as left, but relative to the right-page container */
+    max-width: 90%; /* 45% of the full text-box width, relative to 50% container width */
+}
     </style>
 </head>
 <body> 
@@ -150,6 +164,39 @@
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
+
+            <!-- Inside .text-box, after Question 5 -->
+<div class="right-page">
+    <!-- Question 6 -->
+    <div class="title">Question 6 test and test test test?</div>
+    <ul class="memberList">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
+    </ul>
+
+    <!-- Question 7 -->
+    <div class="title">Question 7 test and test test test?</div>
+    <ul class="memberList">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
+
+    <!-- Question 8 -->
+    <div class="title">Question 8 test and test test test?</div>
+    <ul class="memberList">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
+
+    <!-- Question 9 -->
+    <div class="title">Question 9 test and test test test?</div>
+    <ul class="memberList">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
+
+    <!-- Question 10 -->
+    <div class="title">Question 10 test and test test test?</div>
+    <ul class="memberList">
+        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+    </ul>
+</div>
             
         </div>
     </div>
