@@ -96,18 +96,38 @@
             margin: 8px 0; /* Adds spacing between list items */
         }
 
-        /* Right page container */
+/* Right page container */
 .right-page {
     position: absolute;
-    left: 50%; /* Starts exactly at the vertical line */
-    width: 50%; /* Takes up the right half of the text-box */
+    left: 50%; /* Starts at the vertical line */
+    width: 50%; /* Right half of the text-box */
     top: 0; /* Aligns with the top of the left page */
 }
 
-/* Override .memberList for right-page to mirror left-page */
+/* Ensure titles align left of bullet points */
+.right-page .title {
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    align-self: flex-start;
+    padding-left: 0; /* Explicitly no padding, matches left side */
+}
+
+/* Mirror .memberList exactly */
 .right-page .memberList {
-    padding-left: 25px; /* Same as left, but relative to the right-page container */
-    max-width: 90%; /* 45% of the full text-box width, relative to 50% container width */
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    padding-left: 25px; /* Same as left, shifts bullets right */
+    max-width: 90%; /* 675px relative to 750px container */
+    color: rgb(226, 211, 211);
+}
+
+.right-page .memberList li {
+    font-size: 16px;
+    margin: 8px 0;
 }
     </style>
 </head>
