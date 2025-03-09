@@ -12,14 +12,23 @@
             padding: 0px 10px; 
         }
 
-        .headers {
+        /* New parent container */
+.container {
+    position: relative; /* Allows absolute positioning of headers */
     margin-left: 180px; /* Matches sidebar offset */
-    display: flex;
-    justify-content: center; /* Center overall like .content */
-    gap: 50px; /* Matches .content gap */
     width: calc(100% - 180px);
-    padding-top: 80px; /* Increased from 20px to move down */
-    padding-left: 100px; /* Pushes headers right */
+    height: 100vh; /* Matches .content height */
+}
+
+/* Headers positioned absolutely */
+.headers {
+    position: absolute;
+    top: 150px; /* Pushes headers down a lot from container top */
+    left: 100px; /* Pushes headers right */
+    display: flex;
+    justify-content: center; /* Centers headers like .content */
+    gap: 50px; /* Matches .content gap */
+    width: 100%;
 }
 
 .headers h2 {
@@ -31,17 +40,35 @@
     margin: 0 0 10px 0;
 }
 
+/* Content stays in original position */
+.content {
+    margin-left: 0; /* Reset since .container handles offset */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-top: 100px; /* Keeps text boxes where they were */
+    gap: 50px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
 /* Responsive adjustment */
 @media (max-width: 1552px) {
+    .container {
+        height: auto; /* Allows stacking */
+    }
     .headers, .content {
-        flex-direction: column;
-        align-items: center;
+        position: static; /* Reverts to flow for stacking */
+        width: 100%;
         gap: 10px;
-        padding-top: 10px; /* .content overrides this below */
     }
     .headers {
-        padding-left: 0; /* Reset padding-left on small screens */
-        padding-top: 10px; /* Closer on small screens */
+        padding-top: 10px; /* Small gap above headers when stacked */
+        padding-left: 0; /* No right shift when stacked */
+    }
+    .content {
+        padding-top: 20px; /* Slightly reduced for stacking */
     }
     .headers h2 {
         width: 100%;
@@ -52,19 +79,6 @@
         width: 100%;
         max-width: 467.5px;
     }
-}
-
-/* Ensure .content stays unchanged */
-.content {
-    margin-left: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    padding-top: 100px; /* Keeps text boxes in place */
-    gap: 50px;
-    width: calc(100% - 180px);
-    flex-wrap: nowrap;
 }
 
 .text-box {
@@ -207,13 +221,14 @@
         <span class="highlight">G</span>ames
     </h1>
 
-    <div class="headers">
-        <h2>1. Exploration</h2>
-        <h2>2. Gameplay</h2>
-        <h2>3. World</h2>
+    <div class="container">
+        <div class="headers">
+            <h2>Exploration</h2>
+            <h2>Gameplay</h2>
+            <h2>World</h2>
+        </div>
+        <div class="content" id="text-box-container"></div>
     </div>
-
-    <div class="content" id="text-box-container"></div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
