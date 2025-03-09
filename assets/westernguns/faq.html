@@ -1,113 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>davem97.github.io</title>
-        <link rel="stylesheet" href="../css/sidebar.css">
-        <link rel="stylesheet" href="../css/global.css">
+<head>
+    <title>davem97.github.io</title>
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/global.css">
     <style>
+        /* Style page content */
+        .main {
+            margin-left: 330px; /* Same as the width of the sidenav */
+            font-size: 22px; /* Increased text to enable scrolling */
+            padding: 0px 10px; 
+        }
 
+        div.content-right { 
+            position: relative; 
+            left: 710px; 
+            bottom: 465px;
+        }
 
-/* Style page content */
-.main {
-  margin-left: 330px; /* Same as the width of the sidenav */
-  font-size: 22px; /* Increased text to enable scrolling */
-  padding: 0px 10px; 
-}
+        ul li p {
+            font-size: 20px;
+        }
 
-div.content-right { 
-  position:relative; left:710px; bottom:465px;
-}
+        /* Page Layout */
+        .content {
+            margin-left: 180px; /* Offset content to exclude sidebar */
+            display: flex;
+            justify-content: center; /* Keeps it centered horizontally */
+            align-items: flex-start; /* Moves items to the top */
+            height: 100vh; /* Full viewport height */
+            padding-top: 100px; /* Adjust this to move the text box down */
+        }
 
-ul li p {
-  font-size: 20px;
-}
+        .text-box {
+            width: 1500px;
+            height: 600px;
+            background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            position: relative; /* Anchor for absolute positioning of header */
+            text-align: center;
+            padding: 20px;
+            margin-top: -20px; /* Moves it up by 20px; adjust as needed */
+            box-sizing: border-box;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), /* Shadow for depth */
+                        -4px -4px 10px rgba(255, 255, 255, 0.1); /* Soft light reflection */
+        }
 
+        .text-box-header {
+            position: absolute;
+            top: -40px; /* Places it 40px above the text-box, outside its bounds */
+            left: 0; /* Aligns with the left edge of text-box */
+            color: white; /* Matches text-box text color */
+            font-size: 28px; /* Slightly larger for emphasis */
+            font-weight: bold;
+            /* To push right manually, adjust this: e.g., left: 20px; */
+        }
 
+        .title {
+            margin-top: 80px;
+            font-size: 24px;
+            font-weight: bold;
+            align-self: flex-start; /* Moves the list to the left */
+        }
 
-/* Page Layout */
-.content {
-    margin-left: 180px; /* Offset content to exclude sidebar */
-    display: flex;
-    justify-content: center; /* Keeps it centered horizontally */
-    align-items: flex-start; /* Moves items to the top */
-    height: 100vh; /* Full viewport height */
-    padding-top: 100px; /* Adjust this to move the text box down */
-}
+        .memberList {
+            padding: 0;
+            margin-top: 10px; /* Pushes the list down */
+            text-align: left; /* Aligns text to the left */
+            align-self: flex-start; /* Moves the list to the left */
+            width: 100%; /* Ensures it spans full width */
+            padding-left: 25px; /* Adds some left spacing inside the box */
+        }
 
-.text-box {
-    width: 1500px;
-    height: 600px;
-    background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-    position: relative;
-    text-align: center;
-    padding: 20px;
-    margin-top: -20px; /* Moves it up by 20px; adjust as needed */
-    box-sizing: border-box;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), /* Shadow for depth */
-                -4px -4px 10px rgba(255, 255, 255, 0.1); /* Soft light reflection */
-}
-
-.title {
-  margin-top: 80px;
-  font-size: 24px;
-  font-weight: bold;
-  align-self: flex-start; /* Moves the list to the left */
-}
-.memberList {
-    padding: 0;
-    margin-top: 10px; /* Pushes the list down */
-    text-align: left; /* Aligns text to the left */
-    align-self: flex-start; /* Moves the list to the left */
-    width: 100%; /* Ensures it spans full width */
-    padding-left: 25px; /* Adds some left spacing inside the box */
-}
-
-
-.memberList li {
-    font-size: 16px;
-    margin: 8px 0; /* Adds spacing between list items */
-}
-
+        .memberList li {
+            font-size: 16px;
+            margin: 8px 0; /* Adds spacing between list items */
+        }
     </style>
-    </head>
+</head>
 <body> 
-  <div class="triangle"></div>
-<div class="sidenav">
-    <a href="https://davem97.github.io/fpcc">
-        <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
-    <a class = "active" href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
-</div>
+    <div class="triangle"></div>
+    <div class="sidenav">
+        <a href="https://davem97.github.io/fpcc">
+            <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
+        <a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
+    </div>
 
-<h1 class="page-title">
-  <span class="highlight">S</span>witchback 
-  <span class="highlight">G</span>ames
-</h1>
+    <h1 class="page-title">
+        <span class="highlight">S</span>witchback 
+        <span class="highlight">G</span>ames
+    </h1>
 
-
-<div class="content">
-  <div class="text-box">
-    <div class="title">Description</div>
-    
-    <ul class="memberList">
-      <li>Test</li>
-      <li>Test Test TestTest</li>
-      <li>Test Test Test Test Test Test TestTest</li>
-      <li>Hello test Hello test </li>
-      <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
-    </ul>
-  </div>
-</div>
-
+    <div class="content">
+        <div class="text-box">
+            <h2 class="text-box-header">FAQ</h2> <!-- Added header here -->
+            <div class="title">Description</div>
+            <ul class="memberList">
+                <li>Test</li>
+                <li>Test Test TestTest</li>
+                <li>Test Test Test Test Test Test TestTest</li>
+                <li>Hello test Hello test </li>
+                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
