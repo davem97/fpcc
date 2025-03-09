@@ -96,33 +96,38 @@
             margin: 8px 0; /* Adds spacing between list items */
         }
 
-        /* Container for right-side questions */
+   /* Container for right-side questions */
 .right-side-container {
     position: absolute;
-    left: 55%; /* Positions it right of the vertical line */
-    width: 45%; /* Matches left-side width */
-    top: 20px; /* Aligns the top of Q6 with Q1 */
-    padding-left: 20px; /* Adds spacing from the line */
+    left: 52%; /* Adjusted from 55% to align better with the vertical line spacing */
+    width: 45%; /* Matches .memberList max-width */
+    top: 0; /* Aligns Q6 exactly with Q1’s starting point */
 }
 
-/* Styles for right-side titles */
+/* Match .title exactly */
 .title-right {
     margin-top: 5px;
     font-size: 20px;
     font-weight: bold;
+    align-self: flex-start; /* Matches .title */
 }
 
-/* Styles for right-side lists */
+/* Match .memberList exactly */
 .memberList-right {
     padding: 0;
-    margin-top: 10px; /* Pushes the list down */
+    margin-top: 10px; /* Matches .memberList */
     text-align: left;
+    align-self: flex-start; /* Matches .memberList */
+    width: 100%; /* Matches .memberList */
+    padding-left: 25px; /* Matches .memberList */
+    max-width: 45%; /* Matches .memberList */
     color: rgb(226, 211, 211);
 }
 
+/* Match .memberList li exactly */
 .memberList-right li {
     font-size: 16px;
-    margin: 8px 0; /* Adds spacing between list items */
+    margin: 8px 0; /* Matches .memberList li */
 }
 
 /* Vertical positioning for each right-side pair */
