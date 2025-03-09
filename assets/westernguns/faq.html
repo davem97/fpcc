@@ -39,7 +39,7 @@
             border-radius: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: top;
             align-items: center;
             color: white;
             font-size: 18px;
@@ -74,8 +74,8 @@
         }
 
         .title {
-            margin-top: 80px;
-            font-size: 24px;
+            margin-top: 5px;
+            font-size: 20px;
             font-weight: bold;
             align-self: flex-start; /* Moves the list to the left */
         }
@@ -87,6 +87,7 @@
             align-self: flex-start; /* Moves the list to the left */
             width: 100%; /* Ensures it spans full width */
             padding-left: 25px; /* Adds some left spacing inside the box */
+            max-width: 45%; /* Prevents overflow beyond text-box width */
         }
 
         .memberList p {
@@ -119,6 +120,10 @@
             <div class="title">Question 1 test and test test test?</div>
             <ul class="memberList">
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
+            </ul>
+            <div class="title">Question 2 test and test test test?</div>
+            <ul class="memberList">
+                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
         </div>
     </div>
