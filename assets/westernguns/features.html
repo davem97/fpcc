@@ -12,6 +12,24 @@
             padding: 0px 10px; 
         }
 
+        .headers {
+            margin-left: 180px; /* Matches sidebar offset */
+            display: flex;
+            justify-content: flex-start; /* Aligns headers to the left */
+            gap: 50px; /* Matches .content gap */
+            width: calc(100% - 180px);
+            padding-top: 60px; /* Space above headers */
+        }
+
+        .headers h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 28px; /* Slightly smaller, professional size */
+            color: white;
+            width: 467.5px; /* Matches text-box width */
+            text-align: left; /* Left-aligned */
+            margin: 0 0 10px 0; /* Small bottom margin for spacing */
+        }
+
     /* Existing styles unchanged except where noted */
     .content {
     margin-left: 180px; /* Offset for sidebar */
@@ -24,6 +42,24 @@
     width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
     flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
 }
+
+/* Responsive adjustment */
+@media (max-width: 1552px) {
+            .headers, .content {
+                flex-direction: column;
+                align-items: flex-start; /* Keeps left alignment */
+                gap: 20px; /* Smaller gap for vertical stacking */
+                padding-top: 20px; /* Reduced padding for smaller screens */
+            }
+            .headers h2 {
+                width: 100%; /* Full width on smaller screens */
+                max-width: 467.5px; /* Caps at text-box width */
+            }
+            .text-box {
+                width: 100%; /* Full width on smaller screens */
+                max-width: 467.5px; /* Maintains original size */
+            }
+        }
 
 .text-box {
     width: 467.5px; /* Locked width */
@@ -165,6 +201,12 @@
         <span class="highlight">G</span>ames
     </h1>
 
+    <div class="headers">
+        <h2>Exploration</h2>
+        <h2>Gameplay</h2>
+        <h2>World</h2>
+    </div>
+    
     <div class="content" id="text-box-container"></div>
 
     <script>
