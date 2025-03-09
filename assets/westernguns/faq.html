@@ -102,15 +102,15 @@
     left: 50%; /* Starts at the vertical line */
     width: 50%; /* Right half of the text-box */
     top: 0; /* Aligns with the top of the left page */
+    text-align: left; /* Overrides .text-box’s center alignment */
 }
 
-/* Ensure titles align left of bullet points */
+/* Mirror .title exactly */
 .right-page .title {
     margin-top: 5px;
     font-size: 20px;
     font-weight: bold;
-    align-self: flex-start;
-    padding-left: 0; /* Explicitly no padding, matches left side */
+    align-self: flex-start; /* Keeps it left-aligned */
 }
 
 /* Mirror .memberList exactly */
@@ -120,7 +120,7 @@
     text-align: left;
     align-self: flex-start;
     width: 100%;
-    padding-left: 25px; /* Same as left, shifts bullets right */
+    padding-left: 25px; /* Shifts bullets right */
     max-width: 90%; /* 675px relative to 750px container */
     color: rgb(226, 211, 211);
 }
