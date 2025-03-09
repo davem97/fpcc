@@ -62,6 +62,17 @@
             /* To push right manually, adjust this: e.g., left: 20px; */
         }
 
+        .vertical-line {
+            position: absolute;
+            left: 50%; /* Centers it horizontally */
+            transform: translateX(-50%); /* Adjusts for its own width */
+            width: 1px; /* Very thin line */
+            height: 80%; /* Shorter than full height (600px) */
+            background-color: white; /* White line */
+            top: 10%; /* Starts 10% from the top (60px) */
+            z-index: 1; /* Ensures it’s above content but below header if needed */
+        }
+
         .title {
             margin-top: 80px;
             font-size: 24px;
@@ -104,6 +115,7 @@
     <div class="content">
         <div class="text-box">
             <h2 class="text-box-header">FAQ</h2> <!-- Added header here -->
+            <div class="vertical-line"></div> <!-- New vertical line -->
             <div class="title">Description</div>
             <ul class="memberList">
                 <li>Test</li>
