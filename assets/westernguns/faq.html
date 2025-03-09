@@ -32,25 +32,70 @@
             padding-top: 100px; /* Adjust this to move the text box down */
         }
 
-        .text-box {
-            width: 1500px;
-            height: 600px;
-            background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            color: white;
-            font-size: 18px;
-            position: relative; /* Anchor for absolute positioning of header */
-            text-align: center;
-            padding: 20px;
-            margin-top: -20px; /* Moves it up by 20px; adjust as needed */
-            box-sizing: border-box;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), /* Shadow for depth */
-                        -4px -4px 10px rgba(255, 255, 255, 0.1); /* Soft light reflection */
-        }
+        /* Adjust .text-box to use flex row for columns */
+.text-box {
+    width: 1500px;
+    height: 600px;
+    background: linear-gradient(145deg, #555, #333);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row; /* Changed to row for columns */
+    justify-content: space-between; /* Spreads columns apart */
+    align-items: flex-start; /* Keeps content at the top */
+    color: white;
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    margin-top: -20px;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), -4px -4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Container for two columns */
+.faq-columns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Left column (Questions 1-5) */
+.left-column {
+    width: 48%; /* Slightly less than 50% to account for vertical line */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right column (Questions 6-10) */
+.right-column {
+    width: 48%; /* Matches left column */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keep original .title and .memberList styles unchanged */
+.title {
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.memberList {
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    padding-left: 25px;
+    max-width: 100%; /* Full width of column (675px / 720px) */
+    color: rgb(226, 211, 211);
+}
+
+.memberList li {
+    font-size: 16px;
+    margin: 8px 0;
+}
 
         .text-box-header {
             position: absolute;
@@ -73,62 +118,7 @@
             z-index: 1; /* Ensures it’s above content but below header if needed */
         }
 
-        .title {
-            margin-top: 5px;
-            font-size: 20px;
-            font-weight: bold;
-            align-self: flex-start; /* Moves the list to the left */
-        }
-
-        .memberList {
-            padding: 0;
-            margin-top: 10px; /* Pushes the list down */
-            text-align: left; /* Aligns text to the left */
-            align-self: flex-start; /* Moves the list to the left */
-            width: 100%; /* Ensures it spans full width */
-            padding-left: 25px; /* Adds some left spacing inside the box */
-            max-width: 45%; /* Prevents overflow beyond text-box width */
-            color:rgb(226, 211, 211);
-        }
-
-        .memberList li {
-            font-size: 16px;
-            margin: 8px 0; /* Adds spacing between list items */
-        }
-
-/* Right page container */
-.right-page {
-    position: absolute;
-    left: 50%; /* Starts at the vertical line */
-    width: 55%; /* Right half of the text-box */
-    top: 0; /* Aligns with the top of the left page */
-    text-align: left; /* Overrides .text-box’s center alignment */
-}
-
-/* Mirror .title exactly */
-.right-page .title {
-    margin-top: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    align-self: flex-start; /* Keeps it left-aligned */
-}
-
-/* Mirror .memberList exactly */
-.right-page .memberList {
-    padding: 0;
-    margin-top: 10px;
-    text-align: left;
-    align-self: flex-start;
-    width: 100%;
-    padding-left: 25px; /* Shifts bullets right */
-    max-width: 90%; /* 675px relative to 750px container */
-    color: rgb(226, 211, 211);
-}
-
-.right-page .memberList li {
-    font-size: 16px;
-    margin: 8px 0;
-}
+        
     </style>
 </head>
 <body> 
@@ -148,76 +138,66 @@
         <span class="highlight">G</span>ames
     </h1>
 
-    <div class="content">
-        <div class="text-box">
-            <h2 class="text-box-header">FAQ</h2> <!-- Added header here -->
-            <div class="vertical-line"></div> <!-- New vertical line -->
-
-            <!-- Question 1 -->
-            <div class="title">Question 1 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
-            </ul>
-
-            <!-- Question 2 -->
-            <div class="title">Question 2 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-            </ul>
-
-            <!-- Question 3 -->
-            <div class="title">Question 3 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-            </ul>
-
-            <!-- Question 4 -->
-            <div class="title">Question 4 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test
-                    Hello test Hello test test Hello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test test
-                </li>
-            </ul>
-
-            <!-- Question 5 -->
-            <div class="title">Question 5 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-            </ul>
-
-            <!-- Inside .text-box, after Question 5 -->
-<div class="right-page">
-    <!-- Question 6 -->
-    <div class="title">Question 6 test and test test test?</div>
-    <ul class="memberList">
-        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
-    </ul>
-
-    <!-- Question 7 -->
-    <div class="title">Question 7 test and test test test?</div>
-    <ul class="memberList">
-        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-    </ul>
-
-    <!-- Question 8 -->
-    <div class="title">Question 8 test and test test test?</div>
-    <ul class="memberList">
-        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-    </ul>
-
-    <!-- Question 9 -->
-    <div class="title">Question 9 test and test test test?</div>
-    <ul class="memberList">
-        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-    </ul>
-
-    <!-- Question 10 -->
-    <div class="title">Question 10 test and test test test?</div>
-    <ul class="memberList">
-        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-    </ul>
-</div>
-            
+    <div class="text-box">
+        <h2 class="text-box-header">FAQ</h2>
+        <div class="vertical-line"></div>
+        <div class="faq-columns">
+            <!-- Left Column (Questions 1-5) -->
+            <div class="left-column">
+                <!-- Question 1 -->
+                <div class="title">Question 1 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
+                </ul>
+                <!-- Question 2 -->
+                <div class="title">Question 2 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+                <!-- Question 3 -->
+                <div class="title">Question 3 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+                <!-- Question 4 -->
+                <div class="title">Question 4 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test test Hello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test test</li>
+                </ul>
+                <!-- Question 5 -->
+                <div class="title">Question 5 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+            </div>
+            <!-- Right Column (Questions 6-10) -->
+            <div class="right-column">
+                <!-- Question 6 -->
+                <div class="title">Question 6 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
+                </ul>
+                <!-- Question 7 -->
+                <div class="title">Question 7 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+                <!-- Question 8 -->
+                <div class="title">Question 8 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+                <!-- Question 9 -->
+                <div class="title">Question 9 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+                <!-- Question 10 -->
+                <div class="title">Question 10 test and test test test?</div>
+                <ul class="memberList">
+                    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
