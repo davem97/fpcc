@@ -95,6 +95,53 @@
             font-size: 16px;
             margin: 8px 0; /* Adds spacing between list items */
         }
+
+        .title-right {
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 55%; /* Positions it right of the vertical line */
+    width: 45%; /* Matches left-side width */
+    padding-left: 20px; /* Adds spacing from the line */
+}
+
+.memberList-right {
+    padding: 0;
+    margin-top: 10px; /* Pushes the list down */
+    text-align: left;
+    position: absolute;
+    left: 55%; /* Positions it right of the vertical line */
+    width: 45%; /* Matches left-side width */
+    padding-left: 20px; /* Adds spacing from the line */
+    color: rgb(226, 211, 211);
+}
+
+.memberList-right li {
+    font-size: 16px;
+    margin: 8px 0; /* Adds spacing between list items */
+}
+
+/* Vertical positioning for each right-side pair */
+.text-box .title-right:nth-child(4), .text-box .memberList-right:nth-child(5) { /* Q6 */
+    top: 20px; /* Aligns with Q1 */
+}
+
+.text-box .title-right:nth-child(6), .text-box .memberList-right:nth-child(7) { /* Q7 */
+    top: 100px; /* Aligns with Q2 */
+}
+
+.text-box .title-right:nth-child(8), .text-box .memberList-right:nth-child(9) { /* Q8 */
+    top: 180px; /* Aligns with Q3 */
+}
+
+.text-box .title-right:nth-child(10), .text-box .memberList-right:nth-child(11) { /* Q9 */
+    top: 260px; /* Aligns with Q4 */
+}
+
+.text-box .title-right:nth-child(12), .text-box .memberList-right:nth-child(13) { /* Q10 */
+    top: 340px; /* Aligns with Q5 */
+}
     </style>
 </head>
 <body> 
@@ -151,13 +198,36 @@
                 <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
             </ul>
 
-            <!-- Question 6 -->
-            <div class="title">Question 6 test and test test test?</div>
-            <ul class="memberList">
-                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test
-                    Hello test Hello test Hello test test
-                </li>
-            </ul>
+            <!-- Inside .text-box, replace Question 6 and add 7-10 -->
+<!-- Question 6 -->
+<div class="title-right">Question 6 test and test test test?</div>
+<ul class="memberList-right">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
+</ul>
+
+<!-- Question 7 -->
+<div class="title-right">Question 7 test and test test test?</div>
+<ul class="memberList-right">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+</ul>
+
+<!-- Question 8 -->
+<div class="title-right">Question 8 test and test test test?</div>
+<ul class="memberList-right">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+</ul>
+
+<!-- Question 9 -->
+<div class="title-right">Question 9 test and test test test?</div>
+<ul class="memberList-right">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+</ul>
+
+<!-- Question 10 -->
+<div class="title-right">Question 10 test and test test test?</div>
+<ul class="memberList-right">
+    <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
+</ul>
 
         </div>
     </div>
