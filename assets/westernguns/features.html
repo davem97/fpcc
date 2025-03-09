@@ -12,73 +12,17 @@
             padding: 0px 10px; 
         }
 
-        /* New parent container */
-.container {
-    position: relative; /* Allows absolute positioning of headers */
-    margin-left: 180px; /* Matches sidebar offset */
-    width: calc(100% - 180px);
-    height: 100vh; /* Matches .content height */
-}
-
-/* Headers positioned absolutely */
-.headers {
-    position: absolute;
-    top: 150px; /* Pushes headers down a lot from container top */
-    left: 100px; /* Pushes headers right */
-    display: flex;
-    justify-content: center; /* Centers headers like .content */
-    gap: 50px; /* Matches .content gap */
-    width: 100%;
-}
-
-.headers h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px;
-    color: white;
-    width: 467.5px; /* Matches text-box width */
-    text-align: left;
-    margin: 0 0 10px 0;
-}
-
-/* Content stays in original position */
-.content {
-    margin-left: 0; /* Reset since .container handles offset */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    padding-top: 100px; /* Keeps text boxes where they were */
-    gap: 50px;
-    width: 100%;
-    flex-wrap: nowrap;
-}
-
-/* Responsive adjustment */
-@media (max-width: 1552px) {
-    .container {
-        height: auto; /* Allows stacking */
-    }
-    .headers, .content {
-        position: static; /* Reverts to flow for stacking */
-        width: 100%;
-        gap: 10px;
-    }
-    .headers {
-        padding-top: 10px; /* Small gap above headers when stacked */
-        padding-left: 0; /* No right shift when stacked */
-    }
+    /* Existing styles unchanged except where noted */
     .content {
-        padding-top: 20px; /* Slightly reduced for stacking */
-    }
-    .headers h2 {
-        width: 100%;
-        max-width: 467.5px;
-        text-align: left;
-    }
-    .text-box {
-        width: 100%;
-        max-width: 467.5px;
-    }
+    margin-left: 180px; /* Offset for sidebar */
+    display: flex;
+    justify-content: center; /* Center the boxes */
+    align-items: flex-start; /* Align tops */
+    height: 100vh; /* Full height */
+    padding-top: 100px; /* Vertical offset */
+    gap: 50px; /* Restore your bigger gap */
+    width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
+    flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
 }
 
 .text-box {
@@ -221,14 +165,7 @@
         <span class="highlight">G</span>ames
     </h1>
 
-    <div class="container">
-        <div class="headers">
-            <h2>Exploration</h2>
-            <h2>Gameplay</h2>
-            <h2>World</h2>
-        </div>
-        <div class="content" id="text-box-container"></div>
-    </div>
+    <div class="content" id="text-box-container"></div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
