@@ -145,6 +145,16 @@
     height: auto;
     cursor: pointer; /* Indicates it’s clickable */
 }
+
+h2 {
+  text-align: left; /* Centers the text itself */
+    width: calc(100% - 180px); /* Excludes the sidebar width */
+    margin-left: 200px; /* Shifts it right to start after the sidebar */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px; /* Adjust size as needed */
+    position: relative;
+  top: 40px; /* Adjust the value to move it further down */
+}
 </style>
     </style>
 </head>
@@ -164,6 +174,8 @@
         <span class="highlight">S</span>witchback 
         <span class="highlight">G</span>ames
     </h1>
+
+    <h2> Changelog </h2>
 
     <div class="content" id="text-box-container"></div>
 
