@@ -19,7 +19,7 @@
     justify-content: center; /* Center the boxes */
     align-items: flex-start; /* Align tops */
     height: 100vh; /* Full height */
-    padding-top: 100px; /* Vertical offset */
+    padding-top: 120px; /* Vertical offset */
     gap: 50px; /* Restore your bigger gap */
     width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
     flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
@@ -47,13 +47,13 @@
 
 .text-box-header {
     position: absolute;
-    top: -40px; /* Places header 40px above the text box */
+    top: -45px; /* Places header 40px above the text box */
     left: 0;
     width: 100%; /* Matches text box width */
     text-align: left;
-    color: rgb(175, 119, 119);
+    color: rgb(0, 0, 0);
     font-size: 28px;
-    padding-left: 20px; /* Pushes text 20px to the right */
+    padding-left: 30px; /* Pushes text 20px to the right */
     z-index: 5; /* Ensures it’s above the text box but below overlay */
 }
 
@@ -221,7 +221,7 @@
     const allPages = [leftPages, middlePages, rightPages];
 
     // Define unique headers for each text box
-    const headers = ["Explore the Unknown", "Engage in Battle", "Unravel the Tale"];
+    const headers = ["1. Explore the Unknown", "2. Engage in Battle", "3. Unravel the Tale"];
 
     // Create text boxes
     allPages.forEach((pages, boxIndex) => {
