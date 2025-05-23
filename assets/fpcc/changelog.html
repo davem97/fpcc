@@ -1,51 +1,185 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>davem97.github.io</title>
-        <link rel="stylesheet" href="../css/sidebar.css">
-        <link rel="stylesheet" href="../css/global.css">
-    <style>
-    body {
-      background-image: url("../images/project_background.jpg");
-        background-size: cover;
-        overflow: hidden;
+
+<head>
+  <title>davem97.github.io</title>
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    /* Style page content */
+    .main {
+      margin-left: 330px;
+      /* Same as the width of the sidenav */
+      font-size: 22px;
+      /* Increased text to enable scrolling */
+      padding: 0px 10px;
+    }
+
+    h2 {
+      display: block;
+      font-size: 0.8em;
+      font-weight: bold;
+      margin-bottom: 0em;
+    }
+
+    p {
+      display: block;
+      font-size: 0.8em;
+      margin-top: 0em;
+      margin-bottom: 1em;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #555;
+    }
+
+    #changelog-container {
+      margin-top: 70px;
+      /* Adjust this value to move everything lower */
+    }
+
+    .collapsible {
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: calc(100% - 180px);
+      /* Same width as .content */
+      margin-left: 180px;
+      /* Align with sidebar */
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      box-sizing: border-box;
+      /* Ensures padding does not affect width */
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+      width: calc(100% - 180px);
+      /* Match collapsible button width */
+      margin-left: 180px;
+      /* Align with sidebar */
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      /* Optional */
     }
 
 
-/* Style page content */
-.main {
-  margin-left: 330px; /* Same as the width of the sidenav */
-  font-size: 22px; /* Increased text to enable scrolling */
-  padding: 0px 10px; 
-}
+    .collapsible:after {
+      content: '\02795';
+      /* Unicode character for "plus" sign (+) */
+      font-size: 13px;
+      color: rgb(255, 255, 255);
+      float: right;
+      margin-left: 5px;
+    }
 
-div.content-right { 
-  position:relative; left:710px; bottom:465px;
-}
+    /* Change .active to .expanded in the collapsible section */
+    .expanded:after {
+      content: "\2796";
+      /* Unicode character for "minus" sign (-) */
+    }
 
-ul li p {
-  font-size: 20px;
-}
+    h2 {
+      text-align: left;
+      /* Centers the text itself */
+      width: calc(100% - 180px);
+      /* Excludes the sidebar width */
+      margin-left: 200px;
+      /* Shifts it right to start after the sidebar */
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      /* Adjust size as needed */
+      position: relative;
+      top: 40px;
+      /* Adjust the value to move it further down */
+    }
+  </style>
+</head>
 
-
-    </style>
-    </head>
-<body> 
-
-<div class="sidenav">
+<body>
+  <div class="triangle"></div>
+  <div class="sidenav">
     <a href="https://davem97.github.io/fpcc">
-        <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-        <a href="https://davem97.github.io/fpcc/assets/fpcc" rel="noopener noreferrer">Home</a><br>
+      <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
+    <a href="https://davem97.github.io/fpcc/assets/fpcc" rel="noopener noreferrer">Home</a><br>
     <a href="https://davem97.github.io/fpcc/assets/fpcc/features" rel="noopener noreferrer">Features</a><br>
-    <a class="active" href="https://davem97.github.io/fpcc/assets/fpcc/changelog" rel="noopener noreferrer">Changelog</a><br>
+    <a class="active" href="https://davem97.github.io/fpcc/assets/fpcc/changelog"
+      rel="noopener noreferrer">Changelog</a><br>
     <a href="https://davem97.github.io/fpcc/assets/fpcc/faq" rel="noopener noreferrer">FAQ</a><br>
     <a href="https://davem97.github.io/fpcc/assets/fpcc/contact" rel="noopener noreferrer">Contact</a><br>
-</div>
+  </div>
 
-<h1 class="page-title">
-  <span class="highlight">S</span>witchback 
-  <span class="highlight">G</span>ames
-</h1>
+  <h1 class="page-title">
+    <span class="highlight">S</span>witchback
+    <span class="highlight">G</span>ames
+  </h1>
+
+  <h2> Changelog </h2>
+
+  <div id="changelog-container"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("changelog-container");
+
+      // Optional: Show loading message
+      container.innerHTML = "<p>Loading changelog...</p>";
+
+      // Fetch the JSON data
+      fetch("updates.json")
+        .then(response => {
+          if (!response.ok) throw new Error("Failed to load updates.json");
+          return response.json();
+        })
+        .then(updates => {
+          // Clear loading message
+          container.innerHTML = "";
+
+          // Generate collapsibles
+          updates.forEach(update => {
+            const button = document.createElement("button");
+            button.className = "collapsible";
+            button.textContent = update.version;
+
+            const content = document.createElement("div");
+            content.className = "content";
+            content.innerHTML = `<p>${update.details}</p>`;
+
+            container.appendChild(button);
+            container.appendChild(content);
+          });
+
+          // Single event listener with delegation
+          container.addEventListener("click", function (e) {
+            const button = e.target.closest(".collapsible");
+            if (!button) return; // Ignore clicks outside buttons
+
+            const content = button.nextElementSibling;
+            button.classList.toggle("expanded");
+
+            if (content.style.maxHeight) {
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
+          });
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          container.innerHTML = "<p>Failed to load changelog. Please try again later.</p>";
+        });
+    });
+
+  </script>
 
 </body>
+
 </html>
