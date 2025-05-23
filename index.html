@@ -1,102 +1,115 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>davem97.github.io</title>
 
-        <link rel="stylesheet" href="assets/css/sidebar.css">
-        <link rel="stylesheet" href="assets/css/global.css">
-    <style>
+<head>
+  <title>davem97.github.io</title>
+
+  <link rel="stylesheet" href="assets/css/sidebar.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <style>
     body {
-        background-image: url("assets/images/project_background.jpg");
-        background-size: cover;
-        overflow: hidden;
+      background-image: url("assets/images/project_background.jpg");
+      background-size: cover;
+      overflow: hidden;
     }
 
-/* Style page content */
-.main {
-  margin-left: 180px; /* Matches the sidebar width */
-  padding: 20px;
-  font-size: 22px;
-  min-height: 100vh;
-}
+    /* Style page content */
+    .main {
+      margin-left: 180px;
+      /* Matches the sidebar width */
+      padding: 20px;
+      font-size: 22px;
+      min-height: 100vh;
+    }
 
-/* Container for the images */
-.image-container {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  padding-top: 100px;
-}
+    /* Container for the images */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      padding-top: 100px;
+      border-radius: 0.25rem;
+      border-width: 1px;
+      border-style: solid;
+      /* Add this line */
+      border-color: black;
+    }
 
-/* Styling for each image block */
-.image-block {
-  width: 35%;
-  text-align: center;
-}
+    /* Styling for each image block */
+    .image-block {
+      width: 35%;
+      text-align: center;
+    }
 
-/* Force the <a> to match the image exactly */
-  .image-block a {
-  display: inline-block; /* Make the <a> wrap tightly around the image */
-  width: 80%; /* Match the image width */
-  padding: 0;
-  margin: 0;
-  text-decoration: none; /* Remove underline */
-}
+    /* Force the <a> to match the image exactly */
+    .image-block a {
+      display: inline-block;
+      /* Make the <a> wrap tightly around the image */
+      width: 80%;
+      /* Match the image width */
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      /* Remove underline */
+    }
 
-/* Image styling */
-.image-block img {
-  width: 100%; /* Image takes up the full width of the <a> */
-  height: auto; /* Maintain aspect ratio */
-  display: block;
-  margin: 0 auto;
-}
+    /* Image styling */
+    .image-block img {
+      width: 100%;
+      /* Image takes up the full width of the <a> */
+      height: auto;
+      /* Maintain aspect ratio */
+      display: block;
+      margin: 0 auto;
+    }
 
-.image-block p {
-  font-size: 20px;
-  margin-top: 10px;
-}
+    .image-block p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
 
-ul li p {
-  font-size: 20px;
-}
+    ul li p {
+      font-size: 20px;
+    }
+  </style>
+</head>
 
-    </style>
-    </head>
-<body> 
+<body>
 
-<div class="sidenav">
-  <a href="https://davem97.github.io/fpcc">
-    <img src="assets/images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
+  <div class="sidenav">
+    <a href="https://davem97.github.io/fpcc">
+      <img src="assets/images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
     <a class="active" href="https://davem97.github.io/fpcc" rel="noopener noreferrer">Home</a><br>
     <a href="https://davem97.github.io/fpcc/about" rel="noopener noreferrer">About</a><br>
     <a href="https://davem97.github.io/fpcc/placeholder" rel="noopener noreferrer">Placeholder</a><br>
     <a href="https://davem97.github.io/fpcc/contact" rel="noopener noreferrer">Contact</a><br>
-</div>
+  </div>
 
-<h1 class="page-title">
-  <span class="highlight">S</span>witchback
-  <span class="highlight">G</span>ames
-</h1>
+  <h1 class="page-title">
+    <span class="highlight">S</span>witchback
+    <span class="highlight">G</span>ames
+  </h1>
 
-<div class="main">
-  <div class="image-container">
-    <!-- First image and paragraph -->
-    <div class="image-block">
-      <a href="assets/fpcc/index.html" target="_blank">
-        <img src="assets/images/Game Photo.png" alt="FPCharacter Controller Image">
-      </a>
-      <p>FPCharacter Controller</p>
-    </div>
+  <div class="main">
+    <div class="image-container">
+      <!-- First image and paragraph -->
+      <div class="image-block">
+        <a href="assets/fpcc/index.html" target="_blank">
+          <img src="assets/images/Game Photo.png" alt="FPCharacter Controller Image">
+        </a>
+        <p>FPCharacter Controller</p>
+      </div>
 
-    <!-- Second image and paragraph -->
-    <div class="image-block">
-      <a href="assets/westernguns/index.html" target="_blank">
-        <img src="assets/images/asset2.png" alt="Western FPS Weapon System">
-      </a>
-      <p>Western FPS Weapon System</p>
+      <!-- Second image and paragraph -->
+      <div class="image-block">
+        <a href="assets/westernguns/index.html" target="_blank">
+          <img src="assets/images/asset2.png" alt="Western FPS Weapon System">
+        </a>
+        <p>Western FPS Weapon System</p>
+      </div>
     </div>
   </div>
-</div>
 
 </body>
+
 </html>
