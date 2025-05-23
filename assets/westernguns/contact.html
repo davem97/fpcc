@@ -5,103 +5,120 @@
   <title>davem97.github.io</title>
   <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="stylesheet" href="../css/global.css">
-<style>
+  <style>
+    /* Style page content */
+    .main {
+      margin-left: 330px;
+      /* Same as the width of the sidenav */
+      font-size: 22px;
+      /* Increased text to enable scrolling */
+      padding: 0px 10px;
+    }
 
-/* Style page content */
-.main {
-margin-left: 330px; /* Same as the width of the sidenav */
-font-size: 22px; /* Increased text to enable scrolling */
-padding: 0px 10px;
-}
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text],
+    input[type=email],
+    select,
+    textarea {
+      width: 100%;
+      /* Full width */
+      padding: 12px;
+      /* Some padding */
+      border: 1px solid #ccc;
+      /* Gray border */
+      border-radius: 4px;
+      /* Rounded borders */
+      box-sizing: border-box;
+      /* Make sure that padding and width stays in place */
+      margin-top: 6px;
+      /* Add a top margin */
+      margin-bottom: 16px;
+      /* Bottom margin */
+      resize: vertical
+        /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
 
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], input[type=email], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-}
+    /* Style the submit button with a specific background color etc */
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center
+    }
 
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center
-}
+    /* When moving the mouse over the submit button, add a darker green color */
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
 
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+    .container {
+      border-radius: 0.25rem;
+      border-width: 1px;
+      border-style: solid;
+      /* Add this line */
+      border-color: black;
+      background-color: #f2f2f2;
+      margin-top: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      max-width: calc(100% - 200px);
+      padding: 10px;
+      box-sizing: border-box;
+      position: relative;
+      left: 90px;
+    }
 
-.container {
-  border-radius: 0.25rem;
-  border-width: 1px;
-  border-color: black;
-  background-color: #f2f2f2;
-  margin-top: 100px;
-  margin-left: auto; /* Centers within remaining space */
-  margin-right: auto;
-  width: 50%; /* Or a fixed value like 600px */
-  max-width: calc(100% - 200px); /* Ensures it fits after sidebar with a small buffer */
-  padding: 10px;
-  box-sizing: border-box;
-  position: relative;
-  left: 90px; /* Half the sidebar width to shift it right */
-}
-
-h2 {
-  text-align: center;
-}
-</style>
+    h2 {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
   <div class="triangle"></div>
 
   <h1 class="page-title">
-    <span class="highlight">S</span>witchback 
+    <span class="highlight">S</span>witchback
     <span class="highlight">G</span>ames
   </h1>
 
   <div class="sidenav">
     <a href="https://davem97.github.io/fpcc">
       <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-      <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-<a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
-<a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
-<a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-<a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
-</div>
+    <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
+    <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
+    <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
+    <a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
+    <a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/contact"
+      rel="noopener noreferrer">Contact</a><br>
+  </div>
 
 
-<div class="container">
-  <h2>Contact Form</h2><br>
-  <form action="https://formspree.io/f/mleygdjg" method="POST">
-    <label>Name</label>
-    <input type="text" name="firstname" placeholder="Your name" required pattern="[A-Za-z\s]+" title="Name should contain only letters and spaces">
+  <div class="container">
+    <h2>Contact Form</h2><br>
+    <form action="https://formspree.io/f/mleygdjg" method="POST">
+      <label>Name</label>
+      <input type="text" name="firstname" placeholder="Your name" required pattern="[A-Za-z\s]+"
+        title="Name should contain only letters and spaces">
 
-    <label>Email</label>
-    <input type="email" name="email" placeholder="Your email address" required>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Your email address" required>
 
-    <label>Message</label>
-    <textarea id="subject" name="subject" placeholder="Write a message" style="height:200px" required></textarea>
+      <label>Message</label>
+      <textarea id="subject" name="subject" placeholder="Write a message" style="height:200px" required></textarea>
 
-    <input type="text" name="honeypot" style="display:none" tabindex="-1">
+      <input type="text" name="honeypot" style="display:none" tabindex="-1">
 
-    <!-- Add Google reCAPTCHA widget -->
-    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-    
-    <input type="submit" value="Submit">
-  </form>
-</div>
+      <!-- Add Google reCAPTCHA widget -->
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
 </body>
+
 </html>
