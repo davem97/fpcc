@@ -15,25 +15,28 @@
             padding: 0px 10px;
         }
 
-        /* Existing styles unchanged except where noted */
         .content {
-            margin-left: 180px;
-            /* Offset for sidebar */
+            min-height: 100vh;
+            /* allow it to expand but not force overflow */
             display: flex;
             justify-content: center;
-            /* Center the boxes */
             align-items: flex-start;
-            /* Align tops */
-            height: 100vh;
-            /* Full height */
-            padding-top: 120px;
-            /* Vertical offset */
+            padding-top: 0;
+            /* REMOVE vertical space from here */
+            margin-top: 120px;
+            /* OPTIONAL: add spacing using margin instead */
             gap: 50px;
-            /* Restore your bigger gap */
             width: calc(100% - 180px);
-            /* Explicitly set to viewport width minus sidebar */
             flex-wrap: wrap;
-            /* Prevent wrapping unless explicitly needed */
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            height: 100%;
         }
 
         .text-box {
