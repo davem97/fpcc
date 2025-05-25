@@ -7,33 +7,40 @@
     <link rel="stylesheet" href="../css/global.css">
     <style>
         /* Style page content */
-        /* Style page content */
         .main {
             margin-left: 330px;
+            /* Same as the width of the sidenav */
             font-size: 22px;
+            /* Increased text to enable scrolling */
             padding: 0px 10px;
         }
 
         /* Existing styles unchanged except where noted */
         .content {
             margin-left: 180px;
+            /* Offset for sidebar */
             display: flex;
             justify-content: center;
+            /* Center the boxes */
             align-items: flex-start;
-            min-height: 100vh;
-            /* Changed from height to min-height */
+            /* Align tops */
+            height: 100vh;
+            /* Full height */
             padding-top: 120px;
+            /* Vertical offset */
             gap: 50px;
+            /* Restore your bigger gap */
             width: calc(100% - 180px);
+            /* Explicitly set to viewport width minus sidebar */
             flex-wrap: wrap;
-            box-sizing: border-box;
-            /* Ensure padding is included in width */
+            /* Prevent wrapping unless explicitly needed */
         }
 
-        /* Rest of your existing styles remain unchanged */
         .text-box {
             width: 467.5px;
+            /* Locked width */
             height: 510px;
+            /* Locked height */
             background: linear-gradient(145deg, #555, #333);
             border-radius: 20px;
             display: flex;
@@ -47,31 +54,42 @@
             padding: 20px;
             box-sizing: border-box;
             flex-shrink: 0;
+            /* Prevent shrinking */
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
                 -4px -4px 10px rgba(255, 255, 255, 0.1);
         }
 
         .text-box-content {
+            /* Add this to control title and memberList alignment */
             width: 100%;
+            /* Ensure it spans the text-box width */
             text-align: left;
+            /* Align title and list to the left */
             padding-left: 50px;
+            /* Shift content slightly left (adjustable) */
             transition: opacity 0.3s ease;
+            /* Fades opacity over 0.3 seconds */
         }
 
         .fade {
             opacity: 0;
+            /* Briefly fades content out */
         }
 
         .text-box-header {
             position: absolute;
             top: -45px;
+            /* Places header 40px above the text box */
             left: 0;
             width: 100%;
+            /* Matches text box width */
             text-align: left;
             color: rgb(0, 0, 0);
             font-size: 28px;
             padding-left: 30px;
+            /* Pushes text 20px to the right */
             z-index: 5;
+            /* Ensures it’s above the text box but below overlay */
         }
 
         .arrow {
@@ -79,11 +97,17 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 40px;
+            /* Thick V shape */
+
             color: rgb(255, 255, 255);
+            /* Default color */
             border: none;
+            /* No border */
             background: none;
+            /* No background or glow */
             cursor: pointer;
             padding: 0;
+            /* Minimal padding */
             z-index: 10;
         }
 
@@ -97,15 +121,21 @@
 
         .arrow:hover {
             color: rgb(206, 183, 183);
+            /* Highlight on hover */
         }
 
+
+        /* Existing content styles */
         .title {
             margin-top: 130px;
+            /* Your updated value */
             font-size: 24px;
             font-weight: bold;
             align-self: flex-start;
             text-align: left;
+            /* Override inherited centering */
             margin-left: 0;
+            /* Remove any default centering offset */
         }
 
         .memberList {
@@ -124,26 +154,36 @@
             max-width: 100%;
         }
 
+        /* Overlay for enlarged image */
         .image-overlay {
             display: none;
+            /* Hidden by default */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
+            /* Dark semi-transparent background */
             z-index: 100;
+            /* Above everything */
             justify-content: center;
             align-items: center;
         }
 
+        /* Enlarged image */
         .image-overlay img {
             max-width: 90vw;
+            /* 90% of viewport width */
             max-height: 90vh;
+            /* 90% of viewport height */
             border-radius: 10px;
+            /* Optional: slight rounding */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            /* Optional: shadow */
         }
 
+        /* Close button */
         .close-btn {
             position: absolute;
             top: 20px;
@@ -154,12 +194,15 @@
             border: none;
             cursor: pointer;
             z-index: 101;
+            /* Above image */
         }
 
         .close-btn:hover {
             color: darkorange;
+            /* Matches your arrow hover */
         }
 
+        /* Existing image style (make clickable) */
         .text-box img {
             position: absolute;
             top: 20px;
@@ -168,15 +211,7 @@
             max-width: 60%;
             height: auto;
             cursor: pointer;
-        }
-
-        /* Add this to prevent body scroll */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-            /* Prevent scrolling */
+            /* Indicates it’s clickable */
         }
     </style>
     </style>
