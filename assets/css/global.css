@@ -13,19 +13,19 @@
 }
 
 body {
-  height: auto; /* or just remove height */
-  min-height: 100vh; /* ensures at least full viewport height */
-  margin: 0;
-  padding: 10px;
-  overflow-x: hidden; /* allow vertical scroll, prevent horizontal */
-  position: relative;
-  
   background: 
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%), 
-    linear-gradient(145deg, rgba(171, 220, 236, 0.6), rgba(247, 206, 212, 0.6));
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%), /* Subtle shine */
+    linear-gradient(145deg, rgba(171, 220, 236, 0.6), rgba(247, 206, 212, 0.6)); /* Main gradient */
+  
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 10px; /* Add padding to create a gap */
+  overflow: hidden;
+  position: relative;
 }
+
 
 /* Triangle in bottom-right corner */
 .triangle {
