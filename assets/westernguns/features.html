@@ -4,233 +4,177 @@
     <title>davem97.github.io</title>
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/global.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensure mobile responsiveness -->
-
     <style>
-        /* Reset default margins and ensure box-sizing */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-
         /* Style page content */
         .main {
-            margin-left: 20%; /* Relative to assumed sidebar width (~300px) */
-            font-size: clamp(18px, 2.5vw, 20px); /* Responsive font size */
-            padding: 10px;
+            margin-left: 330px; /* Same as the width of the sidenav */
+            font-size: 22px; /* Increased text to enable scrolling */
+            padding: 0px 10px; 
         }
 
-        /* Content container */
-        .content {
-            margin-left: 20%; /* Offset for sidebar */
-            display: flex;
-            flex-direction: row; /* Horizontal layout by default */
-            justify-content: center; /* Center boxes */
-            align-items: flex-start; /* Align tops */
-            min-height: 100vh; /* Allow scrolling */
-            padding: 20px 10px; /* Reduced padding-top from 120px */
-            gap: 50px; /* Space between boxes */
-            width: calc(100% - 20%); /* Account for sidebar */
-            flex-wrap: nowrap; /* Prevent wrapping on large screens */
-            overflow-x: hidden; /* Prevent horizontal overflow */
-        }
+    /* Existing styles unchanged except where noted */
+    .content {
+    margin-left: 180px; /* Offset for sidebar */
+    display: flex;
+    justify-content: center; /* Center the boxes */
+    align-items: flex-start; /* Align tops */
+    height: 100vh; /* Full height */
+    padding-top: 120px; /* Vertical offset */
+    gap: 50px; /* Restore your bigger gap */
+    width: calc(100% - 180px); /* Explicitly set to viewport width minus sidebar */
+    flex-wrap: nowrap; /* Prevent wrapping unless explicitly needed */
+}
 
-        /* Text box */
-        .text-box {
-            width: 100%;
-            max-width: 467.5px; /* Locked max width */
-            min-height: 510px; /* Flexible height */
-            background: linear-gradient(145deg, #555, #333);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: clamp(16px, 2vw, 18px);
-            position: relative;
-            text-align: center;
-            padding: 20px;
-            flex-shrink: 0; /* Prevent shrinking */
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
-                        -4px -4px 10px rgba(255, 255, 255, 0.1);
-        }
+.text-box {
+    width: 467.5px; /* Locked width */
+    height: 510px; /* Locked height */
+    background: linear-gradient(145deg, #555, #333);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
+                -4px -4px 10px rgba(255, 255, 255, 0.1);
+}
 
-        .text-box-content {
-            width: 100%;
-            text-align: left;
-            padding-left: 50px;
-            transition: opacity 0.3s ease;
-        }
+.text-box-content {
+    /* Add this to control title and memberList alignment */
+    width: 100%; /* Ensure it spans the text-box width */
+    text-align: left; /* Align title and list to the left */
+    padding-left: 50px; /* Shift content slightly left (adjustable) */
+    transition: opacity 0.3s ease; /* Fades opacity over 0.3 seconds */
+}
 
-        .fade {
-            opacity: 0;
-        }
+.fade {
+    opacity: 0; /* Briefly fades content out */
+}
 
-        .text-box-header {
-            position: absolute;
-            top: -45px;
-            left: 0;
-            width: 100%;
-            text-align: left;
-            color: rgb(0, 0, 0);
-            font-size: clamp(20px, 3vw, 24px);
-            padding-left: 30px;
-            z-index: 5;
-        }
+.text-box-header {
+    position: absolute;
+    top: -45px; /* Places header 40px above the text box */
+    left: 0;
+    width: 100%; /* Matches text box width */
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+    padding-left: 30px; /* Pushes text 20px to the right */
+    z-index: 5; /* Ensures it’s above the text box but below overlay */
+}
 
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            color: rgb(255, 255, 255);
-            border: none;
-            background: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 10;
-        }
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px; /* Thick V shape */
+    
+    color: rgb(255, 255, 255); /* Default color */
+    border: none; /* No border */
+    background: none; /* No background or glow */
+    cursor: pointer;
+    padding: 0; /* Minimal padding */
+    z-index: 10;
+}
 
-        .left-arrow {
-            left: 8px;
-        }
+.left-arrow {
+    left: 8px;
+}
 
-        .right-arrow {
-            right: 8px;
-        }
+.right-arrow {
+    right: 8px;
+}
 
-        .arrow:hover {
-            color: rgb(206, 183, 183);
-        }
+.arrow:hover {
+    color: rgb(206, 183, 183); /* Highlight on hover */
+}
 
-        .title {
-            margin-top: 130px;
-            font-size: clamp(20px, 3vw, 24px);
-            font-weight: bold;
-            align-self: flex-start;
-            text-align: left;
-            margin-left: 0;
-        }
 
-        .memberList {
-            padding: 5px 60px 0 20px;
-            margin-top: 10px;
-            text-align: left;
-            align-self: flex-start;
-            width: 100%;
-            box-sizing: border-box;
-            list-style: none;
-        }
+    /* Existing content styles */
+    .title {
+        margin-top: 130px; /* Your updated value */
+        font-size: 24px;
+        font-weight: bold;
+        align-self: flex-start;
+        text-align: left; /* Override inherited centering */
+        margin-left: 0; /* Remove any default centering offset */
+    }
 
-        .memberList li {
-            font-size: clamp(14px, 1.8vw, 16px);
-            margin: 8px 0;
-            overflow-wrap: break-word;
-            max-width: 100%;
-        }
+    .memberList {
+        padding: 5px 60px 0 20px;
+        margin-top: 10px;
+        text-align: left;
+        align-self: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-        .text-box img {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            max-width: 60%;
-            height: auto;
-            cursor: pointer;
-        }
+    .memberList li {
+        font-size: 16px;
+        margin: 8px 0;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
 
-        /* Overlay for enlarged image */
-        .image-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 100;
-            justify-content: center;
-            align-items: center;
-        }
+    /* Overlay for enlarged image */
+.image-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    z-index: 100; /* Above everything */
+    justify-content: center;
+    align-items: center;
+}
 
-        .image-overlay img {
-            max-width: 90vw;
-            max-height: 90vh;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
+/* Enlarged image */
+.image-overlay img {
+    max-width: 90vw; /* 90% of viewport width */
+    max-height: 90vh; /* 90% of viewport height */
+    border-radius: 10px; /* Optional: slight rounding */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Optional: shadow */
+}
 
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 101;
-        }
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101; /* Above image */
+}
 
-        .close-btn:hover {
-            color: darkorange;
-        }
+.close-btn:hover {
+    color: darkorange; /* Matches your arrow hover */
+}
 
-        /* Responsive adjustments for smaller screens */
-        @media screen and (max-width: 768px) {
-            .main, .content {
-                margin-left: 0; /* Remove sidebar offset */
-                width: 100%; /* Full width */
-            }
-
-            .sidenav {
-                display: none; /* Hide sidebar */
-            }
-
-            .content {
-                flex-direction: column; /* Stack boxes vertically */
-                align-items: center; /* Center boxes */
-                padding: 10px;
-                gap: 20px; /* Reduce gap between boxes */
-                overflow-y: auto; /* Enable vertical scrolling */
-                height: auto; /* Allow content to grow */
-                min-height: 100vh; /* Ensure full height */
-            }
-
-            .text-box {
-                max-width: 100%; /* Full width on small screens */
-                min-height: 400px; /* Slightly smaller min-height */
-                max-height: none; /* Remove height restriction */
-            }
-
-            .text-box-header {
-                font-size: clamp(18px, 4vw, 20px); /* Smaller header */
-                padding-left: 15px;
-            }
-
-            .text-box-content {
-                padding-left: 20px; /* Adjust padding */
-            }
-        }
-
-        /* For larger screens */
-        @media screen and (min-width: 1200px) {
-            .main, .content {
-                margin-left: 300px; /* Fixed sidebar offset */
-            }
-            .content {
-                width: calc(100% - 300px); /* Adjust for fixed sidebar */
-            }
-        }
+/* Existing image style (make clickable) */
+.text-box img {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 60%;
+    height: auto;
+    cursor: pointer; /* Indicates it’s clickable */
+}
+</style>
     </style>
 </head>
-<body>
+<body> 
     <div class="triangle"></div>
     <div class="sidenav">
         <a href="https://davem97.github.io/fpcc">
@@ -250,127 +194,133 @@
     <div class="content" id="text-box-container"></div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("text-box-container");
+      document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("text-box-container");
 
-            // Create overlay once, append to body
-            const overlay = document.createElement("div");
-            overlay.className = "image-overlay";
-            const enlargedImg = document.createElement("img");
-            const closeBtn = document.createElement("button");
-            closeBtn.className = "close-btn";
-            closeBtn.textContent = "✕";
-            overlay.appendChild(enlargedImg);
-            overlay.appendChild(closeBtn);
-            document.body.appendChild(overlay);
+    // Create overlay once, append to body
+    const overlay = document.createElement("div");
+    overlay.className = "image-overlay";
+    const enlargedImg = document.createElement("img");
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "close-btn";
+    closeBtn.textContent = "✕"; // X symbol (U+2715)
+    overlay.appendChild(enlargedImg);
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
 
-            // Close overlay
-            closeBtn.addEventListener("click", () => {
-                overlay.style.display = "none";
-            });
-            overlay.addEventListener("click", (e) => {
-                if (e.target === overlay) overlay.style.display = "none";
-            });
+    // Close overlay when clicking X or outside image
+    closeBtn.addEventListener("click", () => {
+        overlay.style.display = "none";
+    });
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) overlay.style.display = "none"; // Close if clicking background
+    });
 
-            // Define unique pages
-            const leftPages = [
-                { title: "Left - Exploration", img: "../images/asset2.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
-                { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
-                { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
-            ];
-            const middlePages = [
-                { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
-                { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
-                { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
-            ];
-            const rightPages = [
-                { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
-                { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
-                { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
-            ];
-            const allPages = [leftPages, middlePages, rightPages];
+    // Define unique pages
+    const leftPages = [
+        { title: "Left - Exploration", img: "../images/asset2.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
+        { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
+        { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
+    ];
+    const middlePages = [
+        { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
+        { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
+        { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
+    ];
+    const rightPages = [
+        { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
+        { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
+        { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
+    ];
+    const allPages = [leftPages, middlePages, rightPages];
 
-            // Define unique headers
-            const headers = ["1. Explore the Unknown", "2. Engage in Battle", "3. Unravel the Tale"];
+    // Define unique headers for each text box
+    const headers = ["1. Explore the Unknown", "2. Engage in Battle", "3. Unravel the Tale"];
 
-            // Create text boxes
-            allPages.forEach((pages, boxIndex) => {
-                const textBox = document.createElement("div");
-                textBox.className = "text-box";
-                textBox.dataset.pageIndex = 0;
+    // Create text boxes
+    allPages.forEach((pages, boxIndex) => {
+        const textBox = document.createElement("div");
+        textBox.className = "text-box";
+        textBox.dataset.pageIndex = 0;
 
-                const header = document.createElement("div");
-                header.className = "text-box-header";
-                header.textContent = headers[boxIndex];
-                textBox.appendChild(header);
+        // Create header
+        const header = document.createElement("div");
+        header.className = "text-box-header";
+        header.textContent = headers[boxIndex]; // Assign unique header
+        textBox.appendChild(header); // Add header as a child of textBox
 
-                const content = document.createElement("div");
-                content.className = "text-box-content";
+        const content = document.createElement("div");
+        content.className = "text-box-content";
 
-                const title = document.createElement("div");
-                title.className = "title";
+        const title = document.createElement("div");
+        title.className = "title";
 
-                const img = document.createElement("img");
+        const img = document.createElement("img");
 
-                const ul = document.createElement("ul");
-                ul.className = "memberList";
+        const ul = document.createElement("ul");
+        ul.className = "memberList";
 
-                const leftArrow = document.createElement("button");
-                leftArrow.className = "arrow left-arrow";
-                leftArrow.textContent = "￩";
+        const leftArrow = document.createElement("button");
+        leftArrow.className = "arrow left-arrow";
+        leftArrow.textContent = "￩";
 
-                const rightArrow = document.createElement("button");
-                rightArrow.className = "arrow right-arrow";
-                rightArrow.textContent = "￫";
+        const rightArrow = document.createElement("button");
+        rightArrow.className = "arrow right-arrow";
+        rightArrow.textContent = "￫";
 
-                // Update content with fade effect
-                function updateContent(index) {
-                    const page = pages[index];
-                    content.classList.add("fade");
-                    setTimeout(() => {
-                        title.textContent = page.title;
-                        img.src = page.img;
-                        img.alt = "Logo";
-                        ul.innerHTML = "";
-                        page.members.forEach(member => {
-                            const li = document.createElement("li");
-                            li.textContent = member;
-                            ul.appendChild(li);
-                        });
-                        content.classList.remove("fade");
-                    }, 150);
-                }
-
-                updateContent(0);
-
-                leftArrow.addEventListener("click", () => {
-                    let index = parseInt(textBox.dataset.pageIndex);
-                    index = (index - 1 + pages.length) % pages.length;
-                    textBox.dataset.pageIndex = index;
-                    updateContent(index);
-                });
-
-                rightArrow.addEventListener("click", () => {
-                    let index = parseInt(textBox.dataset.pageIndex);
-                    index = (index + 1) % pages.length;
-                    textBox.dataset.pageIndex = index;
-                    updateContent(index);
-                });
-
-                img.addEventListener("click", () => {
-                    enlargedImg.src = img.src;
-                    overlay.style.display = "flex";
-                });
-
-                content.appendChild(title);
-                content.appendChild(img);
-                content.appendChild(ul);
-                textBox.appendChild(leftArrow);
-                textBox.appendChild(content);
-                textBox.appendChild(rightArrow);
-                container.appendChild(textBox);
-            });
+        // Function to update content with fade effect
+function updateContent(index) {
+    const page = pages[index];
+    content.classList.add("fade"); // Start fade out
+    setTimeout(() => {
+        // Update content after fade out
+        title.textContent = page.title;
+        img.src = page.img;
+        img.alt = "Logo";
+        ul.innerHTML = "";
+        page.members.forEach(member => {
+            const li = document.createElement("li");
+            li.textContent = member;
+            ul.appendChild(li);
         });
-    </script>
+        content.classList.remove("fade"); // Fade back in
+    }, 150); // Half the transition time (0.3s / 2)
+}
+
+// Initial content (no fade needed on load)
+updateContent(0);
+
+// Arrow click handlers
+leftArrow.addEventListener("click", () => {
+    let index = parseInt(textBox.dataset.pageIndex);
+    index = (index - 1 + pages.length) % pages.length;
+    textBox.dataset.pageIndex = index;
+    updateContent(index);
+});
+
+rightArrow.addEventListener("click", () => {
+    let index = parseInt(textBox.dataset.pageIndex);
+    index = (index + 1) % pages.length;
+    textBox.dataset.pageIndex = index;
+    updateContent(index);
+});
+
+// Image click to enlarge
+img.addEventListener("click", () => {
+    enlargedImg.src = img.src; // Set enlarged image source
+    overlay.style.display = "flex"; // Show overlay
+});
+
+        // Assemble the text box
+        content.appendChild(title);
+        content.appendChild(img);
+        content.appendChild(ul);
+        textBox.appendChild(leftArrow);
+        textBox.appendChild(content);
+        textBox.appendChild(rightArrow);
+        container.appendChild(textBox);
+    });
+});
+      </script>
 </body>
 </html>
