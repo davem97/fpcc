@@ -17,24 +17,24 @@
 
         /* Existing styles unchanged except where noted */
         .content {
-            margin-left: 5vw;
-            /* Instead of fixed 60px, use 5% of viewport width */
+            margin-left: 180px;
+            /* Offset for sidebar */
             display: flex;
             justify-content: center;
+            /* Center the boxes */
             align-items: flex-start;
-            min-height: 100dvh;
-            /* NEW: dynamic viewport height (more accurate on mobile) */
-            /* fallback for older browsers */
+            /* Align tops */
             height: 100vh;
-            padding-top: 10vh;
-            /* Instead of 120px, use 10% of viewport height */
-            gap: 5vw;
-            /* Instead of 50px, use a percentage or viewport-based unit */
-            width: 90vw;
-            /* Adjusted to leave margin for sidebar (e.g., 100% - 5vw * 2) */
-            flex-wrap: nowrap;
+            /* Full height */
+            padding-top: 120px;
+            /* Vertical offset */
+            gap: 50px;
+            /* Restore your bigger gap */
+            width: calc(100% - 180px);
+            /* Explicitly set to viewport width minus sidebar */
+            flex-wrap: wrap;
+            /* Prevent wrapping unless explicitly needed */
         }
-
 
         .text-box {
             width: 467.5px;
