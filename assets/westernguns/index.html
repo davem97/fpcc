@@ -1,121 +1,148 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>davem97.github.io</title>
-        <link rel="stylesheet" href="../css/sidebar.css">
-        <link rel="stylesheet" href="../css/global.css">
+<head>
+    <title>davem97.github.io</title>
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta tag -->
 
     <style>
-    
-/* Style page content */
-.main {
-  margin-left: 330px; /* Same as the width of the sidenav */
-  font-size: 22px; /* Increased text to enable scrolling */
-  padding: 0px 10px; 
-}
+        /* Reset default margins and ensure box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-div.content-right { 
-  position:relative; left:710px; bottom:465px;
-}
+        /* Page Layout */
+        .content {
+            margin-left: 20%; /* Relative to viewport, adjust based on sidebar width */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh; /* Ensure content takes at least full height */
+        }
 
-ul li p {
-  font-size: 20px;
-}
+        /* Main content area */
+        .main {
+            margin-left: 0; /* Remove fixed margin */
+            font-size: clamp(16px, 2.5vw, 18px); /* Responsive font size */
+            padding: 10px;
+            width: 100%;
+            max-width: 1200px; /* Prevent content from becoming too wide */
+        }
 
-/* Page Layout */
-.content {
-    margin-left: 180px; /* Offset content to exclude sidebar */
-    display: flex;
-    justify-content: center; /* Keeps it centered horizontally */
-    align-items: flex-start; /* Moves items to the top */
-    height: 100vh; /* Full viewport height */
-    padding-top: 100px; /* Adjust this to move the text box down */
-}
+        /* Text box styling */
+        .text-box {
+            width: 100%;
+            max-width: 600px; /* Limit max width for larger screens */
+            min-height: 400px; /* Flexible height */
+            background: linear-gradient(145deg, #555, #333);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to top */
+            align-items: center;
+            color: white;
+            font-size: clamp(14px, 2vw, 16px);
+            padding: 20px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
+                        -4px -4px 10px rgba(255, 255, 255, 0.1);
+        }
 
-.text-box {
-    width: 550px;
-    height: 600px;
-    background: linear-gradient(145deg, #555, #333); /* Dark metallic gradient */
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-    position: relative;
-    text-align: center;
-    padding: 20px;
-    margin-top: -20px; /* Moves it up by 20px; adjust as needed */
-    box-sizing: border-box;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), /* Shadow for depth */
-                -4px -4px 10px rgba(255, 255, 255, 0.1); /* Soft light reflection */
-}
+        .title {
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: bold;
+            margin: 20px 0 10px 25px;
+            align-self: flex-start;
+        }
 
-.title {
-  margin-top: 80px;
-  font-size: 24px;
-  font-weight: bold;
-  align-self: flex-start; /* Moves the list to the left */
-}
-.memberList {
-    padding: 0;
-    margin-top: 10px; /* Pushes the list down */
-    text-align: left; /* Aligns text to the left */
-    align-self: flex-start; /* Moves the list to the left */
-    width: 100%; /* Ensures it spans full width */
-    padding-left: 25px; /* Adds some left spacing inside the box */
-}
+        .memberList {
+            padding: 0 25px;
+            margin: 10px 0;
+            text-align: left;
+            width: 100%;
+        }
 
+        .memberList li {
+            font-size: clamp(14px, 1.8vw, 15px);
+            margin: 8px 0;
+        }
 
-.memberList li {
-    font-size: 16px;
-    margin: 8px 0; /* Adds spacing between list items */
-}
+        /* Image inside text box */
+        .text-box img {
+            max-width: 80%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
 
-/* Position the image inside the text box */
-.text-box img {
-    position: absolute;
-    top: 20px; /* Adjusted to be near the top */
-    left: 50%;
-    transform: translateX(-50%); /* Center the image horizontally */
-    max-width: 80%; /* Ensure the image fits inside the box */
-    height: auto; /* Maintain aspect ratio */
-}
+        /* Remove problematic content-right */
+        .content-right {
+            display: none; /* Temporarily disabled; adjust if needed */
+        }
 
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .content {
+                margin-left: 0; /* Remove sidebar offset on small screens */
+                padding: 10px;
+            }
+
+            .sidenav {
+                display: none; /* Hide sidebar on small screens (adjust as needed) */
+            }
+
+            .text-box {
+                max-width: 100%; /* Full width on small screens */
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: clamp(20px, 5vw, 24px);
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .content {
+                margin-left: 300px; /* Fixed sidebar offset for large screens */
+            }
+        }
     </style>
-    </head>
-<body> 
-  <div class="triangle"></div>
-<div class="sidenav">
-  <a href="https://davem97.github.io/fpcc">
-    <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-    <a class = "active" href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
-</div>
+</head>
+<body>
+    <div class="triangle"></div>
+    <div class="sidenav">
+        <a href="https://davem97.github.io/fpcc">
+            <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo">
+        </a><br>
+        <a class="active" href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
+        <a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
+    </div>
 
-<h1 class="page-title">
-  <span class="highlight">S</span>witchback 
-  <span class="highlight">G</span>ames
-</h1>
+    <h Federated h1 class="page-title">
+        <span class="highlight">S</span>witchback 
+        <span class="highlight">G</span>ames
+    </h1>
 
-<div class="content">
-  <div class="text-box">
-    <div class="title">Description</div>
-    <img src="../images/asset2small.png" alt="Logo">
-    
-    <ul class="memberList">
-      <li>Test</li>
-      <li>Test Test TestTest</li>
-      <li>Test Test Test Test Test Test TestTest</li>
-      <li>Hello test Hello test </li>
-      <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
-    </ul>
-  </div>
-</div>
-
+    <div class="content">
+        <div class="text-box">
+            <div class="title">Description</div>
+            <img src="../images/asset2small.png" alt="Logo">
+            <ul class="memberList">
+                <li>Test</li>
+                <li>Test Test TestTest</li>
+                <li>Test Test Test Test Test Test TestTest</li>
+                <li>Hello test Hello test</li>
+                <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
