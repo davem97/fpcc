@@ -1,66 +1,56 @@
-/* Layout wrapper */
-.layout {
-  display: flex;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-/* Sidebar (now part of the layout, not fixed) */
+/* The sidebar menu */
 .sidenav {
-  width: 180px;
-  background-color: #252525;
-  padding-top: 20px;
-  border-radius: 4px;
-  text-align: center; /* Center links and logo horizontally */
-  color: white;
-}
-
-/* Logo styling */
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 180px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #252525; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    border-radius: 4px;
+  
+    text-align: center; /* Center the links horizontally inside the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 10px 16px; /* Increase padding to make the clickbox larger */
+    text-decoration: none;
+    font-size: 20px;
+    color: #c7ca22;
+    display: block;
+    margin: 0 auto; /* Center the links */
+    width: auto; /* Use auto width to prevent stretching */
+    min-height: 40px; /* Increase the minimum height for a larger click area */
+    line-height: 40px; /* Vertically center the text within the link */
+  }
+  
+ /* Image styling */
 .sidenav-logo {
-  display: block;
-  margin: 0 auto 20px;
-  max-width: 100%;
-  height: auto;
+  display: block; /* Ensures it behaves like a block element */
+  margin: 0 auto 20px; /* Centers the image horizontally and adds bottom spacing */
+  max-width: 100%; /* Ensures it does not exceed the sidebar width */
+  height: auto; /* Maintains aspect ratio */
 }
 
-/* Sidebar navigation links */
-.sidenav a {
-  padding: 10px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #c7ca22;
-  display: block;
-  margin: 0 auto;
-  width: auto;
-  min-height: 40px;
-  line-height: 40px;
-}
-
-/* Make the <a> wrap the logo tightly */
+/* Make the <a> wrap the image tightly */
 .sidenav a:has(.sidenav-logo) {
-  display: inline-block;
-  padding: 0;
-  min-height: 0;
-  line-height: normal;
+  display: inline-block; /* Shrink-wraps the <a> around the image */
+  padding: 0; /* Remove padding for logo links */
+  min-height: 0; /* Override min-height for logo links */
+  line-height: normal; /* Reset line-height */
 }
 
-/* Hover effect (but not for logo links) */
+/* When you mouse over the navigation links, change their color */
 .sidenav a:hover:not(:has(img)) {
   color: #c7ca22;
   background-color: #a39393;
-  transition: all 0.4s ease;
+  transition: all .4s ease;
 }
 
-/* Active link styling */
 .sidenav a.active {
   background-color: dodgerblue;
   color: white;
-}
-
-/* Main content area */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background-color: #f0f0f0;
 }
