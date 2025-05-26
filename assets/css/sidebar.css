@@ -1,56 +1,79 @@
+/* Reset page margins and paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 /* The sidebar menu */
 .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 180px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    top: 0;
     left: 0;
-    background-color: #252525; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    background-color: #252525;
+    overflow-x: hidden;
     padding-top: 20px;
-    border-radius: 4px;
-  
-    text-align: center; /* Center the links horizontally inside the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 10px 16px; /* Increase padding to make the clickbox larger */
+    z-index: 1;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidenav a {
+    padding: 10px 16px;
     text-decoration: none;
     font-size: 20px;
     color: #c7ca22;
     display: block;
-    margin: 0 auto; /* Center the links */
-    width: auto; /* Use auto width to prevent stretching */
-    min-height: 40px; /* Increase the minimum height for a larger click area */
-    line-height: 40px; /* Vertically center the text within the link */
-  }
-  
- /* Image styling */
+    width: auto;
+    min-height: 40px;
+    line-height: 40px;
+}
+
+/* Sidebar logo */
 .sidenav-logo {
-  display: block; /* Ensures it behaves like a block element */
-  margin: 0 auto 20px; /* Centers the image horizontally and adds bottom spacing */
-  max-width: 100%; /* Ensures it does not exceed the sidebar width */
-  height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    height: auto;
 }
 
-/* Make the <a> wrap the image tightly */
 .sidenav a:has(.sidenav-logo) {
-  display: inline-block; /* Shrink-wraps the <a> around the image */
-  padding: 0; /* Remove padding for logo links */
-  min-height: 0; /* Override min-height for logo links */
-  line-height: normal; /* Reset line-height */
+    display: inline-block;
+    padding: 0;
+    min-height: 0;
+    line-height: normal;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover:not(:has(img)) {
-  color: #c7ca22;
-  background-color: #a39393;
-  transition: all .4s ease;
+    color: #c7ca22;
+    background-color: #a39393;
+    transition: all .4s ease;
 }
 
 .sidenav a.active {
-  background-color: dodgerblue;
-  color: white;
+    background-color: dodgerblue;
+    color: white;
+}
+
+/* Responsive sidebar scaling */
+@media screen and (max-width: 768px) {
+    .sidenav {
+        width: 100px;
+    }
+
+    .sidenav a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .sidenav-logo {
+        max-width: 80%;
+    }
+
+    .main,
+    .content {
+        margin-left: 100px;
+        width: calc(100% - 100px);
+    }
 }
