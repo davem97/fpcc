@@ -1,13 +1,14 @@
-/* The side navigation menu */
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+/* The side navigation menu */
 .sidebar {
   margin: 0;
   padding: 0;
@@ -16,17 +17,19 @@ body {
   position: fixed;
   height: 100%;
   overflow: auto;
+  display: flex; /* Use flexbox for better control */
+  flex-direction: column; /* Stack items vertically on desktop */
+  align-items: center; /* Center items horizontally */
 }
 
 .sidebar-logo {
-  width: 100%;         /* Scales to sidebar width */
-  max-width: 100%;     /* Prevents overflow */
-  height: auto;        /* Maintains aspect ratio */
-  display: block;      /* Removes extra spacing */
-  padding: 16px;       /* Optional: match link spacing */
+  width: 100%; /* Scales to sidebar width */
+  max-width: 150px; /* Limit logo size to avoid being too large */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  padding: 16px;
   box-sizing: border-box;
 }
-
 
 /* Sidebar links */
 .sidebar a {
@@ -34,6 +37,8 @@ body {
   color: black;
   padding: 16px;
   text-decoration: none;
+  text-align: center; /* Center text in links */
+  width: 100%; /* Ensure links take full width of sidebar */
 }
 
 /* Active/current link */
@@ -48,28 +53,55 @@ body {
   color: white;
 }
 
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+/* Page content */
 div.content {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
 }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
+/* On screens 700px or less, make the sidebar a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
     height: auto;
     position: relative;
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center; /* Center all items */
+    align-items: center; /* Vertically center items */
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+
+  .sidebar-logo {
+    max-width: 100px; /* Smaller logo for mobile */
+    padding: 8px; /* Reduce padding for mobile */
+  }
+
+  .sidebar a {
+    float: none; /* Remove float, use flexbox */
+    width: auto; /* Links adjust to content */
+    margin: 0 8px; /* Add spacing between links */
+  }
+
+  div.content {
+    margin-left: 0;
+  }
 }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+/* On screens 400px or less, fine-tune for very small screens */
 @media screen and (max-width: 400px) {
+  .sidebar {
+    flex-direction: row; /* Keep horizontal layout */
+    padding: 8px; /* Add some padding to the topbar */
+  }
+
+  .sidebar-logo {
+    max-width: 80px; /* Even smaller logo for tiny screens */
+  }
+
   .sidebar a {
-    text-align: center;
-    float: none;
+    padding: 8px; /* Reduce padding for smaller screens */
+    font-size: 14px; /* Smaller font size for links */
   }
 }
