@@ -67,8 +67,18 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+  .sidebar a, .sidebar-logo-link {
+    float: left;
+    padding: 16px;
+  }
+  div.content {
+    margin-left: 0;
+  }
+
+  .sidebar-logo {
+    height: 30px;
+    padding: 0;
+  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
