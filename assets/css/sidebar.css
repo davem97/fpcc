@@ -61,29 +61,10 @@ div.content {
     width: 100%;
     height: auto;
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
   }
-
-  .sidebar-logo {
-    width: 80px;       /* Shrinks logo size */
-    height: auto;
-    padding: 8px;
-    order: 0;          /* Makes sure it stays first */
-  }
-
-  .sidebar a {
-    float: left;
-    padding: 14px 12px;
-  }
-
-  div.content {
-    margin-left: 0;
-  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
 }
-
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
