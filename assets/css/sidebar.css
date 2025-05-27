@@ -18,19 +18,13 @@ body {
   overflow: auto;
 }
 
-.sidebar-logo-link {
-  display: block;
-  text-decoration: none;
-}
-
 .sidebar-logo {
-  width: 100%;         /* Fill sidebar width */
-  height: auto;        /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
   display: block;
-  padding: 16px;       /* Keep image spacing */
+  padding: 16px;
   box-sizing: border-box;
 }
-
 
 /* Sidebar links */
 .sidebar a {
