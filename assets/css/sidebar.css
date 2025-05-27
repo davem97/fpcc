@@ -20,17 +20,15 @@ body {
 
 .sidebar-logo-link {
   display: block;
-  padding: 16px;
   text-decoration: none;
-  /* Optional: center vertically with links when horizontal */
-  float: none;
 }
 
 .sidebar-logo {
-  width: auto;          /* Don't force 100% width */
-  height: auto;         /* Or whatever fits */
+  width: 100%;         /* Fill sidebar width */
+  height: auto;        /* Maintain aspect ratio */
   display: block;
-  max-width: 100%;
+  padding: 16px;       /* Keep image spacing */
+  box-sizing: border-box;
 }
 
 
