@@ -21,20 +21,21 @@ body {
   text-align: center; /* center inline-block children */
 }
 
-/* The link wrapping the logo image */
 .sidebar-logo-link {
-  display: inline-block; /* shrink-wrap the image */
-  padding: 0;            /* no extra clickable padding */
-  margin: 16px auto;     /* vertical spacing + center horizontally */
-  text-decoration: none; /* remove underline */
+  display: inline-block;  /* Shrink-wrap to image */
+  padding: 0;            /* No padding inside link */
+  margin: 16px auto;     /* Center horizontally with vertical spacing */
+  text-decoration: none;
+  text-align: center;
 }
 
-/* The logo image itself */
 .sidebar-logo {
-  height: 160px; /* large logo height */
+  display: block;        /* Remove inline whitespace */
   width: auto;
-  display: block; /* remove inline whitespace */
+  height: 160px;         /* Your desired large height */
+  max-width: 100%;       /* Don't overflow sidebar */
 }
+
 
 /* Sidebar links */
 .sidebar a {
