@@ -67,11 +67,23 @@ div.content {
     div.content {
         margin-left: 0;
     }
+
+    /* Reduce sidebar logo size on smaller screens */
+    .sidebar-logo {
+        max-width: 50%; /* smaller width */
+        height: auto;   /* keep aspect ratio */
+    }
 }
 
 @media screen and (max-width: 400px) {
     .sidebar a {
         text-align: center;
         float: none;
+    }
+
+    /* Even smaller logo on very small screens */
+    .sidebar-logo {
+        max-width: 30%;
+        height: auto;
     }
 }
