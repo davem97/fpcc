@@ -20,24 +20,18 @@ body {
 }
 
 .sidebar-logo-link {
-    display: block;
-    /* No flex here by default */
-    padding: 16px;
-    text-decoration: none;
-    text-align: center;
-    /* Center logo horizontally in sidebar */
+  display: block;
+  padding: 16px;
+  text-align: center;  /* Center the logo horizontally */
+  width: 200px;        /* Same as sidebar width */
+  box-sizing: border-box;
 }
 
 .sidebar-logo {
-    height: 80px;
-    /* Set a visible height */
-    width: auto;
-    /* Let width scale proportionally */
-    max-width: 100%;
-    display: block;
+  height: 120px;      /* Large height */
+  width: auto;        /* Keep aspect ratio */
+  display: inline-block;
 }
-
-
 
 /* Sidebar links */
 .sidebar a {
