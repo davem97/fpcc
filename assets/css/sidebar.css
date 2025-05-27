@@ -66,7 +66,7 @@ div.content {
   }
 
   .sidebar-logo {
-    width: auto;               /* Let width be auto */
+    width: 5%;               /* Let width be auto */
     height: 40px;              /* Fix height */
     padding: 0;                /* Remove padding here */
     margin-right: 20px;        /* Space between logo and links */
