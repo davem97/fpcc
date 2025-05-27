@@ -19,12 +19,14 @@ body {
 }
 
 .sidebar-logo {
-  width: 100%;         /* Fill sidebar width, but no more */
-  height: auto;        /* Maintain aspect ratio */
-  display: block;      /* Prevent inline spacing issues */
+  width: 100%;         /* Scales to sidebar width */
+  max-width: 100%;     /* Prevents overflow */
+  height: auto;        /* Maintains aspect ratio */
+  display: block;      /* Removes extra spacing */
   padding: 16px;       /* Optional: match link spacing */
   box-sizing: border-box;
 }
+
 
 /* Sidebar links */
 .sidebar a {
