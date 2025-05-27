@@ -10,7 +10,7 @@ body {
 }
 
 .sidebar {
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     /* flexible space above the logo */
     padding-bottom: 2rem;
     /* flexible space below the last element */
@@ -24,7 +24,7 @@ body {
 
 .sidebar-logo {
     display: block;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 1.5rem auto;
     /* horizontal center, 1.5rem margin below */
     max-width: 80%;
 }
