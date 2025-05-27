@@ -21,17 +21,18 @@ body {
 
 .sidebar-logo-link {
   display: block;
-  padding: 16px;
-  text-align: center;  /* Center the logo horizontally */
-  width: 200px;        /* Same as sidebar width */
+  padding: 8px 16px;  /* less vertical padding (8px top/bottom), keep horizontal (16px) */
+  text-align: center;
+  width: 200px;
   box-sizing: border-box;
 }
 
 .sidebar-logo {
-  height: 120px;      /* Large height */
-  width: auto;        /* Keep aspect ratio */
+  height: 160px;      /* bigger height */
+  width: auto;
   display: inline-block;
 }
+
 
 /* Sidebar links */
 .sidebar a {
