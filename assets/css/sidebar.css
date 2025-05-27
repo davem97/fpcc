@@ -60,9 +60,18 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+  .sidebar a { float: left; }
+  div.content { margin-left: 0; }
+
+  /* Override the logo size */
+  .sidebar-logo {
+    width: auto;       /* Don't stretch full width */
+    height: 40px;      /* Or whatever height you want */
+    padding: 8px 16px; /* Optional: reduce padding if needed */
+    float: left;       /* Align left with the links */
+  }
 }
+
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
