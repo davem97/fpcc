@@ -28,7 +28,7 @@ body {
 
 .sidebar-logo {
   width: auto;          /* Don't force 100% width */
-  height: 40px;         /* Or whatever fits */
+  height: auto;         /* Or whatever fits */
   display: block;
   max-width: 100%;
 }
