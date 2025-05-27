@@ -29,12 +29,14 @@ body {
 }
 
 .sidebar-logo {
-    width: 100%;
-    /* Fill the sidebar's width */
-    height: auto;
+    height: 80px;
+    /* Set a visible height */
+    width: auto;
+    /* Let width scale proportionally */
     max-width: 100%;
     display: block;
 }
+
 
 
 /* Sidebar links */
