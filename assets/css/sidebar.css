@@ -19,19 +19,19 @@ body {
 }
 
 .sidebar-logo-link {
-  display: block;
+  display: flex;
+  justify-content: center;   /* Center horizontally */
   padding: 16px;
   text-decoration: none;
-  /* Optional: center vertically with links when horizontal */
-  float: none;
 }
 
 .sidebar-logo {
-  width: auto;          /* Don't force 100% width */
-  height: 40px;         /* Or whatever fits */
-  display: block;
+  height: auto;
+  width: 100%;               /* Fill the available sidebar width */
   max-width: 100%;
+  display: block;
 }
+
 
 /* Sidebar links */
 .sidebar a {
@@ -67,19 +67,28 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a, .sidebar-logo-link {
+
+  .sidebar a {
     float: left;
-    padding: 16px;
   }
-  div.content {
-    margin-left: 0;
+
+  .sidebar-logo-link {
+    padding: 8px;                 /* Less padding to match tighter layout */
+    display: flex;
+    justify-content: center;     /* Keep logo centered horizontally */
+    align-items: center;         /* Vertically align if needed */
   }
 
   .sidebar-logo {
-    height: 30px;
-    padding: 0;
+    height: 40px;
+    width: auto;
+  }
+
+  div.content {
+    margin-left: 0;
   }
 }
+
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
