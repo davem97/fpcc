@@ -1,99 +1,106 @@
 /* The side navigation menu */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
 }
 
 .sidebar-logo-link {
-  display: flex;
-  justify-content: center;   /* Center horizontally */
-  padding: 16px;
-  text-decoration: none;
+    display: block;
+    /* No flex here by default */
+    padding: 16px;
+    text-decoration: none;
+    text-align: center;
+    /* Center logo horizontally in sidebar */
 }
 
 .sidebar-logo {
-  height: auto;
-  width: 100%;               /* Fill the available sidebar width */
-  max-width: 100%;
-  display: block;
+    width: 100%;
+    /* Fill the sidebar's width */
+    height: auto;
+    max-width: 100%;
+    display: block;
 }
 
 
 /* Sidebar links */
 .sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
+    background-color: #04AA6D;
+    color: white;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+    background-color: #555;
+    color: white;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 
-  .sidebar a {
-    float: left;
-  }
+    .sidebar a {
+        float: left;
+    }
 
-  .sidebar-logo-link {
-    padding: 8px;                 /* Less padding to match tighter layout */
-    display: flex;
-    justify-content: center;     /* Keep logo centered horizontally */
-    align-items: center;         /* Vertically align if needed */
-  }
+    .sidebar-logo-link {
+        padding: 8px;
+        /* Less padding to match tighter layout */
+        display: flex;
+        justify-content: center;
+        /* Keep logo centered horizontally */
+        align-items: center;
+        /* Vertically align if needed */
+    }
 
-  .sidebar-logo {
-    height: 40px;
-    width: auto;
-  }
+    .sidebar-logo {
+        height: 40px;
+        width: auto;
+    }
 
-  div.content {
-    margin-left: 0;
-  }
+    div.content {
+        margin-left: 0;
+    }
 }
 
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
 }
