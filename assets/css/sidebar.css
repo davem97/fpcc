@@ -1,106 +1,100 @@
-/* The side navigation menu */
+/* Global box sizing */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
+/* Sidebar container */
 .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  text-align: center; /* center inline-block children */
 }
 
+/* The link wrapping the logo image */
 .sidebar-logo-link {
-    display: block;
-    padding: 8px 16px;
-    /* less vertical padding (8px top/bottom), keep horizontal (16px) */
-    text-align: center;
-    width: 200px;
-    box-sizing: border-box;
+  display: inline-block; /* shrink-wrap the image */
+  padding: 0;            /* no extra clickable padding */
+  margin: 16px auto;     /* vertical spacing + center horizontally */
+  text-decoration: none; /* remove underline */
 }
 
+/* The logo image itself */
 .sidebar-logo {
-    height: 160px;
-    /* bigger height */
-    width: auto;
-    display: inline-block;
+  height: 160px; /* large logo height */
+  width: auto;
+  display: block; /* remove inline whitespace */
 }
-
 
 /* Sidebar links */
 .sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
+  background-color: #04AA6D;
+  color: white;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+  background-color: #555;
+  color: white;
 }
 
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+/* Page content */
 div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
 }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
+/* Responsive: sidebar becomes top bar on smaller screens */
 @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .sidebar a {
-        float: left;
-    }
-
-    .sidebar-logo-link {
-        padding: 4px 8px;
-        /* Smaller padding on mobile */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: auto;
-        /* Let it size naturally */
-    }
-
-    .sidebar-logo {
-        height: 40px;
-        /* Much smaller logo */
-        width: auto;
-    }
-
-    div.content {
-        margin-left: 0;
-    }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    text-align: left; /* optional, to align links left on mobile */
+  }
+  
+  .sidebar-logo-link {
+    margin: 8px 16px; /* smaller margin on mobile */
+  }
+  
+  .sidebar-logo {
+    height: 40px;  /* smaller logo on mobile */
+    width: auto;
+  }
+  
+  .sidebar a {
+    float: left;
+    padding: 12px 16px;
+  }
+  
+  div.content {
+    margin-left: 0;
+  }
 }
 
-
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+/* Responsive: stack links vertically on very small screens */
 @media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
