@@ -18,12 +18,19 @@ body {
   overflow: auto;
 }
 
-.sidebar-logo {
-  width: 100%;
-  height: auto;
+.sidebar-logo-link {
   display: block;
   padding: 16px;
-  box-sizing: border-box;
+  text-decoration: none;
+  /* Optional: center vertically with links when horizontal */
+  float: none;
+}
+
+.sidebar-logo {
+  width: auto;          /* Don't force 100% width */
+  height: 40px;         /* Or whatever fits */
+  display: block;
+  max-width: 100%;
 }
 
 /* Sidebar links */
