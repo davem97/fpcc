@@ -20,17 +20,19 @@ body {
 }
 
 .sidebar-logo-link {
-  display: block;
-  padding: 8px 16px;  /* less vertical padding (8px top/bottom), keep horizontal (16px) */
-  text-align: center;
-  width: 200px;
-  box-sizing: border-box;
+    display: block;
+    padding: 8px 16px;
+    /* less vertical padding (8px top/bottom), keep horizontal (16px) */
+    text-align: center;
+    width: 200px;
+    box-sizing: border-box;
 }
 
 .sidebar-logo {
-  height: 160px;      /* bigger height */
-  width: auto;
-  display: inline-block;
+    height: 160px;
+    /* bigger height */
+    width: auto;
+    display: inline-block;
 }
 
 
@@ -74,17 +76,18 @@ div.content {
     }
 
     .sidebar-logo-link {
-        padding: 8px;
-        /* Less padding to match tighter layout */
+        padding: 4px 8px;
+        /* Smaller padding on mobile */
         display: flex;
         justify-content: center;
-        /* Keep logo centered horizontally */
         align-items: center;
-        /* Vertically align if needed */
+        width: auto;
+        /* Let it size naturally */
     }
 
     .sidebar-logo {
         height: 40px;
+        /* Much smaller logo */
         width: auto;
     }
 
