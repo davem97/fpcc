@@ -1,31 +1,41 @@
 .highlight {
-    font-weight: bold;
-    font-size: 56px;
-    color: darkorange;
-  }
+  font-weight: bold;
+  font-size: 56px;
+  color: darkorange;
+}
 
-  .page-title {
-    text-align: center; /* Centers the text itself */
-    width: calc(100% - 180px); /* Excludes the sidebar width */
-    margin-left: 180px; /* Shifts it right to start after the sidebar */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 48px; /* Adjust size as needed */
+.page-title {
+  text-align: center;
+  /* Centers the text itself */
+  width: calc(100% - 180px);
+  /* Excludes the sidebar width */
+  margin-left: 180px;
+  /* Shifts it right to start after the sidebar */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  /* Adjust size as needed */
 }
 
 body {
-  height: auto; /* or just remove height */
-  min-height: 100vh; /* ensures at least full viewport height */
+  height: auto;
+  min-height: 100vh;
   margin: 0;
   padding: 10px;
-  overflow-x: hidden; /* allow vertical scroll, prevent horizontal */
+  overflow-x: hidden;
   position: relative;
-  
-  background: 
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 50%), 
-    linear-gradient(145deg, rgba(171, 220, 236, 0.6), rgba(247, 206, 212, 0.6));
-  background-size: cover;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 183, 197, 0.5) 0%, transparent 70%),
+    radial-gradient(circle at 80% 30%, rgba(174, 214, 241, 0.5) 0%, transparent 70%),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 153, 0.5) 0%, transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(174, 214, 241, 0.5) 0%, transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(153, 102, 255, 0.6) 0%, transparent 80%),
+    linear-gradient(135deg, #ffdde1, #ee9ca7);
+
   background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 /* Triangle in bottom-right corner */
 .triangle {
@@ -34,8 +44,9 @@ body {
   right: 0;
   width: 180px;
   height: 180px;
-  background-color: #5a6d6e; /* Teal-grey color (more grey-leaning) */
-  
+  background-color: #5a6d6e;
+  /* Teal-grey color (more grey-leaning) */
+
   /* Creating the triangle effect */
   clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
