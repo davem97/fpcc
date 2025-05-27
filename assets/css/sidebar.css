@@ -59,47 +59,15 @@ div.content {
     width: 100%;
     height: auto;
     position: relative;
-
-    display: flex;             /* Use flexbox for horizontal layout */
-    align-items: center;       /* Vertically center items */
-    padding: 0 10px;           /* Optional padding */
   }
-
-  .sidebar-logo {
-    width: 5%;               /* Let width be auto */
-    height: 40px;              /* Fix height */
-    padding: 0;                /* Remove padding here */
-    margin-right: 20px;        /* Space between logo and links */
-    flex-shrink: 0;            /* Prevent shrinking */
-    display: block;
-  }
-
-  .sidebar a {
-    float: none;               /* Remove float */
-    display: inline-block;     /* Display inline-block for flex */
-    padding: 14px 16px;        /* Adjust padding for horizontal bar */
-  }
-
-  div.content {
-    margin-left: 0;
-  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
 }
 
-/* On screens that are less than 400px, display the bar vertically */
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
-  .sidebar {
-    flex-direction: column;    /* Stack vertically */
-    align-items: flex-start;   /* Align items left */
-  }
-
-  .sidebar-logo {
-    margin-right: 0;
-    margin-bottom: 10px;       /* Space below logo */
-  }
-
   .sidebar a {
-    width: 100%;
     text-align: center;
-    padding: 12px 0;
+    float: none;
   }
 }
