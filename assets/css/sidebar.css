@@ -10,7 +10,7 @@ body {
 }
 
 .sidebar {
-    padding-top: 2rem;
+    padding-top: 1rem;
     /* flexible space above the logo */
     padding-bottom: 2rem;
     /* flexible space below the last element */
