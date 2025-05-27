@@ -60,23 +60,34 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a { float: left; }
-  div.content { margin-left: 0; }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
 
-  /* Override the logo size */
+  /* Adjust logo size and position */
   .sidebar-logo {
-    width: auto;       /* Don't stretch full width */
-    height: 40px;      /* Or whatever height you want */
-    padding: 8px 16px; /* Optional: reduce padding if needed */
-    float: left;       /* Align left with the links */
+    width: auto;         /* Don't stretch full width */
+    height: 40px;        /* Fixed smaller height */
+    padding: 8px 16px;   /* Adjust padding to match links */
+    float: left;         /* Align horizontally with links */
   }
 }
-
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
   .sidebar a {
     text-align: center;
     float: none;
+  }
+
+  /* Optional: adjust logo centering or size on very small screens */
+  .sidebar-logo {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    height: 35px; /* Slightly smaller */
   }
 }
