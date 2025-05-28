@@ -48,22 +48,7 @@ div.content {
 }
 
 @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .sidebar a {
-        float: left;
-    }
-
-    div.content {
-        margin-left: 0;
-    }
-
-    /* Logo container centers logo without making whole area clickable */
-    .logo-container {
+    .sidebar-logo-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -71,16 +56,17 @@ div.content {
         padding: 10px 0;
     }
 
-    .logo-container a {
+    .sidebar-logo-container a {
         display: inline-block;
     }
 
-    .logo-container .logo-image {
+    .sidebar-logo-image {
         width: 100px;
         height: auto;
         display: block;
     }
 }
+
 
 @media screen and (max-width: 400px) {
     .sidebar a {
