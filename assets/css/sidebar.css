@@ -58,38 +58,37 @@ div.content {
         float: left;
     }
 
-    .sidebar a.sidebar-logo {
+    div.content {
+        margin-left: 0;
+    }
+
+    /* Logo container centers logo without making whole area clickable */
+    .logo-container {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         padding: 10px 0;
-        float: none;
-        text-align: center;
     }
 
-    .sidebar a.sidebar-logo img {
+    .logo-container a {
+        display: inline-block;
+    }
+
+    .logo-container .logo-image {
         width: 100px;
-        /* smaller size */
         height: auto;
         display: block;
-        margin: 0 auto;
-        /* horizontal centering */
-    }
-
-    div.content {
-        margin-left: 0;
     }
 }
 
-
 @media screen and (max-width: 400px) {
-    .sidebar a.sidebar-logo img {
-        width: 80px;
-    }
-
     .sidebar a {
         text-align: center;
         float: none;
+    }
+
+    .logo-container .logo-image {
+        width: 80px; /* Shrink further on very small screens */
     }
 }
