@@ -69,7 +69,7 @@ div.content {
 
     /* Reduce sidebar logo size on smaller screens */
     .sidebar-logo {
-        max-width: 30%; /* smaller width */
+        max-width: 10%; /* smaller width */
         height: auto;   /* keep aspect ratio */
     }
 }
