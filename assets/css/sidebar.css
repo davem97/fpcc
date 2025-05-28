@@ -24,17 +24,9 @@ body {
 
 .sidebar-logo {
     display: block;
-    margin: 0 auto 1rem auto;  /* adjust spacing below */
-    width: 100%;               /* use full space of the link container */
-    max-width: 120px;          /* limit it so it doesn't overflow */
-    height: auto;
-}
-
-.sidebar a:first-of-type {
-    display: block;
-    padding: 0;
-    margin: 0;
-    line-height: 0; /* removes extra space from line height */
+    margin: 0 auto 1.5rem auto;
+    /* horizontal center, 1.5rem margin below */
+    max-width: 80%;
 }
 
 .sidebar a {
