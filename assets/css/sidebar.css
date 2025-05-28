@@ -10,10 +10,8 @@ body {
 }
 
 .sidebar {
-    padding-top: 1.5rem;
-    /* flexible space above the logo */
+    padding-top: 0; /* Remove top padding to eliminate whitespace */
     padding-bottom: 2rem;
-    /* flexible space below the last element */
     margin: 0;
     width: 200px;
     background-color: #f1f1f1;
@@ -24,9 +22,9 @@ body {
 
 .sidebar-logo {
     display: block;
-    margin: 0 auto 1.5rem auto;
-    /* horizontal center, 1.5rem margin below */
-    max-width: 80%;
+    margin: 0 auto 1.5rem auto; /* Keep bottom margin, no top margin */
+    max-width: 90%; /* Increase image size (adjust as needed, e.g., 95% or 100%) */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .sidebar a {
@@ -52,11 +50,13 @@ div.content {
     height: 1000px;
 }
 
+/* Update media queries to keep image larger and remove whitespace */
 @media screen and (max-width: 700px) {
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
+        padding-top: 0; /* Ensure no top padding */
     }
 
     .sidebar a {
@@ -67,10 +67,10 @@ div.content {
         margin-left: 0;
     }
 
-    /* Reduce sidebar logo size on smaller screens */
     .sidebar-logo {
-        max-width: 50%; /* smaller width */
-        height: auto;   /* keep aspect ratio */
+        max-width: 70%; /* Larger image for smaller screens (adjust as needed) */
+        height: auto;
+        margin: 0 auto 1.5rem auto; /* No top margin */
     }
 }
 
@@ -80,9 +80,9 @@ div.content {
         float: none;
     }
 
-    /* Even smaller logo on very small screens */
     .sidebar-logo {
-        max-width: 30%;
+        max-width: 50%; /* Larger image for very small screens (adjust as needed) */
         height: auto;
+        margin: 0 auto 1.5rem auto; /* No top margin */
     }
 }
