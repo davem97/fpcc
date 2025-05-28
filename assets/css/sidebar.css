@@ -58,6 +58,7 @@ div.content {
         float: left;
     }
 
+    /* Center and shrink the logo link */
     .sidebar a.sidebar-logo {
         display: flex;
         justify-content: center;
@@ -65,16 +66,14 @@ div.content {
         width: 100%;
         padding: 10px 0;
         float: none;
-        text-align: center;
+        /* override float for the logo */
     }
 
     .sidebar a.sidebar-logo img {
-        width: 100px;
-        /* smaller size */
+        width: 120px;
+        /* Adjust this size as needed */
         height: auto;
         display: block;
-        margin: 0 auto;
-        /* horizontal centering */
     }
 
     div.content {
@@ -82,14 +81,14 @@ div.content {
     }
 }
 
-
 @media screen and (max-width: 400px) {
-    .sidebar a.sidebar-logo img {
-        width: 80px;
-    }
-
     .sidebar a {
         text-align: center;
         float: none;
+    }
+
+    /* Optionally reduce logo size further on very small screens */
+    .sidebar a.sidebar-logo img {
+        width: 100px;
     }
 }
