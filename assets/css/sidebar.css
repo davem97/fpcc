@@ -10,7 +10,7 @@ body {
 }
 
 .sidebar {
-    padding-top: 0; /* Remove top padding to eliminate whitespace */
+    padding-top: 0; /* Keep top padding at 0 to avoid extra whitespace */
     padding-bottom: 2rem;
     margin: 0;
     width: 200px;
@@ -22,15 +22,15 @@ body {
 
 .sidebar-logo {
     display: block;
-    margin: 0 auto 1.5rem auto; /* Keep bottom margin, no top margin */
-    max-width: 90%; /* Increase image size (adjust as needed, e.g., 95% or 100%) */
+    margin: 16px auto 8px auto; /* 16px top margin to match link padding, 8px bottom for tighter spacing */
+    max-width: 90%; /* Keep larger image size */
     height: auto; /* Maintain aspect ratio */
 }
 
 .sidebar a {
     display: block;
     color: black;
-    padding: 16px;
+    padding: 16px; /* This creates the gap from the top of the first link to the bottom of the logo */
     text-decoration: none;
 }
 
