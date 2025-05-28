@@ -10,13 +10,13 @@ body {
 }
 
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
 }
 
 .sidebar-logo {
@@ -25,41 +25,68 @@ body {
 }
 
 .sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
 }
- 
+
 .sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
+    background-color: #04AA6D;
+    color: white;
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+    background-color: #555;
+    color: white;
 }
 
 div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
 }
 
 @media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    /* Center and shrink the logo link */
+    .sidebar a.sidebar-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+        float: none; /* override float for the logo */
+    }
+
+    .sidebar a.sidebar-logo img {
+        width: 120px; /* Adjust this size as needed */
+        height: auto;
+        display: block;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
 }
 
 @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+
+    /* Optionally reduce logo size further on very small screens */
+    .sidebar a.sidebar-logo img {
+        width: 100px;
+    }
 }
