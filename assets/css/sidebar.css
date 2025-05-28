@@ -58,12 +58,12 @@ div.content {
 @media screen and (max-width: 700px) {
     .sidebar {
         width: 100%;
-        height: auto !important;
+        height: auto;
         position: relative;
         padding: 0; /* Remove vertical padding */
         margin: 0;
         background-color: #f1f1f1;
-        overflow: visible !important;
+        overflow: visible;
     }
 
     .sidebar a:not(:first-child) {
