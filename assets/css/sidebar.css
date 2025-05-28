@@ -10,90 +10,51 @@ body {
 }
 
 .sidebar {
-    padding-top: 0;
-    padding-bottom: 2rem;
-    margin: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;  /* <--- MOVE this into media query instead */
-    overflow: auto;
-}
-
-.sidebar-logo {
-    display: block;
-    margin: 16px auto 8px auto;
-    /* 16px top margin to match link padding, 8px bottom for tighter spacing */
-    max-width: 90%;
-    /* Keep larger image size */
-    height: auto;
-    /* Maintain aspect ratio */
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
 .sidebar a {
-    display: block;
-    color: black;
-    padding: 16px;
-    /* This creates the gap from the top of the first link to the bottom of the logo */
-    text-decoration: none;
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
 }
-
+ 
 .sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
+  background-color: #04AA6D;
+  color: white;
 }
 
 .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+  background-color: #555;
+  color: white;
 }
 
 div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
 }
 
 @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 0; /* Remove vertical padding */
-        margin: 0;
-        background-color: #f1f1f1;
-        overflow: visible;
-    }
-
-    .sidebar a:not(:first-child) {
-        float: left;
-        padding: 12px; /* Slightly reduce padding if needed */
-    }
-
-    .sidebar-logo {
-        display: block;
-        clear: both;
-        max-width: 50%; /* Smaller logo */
-        height: auto;
-        margin: 0.5rem auto 1rem auto; /* Less margin = more compact */
-    }
-
-    div.content {
-        margin-left: 0;
-    }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
 }
 
 @media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
-
-    .sidebar-logo {
-        max-width: 50%;
-        /* Larger image for very small screens (adjust as needed) */
-        height: auto;
-        margin: 0 auto 1.5rem auto;
-        /* No top margin */
-    }
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
