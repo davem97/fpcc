@@ -60,22 +60,23 @@ div.content {
         width: 100%;
         height: auto;
         position: relative;
-        padding-top: 0;
-        text-align: center;
-        /* Optional: helps center non-floated content */
+        padding: 0; /* Remove vertical padding */
+        margin: 0;
+        background-color: #f1f1f1;
+        overflow: visible; /* Ensures it's not restricting layout */
     }
 
-    /* Float only navigation links (not the logo link) */
     .sidebar a:not(:first-child) {
         float: left;
+        padding: 12px; /* Slightly reduce padding if needed */
     }
 
     .sidebar-logo {
         display: block;
         clear: both;
-        max-width: 70%;
+        max-width: 50%; /* Smaller logo */
         height: auto;
-        margin: 0 auto 1.5rem auto;
+        margin: 0.5rem auto 1rem auto; /* Less margin = more compact */
     }
 
     div.content {
