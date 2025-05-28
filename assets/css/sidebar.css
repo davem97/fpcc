@@ -58,24 +58,6 @@ div.content {
         float: left;
     }
 
-    /* Center and shrink the logo link */
-    .sidebar a.sidebar-logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 10px 0;
-        float: none;
-        /* override float for the logo */
-    }
-
-    .sidebar a.sidebar-logo img {
-        width: 120px;
-        /* Adjust this size as needed */
-        height: auto;
-        display: block;
-    }
-
     div.content {
         margin-left: 0;
     }
@@ -85,10 +67,5 @@ div.content {
     .sidebar a {
         text-align: center;
         float: none;
-    }
-
-    /* Optionally reduce logo size further on very small screens */
-    .sidebar a.sidebar-logo img {
-        width: 100px;
     }
 }
