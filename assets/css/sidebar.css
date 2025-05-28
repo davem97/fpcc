@@ -76,12 +76,12 @@ div.content {
 
     /* Reduce sidebar logo size on smaller screens */
     .sidebar-logo {
-        max-width: 50%; /* smaller width */
+        max-width: 30%; /* smaller width */
         height: auto;   /* keep aspect ratio */
     }
 
     .sidebar-logo img {
-        max-width: 60%;
+        max-width: 40%;
         height: auto;
     }
 }
@@ -94,12 +94,12 @@ div.content {
 
     /* Even smaller logo on very small screens */
     .sidebar-logo {
-        max-width: 30%;
+        max-width: 20%;
         height: auto;
     }
 
     .sidebar-logo img {
-        max-width: 40%;
+        max-width: 30%;
         height: auto;
     }
 }
