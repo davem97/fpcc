@@ -19,6 +19,13 @@ body {
     overflow: auto;
 }
 
+.sidebar img.sidebar-logo {
+    display: block; /* Ensures the image is a block element */
+    width: 80px; /* Default size for larger screens, adjust as needed */
+    height: auto;
+    margin: 10px 0; /* Optional: vertical margin, no horizontal centering */
+}
+
 .sidebar a {
     display: block;
     color: black;
@@ -43,36 +50,35 @@ div.content {
 }
 
 @media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 
-  .sidebar a {
-    float: left;
-  }
+    .sidebar a {
+        float: left;
+    }
 
-  div.content {
-    margin-left: 0;
-  }
+    div.content {
+        margin-left: 0;
+    }
 
-  /* Shrink and center the logo image */
-  .sidebar img.sidebar-logo {
-    display: block;
-    margin: 10px auto;
-    width: 40px;
-    height: auto;
-  }
+    .sidebar img.sidebar-logo {
+        display: block;
+        margin: 10px auto; /* Center horizontally on smaller screens */
+        width: 40px; /* Smaller logo for mobile */
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
 
-  .sidebar img.sidebar-logo {
-    width: 30px;
-  }
+    .sidebar img.sidebar-logo {
+        width: 30px; /* Even smaller logo for very small screens */
+    }
 }
