@@ -60,9 +60,9 @@ div.content {
     .sidebar-logo {
         display: block;
         margin: 0 auto 10px auto;
-        /* centers and adds spacing below */
+        /* center horizontally, add spacing below */
         width: 40px;
-        /* or adjust smaller if needed */
+        /* shrinks to 20% of default size */
         height: auto;
     }
 }
