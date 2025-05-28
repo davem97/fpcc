@@ -29,13 +29,6 @@ body {
     max-width: 80%;
 }
 
-.sidebar-logo img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100px;
-    height: auto;
-}
 .sidebar a {
     display: block;
     color: black;
@@ -79,11 +72,6 @@ div.content {
         max-width: 50%; /* smaller width */
         height: auto;   /* keep aspect ratio */
     }
-
-    .sidebar-logo img {
-        max-width: 60%;
-        height: auto;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -95,11 +83,6 @@ div.content {
     /* Even smaller logo on very small screens */
     .sidebar-logo {
         max-width: 30%;
-        height: auto;
-    }
-
-    .sidebar-logo img {
-        max-width: 40%;
         height: auto;
     }
 }
