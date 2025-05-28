@@ -20,10 +20,10 @@ body {
 }
 
 .sidebar img.sidebar-logo {
-    display: block; /* Ensures the image is a block element */
-    width: 80px; /* Default size for larger screens, adjust as needed */
+    display: block;
+    width: 80px; /* Default size for larger screens */
     height: auto;
-    margin: 10px 0; /* Optional: vertical margin, no horizontal centering */
+    margin: 10px 0; /* Vertical margin only, keeps left-aligned */
 }
 
 .sidebar a {
@@ -33,6 +33,13 @@ body {
     text-decoration: none;
 }
 
+/* Ensure the <a> wrapping the logo doesn't interfere with centering */
+.sidebar a.logo-link {
+    display: block;
+    text-align: left; /* Explicitly left-align for larger screens */
+}
+
+/* Style for links on hover and active */
 .sidebar a.active {
     background-color: #04AA6D;
     color: white;
@@ -60,15 +67,21 @@ div.content {
         float: left;
     }
 
-    div.content {
-        margin-left: 0;
+    /* Center the logo's parent <a> */
+    .sidebar a.logo-link {
+        float: none; /* Override float for logo link */
+        text-align: center; /* Center the logo container */
     }
 
     .sidebar img.sidebar-logo {
         display: block;
-        margin: 10px auto; /* Center horizontally on smaller screens */
+        margin: 10px auto; /* Center the logo horizontally */
         width: 40px; /* Smaller logo for mobile */
         height: auto;
+    }
+
+    div.content {
+        margin-left: 0;
     }
 }
 
