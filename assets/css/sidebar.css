@@ -69,10 +69,12 @@ div.content {
     }
 
     .sidebar a.sidebar-logo img {
-        width: 100px;       /* smaller size */
+        width: 100px;
+        /* smaller size */
         height: auto;
         display: block;
-        margin: 0 auto;     /* horizontal centering */
+        margin: 0 auto;
+        /* horizontal centering */
     }
 
     div.content {
@@ -82,13 +84,12 @@ div.content {
 
 
 @media screen and (max-width: 400px) {
+    .sidebar a.sidebar-logo img {
+        width: 80px;
+    }
+
     .sidebar a {
         text-align: center;
         float: none;
-    }
-
-    /* Optionally reduce logo size further on very small screens */
-    .sidebar a.sidebar-logo img {
-        width: 100px;
     }
 }
