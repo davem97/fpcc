@@ -43,37 +43,36 @@ div.content {
 }
 
 @media screen and (max-width: 700px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
 
-    .sidebar a {
-        float: left;
-    }
+  .sidebar a {
+    float: left;
+  }
 
-    div.content {
-        margin-left: 0;
-    }
+  div.content {
+    margin-left: 0;
+  }
 
-    .sidebar-logo {
-        display: block;
-        margin: 0 auto 10px auto;
-        /* center horizontally, add spacing below */
-        width: 40px;
-        /* shrinks to 20% of default size */
-        height: auto;
-    }
+  /* Shrink and center the logo image */
+  .sidebar img.sidebar-logo {
+    display: block;
+    margin: 10px auto;
+    width: 40px;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
-    }
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
 
-    .sidebar-logo {
-        width: 30px;
-    }
+  .sidebar img.sidebar-logo {
+    width: 30px;
+  }
 }
