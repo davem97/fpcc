@@ -68,9 +68,11 @@ div.content {
     }
 
     .sidebar-logo {
-        max-width: 70%; /* Larger image for smaller screens (adjust as needed) */
+        display: block;
+        clear: both; /* This ensures it sits above the floated links */
+        max-width: 70%;
         height: auto;
-        margin: 0 auto 1.5rem auto; /* No top margin */
+        margin: 0 auto 1.5rem auto;
     }
 }
 
