@@ -21,6 +21,18 @@
       font-size: 16px;
     }
 
+    .custom-two-box-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px; /* Adjust spacing between boxes */
+  }
+
+  .custom-two-box {
+    flex: 1 1 300px; /* Flexible width with min size */
+    max-width: 400px;
+  }
+
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 64px;
@@ -69,38 +81,32 @@
     </div>
   </div>
 
-  <div class="w3-main" style="margin-left:300px">
-    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
-      <div class="w3-col m4 w3-margin-bottom w3-offset-m2">
-        <div class="w3-light-grey">
-          <a href="/fpcc/assets/westernguns/">
-            <img src="/fpcc/assets/images/asset2.png" alt="assetOne" style="width:100%">
-          </a>
-          <div class="w3-container">
-            <h3>Multiple Weapons</h3>
-            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
-              shotgun and sniper.
-              You can use the different features in the main scene to test the weapons and receive visual feedback for
-              proper testing purposes.</p>
-          </div>
-        </div>
-      </div>
-      <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-          <a href="/fpcc/assets/westernguns/">
-            <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" style="width:100%">
-          </a>
-          <div class="w3-container">
-            <h3>Ballistics</h3>
-            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
-              physics and gravity. There is no
-              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
-              customizable.</p>
-          </div>
-        </div>
+<div class="w3-main" style="margin-left:300px">
+  <div class="w3-row-padding w3-grayscale custom-two-box-row" style="padding:64px 16px">
+  
+    <div class="w3-light-grey custom-two-box w3-margin-bottom">
+      <a href="/fpcc/asset-one">
+        <img src="/fpcc/assets/images/asset2.png" alt="assetOne" style="width:100%">
+      </a>
+      <div class="w3-container">
+        <h3>Multiple Weapons</h3>
+        <p>Get right into the asset with 5+ weapons that can be immediately tested...</p>
       </div>
     </div>
-  </div>
+
+    <div class="w3-light-grey custom-two-box w3-margin-bottom">
+      <a href="/fpcc/asset-two">
+        <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" style="width:100%">
+      </a>
+      <div class="w3-container">
+        <h3>Ballistics</h3>
+        <p>There are bullet ballistics present in this asset which include...</p>
+      </div>
+    </div>
+
+  </div> <!-- closes w3-row-padding -->
+</div> <!-- closes w3-main -->
+
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
