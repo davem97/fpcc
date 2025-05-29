@@ -21,6 +21,47 @@
       font-size: 16px;
     }
 
+    /* Style for the image container to position arrows */
+    .image-container {
+      position: relative;
+      width: 100%;
+    }
+
+    /* Style for arrows */
+    .arrow-left,
+    .arrow-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 24px;
+      padding: 8px;
+      border: none;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .arrow-left:hover,
+    .arrow-right:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Ensure images remain responsive */
+    .feature-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 64px;
@@ -41,6 +82,15 @@
       .w3-col.m4 {
         margin-bottom: 40px !important;
       }
+
+      .arrow-left,
+      .arrow-right {
+        display: block !important;
+        /* Ensure arrows are visible on small screens */
+        font-size: 20px;
+        /* Slightly smaller arrows for very small screens */
+        padding: 6px;
+      }
     }
   </style>
 </head>
@@ -56,13 +106,13 @@
       <h3 class="w3-padding-64"><b>Switchback<br>Games</b></h3>
     </div>
     <div class="w3-bar-block sidebar-links">
-  <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
-  <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
-  <a href="/fpcc/assets/fpcc/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
-  <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
-  <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-</div>
-    
+      <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
+      <a href="/fpcc/assets/fpcc/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+      <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+      <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+
   </nav>
   <div class="w3-main" style="margin-left:300px">
     <div class="w3-container" style="padding-top:64px">
@@ -73,39 +123,58 @@
 
   <div class="w3-main" style="margin-left:300px">
     <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
-      <div class="w3-col m4 w3-margin-bottom">
+      <!-- Box 1 -->
+      <div class="w3-col m4 w3-margin-bottom" id="box1">
         <div class="w3-light-grey">
-          <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
+          <div class="image-container">
+            <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%" class="feature-image">
+            <button class="w3-button arrow-left w3-hide-large w3-hide-medium"
+              onclick="changeContent('box1', -1)">&#10094;</button>
+            <button class="w3-button arrow-right w3-hide-large w3-hide-medium"
+              onclick="changeContent('box1', 1)">&#10095;</button>
+          </div>
           <div class="w3-container">
-            <h3>Multiple Weapons</h3>
-            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
-              shotgun and sniper.
-              You can use the different features in the main scene to test the weapons and receive visual feedback for
-              proper testing purposes.</p>
+            <h3 class="feature-title">Multiple Weapons</h3>
+            <p class="feature-text">Get right into the asset with 5+ weapons that can be immediately tested, including a
+              pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the
+              weapons and receive visual feedback for proper testing purposes.</p>
           </div>
         </div>
       </div>
-      <div class="w3-col m4 w3-margin-bottom">
+      <!-- Box 2 -->
+      <div class="w3-col m4 w3-margin-bottom" id="box2">
         <div class="w3-light-grey">
-          <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
+          <div class="image-container">
+            <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%" class="feature-image">
+            <button class="w3-button arrow-left w3-hide-large w3-hide-medium"
+              onclick="changeContent('box2', -1)">&#10094;</button>
+            <button class="w3-button arrow-right w3-hide-large w3-hide-medium"
+              onclick="changeContent('box2', 1)">&#10095;</button>
+          </div>
           <div class="w3-container">
-            <h3>Recoil and Aiming System</h3>
-            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
-              recoil for both hipfire and aiming down sights,
-              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
-              hipfiring or aiming down sights.</p>
+            <h3 class="feature-title">Recoil and Aiming System</h3>
+            <p class="feature-text">The asset features a custom recoil system implemented to handle customizable
+              vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random
+              recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.
+            </p>
           </div>
         </div>
       </div>
-      <div class="w3-col m4 w3-margin-bottom">
+      <!-- Box 3 -->
+      <div class="w3-col m4 w3-margin-bottom" id="box3">
         <div class="w3-light-grey">
-          <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
+          <div class="image-container">
+            <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%" class="feature-image">
+            <button class="w3-button arrow-left w3-hide-large w3-hide-medium"
+              onclick="changeContent('box3', -1)">&#10094;</button>
+            <button class="w3-button arrow-right w3-hide-large w3-hide-medium"
+              onclick="changeContent('box3', 1)">&#10095;</button>
+          </div>
           <div class="w3-container">
-            <h3>Ballistics</h3>
-            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
-              physics and gravity. There is no
-              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
-              customizable.</p>
+            <h3 class="feature-title">Ballistics</h3>
+            <p class="feature-text">There are bullet ballistics present in this asset which include bullet velocity and
+              drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any
+              desired speed with every feature being fully customizable.</p>
           </div>
         </div>
       </div>
@@ -133,6 +202,85 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
+
+    // Data for each box: images, titles, and texts
+    const boxContent = {
+      box1: {
+        images: [
+          "/fpcc/assets/images/asset2.png",
+          "/fpcc/assets/images/weapon1.png",
+          "/fpcc/assets/images/weapon2.png"
+        ],
+        titles: [
+          "Multiple Weapons",
+          "Weapon Customization",
+          "Weapon Testing"
+        ],
+        texts: [
+          "Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.",
+          "Customize weapons with various attachments and skins to suit your gameplay style.",
+          "Test weapons in a dedicated environment with real-time feedback and analytics."
+        ],
+        currentIndex: 0
+      },
+      box2: {
+        images: [
+          "/fpcc/assets/images/asset2.png",
+          "/fpcc/assets/images/recoil1.png",
+          "/fpcc/assets/images/recoil2.png"
+        ],
+        titles: [
+          "Recoil and Aiming System",
+          "Advanced Recoil Patterns",
+          "Aiming Mechanics"
+        ],
+        texts: [
+          "The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.",
+          "Explore advanced recoil patterns that add realism and challenge to each weapon.",
+          "Fine-tune aiming mechanics with adjustable sensitivity and ADS options."
+        ],
+        currentIndex: 0
+      },
+      box3: {
+        images: [
+          "/fpcc/assets/images/asset2.png",
+          "/fpcc/assets/images/ballistics1.png",
+          "/fpcc/assets/images/ballistics2.png"
+        ],
+        titles: [
+          "Ballistics",
+          "Physics-Based Projectiles",
+          "Customizable Trajectories"
+        ],
+        texts: [
+          "There are bullet ballistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.",
+          "Experience realistic projectile motion influenced by environmental factors.",
+          "Adjust bullet trajectories to match your desired gameplay experience."
+        ],
+        currentIndex: 0
+      }
+    };
+
+    // Function to change content for a specific box
+    function changeContent(boxId, direction) {
+      const box = boxContent[boxId];
+      const totalItems = box.images.length;
+
+      // Update current index
+      box.currentIndex = (box.currentIndex + direction + totalItems) % totalItems;
+
+      // Get DOM elements
+      const image = document.querySelector(`#${boxId} .feature-image`);
+      const title = document.querySelector(`#${boxId} .feature-title`);
+      const text = document.querySelector(`#${boxId} .feature-text`);
+
+      // Update content
+      image.src = box.images[box.currentIndex];
+      image.alt = box.titles[box.currentIndex].toLowerCase().replace(/\s/g, '');
+      title.textContent = box.titles[box.currentIndex];
+      text.textContent = box.texts[box.currentIndex];
+    }
   </script>
 </body>
+
 </html>
