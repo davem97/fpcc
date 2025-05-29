@@ -22,16 +22,18 @@
     }
 
     .custom-two-box-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 32px; /* Adjust spacing between boxes */
-  }
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      /* Adjust spacing between boxes */
+    }
 
-  .custom-two-box {
-    flex: 1 1 300px; /* Flexible width with min size */
-    max-width: 400px;
-  }
+    .custom-two-box {
+      flex: 1 1 300px;
+      /* Flexible width with min size */
+      max-width: 400px;
+    }
 
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -46,6 +48,20 @@
       .w3-col.m4 {
         margin-bottom: 48px !important;
         /* Adjust the value as you like */
+      }
+
+      /* Disable flex on smaller screens to keep natural stacking */
+      .custom-two-box-row {
+        display: block !important;
+      }
+
+      /* Make boxes full width and reset flex sizing */
+      .custom-two-box {
+        flex: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin-bottom: 32px;
+        /* space between stacked boxes */
       }
     }
 
@@ -81,31 +97,31 @@
     </div>
   </div>
 
-<div class="w3-main" style="margin-left:300px">
-  <div class="w3-row-padding w3-grayscale custom-two-box-row" style="padding:64px 16px">
-  
-    <div class="w3-light-grey custom-two-box w3-margin-bottom">
-      <a href="/fpcc/assets/fpcc">
-        <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" style="width:100%">
-      </a>
-      <div class="w3-container">
-        <h3>Multiple Weapons</h3>
-        <p>Get right into the asset with 5+ weapons that can be immediately tested...</p>
-      </div>
-    </div>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding w3-grayscale custom-two-box-row" style="padding:64px 16px">
 
-    <div class="w3-light-grey custom-two-box w3-margin-bottom">
-      <a href="/fpcc/assets/westernguns/">
-        <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" style="width:100%">
-      </a>
-      <div class="w3-container">
-        <h3>Ballistics</h3>
-        <p>There are bullet ballistics present in this asset which include...</p>
+      <div class="w3-light-grey custom-two-box w3-margin-bottom">
+        <a href="/fpcc/assets/fpcc">
+          <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" style="width:100%">
+        </a>
+        <div class="w3-container">
+          <h3>Multiple Weapons</h3>
+          <p>Get right into the asset with 5+ weapons that can be immediately tested...</p>
+        </div>
       </div>
-    </div>
 
-  </div> <!-- closes w3-row-padding -->
-</div> <!-- closes w3-main -->
+      <div class="w3-light-grey custom-two-box w3-margin-bottom">
+        <a href="/fpcc/assets/westernguns/">
+          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" style="width:100%">
+        </a>
+        <div class="w3-container">
+          <h3>Ballistics</h3>
+          <p>There are bullet ballistics present in this asset which include...</p>
+        </div>
+      </div>
+
+    </div> <!-- closes w3-row-padding -->
+  </div> <!-- closes w3-main -->
 
 
   <!-- Top menu on small screens -->
