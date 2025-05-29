@@ -21,8 +21,18 @@
       font-size: 16px;
     }
 
-    .w3-equal-box {
-  min-height: 320px; /* Adjust this value as needed */
+    .w3-card-equal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.w3-card-equal img {
+  height: auto;
+}
+
+.w3-card-content {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -68,9 +78,9 @@
 <div class="w3-main" style="margin-left:300px">
   <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey w3-equal-box">
+      <div class="w3-light-grey w3-card-equal">
         <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
-        <div class="w3-container">
+        <div class="w3-container w3-card-content">
           <h3>Multiple Weapons</h3>
           <p>Get right into the asset with 5+ weapons that can be immediately tested. You can use the different features in the environment
             to test your weapon of choice.</p>
@@ -78,9 +88,9 @@
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey w3-equal-box">
+      <div class="w3-light-grey w3-card-equal">
         <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
-        <div class="w3-container">
+        <div class="w3-container w3-card-content">
           <h3>Recoil System</h3>
           <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil, idle sway, recoil recovery, 
             random recoil patterns for each gun and more!</p>
@@ -88,9 +98,9 @@
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey w3-equal-box">
+      <div class="w3-light-grey w3-card-equal">
         <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
-        <div class="w3-container">
+        <div class="w3-container w3-card-content">
           <h3>Ballistics</h3>
           <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no 
             rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.</p>
