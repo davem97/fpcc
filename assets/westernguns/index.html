@@ -5,7 +5,7 @@
   <title>Sidebar Only</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="assets/css/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
     body,
@@ -21,11 +21,25 @@
       font-size: 16px;
     }
 
-    /* Only add top margin to the sidebar links on small screens (mobile + tablet) */
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 64px;
-        /* or whatever spacing you want */
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      /* Increase gap between boxes on small screens */
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+        /* Adjust the value as you like */
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
       }
     }
   </style>
@@ -48,8 +62,55 @@
   <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
   <a href="/fpcc/assets/westernguns/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
 </div>
-
+    
   </nav>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-container" style="padding-top:64px">
+      <h1>Welcome</h1>
+      <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
+    </div>
+  </div>
+
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
+          <div class="w3-container">
+            <h3>Multiple Weapons</h3>
+            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
+              shotgun and sniper.
+              You can use the different features in the main scene to test the weapons and receive visual feedback for
+              proper testing purposes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
+          <div class="w3-container">
+            <h3>Recoil and Aiming System</h3>
+            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
+              recoil for both hipfire and aiming down sights,
+              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
+              hipfiring or aiming down sights.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
+          <div class="w3-container">
+            <h3>Ballistics</h3>
+            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
+              physics and gravity. There is no
+              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
+              customizable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
@@ -73,7 +134,5 @@
       document.getElementById("myOverlay").style.display = "none";
     }
   </script>
-
 </body>
-
 </html>
