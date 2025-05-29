@@ -1,114 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>davem97.github.io</title>
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/global.css">
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-    /* Style page content */
-    .main {
-      margin-left: 330px;
-      /* Same as the width of the sidenav */
-      font-size: 22px;
-      /* Increased text to enable scrolling */
-      padding: 0px 10px;
+    /* === Your existing CSS === */
+    body, h1, h2, h3, h4, h5 {
+      font-family: "Poppins", sans-serif;
     }
 
-    /* Existing styles unchanged except where noted */
-    .content {
-      margin-left: 180px;
-      /* Offset for sidebar */
+    body {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 64px;
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
+    }
+
+    /* === New CSS for interactive boxes === */
+    #text-box-container {
       display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
       justify-content: center;
-      /* Center the boxes */
-      align-items: flex-start;
-      /* Align tops */
-      height: 100vh;
-      /* Full height */
-      padding-top: 120px;
-      /* Vertical offset */
-      gap: 50px;
-      /* Restore your bigger gap */
-      width: calc(100% - 180px);
-      /* Explicitly set to viewport width minus sidebar */
-      flex-wrap: nowrap;
-      /* Prevent wrapping unless explicitly needed */
+      padding: 48px 16px;
+      margin-left: 300px;
     }
 
     .text-box {
-      width: 467.5px;
-      /* Locked width */
-      height: 510px;
-      /* Locked height */
-      background: linear-gradient(145deg, #555, #333);
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 18px;
       position: relative;
+      background: #f1f1f1;
+      padding: 16px;
+      width: 300px;
+      min-height: 420px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-      flex-shrink: 0;
-      /* Prevent shrinking */
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
-        -4px -4px 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .text-box-header {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #333;
     }
 
     .text-box-content {
-      /* Add this to control title and memberList alignment */
-      width: 100%;
-      /* Ensure it spans the text-box width */
-      text-align: left;
-      /* Align title and list to the left */
-      padding-left: 50px;
-      /* Shift content slightly left (adjustable) */
       transition: opacity 0.3s ease;
-      /* Fades opacity over 0.3 seconds */
     }
 
     .fade {
       opacity: 0;
-      /* Briefly fades content out */
-    }
-
-    .text-box-header {
-      position: absolute;
-      top: -45px;
-      /* Places header 40px above the text box */
-      left: 0;
-      width: 100%;
-      /* Matches text box width */
-      text-align: left;
-      color: rgb(0, 0, 0);
-      font-size: 28px;
-      padding-left: 30px;
-      /* Pushes text 20px to the right */
-      z-index: 5;
-      /* Ensures it’s above the text box but below overlay */
     }
 
     .arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 40px;
-      /* Thick V shape */
-
-      color: rgb(255, 255, 255);
-      /* Default color */
-      border: none;
-      /* No border */
+      font-size: 32px;
       background: none;
-      /* No background or glow */
+      border: none;
+      color: #444;
       cursor: pointer;
-      padding: 0;
-      /* Minimal padding */
       z-index: 10;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .arrow:hover {
+      color: #b33;
     }
 
     .left-arrow {
@@ -119,125 +99,158 @@
       right: 8px;
     }
 
-    .arrow:hover {
-      color: rgb(206, 183, 183);
-      /* Highlight on hover */
-    }
-
-
-    /* Existing content styles */
-    .title {
-      margin-top: 130px;
-      /* Your updated value */
-      font-size: 24px;
-      font-weight: bold;
-      align-self: flex-start;
-      text-align: left;
-      /* Override inherited centering */
-      margin-left: 0;
-      /* Remove any default centering offset */
+    .text-box-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin: 8px 0;
+      cursor: pointer;
     }
 
     .memberList {
-      padding: 5px 60px 0 20px;
-      margin-top: 10px;
+      list-style-type: disc;
+      padding-left: 20px;
       text-align: left;
-      align-self: flex-start;
-      width: 100%;
-      box-sizing: border-box;
+      font-size: 14px;
     }
 
-    .memberList li {
-      font-size: 16px;
-      margin: 8px 0;
-      overflow-wrap: break-word;
-      max-width: 100%;
-    }
-
-    /* Overlay for enlarged image */
     .image-overlay {
-      display: none;
-      /* Hidden by default */
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      /* Dark semi-transparent background */
-      z-index: 100;
-      /* Above everything */
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
       justify-content: center;
       align-items: center;
+      z-index: 999;
+      flex-direction: column;
     }
 
-    /* Enlarged image */
     .image-overlay img {
-      max-width: 90vw;
-      /* 90% of viewport width */
-      max-height: 90vh;
-      /* 90% of viewport height */
-      border-radius: 10px;
-      /* Optional: slight rounding */
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      /* Optional: shadow */
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
     }
 
-    /* Close button */
     .close-btn {
       position: absolute;
       top: 20px;
-      right: 20px;
+      right: 30px;
       font-size: 30px;
       color: white;
       background: none;
       border: none;
       cursor: pointer;
-      z-index: 101;
-      /* Above image */
     }
 
-    .close-btn:hover {
-      color: darkorange;
-      /* Matches your arrow hover */
-    }
+    @media screen and (max-width: 992px) {
+      #text-box-container {
+        margin-left: 0;
+        padding: 32px 8px;
+      }
 
-    /* Existing image style (make clickable) */
-    .text-box img {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 60%;
-      height: auto;
-      cursor: pointer;
-      /* Indicates it’s clickable */
+      .text-box {
+        width: 90%;
+      }
+
+      .arrow {
+        font-size: 24px;
+      }
     }
-  </style>
   </style>
 </head>
 
 <body>
-  <div class="triangle"></div>
-  <div class="sidenav">
-    <a href="https://davem97.github.io/fpcc">
-      <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc" rel="noopener noreferrer">Home</a><br>
-    <a class="active" href="https://davem97.github.io/fpcc/assets/fpcc/features"
-      rel="noopener noreferrer">Features</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/changelog" rel="noopener noreferrer">Changelog</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/faq" rel="noopener noreferrer">FAQ</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/contact" rel="noopener noreferrer">Contact</a><br>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
+
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <h3 class="w3-padding-64"><b>Switchback<br>Games</b></h3>
+    </div>
+    <div class="w3-bar-block sidebar-links">
+  <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
+  <a href="/fpcc/assets/fpcc/about" class="w3-bar-item w3-button w3-hover-white">About</a>
+  <a href="/fpcc/assets/fpcc/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+  <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+  <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+</div>
+    
+  </nav>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-container" style="padding-top:64px">
+      <h1>FPSCharController</h1>
+      <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
+    </div>
   </div>
 
-  <h1 class="page-title">
-    <span class="highlight">S</span>witchback
-    <span class="highlight">G</span>ames
-  </h1>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
+          <div class="w3-container">
+            <h3>Multiple Weapons</h3>
+            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
+              shotgun and sniper.
+              You can use the different features in the main scene to test the weapons and receive visual feedback for
+              proper testing purposes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
+          <div class="w3-container">
+            <h3>Recoil and Aiming System</h3>
+            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
+              recoil for both hipfire and aiming down sights,
+              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
+              hipfiring or aiming down sights.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
+          <div class="w3-container">
+            <h3>Ballistics</h3>
+            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
+              physics and gravity. There is no
+              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
+              customizable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div class="content" id="text-box-container"></div>
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+  </header>
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
 
   <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       const container = document.getElementById("text-box-container");
 
@@ -367,5 +380,4 @@
     });
   </script>
 </body>
-
 </html>
