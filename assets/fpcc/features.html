@@ -33,11 +33,12 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: transparent !important;
+      border: none;
+      box-shadow: none;
       color: white;
       font-size: 24px;
       padding: 8px;
-      border: none;
       cursor: pointer;
       z-index: 1;
     }
@@ -161,8 +162,8 @@
         <div class="w3-light-grey">
           <div class="image-container">
             <img src="../images/asset2small.png" alt="featureThree" style="width:100%" class="feature-image">
-            <button class="arrow-left" onclick="changeContent('box3', -1)">←</button>
-            <button class="arrow-right" onclick="changeContent('box3', 1)">→</button>
+            <button class="w3-button arrow-left" onclick="changeContent('box3', -1)">←</button>
+            <button class="w3-button arrow-right" onclick="changeContent('box3', 1)">→</button>
           </div>
           <div class="w3-container">
             <h3 class="feature-title">Ballistics</h3>
