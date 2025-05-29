@@ -30,8 +30,6 @@
     /* Style for arrows */
     .arrow-left,
     .arrow-right {
-      display: none;
-      /* Hidden by default */
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -80,6 +78,7 @@
       }
     }
 
+    /* Adjust arrow size for small screens */
     @media screen and (max-width: 600px) {
       .w3-col.m4 {
         margin-bottom: 40px !important;
@@ -87,9 +86,8 @@
 
       .arrow-left,
       .arrow-right {
-        display: block !important;
-        /* Override W3.CSS hiding */
         font-size: 20px;
+        /* Slightly smaller arrows for mobile */
         padding: 6px;
       }
     }
