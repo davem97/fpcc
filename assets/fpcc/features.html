@@ -27,19 +27,19 @@
       width: 100%;
     }
 
-    /* Style for arrows */
     .arrow-left,
     .arrow-right {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
       font-size: 24px;
-      padding: 8px;
+      color: black;
+      background: none;
       border: none;
+      padding: 0;
       cursor: pointer;
       z-index: 1;
+      transition: color 0.2s ease;
     }
 
     .arrow-left {
@@ -52,7 +52,7 @@
 
     .arrow-left:hover,
     .arrow-right:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      color: lightgray;
     }
 
     /* Ensure images remain responsive */
@@ -127,8 +127,8 @@
         <div class="w3-light-grey">
           <div class="image-container">
             <img src="../images/asset2small.png" alt="featureOne" style="width:100%" class="feature-image">
-            <button class="w3-button arrow-left" onclick="changeContent('box1', -1)">←</button>
-            <button class="w3-button arrow-right" onclick="changeContent('box1', 1)">→</button>
+            <button class="arrow-left" onclick="changeContent('box1', -1)">←</button>
+            <button class="arrow-right" onclick="changeContent('box1', 1)">→</button>
 
           </div>
           <div class="w3-container">
@@ -144,8 +144,8 @@
         <div class="w3-light-grey">
           <div class="image-container">
             <img src="../images/asset2small.png" alt="featureTwo" style="width:100%" class="feature-image">
-            <button class="w3-button arrow-left" onclick="changeContent('box2', -1)">←</button>
-            <button class="w3-button arrow-right" onclick="changeContent('box2', 1)">→</button>
+            <button class="arrow-left" onclick="changeContent('box2', -1)">←</button>
+            <button class="arrow-right" onclick="changeContent('box2', 1)">→</button>
           </div>
           <div class="w3-container">
             <h3 class="feature-title">Recoil and Aiming System</h3>
@@ -161,8 +161,8 @@
         <div class="w3-light-grey">
           <div class="image-container">
             <img src="../images/asset2small.png" alt="featureThree" style="width:100%" class="feature-image">
-            <button class="w3-button arrow-left" onclick="changeContent('box3', -1)">←</button>
-            <button class="w3-button arrow-right" onclick="changeContent('box3', 1)">→</button>
+            <button class="arrow-left" onclick="changeContent('box3', -1)">←</button>
+            <button class="arrow-right" onclick="changeContent('box3', 1)">→</button>
           </div>
           <div class="w3-container">
             <h3 class="feature-title">Ballistics</h3>
