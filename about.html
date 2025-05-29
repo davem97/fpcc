@@ -1,106 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>davem97.github.io</title>
-  <link rel="stylesheet" href="assets/css/sidebar.css">
-  <link rel="stylesheet" href="assets/css/global.css">
-<style>
-body {
-  background-image: url("assets/images/project_background.jpg");
-  background-size: cover;
-}
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
 
-/* Style page content */
-.main {
-margin-left: 330px; /* Same as the width of the sidenav */
-font-size: 22px; /* Increased text to enable scrolling */
-padding: 0px 10px;
-}
+    body {
+      font-size: 16px;
+    }
 
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 600px;
-  position: relative;
-  top: 60px;
-  margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: ease 1s;  
-  opacity: 0.3; 
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(153, 176, 177, 0.856);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 0.6s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-</style>
+    /* Only add top margin to the sidebar links on small screens (mobile + tablet) */
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 64px;
+        /* or whatever spacing you want */
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="sidenav">
-    <a href="https://davem97.github.io/fpcc">
-      <img src="assets/images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-      <a href="https://davem97.github.io/fpcc" rel="noopener noreferrer">Home</a><br>
-      <a class = "active" href="https://davem97.github.io/fpcc/about" rel="noopener noreferrer">About</a><br>
-  <a href="https://davem97.github.io/fpcc/placeholder" rel="noopener noreferrer">Placeholder</a><br>
-  <a href="https://davem97.github.io/fpcc/contact" rel="noopener noreferrer">Contact</a><br>
-</div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
 
-<div class="main" style="max-width: 100%; margin: 0 auto; box-sizing: border-box;">
-  <h1 style="margin-left: 330px;">Gallery</h1><br>
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <h3 class="w3-padding-64"><b>Switchback<br>Games</b></h3>
+    </div>
+    <div class="w3-bar-block sidebar-links">
+      <a href="https://davem97.github.io/fpcc/" onclick="w3_close()"
+        class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="https://davem97.github.io/fpcc/about" onclick="w3_close()"
+        class="w3-bar-item w3-button w3-hover-white">About</a>
+      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
 
-  <div style="text-align: center;">
-      <iframe style="display: block; margin: 0 auto; width: 100%; max-width: 800px; height: 405px; box-sizing: border-box; border: none;" src="https://www.youtube.com/embed/09ONWin-nN4"></iframe>
-  </div>
-</div>
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+  </header>
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>
