@@ -43,6 +43,8 @@
       cursor: pointer;
       z-index: 1;
       transition: color 0.2s ease;
+      outline: none;
+      /* remove focus outline on click */
     }
 
     .arrow-left {
@@ -56,6 +58,14 @@
     .arrow-left:hover,
     .arrow-right:hover {
       color: lightgray;
+    }
+
+    /* Remove persistent lightgray color on focus */
+    .arrow-left:focus,
+    .arrow-right:focus {
+      color: black;
+      outline: none;
+      /* removes the default focus ring */
     }
 
     /* Ensure images remain responsive */
