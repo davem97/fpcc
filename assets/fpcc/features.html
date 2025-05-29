@@ -30,6 +30,8 @@
     /* Style for arrows */
     .arrow-left,
     .arrow-right {
+      display: none;
+      /* Hidden by default */
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -86,9 +88,8 @@
       .arrow-left,
       .arrow-right {
         display: block !important;
-        /* Ensure arrows are visible on small screens */
+        /* Override W3.CSS hiding */
         font-size: 20px;
-        /* Slightly smaller arrows for very small screens */
         padding: 6px;
       }
     }
