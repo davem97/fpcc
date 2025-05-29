@@ -8,8 +8,12 @@
   <link rel="stylesheet" href="../css/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-    /* === Your existing CSS === */
-    body, h1, h2, h3, h4, h5 {
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       font-family: "Poppins", sans-serif;
     }
 
@@ -26,137 +30,16 @@
         margin-left: 0 !important;
       }
 
+      /* Increase gap between boxes on small screens */
       .w3-col.m4 {
         margin-bottom: 48px !important;
+        /* Adjust the value as you like */
       }
     }
 
     @media screen and (max-width: 600px) {
       .w3-col.m4 {
         margin-bottom: 40px !important;
-      }
-    }
-
-    /* === New CSS for interactive boxes === */
-    #text-box-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      justify-content: center;
-      padding: 48px 16px;
-      margin-left: 300px;
-    }
-
-    .text-box {
-      position: relative;
-      background: #f1f1f1;
-      padding: 16px;
-      width: 300px;
-      min-height: 420px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
-
-    .text-box-header {
-      font-weight: bold;
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #333;
-    }
-
-    .text-box-content {
-      transition: opacity 0.3s ease;
-    }
-
-    .fade {
-      opacity: 0;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: #444;
-      cursor: pointer;
-      z-index: 10;
-      padding: 4px;
-      transition: color 0.2s ease;
-    }
-
-    .arrow:hover {
-      color: #b33;
-    }
-
-    .left-arrow {
-      left: 8px;
-    }
-
-    .right-arrow {
-      right: 8px;
-    }
-
-    .text-box-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
-    .memberList {
-      list-style-type: disc;
-      padding-left: 20px;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .image-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      flex-direction: column;
-    }
-
-    .image-overlay img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media screen and (max-width: 992px) {
-      #text-box-container {
-        margin-left: 0;
-        padding: 32px 8px;
-      }
-
-      .text-box {
-        width: 90%;
-      }
-
-      .arrow {
-        font-size: 24px;
       }
     }
   </style>
@@ -174,10 +57,10 @@
     </div>
     <div class="w3-bar-block sidebar-links">
   <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
-  <a href="/fpcc/assets/fpcc/about" class="w3-bar-item w3-button w3-hover-white">About</a>
-  <a href="/fpcc/assets/fpcc/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+  <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
+  <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
   <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
-  <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+  <a href="/fpcc/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
 </div>
     
   </nav>
@@ -250,134 +133,6 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const container = document.getElementById("text-box-container");
-
-      // Create overlay once, append to body
-      const overlay = document.createElement("div");
-      overlay.className = "image-overlay";
-      const enlargedImg = document.createElement("img");
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "close-btn";
-      closeBtn.textContent = "✕"; // X symbol (U+2715)
-      overlay.appendChild(enlargedImg);
-      overlay.appendChild(closeBtn);
-      document.body.appendChild(overlay);
-
-      // Close overlay when clicking X or outside image
-      closeBtn.addEventListener("click", () => {
-        overlay.style.display = "none";
-      });
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) overlay.style.display = "none"; // Close if clicking background
-      });
-
-      // Define unique pages
-      const leftPages = [
-        { title: "Left - Exploration", img: "../images/asset2.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
-        { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
-        { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
-      ];
-      const middlePages = [
-        { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
-        { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
-        { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
-      ];
-      const rightPages = [
-        { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
-        { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
-        { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
-      ];
-      const allPages = [leftPages, middlePages, rightPages];
-
-      // Define unique headers for each text box
-      const headers = ["1. Explore the Unknown", "2. Engage in Battle", "3. Unravel the Tale"];
-
-      // Create text boxes
-      allPages.forEach((pages, boxIndex) => {
-        const textBox = document.createElement("div");
-        textBox.className = "text-box";
-        textBox.dataset.pageIndex = 0;
-
-        // Create header
-        const header = document.createElement("div");
-        header.className = "text-box-header";
-        header.textContent = headers[boxIndex]; // Assign unique header
-        textBox.appendChild(header); // Add header as a child of textBox
-
-        const content = document.createElement("div");
-        content.className = "text-box-content";
-
-        const title = document.createElement("div");
-        title.className = "title";
-
-        const img = document.createElement("img");
-
-        const ul = document.createElement("ul");
-        ul.className = "memberList";
-
-        const leftArrow = document.createElement("button");
-        leftArrow.className = "arrow left-arrow";
-        leftArrow.textContent = "￩";
-
-        const rightArrow = document.createElement("button");
-        rightArrow.className = "arrow right-arrow";
-        rightArrow.textContent = "￫";
-
-        // Function to update content with fade effect
-        function updateContent(index) {
-          const page = pages[index];
-          content.classList.add("fade"); // Start fade out
-          setTimeout(() => {
-            // Update content after fade out
-            title.textContent = page.title;
-            img.src = page.img;
-            img.alt = "Logo";
-            ul.innerHTML = "";
-            page.members.forEach(member => {
-              const li = document.createElement("li");
-              li.textContent = member;
-              ul.appendChild(li);
-            });
-            content.classList.remove("fade"); // Fade back in
-          }, 150); // Half the transition time (0.3s / 2)
-        }
-
-        // Initial content (no fade needed on load)
-        updateContent(0);
-
-        // Arrow click handlers
-        leftArrow.addEventListener("click", () => {
-          let index = parseInt(textBox.dataset.pageIndex);
-          index = (index - 1 + pages.length) % pages.length;
-          textBox.dataset.pageIndex = index;
-          updateContent(index);
-        });
-
-        rightArrow.addEventListener("click", () => {
-          let index = parseInt(textBox.dataset.pageIndex);
-          index = (index + 1) % pages.length;
-          textBox.dataset.pageIndex = index;
-          updateContent(index);
-        });
-
-        // Image click to enlarge
-        img.addEventListener("click", () => {
-          enlargedImg.src = img.src; // Set enlarged image source
-          overlay.style.display = "flex"; // Show overlay
-        });
-
-        // Assemble the text box
-        content.appendChild(title);
-        content.appendChild(img);
-        content.appendChild(ul);
-        textBox.appendChild(leftArrow);
-        textBox.appendChild(content);
-        textBox.appendChild(rightArrow);
-        container.appendChild(textBox);
-      });
-    });
   </script>
 </body>
 </html>
