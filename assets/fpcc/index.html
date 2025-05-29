@@ -1,148 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>davem97.github.io</title>
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/global.css">
-
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-    /* Style page content */
-    .main {
-      margin-left: 330px;
-      /* Same as the width of the sidenav */
-      font-size: 22px;
-      /* Increased text to enable scrolling */
-      padding: 0px 10px;
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
     }
 
-    div.content-right {
-      position: relative;
-      left: 710px;
-      bottom: 465px;
-    }
-
-    ul li p {
-      font-size: 20px;
-    }
-
-    /* Page Layout */
-    .content {
-      margin-left: 180px;
-      /* Offset content to exclude sidebar */
-      display: flex;
-      justify-content: center;
-      /* Keeps it centered horizontally */
-      align-items: flex-start;
-      /* Moves items to the top */
-      height: 100vh;
-      /* Full viewport height */
-      padding-top: 100px;
-      /* Adjust this to move the text box down */
-    }
-
-    .text-box {
-      width: 550px;
-      height: 600px;
-      background: linear-gradient(145deg, #555, #333);
-      /* Dark metallic gradient */
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 18px;
-      position: relative;
-      text-align: center;
-      padding: 20px;
-      margin-top: -20px;
-      /* Moves it up by 20px; adjust as needed */
-      box-sizing: border-box;
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
-        /* Shadow for depth */
-        -4px -4px 10px rgba(255, 255, 255, 0.1);
-      /* Soft light reflection */
-    }
-
-    .title {
-      margin-top: 80px;
-      font-size: 24px;
-      font-weight: bold;
-      align-self: flex-start;
-      /* Moves the list to the left */
-    }
-
-    .memberList {
-      padding: 0;
-      margin-top: 10px;
-      /* Pushes the list down */
-      text-align: left;
-      /* Aligns text to the left */
-      align-self: flex-start;
-      /* Moves the list to the left */
-      width: 100%;
-      /* Ensures it spans full width */
-      padding-left: 25px;
-      /* Adds some left spacing inside the box */
-    }
-
-
-    .memberList li {
+    body {
       font-size: 16px;
-      margin: 8px 0;
-      /* Adds spacing between list items */
     }
 
-    /* Position the image inside the text box */
-    .text-box img {
-      position: absolute;
-      top: 20px;
-      /* Adjusted to be near the top */
-      left: 50%;
-      transform: translateX(-50%);
-      /* Center the image horizontally */
-      max-width: 80%;
-      /* Ensure the image fits inside the box */
-      height: auto;
-      /* Maintain aspect ratio */
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 64px;
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      /* Increase gap between boxes on small screens */
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+        /* Adjust the value as you like */
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="triangle"></div>
-  <div class="sidenav">
-    <a href="https://davem97.github.io/fpcc">
-      <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-    <a class="active" href="https://davem97.github.io/fpcc/assets/fpcc" rel="noopener noreferrer">Home</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/features" rel="noopener noreferrer">Features</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/changelog" rel="noopener noreferrer">Changelog</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/faq" rel="noopener noreferrer">FAQ</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/fpcc/contact" rel="noopener noreferrer">Contact</a><br>
-  </div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
 
-  <h1 class="page-title">
-    <span class="highlight">S</span>witchback
-    <span class="highlight">G</span>ames
-  </h1>
-
-  <div class="content">
-    <div class="text-box">
-      <div class="title">Description</div>
-      <img src="../images/asset2small.png" alt="Logo">
-
-      <ul class="memberList">
-        <li>Test</li>
-        <li>Test Test TestTest</li>
-        <li>Test Test Test Test Test Test TestTest</li>
-        <li>Hello test Hello test </li>
-        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello testHello test
-          Hello test Hello test</li>
-      </ul>
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <h3 class="w3-padding-64"><b>Switchback<br>Games</b></h3>
+    </div>
+    <div class="w3-bar-block sidebar-links">
+  <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
+  <a href="/fpcc/assets/westernguns/about" class="w3-bar-item w3-button w3-hover-white">About</a>
+  <a href="/fpcc/assets/westernguns/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+  <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+  <a href="/fpcc/assets/westernguns/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+</div>
+    
+  </nav>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-container" style="padding-top:64px">
+      <h1>Welcome</h1>
+      <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
     </div>
   </div>
 
-</body>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
+          <div class="w3-container">
+            <h3>Multiple Weapons</h3>
+            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
+              shotgun and sniper.
+              You can use the different features in the main scene to test the weapons and receive visual feedback for
+              proper testing purposes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
+          <div class="w3-container">
+            <h3>Recoil and Aiming System</h3>
+            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
+              recoil for both hipfire and aiming down sights,
+              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
+              hipfiring or aiming down sights.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
+          <div class="w3-container">
+            <h3>Ballistics</h3>
+            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
+              physics and gravity. There is no
+              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
+              customizable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+  </header>
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+  </script>
+</body>
 </html>
