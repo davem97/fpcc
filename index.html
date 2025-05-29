@@ -21,6 +21,19 @@
       font-size: 16px;
     }
 
+    .w3-col.equal-height {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .w3-light-grey {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Optional: balances inner spacing */
+    height: 100%;
+  }
+
     /* Only add top margin to the sidebar links on small screens (mobile + tablet) */
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -60,7 +73,7 @@
 
 <div class="w3-main" style="margin-left:300px">
   <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
-    <div class="w3-col m4 w3-margin-bottom">
+    <div class="w3-col m4 w3-margin-bottom equal-height">
       <div class="w3-light-grey">
         <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
         <div class="w3-container">
@@ -70,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div class="w3-col m4 w3-margin-bottom">
+    <div class="w3-col m4 w3-margin-bottom equal-height">
       <div class="w3-light-grey">
         <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
         <div class="w3-container">
@@ -80,7 +93,7 @@
         </div>
       </div>
     </div>
-    <div class="w3-col m4 w3-margin-bottom">
+    <div class="w3-col m4 w3-margin-bottom equal-height">
       <div class="w3-light-grey">
         <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
         <div class="w3-container">
