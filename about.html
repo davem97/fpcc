@@ -5,7 +5,7 @@
   <title>Sidebar Only</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="assets/css/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
     body,
@@ -21,18 +21,77 @@
       font-size: 16px;
     }
 
-    /* Only add top margin to the sidebar links on small screens (mobile + tablet) */
+    .custom-two-box-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      /* Adjust spacing between boxes */
+    }
+
+    .custom-two-box {
+      flex: 1 1 300px;
+      /* Flexible width with min size */
+      max-width: 400px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 64px;
-        /* or whatever spacing you want */
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      /* Increase vertical gap between stacked boxes */
+      .custom-two-box {
+        margin-bottom: 48px !important;
+      }
+
+      /* Disable flex on smaller screens for natural stacking */
+      .custom-two-box-row {
+        display: block !important;
+      }
+
+      /* Make boxes full width */
+      .custom-two-box {
+        flex: none !important;
+        width: 100% !important;
+        max-width: none !important;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+
+      /* Slightly smaller gap on very small screens */
+      .custom-two-box {
+        margin-bottom: 40px !important;
+      }
+    }
+
+    @media screen and (min-width: 993px) {
+
+      /* Move welcome container UP */
+      .w3-main>.w3-container.text-center {
+        margin-top: -30px;
+        /* adjust -30px to your liking */
+      }
+
+      /* Move the boxes container DOWN */
+      .w3-main>.w3-row-padding.custom-two-box-row {
+        margin-top: 30px;
+        /* adjust 30px to your liking */
       }
     }
   </style>
 </head>
 
 <body>
-
   <!-- Sidebar/menu -->
   <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
     style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
@@ -43,15 +102,50 @@
       <h3 class="w3-padding-64"><b>Switchback<br>Games</b></h3>
     </div>
     <div class="w3-bar-block sidebar-links">
-      <a href="https://davem97.github.io/fpcc/" onclick="w3_close()"
-        class="w3-bar-item w3-button w3-hover-white">Home</a>
-      <a href="https://davem97.github.io/fpcc/about" onclick="w3_close()"
-        class="w3-bar-item w3-button w3-hover-white">About</a>
-      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
-      <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+      <a href="/fpcc/" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/about" class="w3-bar-item w3-button w3-hover-white">About</a>
+      <a href="/fpcc/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+      <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
-
   </nav>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-container text-center" style="padding-top:64px">
+      <h1>Welcome</h1>
+      <p>This website contains all the relevant information and links to do with assets published on the Unity3D Asset
+        Store.</p>
+    </div>
+  </div>
+
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding custom-two-box-row" style="padding:64px 16px">
+
+      <div class="w3-light-grey custom-two-box w3-margin-bottom">
+        <a href="/fpcc/assets/fpcc">
+          <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" style="width:100%">
+        </a>
+        <div class="w3-container">
+          <h3>FPSCharController</h3>
+          <p>A custom and robust, easy-to-use first-person character controller aimed at improving
+            the same standard in-built Unity component with adjusted movement and features.</p>
+        </div>
+      </div>
+
+      <div class="w3-light-grey custom-two-box w3-margin-bottom">
+        <a href="/fpcc/assets/westernguns/">
+          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" style="width:100%">
+        </a>
+        <div class="w3-container">
+          <h3>Western Weapons System</h3>
+          <p>A weapon and ballistic system focusing on Wild West era weapons with features such as hipfire, aiming,
+            recoil,
+            recoil recovery and much more.
+          </p>
+        </div>
+      </div>
+
+    </div> <!-- closes w3-row-padding -->
+  </div> <!-- closes w3-main -->
+
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
