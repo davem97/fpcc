@@ -1,359 +1,290 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>davem97.github.io</title>
-    <link rel="stylesheet" href="../css/sidebar.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <style>
-        .main {
-            margin-left: 180px;
-            font-size: 22px;
-            padding: 0 10px;
-        }
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
 
-        .content {
-            margin-left: 180px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            padding-top: 120px;
-            gap: 50px;
-            width: calc(100% - 180px);
-            flex-wrap: wrap;
-        }
+    body {
+      font-size: 16px;
+    }
 
-        .text-box {
-            width: 467.5px;
-            /* Locked width */
-            height: 510px;
-            /* Locked height */
-            background: linear-gradient(145deg, #555, #333);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 18px;
-            position: relative;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            flex-shrink: 0;
-            /* Prevent shrinking */
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
-                -4px -4px 10px rgba(255, 255, 255, 0.1);
-        }
+    /* Style for the image container to position arrows */
+    .image-container {
+      position: relative;
+      width: 100%;
+    }
 
-        .text-box-content {
-            /* Add this to control title and memberList alignment */
-            width: 100%;
-            /* Ensure it spans the text-box width */
-            text-align: left;
-            /* Align title and list to the left */
-            padding-left: 50px;
-            /* Shift content slightly left (adjustable) */
-            transition: opacity 0.3s ease;
-            /* Fades opacity over 0.3 seconds */
-        }
+    .arrow-left,
+    .arrow-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
+      /* slightly larger than 24px */
+      font-weight: 600;
+      /* semi-bold look */
+      color: black;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      z-index: 1;
+      transition: color 0.2s ease;
+      outline: none;
+      /* remove focus outline on click */
+    }
 
-        .fade {
-            opacity: 0;
-            /* Briefly fades content out */
-        }
+    .arrow-left {
+      left: 10px;
+    }
 
-        .text-box-header {
-            position: absolute;
-            top: -45px;
-            /* Places header 40px above the text box */
-            left: 0;
-            width: 100%;
-            /* Matches text box width */
-            text-align: left;
-            color: rgb(0, 0, 0);
-            font-size: 28px;
-            padding-left: 30px;
-            /* Pushes text 20px to the right */
-            z-index: 5;
-            /* Ensures it’s above the text box but below overlay */
-        }
+    .arrow-right {
+      right: 10px;
+    }
 
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            /* Thick V shape */
+    .arrow-left:hover,
+    .arrow-right:hover,
+    .arrow-left:active,
+    .arrow-right:active {
+      color: lightgray;
+    }
 
-            color: rgb(255, 255, 255);
-            /* Default color */
-            border: none;
-            /* No border */
-            background: none;
-            /* No background or glow */
-            cursor: pointer;
-            padding: 0;
-            /* Minimal padding */
-            z-index: 10;
-        }
+    /* Ensure images remain responsive */
+    .feature-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
-        .left-arrow {
-            left: 8px;
-        }
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
 
-        .right-arrow {
-            right: 8px;
-        }
+      .w3-main {
+        margin-left: 0 !important;
+      }
 
-        .arrow:hover {
-            color: rgb(206, 183, 183);
-            /* Highlight on hover */
-        }
+      /* Increase gap between boxes on small screens */
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+        /* Adjust the value as you like */
+      }
+    }
 
+    /* Adjust arrow size for small screens */
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
 
-        /* Existing content styles */
-        .title {
-            margin-top: 130px;
-            /* Your updated value */
-            font-size: 24px;
-            font-weight: bold;
-            align-self: flex-start;
-            text-align: left;
-            /* Override inherited centering */
-            margin-left: 0;
-            /* Remove any default centering offset */
-        }
-
-        .memberList {
-            padding: 5px 60px 0 20px;
-            margin-top: 10px;
-            text-align: left;
-            align-self: flex-start;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .memberList li {
-            font-size: 16px;
-            margin: 8px 0;
-            overflow-wrap: break-word;
-            max-width: 100%;
-        }
-
-        /* Overlay for enlarged image */
-        .image-overlay {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            /* Dark semi-transparent background */
-            z-index: 100;
-            /* Above everything */
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Enlarged image */
-        .image-overlay img {
-            max-width: 90vw;
-            /* 90% of viewport width */
-            max-height: 90vh;
-            /* 90% of viewport height */
-            border-radius: 10px;
-            /* Optional: slight rounding */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            /* Optional: shadow */
-        }
-
-        /* Close button */
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 101;
-            /* Above image */
-        }
-
-        .close-btn:hover {
-            color: darkorange;
-            /* Matches your arrow hover */
-        }
-
-        /* Existing image style (make clickable) */
-        .text-box img {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            max-width: 60%;
-            height: auto;
-            cursor: pointer;
-            /* Indicates it’s clickable */
-        }
-    </style>
+      .arrow-left,
+      .arrow-right {
+        font-size: 20px;
+        /* Slightly smaller arrows for mobile */
+        padding: 6px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="triangle"></div>
-    <div class="sidenav">
-        <a href="https://davem97.github.io/fpcc">
-            <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-        <a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/features"
-            rel="noopener noreferrer">Features</a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog"
-            rel="noopener noreferrer">Changelog</a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
+
+    <div class="w3-padding-32 w3-hide-large"></div>
+
+    <div class="w3-container w3-center w3-hide-small w3-hide-medium">
+      <img src="assets/images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;"
+        class="w3-image">
+    </div>
+    <div class="w3-bar-block sidebar-links">
+      <a href="/fpcc/assets/westernguns" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/assets/westernguns/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
+      <a href="/fpcc/assets/westernguns/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+      <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
 
-    <h1 class="page-title">
-        <span class="highlight">S</span>witchback
-        <span class="highlight">G</span>ames
-    </h1>
+  </nav>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-container" style="padding-top:64px">
+      <h1>FPSCharController</h1>
+      <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
+    </div>
+  </div>
 
-    <div class="content" id="text-box-container"></div>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
+      <!-- Box 1 -->
+      <div class="w3-col m4 w3-margin-bottom" id="box1">
+        <div class="w3-light-grey">
+          <div class="image-container">
+            <img src="../images/asset2small.png" alt="featureOne" style="width:100%" class="feature-image">
+            <button class="arrow-left" onclick="changeContent('box1', -1)">←</button>
+            <button class="arrow-right" onclick="changeContent('box1', 1)">→</button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("text-box-container");
+          </div>
+          <div class="w3-container">
+            <h3 class="feature-title">Multiple Weapons</h3>
+            <p class="feature-text">Get right into the asset with 5+ weapons that can be immediately tested, including a
+              pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the
+              weapons and receive visual feedback for proper testing purposes.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Box 2 -->
+      <div class="w3-col m4 w3-margin-bottom" id="box2">
+        <div class="w3-light-grey">
+          <div class="image-container">
+            <img src="../images/asset2small.png" alt="featureTwo" style="width:100%" class="feature-image">
+            <button class="arrow-left" onclick="changeContent('box2', -1)">←</button>
+            <button class="arrow-right" onclick="changeContent('box2', 1)">→</button>
+          </div>
+          <div class="w3-container">
+            <h3 class="feature-title">Recoil and Aiming System</h3>
+            <p class="feature-text">The asset features a custom recoil system implemented to handle customizable
+              vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random
+              recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Box 3 -->
+      <div class="w3-col m4 w3-margin-bottom" id="box3">
+        <div class="w3-light-grey">
+          <div class="image-container">
+            <img src="../images/asset2small.png" alt="featureThree" style="width:100%" class="feature-image">
+            <button class="arrow-left" onclick="changeContent('box3', -1)">←</button>
+            <button class="arrow-right" onclick="changeContent('box3', 1)">→</button>
+          </div>
+          <div class="w3-container">
+            <h3 class="feature-title">Ballistics</h3>
+            <p class="feature-text">There are bullet ballistics present in this asset which include bullet velocity and
+              drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any
+              desired speed with every feature being fully customizable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            // Create overlay once, append to body
-            const overlay = document.createElement("div");
-            overlay.className = "image-overlay";
-            const enlargedImg = document.createElement("img");
-            const closeBtn = document.createElement("button");
-            closeBtn.className = "close-btn";
-            closeBtn.textContent = "✕"; // X symbol (U+2715)
-            overlay.appendChild(enlargedImg);
-            overlay.appendChild(closeBtn);
-            document.body.appendChild(overlay);
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+  </header>
 
-            // Close overlay when clicking X or outside image
-            closeBtn.addEventListener("click", () => {
-                overlay.style.display = "none";
-            });
-            overlay.addEventListener("click", (e) => {
-                if (e.target === overlay) overlay.style.display = "none"; // Close if clicking background
-            });
 
-            // Define unique pages
-            const leftPages = [
-                { title: "Left - Exploration", img: "../images/asset2.png", members: ["Discover new lands", "Adventure awaits", "Map the unknown"] },
-                { title: "Left - Combat", img: "../images/asset2small.png", members: ["Fast-paced action", "Skill-based fights", "Epic showdowns"] },
-                { title: "Left - Story", img: "../images/asset2small.png", members: ["Rich narrative", "Deep characters", "Twist and turns"] }
-            ];
-            const middlePages = [
-                { title: "Middle - Multiplayer", img: "../images/asset2small.png", members: ["Team up online", "Compete globally", "Friends or foes"] },
-                { title: "Middle - Customization", img: "../images/asset2small.png", members: ["Gear up", "Style your way", "Unique builds"] },
-                { title: "Middle - Challenges", img: "../images/asset2small.png", members: ["Daily quests", "Tough trials", "Earn rewards"] }
-            ];
-            const rightPages = [
-                { title: "Right - World", img: "../images/asset2small.png", members: ["Vast open plains", "Dynamic weather", "Living ecosystem"] },
-                { title: "Right - Weapons", img: "../images/asset2small.png", members: ["Gunslinger", "Sharpshooter", "Explosive fun"] },
-                { title: "Right - Lore", img: "../images/asset2small.png", members: ["Western tales", "Hidden secrets", "Legendary heroes"] }
-            ];
-            const allPages = [leftPages, middlePages, rightPages];
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
 
-            // Define unique headers for each text box
-            const headers = ["1. Explore the Unknown", "2. Engage in Battle", "3. Unravel the Tale"];
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
 
-            // Create text boxes
-            allPages.forEach((pages, boxIndex) => {
-                const textBox = document.createElement("div");
-                textBox.className = "text-box";
-                textBox.dataset.pageIndex = 0;
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
 
-                // Create header
-                const header = document.createElement("div");
-                header.className = "text-box-header";
-                header.textContent = headers[boxIndex]; // Assign unique header
-                textBox.appendChild(header); // Add header as a child of textBox
+    // Data for each box: images, titles, and texts
+    const boxContent = {
+      box1: {
+        images: [
+          "../images/asset2small.png",
+          "../images/asset2small.png",
+          "../images/asset2small.png"
+        ],
+        titles: [
+          "Multiple Weapons",
+          "Weapon Customization",
+          "Weapon Testing"
+        ],
+        texts: [
+          "Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.",
+          "Customize weapons with various attachments and skins to suit your gameplay style.",
+          "Test weapons in a dedicated environment with real-time feedback and analytics."
+        ],
+        currentIndex: 0
+      },
+      box2: {
+        images: [
+          "../images/asset2small.png",
+          "../images/asset2small.png",
+          "../images/asset2small.png"
+        ],
+        titles: [
+          "Recoil and Aiming System",
+          "Advanced Recoil Patterns",
+          "Aiming Mechanics"
+        ],
+        texts: [
+          "The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.",
+          "Explore advanced recoil patterns that add realism and challenge to each weapon.",
+          "Fine-tune aiming mechanics with adjustable sensitivity and ADS options."
+        ],
+        currentIndex: 0
+      },
+      box3: {
+        images: [
+          "../images/asset2small.png",
+          "../images/asset2small.png",
+          "../images/asset2small.png"
+        ],
+        titles: [
+          "Ballistics",
+          "Physics-Based Projectiles",
+          "Customizable Trajectories"
+        ],
+        texts: [
+          "There are bullet ballistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.",
+          "Experience realistic projectile motion influenced by environmental factors.",
+          "Adjust bullet trajectories to match your desired gameplay experience."
+        ],
+        currentIndex: 0
+      }
+    };
 
-                const content = document.createElement("div");
-                content.className = "text-box-content";
+    // Function to change content for a specific box
+    function changeContent(boxId, direction) {
+      const box = boxContent[boxId];
+      const totalItems = box.images.length;
 
-                const title = document.createElement("div");
-                title.className = "title";
+      // Update current index
+      box.currentIndex = (box.currentIndex + direction + totalItems) % totalItems;
 
-                const img = document.createElement("img");
+      // Get DOM elements
+      const image = document.querySelector(`#${boxId} .feature-image`);
+      const title = document.querySelector(`#${boxId} .feature-title`);
+      const text = document.querySelector(`#${boxId} .feature-text`);
 
-                const ul = document.createElement("ul");
-                ul.className = "memberList";
-
-                const leftArrow = document.createElement("button");
-                leftArrow.className = "arrow left-arrow";
-                leftArrow.textContent = "￩";
-
-                const rightArrow = document.createElement("button");
-                rightArrow.className = "arrow right-arrow";
-                rightArrow.textContent = "￫";
-
-                // Function to update content with fade effect
-                function updateContent(index) {
-                    const page = pages[index];
-                    content.classList.add("fade"); // Start fade out
-                    setTimeout(() => {
-                        // Update content after fade out
-                        title.textContent = page.title;
-                        img.src = page.img;
-                        img.alt = "Logo";
-                        ul.innerHTML = "";
-                        page.members.forEach(member => {
-                            const li = document.createElement("li");
-                            li.textContent = member;
-                            ul.appendChild(li);
-                        });
-                        content.classList.remove("fade"); // Fade back in
-                    }, 150); // Half the transition time (0.3s / 2)
-                }
-
-                // Initial content (no fade needed on load)
-                updateContent(0);
-
-                // Arrow click handlers
-                leftArrow.addEventListener("click", () => {
-                    let index = parseInt(textBox.dataset.pageIndex);
-                    index = (index - 1 + pages.length) % pages.length;
-                    textBox.dataset.pageIndex = index;
-                    updateContent(index);
-                });
-
-                rightArrow.addEventListener("click", () => {
-                    let index = parseInt(textBox.dataset.pageIndex);
-                    index = (index + 1) % pages.length;
-                    textBox.dataset.pageIndex = index;
-                    updateContent(index);
-                });
-
-                // Image click to enlarge
-                img.addEventListener("click", () => {
-                    enlargedImg.src = img.src; // Set enlarged image source
-                    overlay.style.display = "flex"; // Show overlay
-                });
-
-                // Assemble the text box
-                content.appendChild(title);
-                content.appendChild(img);
-                content.appendChild(ul);
-                textBox.appendChild(leftArrow);
-                textBox.appendChild(content);
-                textBox.appendChild(rightArrow);
-                container.appendChild(textBox);
-            });
-        });
-    </script>
+      // Update content
+      image.src = box.images[box.currentIndex];
+      image.alt = box.titles[box.currentIndex].toLowerCase().replace(/\s/g, '');
+      title.textContent = box.titles[box.currentIndex];
+      text.textContent = box.texts[box.currentIndex];
+    }
+  </script>
 </body>
 
 </html>
