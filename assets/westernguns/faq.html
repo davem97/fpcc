@@ -1,198 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>davem97.github.io</title>
-    <link rel="stylesheet" href="../css/sidebar.css">
-    <link rel="stylesheet" href="../css/global.css">
+    <title>Sidebar Only</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <style>
-        /* Style page content */
-        .main {
-            margin-left: 330px; /* Same as the width of the sidenav */
-            font-size: 22px; /* Increased text to enable scrolling */
-            padding: 0px 10px; 
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Poppins", sans-serif;
         }
 
-        div.content-right { 
-            position: relative; 
-            left: 710px; 
-            bottom: 465px;
+        body {
+            font-size: 16px;
         }
 
-        ul li p {
-            font-size: 20px;
+        @media screen and (max-width: 992px) {
+            .sidebar-links {
+                margin-top: 64px;
+            }
+
+            .w3-main {
+                margin-left: 0 !important;
+            }
+
+            /* Increase gap between boxes on small screens */
+            .w3-col.m4 {
+                margin-bottom: 48px !important;
+                /* Adjust the value as you like */
+            }
         }
 
-        /* Page Layout */
-        .content {
-            margin-left: 180px; /* Offset content to exclude sidebar */
-            display: flex;
-            justify-content: center; /* Keeps it centered horizontally */
-            align-items: flex-start; /* Moves items to the top */
-            height: 100vh; /* Full viewport height */
-            padding-top: 100px; /* Adjust this to move the text box down */
+        @media screen and (max-width: 600px) {
+            .w3-col.m4 {
+                margin-bottom: 40px !important;
+            }
         }
-
-        /* Adjust .text-box to use flex row for columns */
-/* Ensure .text-box stays centered */
-.text-box {
-    width: 1500px;
-    height: 600px;
-    background: linear-gradient(145deg, #555, #333);
-    border-radius: 20px;
-    display: block; /* Changed from flex to block to rely on .content centering */
-    color: white;
-    font-size: 18px;
-    position: relative;
-    text-align: center; /* For header, not columns */
-    padding: 20px;
-    margin-top: -20px;
-    box-sizing: border-box;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), -4px -4px 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Two-column layout */
-.faq-columns {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-    top: 20px; /* Offset to account for header and padding */
-}
-
-/* Left column */
-.left-column {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Right column */
-.right-column {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Original .title and .memberList styles */
-.title {
-    margin-top: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    align-self: flex-start;
-    color: white;
-}
-
-.memberList {
-    padding: 0;
-    margin-top: 10px;
-    text-align: left;
-    align-self: flex-start;
-    width: 100%;
-    padding-left: 25px;
-    max-width: 100%; /* Full column width */
-    color: rgb(226, 211, 211);
-}
-
-.memberList li {
-    font-size: 16px;
-    margin: 8px 0;
-}
-
-        .text-box-header {
-            position: absolute;
-            top: -90px; /* Places it 40px above the text-box, outside its bounds */
-            left: 25px; /* Aligns with the left edge of text-box */
-            color: rgb(0, 0, 0); /* Matches text-box text color */
-            font-size: 38px; /* Slightly larger for emphasis */
-            font-weight: bold;
-            /* To push right manually, adjust this: e.g., left: 20px; */
-        }
-
-        .vertical-line {
-            position: absolute;
-            left: 50%; /* Centers it horizontally */
-            transform: translateX(-50%); /* Adjusts for its own width */
-            width: 0.1px; /* Very thin line */
-            height: 80%; /* Shorter than full height (600px) */
-            background-color: white; /* White line */
-            top: 10%; /* Starts 10% from the top (60px) */
-            z-index: 1; /* Ensures it’s above content but below header if needed */
-        }
-
     </style>
 </head>
-<body> 
-    <div class="triangle"></div>
-    <div class="sidenav">
-        <a href="https://davem97.github.io/fpcc">
-            <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
-        <a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-        <a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
+
+<body>
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+        style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+            style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
+
+        <div class="w3-padding-32 w3-hide-large"></div>
+
+        <div class="w3-container w3-center w3-hide-small w3-hide-medium">
+            <img src="assets/images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;"
+                class="w3-image">
+        </div>
+        <div class="w3-bar-block sidebar-links">
+            <a href="/fpcc/assets/westernguns/" class="w3-bar-item w3-button w3-hover-white">Home</a>
+            <a href="/fpcc/assets/westernguns/about" class="w3-bar-item w3-button w3-hover-white">About</a>
+            <a href="/fpcc/assets/westernguns/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+            <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+            <a href="/fpcc/assets/westernguns/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+        </div>
+
+    </nav>
+    <div class="w3-main" style="margin-left:300px">
+        <div class="w3-container" style="padding-top:64px">
+            <h1>Welcome</h1>
+            <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
+        </div>
     </div>
 
-    <h1 class="page-title">
-        <span class="highlight">S</span>witchback 
-        <span class="highlight">G</span>ames
-    </h1>
-
-    <div class="content">
-        <div class="text-box">
-            <h2 class="text-box-header">FAQ</h2>
-            <div class="vertical-line"></div>
-            <div class="faq-columns">
-                <!-- Left Column (Questions 1-5) -->
-                <div class="left-column">
-                    <div class="title">Question 1 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test</li>
-                    </ul>
-                    <div class="title">Question 2 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 3 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 4 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test test Hello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test testHello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 5 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
-                </div>
-                <!-- Right Column (Questions 6-10) -->
-                <div class="right-column">
-                    <div class="title">Question 6 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test Hello test Hello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 7 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 8 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 9 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
-                    <div class="title">Question 10 test and test test test?</div>
-                    <ul class="memberList">
-                        <li>Hello testHello test Hello test Hello test Hello testHello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test Hello test test</li>
-                    </ul>
+    <<div class="w3-main" style="margin-left:300px">
+        <div class="w3-container" style="padding:64px 16px">
+            <div class="w3-display-container" style="min-height:300px;">
+                <div class="w3-card w3-light-grey w3-padding-32 w3-center w3-margin-auto" style="max-width:600px;">
+                    <h2>Feature Title</h2>
+                    <p>This is the description inside a single centered box. You can style this text however you like
+                        using W3.CSS utilities or inline styles.</p>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+
+        <!-- Top menu on small screens -->
+        <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+            <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+            <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+        </header>
+
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+            id="myOverlay"></div>
+
+        <script>
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+            }
+
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
+            }
+        </script>
 </body>
+
 </html>
