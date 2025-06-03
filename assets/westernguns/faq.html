@@ -30,16 +30,41 @@
                 margin-left: 0 !important;
             }
 
-            /* Increase gap between boxes on small screens */
-            .w3-col.m4 {
-                margin-bottom: 48px !important;
-                /* Adjust the value as you like */
-            }
         }
 
         @media screen and (max-width: 600px) {
-            .w3-col.m4 {
-                margin-bottom: 40px !important;
+            .w3-main {
+                margin-left: 0 !important;
+                /* Remove sidebar margin on mobile */
+                height: auto;
+                /* Allow height to adapt to content */
+            }
+
+            .w3-display-container {
+                height: auto;
+                /* Ensure container adapts to content */
+                min-height: 100vh;
+                /* Ensure at least full viewport height */
+                overflow-y: auto;
+                /* Enable vertical scrolling */
+            }
+
+            .w3-display-middle {
+                position: relative;
+                /* Override w3-display-middle's absolute positioning */
+                top: 0;
+                /* Reset top positioning */
+                transform: none;
+                /* Remove centering transform */
+                margin: 16px auto;
+                /* Center with auto margins and add top/bottom spacing */
+            }
+
+            .w3-card {
+                max-width: 90%;
+                /* Ensure box doesn't exceed viewport width */
+                min-height: auto;
+                /* Allow height to shrink if content is less */
             }
         }
     </style>
@@ -68,7 +93,7 @@
 
     </nav>
     <div class="w3-main" style="margin-left:300px; height: 100vh;">
-        <div class="w3-container w3-display-container" style="height: 100%;">
+        <div class="w3-container w3-display-container" style="height: 100%; overflow-y: auto;">
             <div class="w3-display-middle w3-card w3-light-grey w3-padding-32 w3-center"
                 style="max-width:1200px; width: 90%; min-height:540px;">
                 <h2>Feature Title</h2>
