@@ -34,6 +34,8 @@
 
     /* In your <style> block */
 
+    /* In your <style> block */
+
     .changelog-btn {
       width: 100%;
       background-color: #444;
@@ -47,7 +49,8 @@
       outline: none;
       font-weight: bold;
       user-select: none;
-      /* Removed margin-bottom: 2px as per your change */
+      margin-bottom: 1px;
+      /* Add a small margin-bottom for spacing between buttons */
     }
 
     .changelog-content {
@@ -55,12 +58,11 @@
       overflow: hidden;
       background-color: #f1f1f1;
       padding: 0 16px;
+      /* No padding at the bottom when closed */
       font-size: 14px;
       opacity: 0;
-      margin-top: -1px;
-      /* This helps align it tightly with the button when open */
+      /* Removed margin-top: -1px; */
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* margin-bottom is already removed from here in the previous step, which is correct */
     }
 
     .changelog-btn::before {
@@ -74,10 +76,10 @@
     }
 
     .changelog-content.open {
-      padding: 0 16px 12px 16px;
-      /* Only padding at bottom */
+      padding: 12px 16px 12px 16px;
+      /* Added padding to top and bottom when open */
       opacity: 1;
-      margin-top: 0;
+      /* Removed margin-top: 0; */
     }
 
     @media screen and (max-width: 992px) {
