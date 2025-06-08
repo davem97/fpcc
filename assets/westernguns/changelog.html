@@ -26,57 +26,49 @@
       background-attachment: fixed;
     }
 
-    /* Make container max width and center */
     #changelog-container {
-      max-width: 700px;
-      margin: auto;
-    }
+    max-width: 700px;
+    margin: auto;
+  }
 
-    /* Style the buttons */
-    .changelog-btn {
-      width: 100%;
-      background-color: #444;
-      color: white;
-      border: none;
-      text-align: left;
-      padding: 12px 16px;
-      font-size: 16px;
-      cursor: pointer;
-      outline: none;
-      font-weight: bold;
-    }
+  .changelog-btn {
+    width: 100%;
+    background-color: #444;
+    color: white;
+    border: none;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    user-select: none;
+  }
 
-    /* Plus/minus sign spacing */
-    .changelog-btn::before {
-      content: '+ ';
-      display: inline-block;
-      width: 20px;
-    }
+  .changelog-btn::before {
+    content: '+ ';
+    display: inline-block;
+    width: 20px;
+  }
 
-    .changelog-btn.active::before {
-      content: '− ';
-    }
+  .changelog-btn.active::before {
+    content: '− ';
+  }
 
-    /* Content box - hidden by default */
-    .changelog-content {
-      max-height: 0;
-      overflow: hidden;
-      background-color: #f1f1f1;
-      transition: max-height 0.3s ease;
-      padding: 0 16px;
-      /* padding left/right */
-      margin-bottom: 8px;
-      /* small space below */
-      font-size: 14px;
-    }
+  .changelog-content {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 0 16px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    height: 0;          /* Start hidden */
+    transition: height 0.3s ease;
+  }
 
-    /* When active, max height expands */
-    .changelog-content.active {
-      max-height: 200px;
-      /* or something big enough for content */
-      padding-top: 12px;
-      padding-bottom: 12px;
-    }
+  .changelog-content.open {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -173,16 +165,27 @@
     document.querySelectorAll('.changelog-btn').forEach(button => {
     button.addEventListener('click', () => {
       const content = button.nextElementSibling;
-      const isActive = content.classList.contains('active');
+      const isOpen = content.style.height && content.style.height !== '0px';
 
-      if (isActive) {
-        // Hide
-        content.classList.remove('active');
+      if (isOpen) {
+        // Close smoothly
+        content.style.height = content.scrollHeight + 'px'; // set current height to start transition
+        requestAnimationFrame(() => {
+          content.style.height = '0px';
+        });
         button.classList.remove('active');
+        content.classList.remove('open');
       } else {
-        // Show
-        content.classList.add('active');
+        // Open smoothly
+        content.style.height = content.scrollHeight + 'px';
         button.classList.add('active');
+        content.classList.add('open');
+
+        // After transition ends, remove fixed height so it can grow/shrink naturally if needed
+        content.addEventListener('transitionend', function handler() {
+          content.style.height = 'auto';
+          content.removeEventListener('transitionend', handler);
+        });
       }
     });
   });
