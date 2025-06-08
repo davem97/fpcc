@@ -129,9 +129,15 @@
     </div>
   </nav>
 
-  <div class="w3-main w3-display-container" style="margin-left:300px; height: 100vh;">
-    <div id="changelog-container" class="w3-display-left" style="margin-left:20px;">
+  <div class="w3-main w3-display-container" style="margin-left:300px; height: 100vh; position: relative;">
+    <div id="main-content" style="position: relative; padding-top: 100px;">
       <h1>FPSCharController</h1>
+      <!-- Other static content can go here -->
+      <p>This is some static content that should not move.</p>
+    </div>
+    <div id="changelog-container" class="w3-display-left"
+      style="position: absolute; top: 120px; left: 20px; width: 90%; max-height: 70vh; overflow-y: auto;">
+      <!-- Changelog entries will be appended here -->
     </div>
   </div>
 
