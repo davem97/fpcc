@@ -35,20 +35,19 @@
     /* In your <style> block */
 
     .changelog-btn {
-      width: 100%;
-      background-color: #444;
-      color: white;
-      border: none;
-      text-align: left;
-      padding: 12px 16px;
-      font-size: 16px;
-      cursor: pointer;
-      outline: none;
-      font-weight: bold;
-      user-select: none;
-      margin-bottom: 2px;
-      /* This creates the gap BETWEEN *closed* sections */
-    }
+  width: 100%;
+  background-color: #444;
+  color: white;
+  border: 1px solid #666; /* Subtle gray border */
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  user-select: none;
+  /* Removed margin-bottom: 2px as per your change */
+}
 
     /* New CSS rule: Remove margin-bottom when the button is active (i.e., its content is open) */
     .changelog-btn.active {
