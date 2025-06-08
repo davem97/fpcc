@@ -34,6 +34,7 @@
 
     /* In your <style> block */
 
+    /* Updated styles */
     .changelog-btn {
       width: 100%;
       background-color: #444;
@@ -47,12 +48,14 @@
       font-weight: bold;
       user-select: none;
       margin-bottom: 2px;
-      /* This creates the gap BETWEEN *closed* sections */
+      /* Gap between closed sections */
+      position: relative;
+      /* Ensure button stays in place */
     }
 
-    /* New CSS rule: Remove margin-bottom when the button is active (i.e., its content is open) */
     .changelog-btn.active {
       margin-bottom: 0;
+      /* Remove gap when content is open */
     }
 
     .changelog-content {
@@ -62,9 +65,16 @@
       padding: 0 16px;
       font-size: 14px;
       opacity: 0;
-      /* This helps align it tightly with the button when open */
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* margin-bottom is already removed from here in the previous step, which is correct */
+      /* Removed margin-top: -1px */
+    }
+
+    .changelog-content.open {
+      padding: 12px 16px;
+      /* Adjust padding for content */
+      opacity: 1;
+      max-height: 500px;
+      /* Adjust as needed or keep dynamic in JS */
     }
 
     .changelog-btn::before {
@@ -75,13 +85,6 @@
 
     .changelog-btn.active::before {
       content: '− ';
-    }
-
-    .changelog-content.open {
-      padding: 0 16px 12px 16px;
-      /* Only padding at bottom */
-      opacity: 1;
-      margin-top: 0;
     }
 
     @media screen and (max-width: 992px) {
