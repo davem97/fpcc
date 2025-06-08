@@ -58,13 +58,14 @@
       max-height: 0;
       overflow: hidden;
       background-color: #f1f1f1;
-      padding: 0 16px;
+      padding: 12px 16px;
+      /* Apply full padding here, always */
       font-size: 14px;
       opacity: 0;
       margin-top: -1px;
-      /* This helps align it tightly with the button when open */
-      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* margin-bottom is already removed from here in the previous step, which is correct */
+      /* IMPORTANT: Remove 'padding' from the transition property */
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+      /* margin-bottom is still removed here, which is correct */
     }
 
     .changelog-btn::before {
@@ -77,9 +78,10 @@
       content: '− ';
     }
 
+    /* You no longer need to define padding specifically for .changelog-content.open */
     .changelog-content.open {
       /* max-height will be set dynamically by JavaScript */
-      padding: 12px 16px;
+      /* padding is now handled by the .changelog-content rule above */
       opacity: 1;
       margin-top: 0;
     }
