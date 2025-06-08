@@ -158,31 +158,22 @@
     }
 
     document.querySelectorAll('.changelog-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const isOpen = content.classList.contains('open');
-
-        // Close all other open sections (optional)
-        document.querySelectorAll('.changelog-content.open').forEach(openContent => {
-          if (openContent !== content) {
-            openContent.style.maxHeight = null; // Reset max-height
-            openContent.classList.remove('open');
-            openContent.previousElementSibling.classList.remove('active');
-          }
-        });
-
-        // Toggle the clicked section
-        if (isOpen) {
-          content.style.maxHeight = null; // Reset max-height for closing
-          content.classList.remove('open');
-          button.classList.remove('active');
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px"; // Set to actual scroll height
-          content.classList.add('open');
-          button.classList.add('active');
-        }
-      });
-    });
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    
+    // Toggle the clicked section
+    if (isOpen) {
+      content.style.maxHeight = null; // Reset max-height for closing
+      content.classList.remove('open');
+      button.classList.remove('active');
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px"; // Set to actual scroll height
+      content.classList.add('open');
+      button.classList.add('active');
+    }
+  });
+});
   </script>
 </body>
 
