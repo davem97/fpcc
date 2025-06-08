@@ -45,14 +45,14 @@
       font-weight: bold;
       user-select: none;
       margin-bottom: 2px;
-      /* Gap between closed sections */
+      /* Keep this for spacing between closed sections */
       position: relative;
-      /* Keeps button in normal flow but allows z-index if needed */
     }
 
+    /* Remove margin-bottom from .active state */
     .changelog-btn.active {
-      margin-bottom: 0;
-      /* Remove gap when content is open */
+      margin-bottom: 2px;
+      /* Maintain the same margin-bottom even when active */
     }
 
     .changelog-content {
@@ -60,10 +60,13 @@
       overflow: hidden;
       background-color: #f1f1f1;
       padding: 0 16px;
+      /* Initial padding */
       font-size: 14px;
       opacity: 0;
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
       /* Removed margin-top: -1px */
+      margin-bottom: 2px;
+      /* Add a margin-bottom here to match spacing when content is closed */
     }
 
     .changelog-content.open {
@@ -71,6 +74,8 @@
       /* Consistent padding when open */
       opacity: 1;
       /* max-height is set dynamically in JavaScript, so no need to hardcode here */
+      margin-bottom: 2px;
+      /* Keep consistent margin-bottom when open */
     }
 
     .changelog-btn::before {
