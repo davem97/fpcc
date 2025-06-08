@@ -69,13 +69,11 @@
     }
 
     .changelog-content.open {
-      max-height: 500px;
-      /* adjust as needed */
+      /* max-height will be set dynamically by JavaScript */
       padding: 12px 16px;
       opacity: 1;
       margin-top: 0;
     }
-
 
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -167,14 +165,22 @@
         // Close all other open sections (optional)
         document.querySelectorAll('.changelog-content.open').forEach(openContent => {
           if (openContent !== content) {
+            openContent.style.maxHeight = null; // Reset max-height
             openContent.classList.remove('open');
             openContent.previousElementSibling.classList.remove('active');
           }
         });
 
         // Toggle the clicked section
-        content.classList.toggle('open');
-        button.classList.toggle('active');
+        if (isOpen) {
+          content.style.maxHeight = null; // Reset max-height for closing
+          content.classList.remove('open');
+          button.classList.remove('active');
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px"; // Set to actual scroll height
+          content.classList.add('open');
+          button.classList.add('active');
+        }
       });
     });
   </script>
