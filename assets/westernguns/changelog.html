@@ -1,169 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>davem97.github.io</title>
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/global.css">
-<style>
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
 
-/* Style page content */
-.main {
-margin-left: 330px; /* Same as the width of the sidenav */
-font-size: 22px; /* Increased text to enable scrolling */
-padding: 0px 10px;
+    body {
+      font-size: 16px;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .changelog-entry {
+  margin-bottom: 16px;
 }
 
-h2 { 
-  display: block;
-  font-size: 0.8em;
-  font-weight: bold;
-  margin-bottom: 0em;
-}
-p { 
-  display: block;
-  font-size: 0.8em;
-  margin-top: 0em;
-  margin-bottom: 1em;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-#changelog-container {
-  margin-top: 70px; /* Adjust this value to move everything lower */
-}
-
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: calc(100% - 180px); /* Same width as .content */
-  margin-left: 180px; /* Align with sidebar */
-  border: none;
+.changelog-button {
+  width: 100%;
   text-align: left;
-  outline: none;
-  font-size: 15px;
-  box-sizing: border-box; /* Ensures padding does not affect width */
 }
 
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-  width: calc(100% - 180px); /* Match collapsible button width */
-  margin-left: 180px; /* Align with sidebar */
-  box-sizing: border-box;
-  border: 1px solid #ccc; /* Optional */
-}
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
 
+      .w3-main {
+        margin-left: 0 !important;
+      }
 
-.collapsible:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
-  color: rgb(255, 255, 255);
-  float: right;
-  margin-left: 5px;
-}
+      /* Increase gap between boxes on small screens */
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+        /* Adjust the value as you like */
+      }
+    }
 
-/* Change .active to .expanded in the collapsible section */
-.expanded:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-
-h2 {
-  text-align: left; /* Centers the text itself */
-    width: calc(100% - 180px); /* Excludes the sidebar width */
-    margin-left: 200px; /* Shifts it right to start after the sidebar */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 48px; /* Adjust size as needed */
-    position: relative;
-  top: 40px; /* Adjust the value to move it further down */
-}
-
-</style>
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="triangle"></div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
 
-  <div class="sidenav">
-    <a href="https://davem97.github.io/fpcc">
-        <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-<a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
-<a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
-<a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-<a href="https://davem97.github.io/fpcc/assets/westernguns/contact" rel="noopener noreferrer">Contact</a><br>
+    <div class="w3-padding-32 w3-hide-large"></div>
+
+    <div class="w3-container w3-center w3-hide-small w3-hide-medium">
+      <img src="../images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;"
+        class="w3-image">
+    </div>
+
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <hr style="border: 1px solid white; width: 80%; margin: 32px auto;">
+    </div>
+    
+    <div class="w3-bar-block sidebar-links">
+      <a href="/fpcc/assets/westernguns" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/assets/westernguns/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
+      <a href="/fpcc/assets/westernguns/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+      <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+
+  </nav>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-container" style="padding:64px 16px">
+  <h2 class="w3-xxlarge">Changelog</h2>
+  <div id="changelog-container" class="w3-container"></div>
 </div>
 
-<h1 class="page-title">
-  <span class="highlight">S</span>witchback 
-  <span class="highlight">G</span>ames
-</h1>
+  </div>
 
-<h2> Changelog </h2>
+  <div class="w3-main" style="margin-left:300px">
+    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
+          <div class="w3-container">
+            <h3>Multiple Weapons</h3>
+            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
+              shotgun and sniper.
+              You can use the different features in the main scene to test the weapons and receive visual feedback for
+              proper testing purposes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
+          <div class="w3-container">
+            <h3>Recoil and Aiming System</h3>
+            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
+              recoil for both hipfire and aiming down sights,
+              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
+              hipfiring or aiming down sights.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
+          <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
+          <div class="w3-container">
+            <h3>Ballistics</h3>
+            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
+              physics and gravity. There is no
+              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
+              customizable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div id="changelog-container"></div>
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+  </header>
 
-<script>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    <script>
   document.addEventListener("DOMContentLoaded", function () {
-  const container = document.getElementById("changelog-container");
+    const container = document.getElementById("changelog-container");
+    container.innerHTML = "<p>Loading changelog...</p>";
 
-  // Optional: Show loading message
-  container.innerHTML = "<p>Loading changelog...</p>";
+    fetch("updates.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to load updates.json");
+        return response.json();
+      })
+      .then(updates => {
+        container.innerHTML = "";
 
-  // Fetch the JSON data
-  fetch("updates.json")
-    .then(response => {
-      if (!response.ok) throw new Error("Failed to load updates.json");
-      return response.json();
-    })
-    .then(updates => {
-      // Clear loading message
-      container.innerHTML = "";
+        updates.forEach(update => {
+          const wrapper = document.createElement("div");
+          wrapper.className = "changelog-entry";
 
-      // Generate collapsibles
-      updates.forEach(update => {
-        const button = document.createElement("button");
-        button.className = "collapsible";
-        button.textContent = update.version;
+          const button = document.createElement("button");
+          button.className = "w3-button w3-dark-grey w3-block changelog-button";
+          button.innerHTML = `+ ${update.version}`;
 
-        const content = document.createElement("div");
-        content.className = "content";
-        content.innerHTML = `<p>${update.details}</p>`;
+          const content = document.createElement("div");
+          content.className = "w3-hide w3-light-grey w3-panel";
+          content.innerHTML = `<p>${update.details}</p>`;
 
-        container.appendChild(button);
-        container.appendChild(content);
+          button.addEventListener("click", function () {
+            const isShown = content.classList.contains("w3-show");
+            content.classList.toggle("w3-show", !isShown);
+            content.classList.toggle("w3-hide", isShown);
+            button.innerHTML = (isShown ? "+" : "−") + ` ${update.version}`;
+          });
+
+          wrapper.appendChild(button);
+          wrapper.appendChild(content);
+          container.appendChild(wrapper);
+        });
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        container.innerHTML = "<p>Failed to load changelog.</p>";
       });
-
-      // Single event listener with delegation
-      container.addEventListener("click", function (e) {
-        const button = e.target.closest(".collapsible");
-        if (!button) return; // Ignore clicks outside buttons
-
-        const content = button.nextElementSibling;
-        button.classList.toggle("expanded");
-
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      container.innerHTML = "<p>Failed to load changelog. Please try again later.</p>";
-    });
-});
+  });
+</script>
 
   </script>
-
 </body>
 
 </html>
