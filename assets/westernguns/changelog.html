@@ -9,99 +9,102 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
     body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      font-family: "Poppins", sans-serif;
-    }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Poppins", sans-serif;
+}
 
-    body {
-      font-size: 16px;
-      background-image: url('../images/project_background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+body {
+  font-size: 16px;
+  background-image: url('../images/project_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-    #changelog-container {
-      max-width: 800px;
-      width: 90%;
-      margin-left: 20px;
-    }
+#changelog-container {
+  max-width: 800px;
+  width: 90%;
+  margin-left: 20px;
+}
 
-    .changelog-btn {
-      width: 100%;
-      background-color: #444;
-      color: white;
-      border: none;
-      text-align: left;
-      padding: 12px 16px;
-      font-size: 16px;
-      cursor: pointer;
-      outline: none;
-      font-weight: bold;
-      user-select: none;
-      margin-bottom: 2px;
-      /* Gap between closed sections */
-      position: relative;
-      /* Keeps button in normal flow but allows z-index if needed */
-    }
+/* NEW: Style for the wrapper containing each button and its content */
+.changelog-item {
+  margin-bottom: 2px; /* This creates the consistent gap between each changelog entry */
+}
 
-    .changelog-btn.active {
-      margin-bottom: 0;
-      /* Remove gap when content is open */
-    }
+.changelog-btn {
+  width: 100%;
+  background-color: #444;
+  color: white;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  user-select: none;
+  /* REMOVED: margin-bottom from here. It's now on .changelog-item */
+  position: relative;
+}
 
-    .changelog-content {
-      max-height: 0;
-      overflow: hidden;
-      background-color: #f1f1f1;
-      padding: 0 16px;
-      font-size: 14px;
-      opacity: 0;
-      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* Removed margin-top: -1px */
-    }
+/* No need for .changelog-btn.active to change margin-bottom */
+.changelog-btn.active {
+  /* This rule is now redundant as .changelog-btn no longer has margin-bottom */
+  /* You can technically remove this .changelog-btn.active CSS block unless you have other active-specific styles */
+}
 
-    .changelog-content.open {
-      padding: 12px 16px;
-      /* Consistent padding when open */
-      opacity: 1;
-      /* max-height is set dynamically in JavaScript, so no need to hardcode here */
-    }
+.changelog-content {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 0 16px;
+  font-size: 14px;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+  /* REMOVED: any margin-top for compensation */
+}
 
-    .changelog-btn::before {
-      content: '+ ';
-      display: inline-block;
-      width: 20px;
-    }
+.changelog-content.open {
+  padding: 12px 16px;
+  opacity: 1;
+  /* REMOVED: any margin-top for compensation */
+}
 
-    .changelog-btn.active::before {
-      content: '− ';
-    }
+.changelog-btn::before {
+  content: '+ ';
+  display: inline-block;
+  width: 20px;
+}
 
-    @media screen and (max-width: 992px) {
-      .sidebar-links {
-        margin-top: 16px;
-      }
+.changelog-btn.active::before {
+  content: '− ';
+}
 
-      .w3-main {
-        margin-left: 0 !important;
-      }
+@media screen and (max-width: 992px) {
+  .sidebar-links {
+    margin-top: 16px;
+  }
 
-      .w3-col.m4 {
-        margin-bottom: 48px !important;
-      }
-    }
+  .w3-main {
+    margin-left: 0 !important;
+  }
 
-    @media screen and (max-width: 600px) {
-      .w3-col.m4 {
-        margin-bottom: 40px !important;
-      }
-    }
+  .w3-col.m4 {
+    margin-bottom: 48px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .w3-col.m4 {
+    margin-bottom: 40px !important;
+  }
+}
   </style>
 </head>
 
@@ -164,50 +167,57 @@
       { version: "1.2.0", title: "New Feature X", description: "Introduced exciting new feature X with improved Y and Z." }
     ];
 
-    document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded
-      const changelogContainer = document.getElementById('changelog-container');
+    document.addEventListener('DOMContentLoaded', () => {
+  const changelogContainer = document.getElementById('changelog-container');
 
-      changelogEntries.forEach(entry => {
-        // Create the button element
-        const button = document.createElement('button');
-        button.classList.add('changelog-btn');
-        button.textContent = `Version ${entry.version}: ${entry.title}`; // Or just entry.version
+  changelogEntries.forEach(entry => {
+    // 1. Create a wrapper for each changelog item
+    const changelogItem = document.createElement('div');
+    changelogItem.classList.add('changelog-item'); // Add a class for styling
 
-        // Create the content div
-        const contentDiv = document.createElement('div');
-        contentDiv.classList.add('changelog-content');
+    // Create the button element
+    const button = document.createElement('button');
+    button.classList.add('changelog-btn');
+    button.textContent = `Version ${entry.version}: ${entry.title}`;
 
-        // Create the paragraph for the description
-        const p = document.createElement('p');
-        p.textContent = entry.description;
+    // Create the content div
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('changelog-content');
 
-        // Append paragraph to content div
-        contentDiv.appendChild(p);
+    // Create the paragraph for the description
+    const p = document.createElement('p');
+    p.textContent = entry.description;
 
-        // Append button and content div to the container
-        changelogContainer.appendChild(button);
-        changelogContainer.appendChild(contentDiv);
-      });
+    // Append paragraph to content div
+    contentDiv.appendChild(p);
 
-      // Now, attach the event listeners to ALL buttons (including the newly created ones)
-      // This part of your existing JS logic is still needed, just ensure it runs AFTER creation
-      document.querySelectorAll('.changelog-btn').forEach(button => {
-        button.addEventListener('click', () => {
-          const content = button.nextElementSibling;
-          const isOpen = content.classList.contains('open');
+    // 2. Append button and content div to the NEW wrapper
+    changelogItem.appendChild(button);
+    changelogItem.appendChild(contentDiv);
 
-          if (isOpen) {
-            content.style.maxHeight = null;
-            content.classList.remove('open');
-            button.classList.remove('active');
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            content.classList.add('open');
-            button.classList.add('active');
-          }
-        });
-      });
+    // 3. Append the wrapper to the main container
+    changelogContainer.appendChild(changelogItem);
+  });
+
+  // Now, attach the event listeners to ALL buttons (including the newly created ones)
+  document.querySelectorAll('.changelog-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      // The content is now a sibling of the button within the .changelog-item wrapper
+      const content = button.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+
+      if (isOpen) {
+        content.style.maxHeight = null;
+        content.classList.remove('open');
+        button.classList.remove('active');
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.classList.add('open');
+        button.classList.add('active');
+      }
     });
+  });
+});
   </script>
 </body>
 
