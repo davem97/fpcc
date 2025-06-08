@@ -60,13 +60,16 @@
       padding: 0 16px;
       margin-bottom: 8px;
       font-size: 14px;
-      max-height: 0; /* Start hidden */
-      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
     }
 
     .changelog-content.open {
-      max-height: 500px; /* Large enough for most content; adjust if needed */
-      padding: 12px 16px; /* Consistent padding */
+      transform: scaleY(1);
+      opacity: 1;
+      padding: 12px 16px;
     }
 
     @media screen and (max-width: 992px) {
@@ -152,7 +155,7 @@
         const content = button.nextElementSibling;
         const isOpen = content.classList.contains('open');
 
-        // Close all other open sections
+        // Close all other open sections (optional)
         document.querySelectorAll('.changelog-content.open').forEach(openContent => {
           if (openContent !== content) {
             openContent.classList.remove('open');
