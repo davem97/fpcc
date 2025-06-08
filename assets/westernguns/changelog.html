@@ -129,25 +129,19 @@
 
   </nav>
   <div class="w3-main" style="margin-left:300px">
-    <div id="changelog-container" style="max-width: 700px; margin: auto;">
-      <button class="w3-button w3-block w3-dark-grey changelog-btn" style="text-align:left;">
-        + Version 1.0.0
-      </button>
-      <div class="w3-hide w3-light-grey w3-panel changelog-content">
+    <div id="changelog-container">
+      <button class="changelog-btn">Version 1.0.0</button>
+      <div class="changelog-content">
         <p>Initial release with core features.</p>
       </div>
 
-      <button class="w3-button w3-block w3-dark-grey changelog-btn" style="text-align:left;">
-        + Version 1.0.1
-      </button>
-      <div class="w3-hide w3-light-grey w3-panel changelog-content">
+      <button class="changelog-btn">Version 1.0.1</button>
+      <div class="changelog-content">
         <p>Bug fixes and performance improvements.</p>
       </div>
 
-      <button class="w3-button w3-block w3-dark-grey changelog-btn" style="text-align:left;">
-        + Version 1.1.0
-      </button>
-      <div class="w3-hide w3-light-grey w3-panel changelog-content">
+      <button class="changelog-btn">Version 1.1.0</button>
+      <div class="changelog-content">
         <p>Added new user interface elements and updated gameplay.</p>
       </div>
     </div>
@@ -177,18 +171,21 @@
     }
 
     document.querySelectorAll('.changelog-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const isShown = content.classList.contains('w3-show');
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const isActive = content.classList.contains('active');
 
-        // Toggle content visibility
-        content.classList.toggle('w3-show', !isShown);
-        content.classList.toggle('w3-hide', isShown);
-
-        // Toggle + / − sign
-        button.textContent = (isShown ? '+ ' : '− ') + button.textContent.slice(2);
-      });
+      if (isActive) {
+        // Hide
+        content.classList.remove('active');
+        button.classList.remove('active');
+      } else {
+        // Show
+        content.classList.add('active');
+        button.classList.add('active');
+      }
     });
+  });
   </script>
 
   </script>
