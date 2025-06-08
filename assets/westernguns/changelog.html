@@ -130,18 +130,6 @@
 
   <div class="w3-main" style="margin-left:300px">
     <div id="changelog-container">
-      <button class="changelog-btn">Version 1.0.0</button>
-      <div class="changelog-content">
-        <p>Initial release with core features.</p>
-      </div>
-      <button class="changelog-btn">Version 1.0.1</button>
-      <div class="changelog-content">
-        <p>Bug fixes and performance improvements.</p>
-      </div>
-      <button class="changelog-btn">Version 1.1.0</button>
-      <div class="changelog-content">
-        <p>Added new user interface elements and updated gameplay.</p>
-      </div>
     </div>
   </div>
 
@@ -166,21 +154,57 @@
       document.getElementById("myOverlay").style.display = "none";
     }
 
-    document.querySelectorAll('.changelog-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const isOpen = content.classList.contains('open');
+    // Your changelog data as a JavaScript array of objects
+    const changelogEntries = [
+      { version: "1.0.0", title: "Initial Release", description: "Initial release with core features." },
+      { version: "1.0.1", title: "Bug Fixes & Performance", description: "Bug fixes and performance improvements." },
+      { version: "1.1.0", title: "UI Elements & Gameplay Update", description: "Added new user interface elements and updated gameplay." },
+      // Add more entries here as needed!
+      { version: "1.2.0", title: "New Feature X", description: "Introduced exciting new feature X with improved Y and Z." }
+    ];
 
-        // Toggle the clicked section
-        if (isOpen) {
-          content.style.maxHeight = null; // Reset max-height for closing
-          content.classList.remove('open');
-          button.classList.remove('active');
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px"; // Set to actual scroll height
-          content.classList.add('open');
-          button.classList.add('active');
-        }
+    document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded
+      const changelogContainer = document.getElementById('changelog-container');
+
+      changelogEntries.forEach(entry => {
+        // Create the button element
+        const button = document.createElement('button');
+        button.classList.add('changelog-btn');
+        button.textContent = `Version ${entry.version}: ${entry.title}`; // Or just entry.version
+
+        // Create the content div
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('changelog-content');
+
+        // Create the paragraph for the description
+        const p = document.createElement('p');
+        p.textContent = entry.description;
+
+        // Append paragraph to content div
+        contentDiv.appendChild(p);
+
+        // Append button and content div to the container
+        changelogContainer.appendChild(button);
+        changelogContainer.appendChild(contentDiv);
+      });
+
+      // Now, attach the event listeners to ALL buttons (including the newly created ones)
+      // This part of your existing JS logic is still needed, just ensure it runs AFTER creation
+      document.querySelectorAll('.changelog-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const isOpen = content.classList.contains('open');
+
+          if (isOpen) {
+            content.style.maxHeight = null;
+            content.classList.remove('open');
+            button.classList.remove('active');
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('open');
+            button.classList.add('active');
+          }
+        });
       });
     });
   </script>
