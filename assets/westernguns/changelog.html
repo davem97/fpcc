@@ -27,56 +27,54 @@
     }
 
     #changelog-container {
-      margin-top: 70px;
-      font-family: Arial, sans-serif;
-    }
+  margin-top: 70px;
+  font-family: Arial, sans-serif;
+}
 
-    .collapsible {
-      background-color: #777;
-      color: white;
-      cursor: pointer;
-      padding: 18px;
-      width: calc(100% - 180px);
-      margin-left: 180px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-      box-sizing: border-box;
-      transition: background-color 0.3s ease;
-    }
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: calc(100% - 180px);
+  margin-left: 180px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
 
-    .collapsible:hover,
-    .collapsible.active {
-      background-color: #555;
-    }
+.collapsible:hover,
+.collapsible.active {
+  background-color: #555;
+}
 
-    .collapsible:after {
-      content: '\02795';
-      /* Plus */
-      font-size: 13px;
-      float: right;
-      margin-left: 5px;
-    }
+.collapsible:after {
+  content: '\02795'; /* Plus */
+  font-size: 13px;
+  float: right;
+  margin-left: 5px;
+}
 
-    .collapsible.active:after {
-      content: '\2796';
-      /* Minus */
-    }
+.collapsible.active:after {
+  content: '\2796'; /* Minus */
+}
 
-    .content {
-      padding: 0 18px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-      background-color: #f1f1f1;
-      width: calc(100% - 180px);
-      margin-left: 180px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      font-size: 0.85em;
-      margin-bottom: 12px;
-    }
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #f1f1f1;
+  width: calc(100% - 180px);
+  margin-left: 180px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 0.85em;
+  margin-bottom: 12px;
+}
 
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -129,27 +127,30 @@
 
   </nav>
   <div class="w3-main" style="margin-left:300px">
-    <div class="w3-container" style="padding-top:64px">
-      <h1>FPSCharController</h1>
-      <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
-    </div>
-
-    <!-- ✅ Changelog goes here -->
-    <div id="changelog-container">
-      <button class="collapsible">Version 1.2.0 - New Features</button>
-      <div class="content">
-        <p>– Added new recoil system</p>
-        <p>– Improved sniper scope handling</p>
-      </div>
-
-      <button class="collapsible">Version 1.1.0 - Gameplay Updates</button>
-      <div class="content">
-        <p>– Fixed slide bugs</p>
-        <p>– Added AI support</p>
-      </div>
-    </div>
+  <div id="changelog-container" style="max-width: 700px; margin: auto;">
+  <button class="w3-button w3-block w3-dark-grey changelog-btn" style="text-align:left;">
+    + Version 1.0.0
+  </button>
+  <div class="w3-hide w3-light-grey w3-panel changelog-content">
+    <p>Initial release with core features.</p>
   </div>
 
+  <button class="w3-button w3-block w3-dark-grey changelog-btn" style="text-align:left;">
+    + Version 1.0.1
+  </button>
+  <div class="w3-hide w3-light-grey w3-panel changelog-content">
+    <p>Bug fixes and performance improvements.</p>
+  </div>
+
+  <button class="w3-button w3-block w3-dark-grey changelog-btn" style="text-align:left;">
+    + Version 1.1.0
+  </button>
+  <div class="w3-hide w3-light-grey w3-panel changelog-content">
+    <p>Added new user interface elements and updated gameplay.</p>
+  </div>
+</div>
+
+</div>
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
@@ -172,47 +173,20 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
-    document.addEventListener("DOMContentLoaded", function () {
-      const container = document.getElementById("changelog-container");
-      container.innerHTML = "<p>Loading changelog...</p>";
+    
+    document.querySelectorAll('.changelog-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const isShown = content.classList.contains('w3-show');
 
-      fetch("updates.json")
-        .then(response => {
-          if (!response.ok) throw new Error("Failed to load updates.json");
-          return response.json();
-        })
-        .then(updates => {
-          container.innerHTML = "";
+      // Toggle content visibility
+      content.classList.toggle('w3-show', !isShown);
+      content.classList.toggle('w3-hide', isShown);
 
-          updates.forEach(update => {
-            const wrapper = document.createElement("div");
-            wrapper.className = "changelog-entry";
-
-            const button = document.createElement("button");
-            button.className = "w3-button w3-dark-grey w3-block changelog-button";
-            button.innerHTML = `+ ${update.version}`;
-
-            const content = document.createElement("div");
-            content.className = "w3-hide w3-light-grey w3-panel";
-            content.innerHTML = `<p>${update.details}</p>`;
-
-            button.addEventListener("click", function () {
-              const isShown = content.classList.contains("w3-show");
-              content.classList.toggle("w3-show", !isShown);
-              content.classList.toggle("w3-hide", isShown);
-              button.innerHTML = (isShown ? "+" : "−") + ` ${update.version}`;
-            });
-
-            wrapper.appendChild(button);
-            wrapper.appendChild(content);
-            container.appendChild(wrapper);
-          });
-        })
-        .catch(error => {
-          console.error("Error:", error);
-          container.innerHTML = "<p>Failed to load changelog.</p>";
-        });
+      // Toggle + / − sign
+      button.textContent = (isShown ? '+ ' : '− ') + button.textContent.slice(2);
     });
+  });
   </script>
 
   </script>
