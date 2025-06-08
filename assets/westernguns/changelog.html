@@ -27,13 +27,28 @@
     }
 
     .changelog-entry {
-      margin-bottom: 16px;
+      margin-bottom: 4px;
+      /* Reduce gap */
     }
 
     .changelog-button {
-      width: 100%;
-      text-align: left;
+      margin-bottom: 0;
+      /* Remove extra spacing */
+      border-radius: 0;
+      /* Optional: remove rounding to glue them */
     }
+
+    .changelog-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .changelog-content.open {
+      max-height: 500px;
+      /* adjust depending on expected content height */
+    }
+
 
     @media screen and (max-width: 992px) {
       .sidebar-links {
