@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Sidebar Only</title>
   <meta charset="UTF-8">
@@ -27,48 +26,48 @@
     }
 
     #changelog-container {
-    max-width: 700px;
-    margin: auto;
-  }
+      max-width: 700px;
+      margin: auto;
+    }
 
-  .changelog-btn {
-    width: 100%;
-    background-color: #444;
-    color: white;
-    border: none;
-    text-align: left;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    font-weight: bold;
-    user-select: none;
-  }
+    .changelog-btn {
+      width: 100%;
+      background-color: #444;
+      color: white;
+      border: none;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      font-weight: bold;
+      user-select: none;
+    }
 
-  .changelog-btn::before {
-    content: '+ ';
-    display: inline-block;
-    width: 20px;
-  }
+    .changelog-btn::before {
+      content: '+ ';
+      display: inline-block;
+      width: 20px;
+    }
 
-  .changelog-btn.active::before {
-    content: '− ';
-  }
+    .changelog-btn.active::before {
+      content: '− ';
+    }
 
-  .changelog-content {
-    overflow: hidden;
-    background-color: #f1f1f1;
-    padding: 0 16px;
-    margin-bottom: 8px;
-    font-size: 14px;
-    height: 0;          /* Start hidden */
-    transition: height 0.3s ease;
-  }
+    .changelog-content {
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 0 16px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      max-height: 0; /* Start hidden */
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    }
 
-  .changelog-content.open {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
+    .changelog-content.open {
+      max-height: 500px; /* Large enough for most content; adjust if needed */
+      padding: 12px 16px; /* Consistent padding */
+    }
 
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -79,10 +78,8 @@
         margin-left: 0 !important;
       }
 
-      /* Increase gap between boxes on small screens */
       .w3-col.m4 {
         margin-bottom: 48px !important;
-        /* Adjust the value as you like */
       }
     }
 
@@ -93,63 +90,51 @@
     }
   </style>
 </head>
-
 <body>
   <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
-    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
-      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
-
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
     <div class="w3-padding-32 w3-hide-large"></div>
-
     <div class="w3-container w3-center w3-hide-small w3-hide-medium">
       <img src="../images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;" class="w3-image">
     </div>
-
     <div class="w3-container w3-hide-small w3-hide-medium">
       <hr style="border: 1px solid white; width: 80%; margin: 32px auto;">
     </div>
-
     <div class="w3-bar-block sidebar-links">
       <a href="/fpcc/assets/westernguns" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="/fpcc/assets/westernguns/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
       <a href="/fpcc/assets/westernguns/changelog" class="w3-bar-item w3-button w3-hover-white">Changelog</a>
-      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a>
       <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
-
   </nav>
+
   <div class="w3-main" style="margin-left:300px">
     <div id="changelog-container">
       <button class="changelog-btn">Version 1.0.0</button>
       <div class="changelog-content">
         <p>Initial release with core features.</p>
       </div>
-
       <button class="changelog-btn">Version 1.0.1</button>
       <div class="changelog-content">
         <p>Bug fixes and performance improvements.</p>
       </div>
-
       <button class="changelog-btn">Version 1.1.0</button>
       <div class="changelog-content">
         <p>Added new user interface elements and updated gameplay.</p>
       </div>
     </div>
-
   </div>
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
     <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
-    <span>Switchback Games</span> <!-- <<< REMOVE THIS LINE -->
+    <span>Switchback Games</span>
   </header>
 
-
   <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
-    id="myOverlay"></div>
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
   <script>
     function w3_open() {
@@ -163,35 +148,23 @@
     }
 
     document.querySelectorAll('.changelog-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const content = button.nextElementSibling;
-      const isOpen = content.style.height && content.style.height !== '0px';
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const isOpen = content.classList.contains('open');
 
-      if (isOpen) {
-        // Close smoothly
-        content.style.height = content.scrollHeight + 'px'; // set current height to start transition
-        requestAnimationFrame(() => {
-          content.style.height = '0px';
+        // Close all other open sections
+        document.querySelectorAll('.changelog-content.open').forEach(openContent => {
+          if (openContent !== content) {
+            openContent.classList.remove('open');
+            openContent.previousElementSibling.classList.remove('active');
+          }
         });
-        button.classList.remove('active');
-        content.classList.remove('open');
-      } else {
-        // Open smoothly
-        content.style.height = content.scrollHeight + 'px';
-        button.classList.add('active');
-        content.classList.add('open');
 
-        // After transition ends, remove fixed height so it can grow/shrink naturally if needed
-        content.addEventListener('transitionend', function handler() {
-          content.style.height = 'auto';
-          content.removeEventListener('transitionend', handler);
-        });
-      }
+        // Toggle the clicked section
+        content.classList.toggle('open');
+        button.classList.toggle('active');
+      });
     });
-  });
-  </script>
-
   </script>
 </body>
-
 </html>
