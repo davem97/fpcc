@@ -56,17 +56,17 @@
     }
 
     .changelog-content {
-      max-height: 0;
-      overflow: hidden;
+      display: none;
+      padding: 0 16px 12px 16px;
+      /* consistent padding for visible */
       background-color: #f1f1f1;
-      padding: 0 16px;
       font-size: 14px;
-      opacity: 0;
-      margin-top: -1px;
-      /* This helps align it tightly with the button when open */
-      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* margin-bottom is already removed from here in the previous step, which is correct */
     }
+
+    .changelog-content.open {
+      display: block;
+    }
+
 
     .changelog-btn::before {
       content: '+ ';
@@ -76,13 +76,6 @@
 
     .changelog-btn.active::before {
       content: '− ';
-    }
-
-    .changelog-content.open {
-      padding: 0 16px 12px 16px;
-      /* Only padding at bottom */
-      opacity: 1;
-      margin-top: 0;
     }
 
     @media screen and (max-width: 992px) {
@@ -134,7 +127,6 @@
       <h1>FPSCharController</h1>
     </div>
   </div>
-
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
@@ -199,14 +191,15 @@
           const isOpen = content.classList.contains('open');
 
           if (isOpen) {
-            content.style.maxHeight = null;
+            content.style.display = 'none';
             content.classList.remove('open');
             button.classList.remove('active');
           } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.display = 'block';
             content.classList.add('open');
             button.classList.add('active');
           }
+
         });
       });
     });
