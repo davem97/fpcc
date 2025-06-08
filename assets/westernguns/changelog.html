@@ -43,7 +43,7 @@
       outline: none;
       font-weight: bold;
       user-select: none;
-      margin-bottom: 15px; /* Add a tiny gap below each button */
+      margin-bottom: 2px; /* Add a tiny gap below each button */
     }
 
     .changelog-btn::before {
@@ -65,7 +65,7 @@
       opacity: 0;
       margin-top: -1px;
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      margin-bottom: 2px; /* Add a tiny gap below the content when it's open */
+      margin-bottom: 0px; /* Add a tiny gap below the content when it's open */
     }
 
     .changelog-content.open {
@@ -161,7 +161,7 @@
   button.addEventListener('click', () => {
     const content = button.nextElementSibling;
     const isOpen = content.classList.contains('open');
-
+    
     // Toggle the clicked section
     if (isOpen) {
       content.style.maxHeight = null; // Reset max-height for closing
