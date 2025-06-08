@@ -58,14 +58,11 @@
     .changelog-content {
       max-height: 0;
       overflow: hidden;
-      background-color: #f1f1f1;
       padding: 0 16px;
-      font-size: 14px;
+      /* no vertical padding when closed */
       opacity: 0;
       margin-top: -1px;
-      /* This helps align it tightly with the button when open */
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* margin-bottom is already removed from here in the previous step, which is correct */
     }
 
     .changelog-btn::before {
@@ -78,9 +75,12 @@
       content: '− ';
     }
 
+
     .changelog-content.open {
+      max-height: 200px;
+      /* or large enough for your content, or dynamically set in JS */
       padding: 0 16px 12px 16px;
-      /* Only padding at bottom */
+      /* add bottom padding only when open */
       opacity: 1;
       margin-top: 0;
     }
