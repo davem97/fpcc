@@ -32,8 +32,6 @@
       margin-left: 20px;
     }
 
-    /* In your <style> block */
-
     .changelog-btn {
       width: 100%;
       background-color: #444;
@@ -47,12 +45,14 @@
       font-weight: bold;
       user-select: none;
       margin-bottom: 2px;
-      /* This creates the gap BETWEEN *closed* sections */
+      /* Gap between closed sections */
+      position: relative;
+      /* Keeps button in normal flow but allows z-index if needed */
     }
 
-    /* New CSS rule: Remove margin-bottom when the button is active (i.e., its content is open) */
     .changelog-btn.active {
       margin-bottom: 0;
+      /* Remove gap when content is open */
     }
 
     .changelog-content {
@@ -62,10 +62,15 @@
       padding: 0 16px;
       font-size: 14px;
       opacity: 0;
-      margin-top: -1px;
-      /* This helps align it tightly with the button when open */
       transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-      /* margin-bottom is already removed from here in the previous step, which is correct */
+      /* Removed margin-top: -1px */
+    }
+
+    .changelog-content.open {
+      padding: 12px 16px;
+      /* Consistent padding when open */
+      opacity: 1;
+      /* max-height is set dynamically in JavaScript, so no need to hardcode here */
     }
 
     .changelog-btn::before {
@@ -76,13 +81,6 @@
 
     .changelog-btn.active::before {
       content: '− ';
-    }
-
-    .changelog-content.open {
-      padding: 0 16px 12px 16px;
-      /* Only padding at bottom */
-      opacity: 1;
-      margin-top: 0;
     }
 
     @media screen and (max-width: 992px) {
@@ -166,45 +164,46 @@
       { version: "1.2.0", title: "New Feature X", description: "Introduced exciting new feature X with improved Y and Z." }
     ];
 
-    document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
       const changelogContainer = document.getElementById('changelog-container');
 
       changelogEntries.forEach(entry => {
-        // Create the button element
         const button = document.createElement('button');
         button.classList.add('changelog-btn');
-        button.textContent = `Version ${entry.version}: ${entry.title}`; // Or just entry.version
+        button.textContent = `Version ${entry.version}: ${entry.title}`;
 
-        // Create the content div
         const contentDiv = document.createElement('div');
         contentDiv.classList.add('changelog-content');
 
-        // Create the paragraph for the description
         const p = document.createElement('p');
         p.textContent = entry.description;
 
-        // Append paragraph to content div
         contentDiv.appendChild(p);
-
-        // Append button and content div to the container
         changelogContainer.appendChild(button);
         changelogContainer.appendChild(contentDiv);
       });
 
-      // Now, attach the event listeners to ALL buttons (including the newly created ones)
-      // This part of your existing JS logic is still needed, just ensure it runs AFTER creation
       document.querySelectorAll('.changelog-btn').forEach(button => {
         button.addEventListener('click', () => {
           const content = button.nextElementSibling;
           const isOpen = content.classList.contains('open');
 
+          // Close all other open sections to avoid multiple open contents
+          document.querySelectorAll('.changelog-content.open').forEach(openContent => {
+            if (openContent !== content) {
+              openContent.classList.remove('open');
+              openContent.style.maxHeight = null;
+              openContent.previousElementSibling.classList.remove('active');
+            }
+          });
+
           if (isOpen) {
-            content.style.maxHeight = null;
             content.classList.remove('open');
+            content.style.maxHeight = null;
             button.classList.remove('active');
           } else {
-            content.style.maxHeight = content.scrollHeight + "px";
             content.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + 'px'; // Dynamic height
             button.classList.add('active');
           }
         });
