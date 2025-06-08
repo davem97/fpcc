@@ -43,7 +43,7 @@
       outline: none;
       font-weight: bold;
       user-select: none;
-      margin-bottom: 2px; /* Add a tiny gap below each button */
+      margin-bottom: 15px; /* Add a tiny gap below each button */
     }
 
     .changelog-btn::before {
@@ -161,7 +161,7 @@
   button.addEventListener('click', () => {
     const content = button.nextElementSibling;
     const isOpen = content.classList.contains('open');
-    
+
     // Toggle the clicked section
     if (isOpen) {
       content.style.maxHeight = null; // Reset max-height for closing
