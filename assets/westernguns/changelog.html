@@ -9,107 +9,99 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
     body,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Poppins", sans-serif;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
 
-body {
-  font-size: 16px;
-  background-image: url('../images/project_background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+    body {
+      font-size: 16px;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
 
-#changelog-container {
-  max-width: 800px;
-  width: 90%;
-  margin-left: 20px;
-}
+    #changelog-container {
+      max-width: 800px;
+      width: 90%;
+      margin-left: 20px;
+    }
 
-.changelog-btn {
-  width: 100%;
-  background-color: #444;
-  color: white;
-  border: none;
-  text-align: left;
-  padding: 12px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  outline: none;
-  font-weight: bold;
-  user-select: none;
-  margin-bottom: 2px;
-  /* Default gap between closed sections */
-  position: relative;
-}
+    .changelog-btn {
+      width: 100%;
+      background-color: #444;
+      color: white;
+      border: none;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      font-weight: bold;
+      user-select: none;
+      margin-bottom: 2px;
+      /* Gap between closed sections */
+      position: relative;
+      /* Keeps button in normal flow but allows z-index if needed */
+    }
 
-.changelog-btn.active {
-  margin-bottom: 0;
-  /* Retained as per your desired visual, BUT we will compensate below */
-}
+    .changelog-btn.active {
+      margin-bottom: 0;
+      /* Remove gap when content is open */
+    }
 
-.changelog-content {
-  max-height: 0;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 0 16px;
-  /* Initial padding */
-  font-size: 14px;
-  opacity: 0;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-  /* Add this margin-top here, it will be animated by the transition property on max-height */
-  /* margin-top: -1px; (removed from your original code, this is not needed) */
-}
+    .changelog-content {
+      max-height: 0;
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 0 16px;
+      font-size: 14px;
+      opacity: 0;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+      /* Removed margin-top: -1px */
+    }
 
-.changelog-content.open {
-  padding: 12px 16px;
-  /* Consistent padding when open */
-  opacity: 1;
-  /*
-   * CRITICAL FIX: Add a margin-top to the content when it's open.
-   * This 2px margin-top exactly compensates for the 2px of `margin-bottom` that the
-   * `.changelog-btn.active` class removes from the button above it.
-   * This ensures the button's top edge remains in its fixed position.
-   */
-  margin-top: 2px;
-}
+    .changelog-content.open {
+      padding: 12px 16px;
+      /* Consistent padding when open */
+      opacity: 1;
+      /* max-height is set dynamically in JavaScript, so no need to hardcode here */
+    }
 
+    .changelog-btn::before {
+      content: '+ ';
+      display: inline-block;
+      width: 20px;
+    }
 
-.changelog-btn::before {
-  content: '+ ';
-  display: inline-block;
-  width: 20px;
-}
+    .changelog-btn.active::before {
+      content: '− ';
+    }
 
-.changelog-btn.active::before {
-  content: '− ';
-}
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
 
-@media screen and (max-width: 992px) {
-  .sidebar-links {
-    margin-top: 16px;
-  }
+      .w3-main {
+        margin-left: 0 !important;
+      }
 
-  .w3-main {
-    margin-left: 0 !important;
-  }
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+      }
+    }
 
-  .w3-col.m4 {
-    margin-bottom: 48px !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .w3-col.m4 {
-    margin-bottom: 40px !important;
-  }
-}
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
+    }
   </style>
 </head>
 
