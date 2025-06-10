@@ -46,28 +46,26 @@
 
         @media screen and (max-width: 992px) {
             .sidebar-links {
-                margin-top: 64px;
+                margin-top: 8px;
+                /* Reduced from 64px for minimal gap below Close Menu */
             }
 
             nav.w3-sidebar#mySidebar {
-        width: 200px !important;
-        /* Narrower width for mobile */
-        left: 0;
-        /* Ensure it stays positioned at the left edge */
-      }
+                width: 200px !important;
+                left: 0;
+            }
 
             .w3-main {
                 margin-left: 0 !important;
             }
 
-            .mobile-shift {
+            .w3-card {
                 transform: translateY(30px);
+                /* Moved from .mobile-shift to .w3-card */
             }
 
-            /* Increase gap between boxes on small screens */
             .w3-col.m4 {
                 margin-bottom: 48px !important;
-                /* Adjust the value as you like */
             }
         }
 
@@ -110,7 +108,7 @@
 
     <div class="w3-main" style="margin-left:300px; min-height: 100vh;">
         <div class="w3-container w3-center w3-display-container w3-padding-64">
-            <div class="w3-card w3-light-grey w3-padding-32 mobile-shift"
+            <div class="w3-card w3-light-grey w3-padding-32"
                 style="max-width:1200px; width: 90%; min-height:540px; margin:auto;">
                 <h2>FAQ</h2><br>
                 <!-- FAQ Section -->
