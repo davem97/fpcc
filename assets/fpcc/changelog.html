@@ -1,183 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>davem97.github.io</title>
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/global.css">
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-    /* Style page content */
-    .main {
-      margin-left: 330px;
-      /* Same as the width of the sidenav */
-      font-size: 22px;
-      /* Increased text to enable scrolling */
-      padding: 0px 10px;
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
     }
 
-    h2 {
-      display: block;
-      font-size: 0.8em;
-      font-weight: bold;
-      margin-bottom: 0em;
+    body {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      position: relative;
+      /* Required for ::before positioning */
+      z-index: 0;
+      /* Ensure content stays above the background */
+      margin: 0;
+      padding: 0;
     }
 
-    p {
-      display: block;
-      font-size: 0.8em;
-      margin-top: 0em;
-      margin-bottom: 1em;
-    }
-
-    .active,
-    .collapsible:hover {
-      background-color: #555;
+    /* Background image using a fixed pseudo-element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      /* Push behind all content */
     }
 
     #changelog-container {
-      margin-top: 70px;
-      /* Adjust this value to move everything lower */
+      max-width: 800px;
+      width: 90%;
+      margin-left: 20px;
     }
 
-    .collapsible {
-      background-color: #777;
+    /* In your <style> block */
+
+    .changelog-btn {
+      width: 100%;
+      background-color: #444;
       color: white;
-      cursor: pointer;
-      padding: 18px;
-      width: calc(100% - 180px);
-      /* Same width as .content */
-      margin-left: 180px;
-      /* Align with sidebar */
-      border: none;
+      border: 1px solid #666;
+      /* Subtle gray border */
       text-align: left;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
       outline: none;
-      font-size: 15px;
-      box-sizing: border-box;
-      /* Ensures padding does not affect width */
+      font-weight: bold;
+      user-select: none;
+      /* Removed margin-bottom: 2px as per your change */
     }
 
-    .content {
-      padding: 0 18px;
+    .changelog-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.2s ease-out;
       background-color: #f1f1f1;
-      width: calc(100% - 180px);
-      /* Match collapsible button width */
-      margin-left: 180px;
-      /* Align with sidebar */
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      /* Optional */
+      padding: 0 16px;
+      font-size: 14px;
+      opacity: 0;
+      margin-top: -1px;
+      /* This helps align it tightly with the button when open */
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+      /* margin-bottom is already removed from here in the previous step, which is correct */
     }
 
-
-    .collapsible:after {
-      content: '\02795';
-      /* Unicode character for "plus" sign (+) */
-      font-size: 13px;
-      color: rgb(255, 255, 255);
-      float: right;
-      margin-left: 5px;
+    .changelog-btn::before {
+      content: '+ ';
+      display: inline-block;
+      width: 20px;
     }
 
-    /* Change .active to .expanded in the collapsible section */
-    .expanded:after {
-      content: "\2796";
-      /* Unicode character for "minus" sign (-) */
+    .changelog-btn.active::before {
+      content: '− ';
     }
 
-    h2 {
-      text-align: left;
-      /* Centers the text itself */
-      width: calc(100% - 180px);
-      /* Excludes the sidebar width */
-      margin-left: 200px;
-      /* Shifts it right to start after the sidebar */
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 48px;
-      /* Adjust size as needed */
-      position: relative;
-      top: 40px;
-      /* Adjust the value to move it further down */
+    .changelog-content.open {
+      padding: 0 16px 12px 16px;
+      /* Only padding at bottom */
+      opacity: 1;
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="triangle"></div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
+    <div class="w3-padding-32 w3-hide-large"></div>
+    <div class="w3-container w3-center w3-hide-small w3-hide-medium">
+      <img src="../images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;" class="w3-image">
+    </div>
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <hr style="border: 1px solid white; width: 80%; margin: 32px auto;">
+    </div>
+    <div class="w3-bar-block sidebar-links">
+      <a href="/fpcc/assets/westernguns" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/assets/westernguns/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
+      <a href="/fpcc/assets/westernguns/changelog" class="w3-bar-item w3-button w3-hover-white">Changelog</a>
+      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a>
+      <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+  </nav>
 
-  <div class="w3-bar-block sidebar-links">
-    <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
-    <a href="/fpcc/assets/changelog" class="w3-bar-item w3-button w3-hover-white">Changelog</a>
-    <a href="/fpcc/assets/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
-    <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+  <div class="w3-main w3-display-container" style="margin-left:300px; height: 100vh;">
+    <div id="changelog-container" class="w3-display-left" style="margin-left:20px;">
+      <h1>FPSCharController</h1>
+    </div>
   </div>
 
-  <h1 class="page-title">
-    <span class="highlight">S</span>witchback
-    <span class="highlight">G</span>ames
-  </h1>
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Switchback Games</span>
+  </header>
 
-  <h2> Changelog </h2>
-
-  <div id="changelog-container"></div>
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const container = document.getElementById("changelog-container");
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
 
-      // Optional: Show loading message
-      container.innerHTML = "<p>Loading changelog...</p>";
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
 
-      // Fetch the JSON data
-      fetch("updates.json")
-        .then(response => {
-          if (!response.ok) throw new Error("Failed to load updates.json");
-          return response.json();
-        })
-        .then(updates => {
-          // Clear loading message
-          container.innerHTML = "";
+    // Your changelog data as a JavaScript array of objects
+    const changelogEntries = [
+      { version: "1.0.0", title: "Initial Release", description: "Initial release with core features." },
+      { version: "1.0.1", title: "Bug Fixes & Performance", description: "Bug fixes and performance improvements." },
+      { version: "1.1.0", title: "UI Elements & Gameplay Update", description: "Added new user interface elements and updated gameplay." },
+      // Add more entries here as needed!
+      { version: "1.2.0", title: "New Feature X", description: "Introduced exciting new feature X with improved Y and Z." }
+    ];
 
-          // Generate collapsibles
-          updates.forEach(update => {
-            const button = document.createElement("button");
-            button.className = "collapsible";
-            button.textContent = update.version;
+    document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded
+      const changelogContainer = document.getElementById('changelog-container');
 
-            const content = document.createElement("div");
-            content.className = "content";
-            content.innerHTML = `<p>${update.details}</p>`;
+      changelogEntries.forEach(entry => {
+        // Create the button element
+        const button = document.createElement('button');
+        button.classList.add('changelog-btn');
+        button.textContent = `Version ${entry.version}: ${entry.title}`; // Or just entry.version
 
-            container.appendChild(button);
-            container.appendChild(content);
-          });
+        // Create the content div
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('changelog-content');
 
-          // Single event listener with delegation
-          container.addEventListener("click", function (e) {
-            const button = e.target.closest(".collapsible");
-            if (!button) return; // Ignore clicks outside buttons
+        // Create the paragraph for the description
+        const p = document.createElement('p');
+        p.textContent = entry.description;
 
-            const content = button.nextElementSibling;
-            button.classList.toggle("expanded");
+        // Append paragraph to content div
+        contentDiv.appendChild(p);
 
-            if (content.style.maxHeight) {
-              content.style.maxHeight = null;
-            } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-            }
-          });
-        })
-        .catch(error => {
-          console.error("Error:", error);
-          container.innerHTML = "<p>Failed to load changelog. Please try again later.</p>";
+        // Append button and content div to the container
+        changelogContainer.appendChild(button);
+        changelogContainer.appendChild(contentDiv);
+      });
+
+      // Now, attach the event listeners to ALL buttons (including the newly created ones)
+      // This part of your existing JS logic is still needed, just ensure it runs AFTER creation
+      document.querySelectorAll('.changelog-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const isOpen = content.classList.contains('open');
+
+          if (isOpen) {
+            content.style.maxHeight = null;
+            content.classList.remove('open');
+            button.classList.remove('active');
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('open');
+            button.classList.add('active');
+          }
         });
+      });
     });
-
   </script>
-
 </body>
 
 </html>

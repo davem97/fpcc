@@ -18,13 +18,31 @@
         }
 
         body {
-            font-size: 16px;
-            background-image: url('../images/project_background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      position: relative;
+      /* Required for ::before positioning */
+      z-index: 0;
+      /* Ensure content stays above the background */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Background image using a fixed pseudo-element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      /* Push behind all content */
+    }
 
         /* Style for the image container to position arrows */
         .image-container {
