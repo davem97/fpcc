@@ -1,124 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>davem97.github.io</title>
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/global.css">
+  <title>Contact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-    /* Style page content */
-    .main {
-      margin-left: 330px;
-      /* Same as the width of the sidenav */
-      font-size: 22px;
-      /* Increased text to enable scrolling */
-      padding: 0px 10px;
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
     }
 
-    /* Style inputs with type="text", select elements and textareas */
+    body {
+      font-size: 16px;
+      background-image: url('assets/images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
     input[type=text],
     input[type=email],
-    select,
     textarea {
-      width: 100%;
-      /* Full width */
-      padding: 12px;
-      /* Some padding */
-      border: 1px solid #ccc;
-      /* Gray border */
-      border-radius: 4px;
-      /* Rounded borders */
-      box-sizing: border-box;
-      /* Make sure that padding and width stays in place */
-      margin-top: 6px;
-      /* Add a top margin */
-      margin-bottom: 16px;
-      /* Bottom margin */
-      resize: vertical
-        /* Allow the user to vertically resize the textarea (not horizontally) */
+      resize: vertical;
     }
 
-    /* Style the submit button with a specific background color etc */
-    input[type=submit] {
-      background-color: #04AA6D;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center
-    }
-
-    /* When moving the mouse over the submit button, add a darker green color */
-    input[type=submit]:hover {
-      background-color: #45a049;
-    }
-
-    .container {
-      border-radius: 0.25rem;
-      border-width: 1px;
-      border-style: solid;
-      /* Add this line */
-      border-color: black;
-      background-color: #f2f2f2;
-      margin-top: 100px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-      max-width: calc(100% - 200px);
-      padding: 10px;
-      box-sizing: border-box;
-      position: relative;
-      left: 90px;
-    }
-
-    h2 {
-      text-align: center;
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="triangle"></div>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
 
-  <h1 class="page-title">
-    <span class="highlight">S</span>witchback
-    <span class="highlight">G</span>ames
-  </h1>
+    <div class="w3-padding-32 w3-hide-large"></div>
 
-  <div class="sidenav">
-    <a href="https://davem97.github.io/fpcc">
-      <img src="../images/Switchback Games logo.png" alt="Logo" class="sidenav-logo"></a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns" rel="noopener noreferrer">Home</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/features" rel="noopener noreferrer">Features</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/changelog" rel="noopener noreferrer">Changelog</a><br>
-    <a href="https://davem97.github.io/fpcc/assets/westernguns/faq" rel="noopener noreferrer">FAQ</a><br>
-    <a class="active" href="https://davem97.github.io/fpcc/assets/westernguns/contact"
-      rel="noopener noreferrer">Contact</a><br>
-  </div>
+    <div class="w3-container w3-center w3-hide-small w3-hide-medium">
+      <img src="assets/images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;"
+        class="w3-image">
+    </div>
 
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <hr style="border: 1px solid white; width: 80%; margin: 32px auto;">
+    </div>
 
-  <div class="container">
-    <h2>Contact Form</h2><br>
-    <form action="https://formspree.io/f/mleygdjg" method="POST">
-      <label>Name</label>
-      <input type="text" name="firstname" placeholder="Your name" required pattern="[A-Za-z\s]+"
-        title="Name should contain only letters and spaces">
+    <div class="w3-bar-block sidebar-links">
+      <a href="/fpcc/assets/westernguns/" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/assets/westernguns/about" class="w3-bar-item w3-button w3-hover-white">About</a>
+      <a href="/fpcc/assets/westernguns/placeholder" class="w3-bar-item w3-button w3-hover-white">Placeholder</a>
+      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+      <a href="/fpcc/assets/westernguns/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+  </nav>
 
-      <label>Email</label>
-      <input type="email" name="email" placeholder="Your email address" required>
+  <!-- Main content -->
+  <div class="w3-main" style="margin-left:300px;">
+    <div style="display:flex; align-items:center; justify-content:center; height:100vh;">
+      <div class="w3-container" style="max-width:600px; width:100%;">
+        <h2 class="w3-center">Contact Form</h2>
+        <form action="https://formspree.io/f/mleygdjg" method="POST"
+          class="w3-container w3-card-4 w3-light-grey w3-padding-large">
 
-      <label>Message</label>
-      <textarea id="subject" name="subject" placeholder="Write a message" style="height:200px" required></textarea>
+          <label class="w3-text-black"><b>Name</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" name="firstname" placeholder="Your name"
+            required pattern="[A-Za-z\s]+" title="Name should contain only letters and spaces">
 
-      <input type="text" name="honeypot" style="display:none" tabindex="-1">
+          <label class="w3-text-black"><b>Email</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="email" name="email" placeholder="Your email address"
+            required>
 
-      <!-- Add Google reCAPTCHA widget -->
-      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+          <label class="w3-text-black"><b>Message</b></label>
+          <textarea class="w3-input w3-border w3-margin-bottom" name="subject" placeholder="Write a message"
+            style="height:200px" required></textarea>
 
-      <input type="submit" value="Submit">
-    </form>
-  </div>
+          <!-- Honeypot (hidden spam trap) -->
+          <input type="text" name="honeypot" style="display:none" tabindex="-1">
+
+          <input type="hidden" id="form-timestamp" name="form-timestamp">
+          <input type="text" name="jscheck" id="jscheck" style="display:none" required>
+
+          <input class="w3-button w3-green w3-hover-dark-grey w3-padding" type="submit" value="Submit">
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+      <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+      <span>Switchback Games</span>
+    </header>
+
+    <!-- Overlay effect for small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+      id="myOverlay"></div>
+
+    <!-- Scripts -->
+    <script>
+      document.getElementById('form-timestamp').value = Date.now();
+      document.querySelector('form').addEventListener('submit', function (e) {
+        const now = Date.now();
+        const then = parseInt(document.getElementById('form-timestamp').value, 10);
+        if (now - then < 5000) { // less than 5 seconds?
+          e.preventDefault();
+          alert('Form submitted too quickly. Possible bot.');
+        }
+      });
+
+      document.getElementById("jscheck").value = "js-enabled";
+
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+    </script>
+
 </body>
 
 </html>
