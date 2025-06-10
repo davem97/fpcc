@@ -71,21 +71,25 @@
         margin-left: 0 !important;
       }
 
-      /* Increase vertical gap between stacked boxes */
       .custom-two-box {
         margin-bottom: 48px !important;
       }
 
-      /* Disable flex on smaller screens for natural stacking */
       .custom-two-box-row {
         display: block !important;
       }
 
-      /* Make boxes full width */
       .custom-two-box {
         flex: none !important;
         width: 100% !important;
         max-width: none !important;
+      }
+
+      nav.w3-sidebar#mySidebar {
+        width: 250px !important;
+        /* Narrower width for mobile */
+        left: 0;
+        /* Ensure it stays positioned at the left edge */
       }
     }
 
