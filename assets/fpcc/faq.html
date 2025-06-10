@@ -8,80 +8,79 @@
   <link rel="stylesheet" href="../css/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      font-family: "Poppins", sans-serif;
-    }
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Poppins", sans-serif;
+        }
 
-    body {
-      font-size: 16px;
-      font-family: "Poppins", sans-serif;
-      position: relative;
-      /* Required for ::before positioning */
-      z-index: 0;
-      /* Ensure content stays above the background */
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            position: relative;
+            /* Required for ::before positioning */
+            z-index: 0;
+            /* Ensure content stays above the background */
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Background image using a fixed pseudo-element */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('../images/project_background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;
-      /* Push behind all content */
-    }
+        /* Background image using a fixed pseudo-element */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/project_background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            /* Push behind all content */
+        }
 
-    @media screen and (max-width: 992px) {
-      .sidebar-links {
-        margin-top: 64px;
-      }
+        @media screen and (max-width: 992px) {
+            .sidebar-links {
+                margin-top: 8px;
+                /* Reduced from 64px for minimal gap below Close Menu */
+            }
 
-      nav.w3-sidebar#mySidebar {
-        width: 200px !important;
-        /* Narrower width for mobile */
-        left: 0;
-        /* Ensure it stays positioned at the left edge */
-      }
-      .w3-main {
-        margin-left: 0 !important;
-      }
+            nav.w3-sidebar#mySidebar {
+                width: 200px !important;
+                left: 0;
+            }
 
-      .mobile-shift {
-        transform: translateY(30px);
-      }
+            .w3-main {
+                margin-left: 0 !important;
+            }
 
-      /* Increase gap between boxes on small screens */
-      .w3-col.m4 {
-        margin-bottom: 48px !important;
-        /* Adjust the value as you like */
-      }
-    }
+            .w3-card {
+                transform: translateY(30px);
+                /* Moved from .mobile-shift to .w3-card */
+            }
 
-    @media screen and (max-width: 600px) {
-      .w3-col.m4 {
-        margin-bottom: 40px !important;
-      }
-    }
+            .w3-col.m4 {
+                margin-bottom: 48px !important;
+            }
+        }
 
-    @media screen and (min-width: 993px) {
-      .w3-card {
-        transform: translateY(50px);
-      }
-    }
-  </style>
+        @media screen and (max-width: 600px) {
+            .w3-col.m4 {
+                margin-bottom: 40px !important;
+            }
+        }
+
+        @media screen and (min-width: 993px) {
+            .w3-card {
+                transform: translateY(50px);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -107,9 +106,10 @@
   </nav>
 
   <div class="w3-main" style="margin-left:300px; min-height: 100vh;">
-    <div class="w3-container w3-center w3-display-container w3-padding-64">
-      <div class="w3-card w3-light-grey w3-padding-32" style="max-width:1200px; width: 90%; min-height:540px; margin:auto;">
-        <h2>FAQ</h2><br>
+        <div class="w3-container w3-center w3-display-container w3-padding-64">
+            <div class="w3-card w3-light-grey w3-padding-32"
+                style="max-width:1200px; width: 90%; min-height:540px; margin:auto;">
+                <h2>FAQ</h2><br>
         <!-- FAQ Section -->
         <div class="w3-container w3-left-align">
           <h4 class="w3-text-teal">Question 1: test and test test test?</h4>
