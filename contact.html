@@ -67,73 +67,71 @@
   </nav>
 
   <!-- Main content -->
-  <div class="w3-main"
-    style="margin-left:300px; display:flex; align-items:center; justify-content:center; min-height:100vh;">
+  <div class="w3-main" style="margin-left:300px;">
+    <div style="display:flex; align-items:center; justify-content:center; height:100vh;">
+      <div class="w3-container" style="max-width:600px; width:100%;">
+        <h2 class="w3-center">Contact Form</h2>
+        <form action="https://formspree.io/f/mleygdjg" method="POST"
+          class="w3-container w3-card-4 w3-light-grey w3-padding-large">
 
+          <label class="w3-text-black"><b>Name</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" name="firstname" placeholder="Your name"
+            required pattern="[A-Za-z\s]+" title="Name should contain only letters and spaces">
 
-    <div class="w3-container w3-padding-64" style="max-width:600px; margin:auto;">
-      <h2 class="w3-center">Contact Form</h2>
-      <form action="https://formspree.io/f/mleygdjg" method="POST"
-        class="w3-container w3-card-4 w3-light-grey w3-padding-large">
+          <label class="w3-text-black"><b>Email</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="email" name="email" placeholder="Your email address"
+            required>
 
-        <label class="w3-text-black"><b>Name</b></label>
-        <input class="w3-input w3-border w3-margin-bottom" type="text" name="firstname" placeholder="Your name" required
-          pattern="[A-Za-z\s]+" title="Name should contain only letters and spaces">
+          <label class="w3-text-black"><b>Message</b></label>
+          <textarea class="w3-input w3-border w3-margin-bottom" name="subject" placeholder="Write a message"
+            style="height:200px" required></textarea>
 
-        <label class="w3-text-black"><b>Email</b></label>
-        <input class="w3-input w3-border w3-margin-bottom" type="email" name="email" placeholder="Your email address"
-          required>
+          <!-- Honeypot (hidden spam trap) -->
+          <input type="text" name="honeypot" style="display:none" tabindex="-1">
 
-        <label class="w3-text-black"><b>Message</b></label>
-        <textarea class="w3-input w3-border w3-margin-bottom" name="subject" placeholder="Write a message"
-          style="height:200px" required></textarea>
+          <input type="hidden" id="form-timestamp" name="form-timestamp">
+          <input type="text" name="jscheck" id="jscheck" style="display:none" required>
 
-        <!-- Honeypot (hidden spam trap) -->
-        <input type="text" name="honeypot" style="display:none" tabindex="-1">
+          <input class="w3-button w3-green w3-hover-dark-grey w3-padding" type="submit" value="Submit">
+        </form>
+      </div>
 
-        <input type="hidden" id="form-timestamp" name="form-timestamp">
-        <input type="text" name="jscheck" id="jscheck" style="display:none" required>
-
-        <input class="w3-button w3-green w3-hover-dark-grey w3-padding" type="submit" value="Submit">
-      </form>
     </div>
 
-  </div>
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+      <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+      <span>Switchback Games</span>
+    </header>
 
-  <!-- Top menu on small screens -->
-  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
-    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
-    <span>Switchback Games</span>
-  </header>
+    <!-- Overlay effect for small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+      id="myOverlay"></div>
 
-  <!-- Overlay effect for small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
-    id="myOverlay"></div>
+    <!-- Scripts -->
+    <script>
+      document.getElementById('form-timestamp').value = Date.now();
+      document.querySelector('form').addEventListener('submit', function (e) {
+        const now = Date.now();
+        const then = parseInt(document.getElementById('form-timestamp').value, 10);
+        if (now - then < 5000) { // less than 5 seconds?
+          e.preventDefault();
+          alert('Form submitted too quickly. Possible bot.');
+        }
+      });
 
-  <!-- Scripts -->
-  <script>
-    document.getElementById('form-timestamp').value = Date.now();
-    document.querySelector('form').addEventListener('submit', function (e) {
-      const now = Date.now();
-      const then = parseInt(document.getElementById('form-timestamp').value, 10);
-      if (now - then < 5000) { // less than 5 seconds?
-        e.preventDefault();
-        alert('Form submitted too quickly. Possible bot.');
+      document.getElementById("jscheck").value = "js-enabled";
+
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
       }
-    });
 
-    document.getElementById("jscheck").value = "js-enabled";
-
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-    }
-  </script>
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+    </script>
 
 </body>
 
