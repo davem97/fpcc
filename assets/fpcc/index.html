@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Sidebar Only</title>
   <meta charset="UTF-8">
@@ -19,16 +18,13 @@
 
     body {
       font-size: 16px;
-      font-family: "Poppins", sans-serif;
       position: relative;
-      /* Required for ::before positioning */
       z-index: 0;
-      /* Ensure content stays above the background */
       margin: 0;
       padding: 0;
     }
 
-    /* Background image using a fixed pseudo-element */
+    /* Background image */
     body::before {
       content: "";
       position: fixed;
@@ -41,9 +37,50 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
-      /* Push behind all content */
     }
 
+    /* Ensure consistent text box heights */
+    .w3-col.m4 .w3-container {
+      min-height: 200px; /* Adjust as needed */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Limit text overflow */
+    .w3-col.m4 .w3-container p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* Limit to 4 lines */
+      -webkit-box-orient: vertical;
+    }
+
+    /* Make columns equal height using Flexbox */
+    .w3-row-padding {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .w3-col.m4 {
+      flex: 1 1 30%; /* Flexible width, slightly less than 33.33% to account for margins */
+      max-width: 32%; /* Prevent columns from growing too wide */
+      margin-bottom: 24px;
+    }
+
+    /* Media query for larger screens (e.g., 2K monitors) */
+    @media screen and (min-width: 1920px) {
+      .w3-col.m4 {
+        max-width: 31%; /* Slightly reduce width to prevent stretching */
+        margin-bottom: 32px;
+      }
+      .w3-row-padding {
+        padding: 64px 32px; /* Increase padding for larger screens */
+      }
+    }
+
+    /* Existing media queries */
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 16px;
@@ -51,19 +88,17 @@
 
       nav.w3-sidebar#mySidebar {
         width: 200px !important;
-        /* Narrower width for mobile */
         left: 0;
-        /* Ensure it stays positioned at the left edge */
       }
 
       .w3-main {
         margin-left: 0 !important;
       }
 
-      /* Increase gap between boxes on small screens */
       .w3-col.m4 {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        max-width: 100%;
         margin-bottom: 48px !important;
-        /* Adjust the value as you like */
       }
     }
 
@@ -76,20 +111,17 @@
 </head>
 
 <body>
-  <!-- Sidebar/menu -->
+  <!-- Sidebar/menu (unchanged) -->
   <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding w3-padding-top-32"
     style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
       style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
     <div class="w3-padding-16 w3-hide-large"></div>
-
     <div class="w3-container w3-center w3-hide-small w3-hide-medium">
       <a href="/fpcc/">
-        <img src="../images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;"
-          class="w3-image">
+        <img src="../images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;" class="w3-image">
       </a>
     </div>
-
     <div class="w3-container w3-hide-small w3-hide-medium">
       <hr style="border: 1px solid white; width: 80%; margin: 32px auto;">
     </div>
@@ -97,7 +129,7 @@
       <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
       <a href="/fpcc/assets/fpcc/changelog" class="w3-bar-item w3-button w3-hover-white">Changelog</a>
-      <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
+      <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a>
       <a href="/fpcc/assets/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
   </nav>
@@ -116,10 +148,8 @@
           <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
           <div class="w3-container">
             <h3>Multiple Weapons</h3>
-            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
-              shotgun and sniper.
-              You can use the different features in the main scene to test the weapons and receive visual feedback for
-              proper testing purposes.</p>
+            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper.
+              You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.</p>
           </div>
         </div>
       </div>
@@ -128,10 +158,8 @@
           <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
           <div class="w3-container">
             <h3>Recoil and Aiming System</h3>
-            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
-              recoil for both hipfire and aiming down sights,
-              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
-              hipfiring or aiming down sights.</p>
+            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil for both hipfire and aiming down sights,
+              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.</p>
           </div>
         </div>
       </div>
@@ -140,26 +168,22 @@
           <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
           <div class="w3-container">
             <h3>Ballistics</h3>
-            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
-              physics and gravity. There is no
-              rigidbody present and the bullets can be fired at any desired speed with every feature being fully
-              customizable.</p>
+            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no
+              rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Top menu on small screens -->
+  <!-- Top menu on small screens (unchanged) -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
     <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
     <a href="/fpcc/" style="color: white; text-decoration: none; font-weight: bold;">Switchback Games</a>
   </header>
 
-
-  <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
-    id="myOverlay"></div>
+  <!-- Overlay effect (unchanged) -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
   <script>
     function w3_open() {
@@ -173,5 +197,4 @@
     }
   </script>
 </body>
-
 </html>
