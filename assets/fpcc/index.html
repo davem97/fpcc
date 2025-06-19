@@ -8,91 +8,103 @@
   <link rel="stylesheet" href="../css/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: "Poppins", sans-serif;
-  }
-
-  body {
-    font-size: 16px;
-    font-family: "Poppins", sans-serif;
-    position: relative;
-    z-index: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Background image using a fixed pseudo-element */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/project_background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-  }
-
-  /* === FLEXBOX EQUAL HEIGHT LAYOUT === */
-  .w3-row-padding {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .w3-col.m4 {
-    display: flex;
-    flex: 1 1 33.3333%;
-    box-sizing: border-box;
-    padding: 0 8px; /* optional spacing between columns */
-  }
-
-  .w3-light-grey {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    width: 100%;
-  }
-
-  .w3-col.m4 .w3-container {
-    flex-grow: 1;
-    padding-bottom: 24px; /* buffer space at the bottom */
-  }
-
-  /* === RESPONSIVE MEDIA QUERIES === */
-  @media screen and (max-width: 992px) {
-    .sidebar-links {
-      margin-top: 16px;
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
     }
 
-    nav.w3-sidebar#mySidebar {
-      width: 200px !important;
+    body {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      position: relative;
+      z-index: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Background image using a fixed pseudo-element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
     }
 
-    .w3-main {
-      margin-left: 0 !important;
+    /* === FLEXBOX EQUAL HEIGHT LAYOUT === */
+    .w3-row-padding {
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .w3-col.m4 {
-      margin-bottom: 48px !important;
-      flex: 1 1 100%; /* Stack vertically */
+      display: flex;
+      flex: 1 1 33.3333%;
+      box-sizing: border-box;
+      padding: 0 8px;
+      /* optional spacing between columns */
     }
-  }
 
-  @media screen and (max-width: 600px) {
-    .w3-col.m4 {
-      margin-bottom: 40px !important;
+    .w3-light-grey {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
     }
-  }
-</style>
+
+    .w3-col.m4 .w3-container {
+      flex-grow: 1;
+      padding-bottom: 24px;
+      /* buffer space at the bottom */
+    }
+
+    /* === RESPONSIVE MEDIA QUERIES === */
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
+
+      nav.w3-sidebar#mySidebar {
+        width: 200px !important;
+        left: 0;
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+        flex: 1 1 100%;
+        /* Stack vertically */
+      }
+
+      .w3-light-grey img {
+        max-width: 480px;
+        /* adjust this value as needed */
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
+    }
+  </style>
 
 </head>
 
