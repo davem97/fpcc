@@ -21,9 +21,7 @@
       font-size: 16px;
       font-family: "Poppins", sans-serif;
       position: relative;
-      /* Required for ::before positioning */
       z-index: 0;
-      /* Ensure content stays above the background */
       margin: 0;
       padding: 0;
     }
@@ -41,9 +39,36 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
-      /* Push behind all content */
     }
 
+    /* === FLEXBOX EQUAL HEIGHT LAYOUT === */
+    .w3-row-padding {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .w3-col.m4 {
+      display: flex;
+      flex: 1 1 33.3333%;
+      box-sizing: border-box;
+      padding: 0 8px;
+      /* optional spacing between columns */
+    }
+
+    .w3-light-grey {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .w3-col.m4 .w3-container {
+      flex-grow: 1;
+      padding-bottom: 24px;
+      /* buffer space at the bottom */
+    }
+
+    /* === RESPONSIVE MEDIA QUERIES === */
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 16px;
@@ -51,25 +76,52 @@
 
       nav.w3-sidebar#mySidebar {
         width: 200px !important;
-        /* Narrower width for mobile */
         left: 0;
-        /* Ensure it stays positioned at the left edge */
       }
 
       .w3-main {
         margin-left: 0 !important;
       }
 
-      /* Increase gap between boxes on small screens */
       .w3-col.m4 {
         margin-bottom: 48px !important;
-        /* Adjust the value as you like */
+        flex: 1 1 100%;
+        /* Stack vertically */
+        max-width: 480px;
+        /* Match the image's max-width */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .w3-light-grey {
+        width: 100%;
+      }
+
+      .w3-light-grey img {
+        max-width: 480px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
     }
 
     @media screen and (max-width: 600px) {
       .w3-col.m4 {
         margin-bottom: 40px !important;
+        max-width: 100%;
+        /* Full width on mobile */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .w3-light-grey img {
+        max-width: 100%;
+        /* Full width image on mobile */
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
     }
   </style>
