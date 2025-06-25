@@ -44,7 +44,6 @@
       /* Push behind all content */
     }
 
-    /* === RESPONSIVE MEDIA QUERIES === */
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 16px;
@@ -52,52 +51,25 @@
 
       nav.w3-sidebar#mySidebar {
         width: 200px !important;
+        /* Narrower width for mobile */
         left: 0;
+        /* Ensure it stays positioned at the left edge */
       }
 
       .w3-main {
         margin-left: 0 !important;
       }
 
+      /* Increase gap between boxes on small screens */
       .w3-col.m4 {
         margin-bottom: 48px !important;
-        flex: 1 1 100%;
-        /* Stack vertically */
-        max-width: 480px;
-        /* Match the image's max-width */
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .w3-light-grey {
-        width: 100%;
-      }
-
-      .w3-light-grey img {
-        max-width: 480px;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
+        /* Adjust the value as you like */
       }
     }
 
     @media screen and (max-width: 600px) {
       .w3-col.m4 {
         margin-bottom: 40px !important;
-        max-width: 100%;
-        /* Full width on mobile */
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .w3-light-grey img {
-        max-width: 100%;
-        /* Full width image on mobile */
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
       }
     }
   </style>
@@ -138,7 +110,7 @@
   </div>
 
   <div class="w3-main" style="margin-left:300px">
-    <div class="w3-row-padding" style="padding:64px 16px">
+    <div class="w3-row-padding w3-grayscale" style="padding:64px 16px">
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
           <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
