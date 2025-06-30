@@ -87,11 +87,13 @@
 
         /* Ensure images remain responsive */
         .feature-image {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
+    width: 85% !important; /* Reduce image size by ~15% */
+    margin: 0 auto !important; /* Center the image */
+    display: block !important; /* Ensure proper centering */
+}
+.w3-col.m4 {
+    width: 28.333333% !important; /* Original: ~31.333% (reduced by ~10%) */
+}
         @media screen and (max-width: 992px) {
             .sidebar-links {
                 margin-top: 16px;
