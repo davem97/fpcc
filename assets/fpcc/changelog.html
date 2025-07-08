@@ -189,7 +189,7 @@
       const changelogContainer = document.getElementById('changelog-container');
 
       try {
-        const response = await fetch('../assets/fpcc/updates.json'); // Adjust path if needed
+        const response = await fetch('../fpcc/updates.json'); // Adjust path if needed
         const changelogEntries = await response.json();
 
         changelogEntries.forEach(entry => {
