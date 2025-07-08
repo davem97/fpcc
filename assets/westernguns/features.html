@@ -17,6 +17,33 @@
             font-family: "Poppins", sans-serif;
         }
 
+        /* === FLEXBOX EQUAL HEIGHT LAYOUT === */
+        .w3-row-padding {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .w3-col.m4 {
+            display: flex;
+            flex: 1 1 33.3333%;
+            box-sizing: border-box;
+            padding: 0 8px;
+            /* optional spacing between columns */
+        }
+
+        .w3-light-grey {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .w3-col.m4 .w3-container {
+            flex-grow: 1;
+            padding-bottom: 24px;
+            /* buffer space at the bottom */
+        }
+
         body {
             font-size: 16px;
             font-family: "Poppins", sans-serif;
