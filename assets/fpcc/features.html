@@ -97,6 +97,15 @@
       /* remove focus outline on click */
     }
 
+    .feature-wrapper {
+      transform: scale(0.9);
+      transform-origin: top center;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+
+
     .arrow-left {
       left: 10px;
     }
@@ -213,17 +222,20 @@
       <!-- Box 2 -->
       <div class="w3-col m4 w3-margin-bottom" id="box2">
         <div class="w3-light-grey">
-          <div class="image-container">
-            <img src="../images/asset2small.png" alt="featureTwo" style="width:100%" class="feature-image">
-            <button class="arrow-left" onclick="changeContent('box2', -1)">←</button>
-            <button class="arrow-right" onclick="changeContent('box2', 1)">→</button>
-          </div>
-          <div class="w3-container">
-            <h3 class="feature-title">Recoil and Aiming System</h3>
-            <p class="feature-text">The asset features a custom recoil system implemented to handle customizable
-              vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random
-              recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.
-            </p>
+          <div class="feature-wrapper">
+            <div class="image-container">
+              <img src="../images/asset2small.png" alt="featureTwo" style="width:100%" class="feature-image">
+              <button class="arrow-left" onclick="changeContent('box2', -1)">←</button>
+              <button class="arrow-right" onclick="changeContent('box2', 1)">→</button>
+            </div>
+            <div class="w3-container">
+              <h3 class="feature-title">Recoil and Aiming System</h3>
+              <p class="feature-text">The asset features a custom recoil system implemented to handle customizable
+                vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery,
+                random
+                recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.
+              </p>
+            </div>
           </div>
         </div>
       </div>
