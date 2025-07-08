@@ -185,15 +185,52 @@
     }
 
     // Your changelog data as a JavaScript array of objects
-    const changelogEntries = [
-      { version: "1.0.0", title: "Initial Release", description: "Initial release with core features." },
-      { version: "1.0.1", title: "Bug Fixes & Performance", description: "Bug fixes and performance improvements." },
-      { version: "1.1.0", title: "UI Elements & Gameplay Update", description: "Added new user interface elements and updated gameplay." },
-      // Add more entries here as needed!
-      { version: "1.2.0", title: "New Feature X", description: "Introduced exciting new feature X with improved Y and Z." },
-      { version: "1.2.1", title: "Another Tested Test", description: "Introduced exciting new feature X with improved Y and Z." },
-      { version: "1.2.2", title: "Test Testing Tested Test", description: "Introduced exciting new feature X with improved Y and Z." }
-    ];
+    document.addEventListener('DOMContentLoaded', async () => {
+      const changelogContainer = document.getElementById('changelog-container');
+
+      try {
+        const response = await fetch('../assets/fpcc/updates.json'); // Adjust path if needed
+        const changelogEntries = await response.json();
+
+        changelogEntries.forEach(entry => {
+          const button = document.createElement('button');
+          button.classList.add('changelog-btn');
+          button.textContent = `Version ${entry.version}: ${entry.title}`;
+
+          const contentDiv = document.createElement('div');
+          contentDiv.classList.add('changelog-content');
+
+          const p = document.createElement('p');
+          p.textContent = entry.description;
+
+          contentDiv.appendChild(p);
+          changelogContainer.appendChild(button);
+          changelogContainer.appendChild(contentDiv);
+        });
+
+        // Activate toggle buttons
+        document.querySelectorAll('.changelog-btn').forEach(button => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+
+            if (isOpen) {
+              content.style.maxHeight = null;
+              content.classList.remove('open');
+              button.classList.remove('active');
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+              content.classList.add('open');
+              button.classList.add('active');
+            }
+          });
+        });
+      } catch (err) {
+        console.error("Failed to load changelog:", err);
+        changelogContainer.innerHTML = "<p>Could not load changelog.</p>";
+      }
+    });
+
 
     document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded
       const changelogContainer = document.getElementById('changelog-container');

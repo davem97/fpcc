@@ -1,7 +1,32 @@
 [
-    { "version": "Version 1.0.3", "details": "Initial release with core features." },
-    { "version": "Version 1.0.2", "details": "Fixed minor bugs and improved performance." },
-    { "version": "Version 1.0.1", "details": "Added new features and UI improvements." },
-    { "version": "Version 1.0.0", "details": "Major update with revamped gameplay mechanics." }
-
-  ]
+  {
+    "version": "1.0.0",
+    "title": "Initial Release",
+    "description": "Initial release with core features."
+  },
+  {
+    "version": "1.0.1",
+    "title": "Bug Fixes & Performance",
+    "description": "Bug fixes and performance improvements."
+  },
+  {
+    "version": "1.1.0",
+    "title": "UI Elements & Gameplay Update",
+    "description": "Added new user interface elements and updated gameplay."
+  },
+  {
+    "version": "1.2.0",
+    "title": "New Feature X",
+    "description": "Introduced exciting new feature X with improved Y and Z."
+  },
+  {
+    "version": "1.2.1",
+    "title": "Another Tested Test",
+    "description": "Introduced exciting new feature X with improved Y and Z."
+  },
+  {
+    "version": "1.2.2",
+    "title": "Test Testing Tested Test",
+    "description": "Introduced exciting new feature X with improved Y and Z."
+  }
+]
