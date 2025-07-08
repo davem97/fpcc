@@ -190,7 +190,7 @@
       const changelogContainer = document.getElementById('changelog-container');
 
       try {
-        const response = await fetch('../data/changelog.json'); // Adjust path if needed
+        const response = await fetch('../westernguns/updates.json'); // Adjust path if needed
         const changelogEntries = await response.json();
 
         changelogEntries.forEach(entry => {
