@@ -68,6 +68,41 @@
       /* buffer space at the bottom */
     }
 
+    /* === CAROUSEL STYLES === */
+    .carousel-box {
+      position: relative; /* This is crucial for positioning the buttons */
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 25%; /* Adjust this to vertically center on your images */
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 16px;
+      font-size: 18px;
+      user-select: none; /* Prevents text selection on double-click */
+      transition: background-color 0.3s;
+      z-index: 2;
+    }
+
+    .carousel-btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+
     /* === RESPONSIVE MEDIA QUERIES === */
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -129,7 +164,6 @@
 </head>
 
 <body>
-  <!-- Sidebar/menu -->
   <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding w3-padding-top-32"
     style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
@@ -150,8 +184,7 @@
       <a href="/fpcc/assets/fpcc" class="w3-bar-item w3-button w3-hover-white">Home</a>
       <a href="/fpcc/assets/fpcc/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
       <a href="/fpcc/assets/fpcc/changelog" class="w3-bar-item w3-button w3-hover-white">Changelog</a>
-      <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <!-- Extra -->
-      <a href="/fpcc/assets/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+      <a href="/fpcc/assets/fpcc/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a> <a href="/fpcc/assets/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
   </nav>
 
@@ -164,53 +197,110 @@
 
   <div class="w3-main" style="margin-left:300px">
     <div class="w3-row-padding" style="padding:32px 16px">
+
       <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-          <img src="../assets/images/asset2.png" alt="featureOne" style="width:100%">
-          <div class="w3-container">
-            <h3>Multiple Weapons</h3>
-            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
-              shotgun and sniper.
-              Different features in the main scene can be used to test the weapons and receive visual feedback for
-              testing purposes. It comes with a simple weapon mangement system that stores all of the weapons used.</p>
+        <div class="w3-light-grey carousel-box" data-current-index="0">
+          <div class="carousel-slide">
+            <img src="../assets/images/asset2.png" alt="featureOne" style="width:100%">
+            <div class="w3-container">
+              <h3>Multiple Weapons</h3>
+              <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
+                shotgun and sniper.</p>
+            </div>
           </div>
+          <div class="carousel-slide" style="display:none;">
+            <img src="../assets/images/asset2.png" alt="featureOne B" style="width:100%">
+            <div class="w3-container">
+              <h3>Simple Management</h3>
+              <p>It comes with a simple weapon management system that stores all of the weapons used for easy access and
+                modification.</p>
+            </div>
+          </div>
+          <div class="carousel-slide" style="display:none;">
+            <img src="../assets/images/asset2.png" alt="featureOne C" style="width:100%">
+            <div class="w3-container">
+              <h3>Visual Feedback</h3>
+              <p>Different features in the main scene can be used to test the weapons and receive visual feedback for
+                testing purposes.</p>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="changeSlide(this, -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="changeSlide(this, 1)">&#10095;</button>
         </div>
       </div>
+
       <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-          <img src="../assets/images/asset2.png" alt="featureTwo" style="width:100%">
-          <div class="w3-container">
-            <h3>Recoil and Aiming System</h3>
-            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
-              recoil for both hipfire and aiming down sights,
-              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
-              hipfiring or aiming down sights.</p>
+        <div class="w3-light-grey carousel-box" data-current-index="0">
+          <div class="carousel-slide">
+            <img src="../assets/images/asset2.png" alt="featureTwo" style="width:100%">
+            <div class="w3-container">
+              <h3>Recoil and Aiming System</h3>
+              <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
+                recoil for both hipfire and aiming down sights.</p>
+            </div>
           </div>
+          <div class="carousel-slide" style="display:none;">
+            <img src="../assets/images/asset2.png" alt="featureTwo B" style="width:100%">
+            <div class="w3-container">
+              <h3>Idle Sway & Recovery</h3>
+              <p>Includes realistic idle sway, recoil recovery, and random recoil patterns for each gun, making
+                gunplay feel dynamic.</p>
+            </div>
+          </div>
+          <div class="carousel-slide" style="display:none;">
+            <img src="../assets/images/asset2.png" alt="featureTwo C" style="width:100%">
+            <div class="w3-container">
+              <h3>Highly Customizable</h3>
+              <p>Features different recoil based on whether you are hipfiring or aiming down sights, all easily
+                tweaked in the editor.</p>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="changeSlide(this, -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="changeSlide(this, 1)">&#10095;</button>
         </div>
       </div>
+
       <div class="w3-col m4 w3-margin-bottom">
-        <div class="w3-light-grey">
-          <img src="../assets/images/asset2.png" alt="featureThree" style="width:100%">
-          <div class="w3-container">
-            <h3>Ballistics</h3>
-            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
-              physics and gravity. There is no
-              rigidbody present and the bullets can be fired at any desired speed with every feature being
-              customizable. The system also comes with simple projectile trajectory for arrows and throwables.</p>
+        <div class="w3-light-grey carousel-box" data-current-index="0">
+          <div class="carousel-slide">
+            <img src="../assets/images/asset2.png" alt="featureThree" style="width:100%">
+            <div class="w3-container">
+              <h3>Ballistics</h3>
+              <p>There are bullet ballistics present in this asset which include bullet velocity and drop affected by
+                physics and gravity.</p>
+            </div>
           </div>
+          <div class="carousel-slide" style="display:none;">
+            <img src="../assets/images/asset2.png" alt="featureThree B" style="width:100%">
+            <div class="w3-container">
+              <h3>No Rigidbody</h3>
+              <p>There is no rigidbody present and the bullets can be fired at any desired speed with every feature
+                being customizable.</p>
+            </div>
+          </div>
+          <div class="carousel-slide" style="display:none;">
+            <img src="../assets/images/asset2.png" alt="featureThree C" style="width:100%">
+            <div class="w3-container">
+              <h3>Projectile Trajectory</h3>
+              <p>The system also comes with simple projectile trajectory calculations perfect for arrows, grenades, and
+                other throwables.</p>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="changeSlide(this, -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="changeSlide(this, 1)">&#10095;</button>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- Top menu on small screens -->
+
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
     <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
     <a href="/fpcc/" style="color: white; text-decoration: none; font-weight: bold;">Switchback Games</a>
   </header>
 
 
-  <!-- Overlay effect when opening sidebar on small screens -->
   <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
     id="myOverlay"></div>
 
@@ -223,6 +313,41 @@
     function w3_close() {
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Add this function inside your <script> tag
+    function changeSlide(buttonElement, direction) {
+      // Find the parent carousel box for the button that was clicked
+      const carouselBox = buttonElement.closest('.carousel-box');
+      if (!carouselBox) return; // Exit if the parent isn't found
+
+      // Get all slides within that specific box
+      const slides = carouselBox.querySelectorAll('.carousel-slide');
+
+      // Get the current index from the data attribute and convert it to a number
+      let currentIndex = parseInt(carouselBox.dataset.currentIndex);
+
+      // Hide the current slide
+      slides[currentIndex].style.display = 'none';
+
+      // Calculate the new index
+      currentIndex += direction;
+
+      // Loop back to the start if we go past the end
+      if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      }
+
+      // Loop to the end if we go before the beginning
+      if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+      }
+
+      // Show the new slide
+      slides[currentIndex].style.display = 'block';
+
+      // IMPORTANT: Update the data attribute with the new index
+      carouselBox.dataset.currentIndex = currentIndex;
     }
   </script>
 </body>
