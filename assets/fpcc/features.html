@@ -17,6 +17,30 @@
       font-family: "Poppins", sans-serif;
     }
 
+    body {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      position: relative;
+      z-index: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Background image using a fixed pseudo-element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
     /* === FLEXBOX EQUAL HEIGHT LAYOUT === */
     .w3-row-padding {
       display: flex;
@@ -44,78 +68,7 @@
       /* buffer space at the bottom */
     }
 
-    body {
-      font-size: 16px;
-      font-family: "Poppins", sans-serif;
-      position: relative;
-      z-index: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Background image using a fixed pseudo-element */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('../images/project_background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;
-    }
-
-    /* Style for the image container to position arrows */
-    .image-container {
-      position: relative;
-      width: 100%;
-    }
-
-    .arrow-left,
-    .arrow-right {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 28px;
-      /* slightly larger than 24px */
-      font-weight: 600;
-      /* semi-bold look */
-      color: black;
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      z-index: 1;
-      transition: color 0.2s ease;
-      outline: none;
-      /* remove focus outline on click */
-    }
-
-    .arrow-left {
-      left: 10px;
-    }
-
-    .arrow-right {
-      right: 10px;
-    }
-
-    .arrow-left:hover,
-    .arrow-right:hover,
-    .arrow-left:active,
-    .arrow-right:active {
-      color: lightgray;
-    }
-
-    /* Ensure images remain responsive */
-    .feature-image {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
+    /* === RESPONSIVE MEDIA QUERIES === */
     @media screen and (max-width: 992px) {
       .sidebar-links {
         margin-top: 16px;
@@ -123,36 +76,56 @@
 
       nav.w3-sidebar#mySidebar {
         width: 200px !important;
-        /* Narrower width for mobile */
         left: 0;
-        /* Ensure it stays positioned at the left edge */
       }
 
       .w3-main {
         margin-left: 0 !important;
       }
 
-      /* Increase gap between boxes on small screens */
       .w3-col.m4 {
         margin-bottom: 48px !important;
-        /* Adjust the value as you like */
+        flex: 1 1 100%;
+        /* Stack vertically */
+        max-width: 480px;
+        /* Match the image's max-width */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .w3-light-grey {
+        width: 100%;
+      }
+
+      .w3-light-grey img {
+        max-width: 480px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
     }
 
-    /* Adjust arrow size for small screens */
     @media screen and (max-width: 600px) {
       .w3-col.m4 {
         margin-bottom: 40px !important;
+        max-width: 100%;
+        /* Full width on mobile */
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .arrow-left,
-      .arrow-right {
-        font-size: 20px;
-        /* Slightly smaller arrows for mobile */
-        padding: 6px;
+      .w3-light-grey img {
+        max-width: 100%;
+        /* Full width image on mobile */
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -184,7 +157,8 @@
 
   <div class="w3-main" style="margin-left:300px">
     <div class="w3-container w3-center" style="padding-top:64px">
-      <h1>Features</h1>
+      <h1>FPSCharController</h1>
+      <p>This is a test paragraph. It won't get hidden behind the sidebar.</p>
     </div>
   </div>
 
@@ -192,50 +166,37 @@
     <div class="w3-row-padding" style="padding:32px 16px">
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
-          <div class="image-container">
-            <img src="../images/asset2small.png" alt="featureOne" style="width:100%" class="feature-image">
-            <button class="arrow-left" onclick="changeContent('box1', -1)">←</button>
-            <button class="arrow-right" onclick="changeContent('box1', 1)">→</button>
-
-          </div>
+          <img src="/fpcc/assets/images/asset2.png" alt="featureOne" style="width:100%">
           <div class="w3-container">
-            <h3 class="feature-title">Multiple Weapons</h3>
-            <p class="feature-text">Get right into the asset with 5+ weapons that can be immediately tested, including a
-              pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the
-              weapons and receive visual feedback for proper testing purposes.</p>
+            <h3>Multiple Weapons</h3>
+            <p>Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle,
+              shotgun and sniper.
+              Different features in the main scene can be used to test the weapons and receive visual feedback for
+              testing purposes. It comes with a simple weapon mangement system that stores all of the weapons used.</p>
           </div>
         </div>
       </div>
-      <!-- Box 2 -->
-      <div class="w3-col m4 w3-margin-bottom" id="box2">
+      <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
-          <div class="image-container">
-            <img src="../images/asset2small.png" alt="featureTwo" style="width:100%" class="feature-image">
-            <button class="arrow-left" onclick="changeContent('box2', -1)">←</button>
-            <button class="arrow-right" onclick="changeContent('box2', 1)">→</button>
-          </div>
+          <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
           <div class="w3-container">
-            <h3 class="feature-title">Recoil and Aiming System</h3>
-            <p class="feature-text">The asset features a custom recoil system implemented to handle customizable
-              vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random
-              recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.
-            </p>
+            <h3>Recoil and Aiming System</h3>
+            <p>The asset features a custom recoil system implemented to handle customizable vertical and horizontal
+              recoil for both hipfire and aiming down sights,
+              idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are
+              hipfiring or aiming down sights.</p>
           </div>
         </div>
       </div>
-      <!-- Box 3 -->
-      <div class="w3-col m4 w3-margin-bottom" id="box3">
+      <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
-          <div class="image-container">
-            <img src="../images/asset2small.png" alt="featureThree" style="width:100%" class="feature-image">
-            <button class="arrow-left" onclick="changeContent('box3', -1)">←</button>
-            <button class="arrow-right" onclick="changeContent('box3', 1)">→</button>
-          </div>
+          <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
           <div class="w3-container">
-            <h3 class="feature-title">Ballistics</h3>
-            <p class="feature-text">There are bullet ballistics present in this asset which include bullet velocity and
-              drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any
-              desired speed with every feature being fully customizable.</p>
+            <h3>Ballistics</h3>
+            <p>There are bullet balistics present in this asset which include bullet velocity and drop affected by
+              physics and gravity. There is no
+              rigidbody present and the bullets can be fired at any desired speed with every feature being
+              customizable. The system also comes with simple projectile trajectory for arrows and throwables.</p>
           </div>
         </div>
       </div>
@@ -262,84 +223,6 @@
     function w3_close() {
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
-    }
-
-    // Data for each box: images, titles, and texts
-    const boxContent = {
-      box1: {
-        images: [
-          "../images/asset2small.png",
-          "../images/asset2small.png",
-          "../images/asset2small.png"
-        ],
-        titles: [
-          "Multiple Weapons",
-          "Weapon Customization",
-          "Weapon Testing"
-        ],
-        texts: [
-          "Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.",
-          "Customize weapons with various attachments and skins to suit your gameplay style.",
-          "Test weapons in a dedicated environment with real-time feedback and analytics."
-        ],
-        currentIndex: 0
-      },
-      box2: {
-        images: [
-          "../images/asset2small.png",
-          "../images/asset2small.png",
-          "../images/asset2small.png"
-        ],
-        titles: [
-          "Recoil and Aiming System",
-          "Advanced Recoil Patterns",
-          "Aiming Mechanics"
-        ],
-        texts: [
-          "The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.",
-          "Explore advanced recoil patterns that add realism and challenge to each weapon.",
-          "Fine-tune aiming mechanics with adjustable sensitivity and ADS options."
-        ],
-        currentIndex: 0
-      },
-      box3: {
-        images: [
-          "../images/asset2small.png",
-          "../images/asset2small.png",
-          "../images/asset2small.png"
-        ],
-        titles: [
-          "Ballistics",
-          "Physics-Based Projectiles",
-          "Customizable Trajectories"
-        ],
-        texts: [
-          "There are bullet ballistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.",
-          "Experience realistic projectile motion influenced by environmental factors.",
-          "Adjust bullet trajectories to match your desired gameplay experience."
-        ],
-        currentIndex: 0
-      }
-    };
-
-    // Function to change content for a specific box
-    function changeContent(boxId, direction) {
-      const box = boxContent[boxId];
-      const totalItems = box.images.length;
-
-      // Update current index
-      box.currentIndex = (box.currentIndex + direction + totalItems) % totalItems;
-
-      // Get DOM elements
-      const image = document.querySelector(`#${boxId} .feature-image`);
-      const title = document.querySelector(`#${boxId} .feature-title`);
-      const text = document.querySelector(`#${boxId} .feature-text`);
-
-      // Update content
-      image.src = box.images[box.currentIndex];
-      image.alt = box.titles[box.currentIndex].toLowerCase().replace(/\s/g, '');
-      title.textContent = box.titles[box.currentIndex];
-      text.textContent = box.texts[box.currentIndex];
     }
   </script>
 </body>
