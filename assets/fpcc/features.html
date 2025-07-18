@@ -25,11 +25,12 @@
 
     .w3-col.m4 {
       display: flex;
+      flex-direction: column;
       flex: 1 1 33.3333%;
       box-sizing: border-box;
       padding: 0 8px;
-      /* optional spacing between columns */
     }
+
 
     .w3-light-grey {
       display: flex;
@@ -136,10 +137,14 @@
       }
 
       /* Increase gap between boxes on small screens */
-      .w3-col.m4 {
-        margin-bottom: 48px !important;
-        /* Adjust the value as you like */
-      }
+      .w3-row-padding {
+    flex-direction: column;
+  }
+
+  .w3-col.m4 {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
     }
 
     /* Adjust arrow size for small screens */
