@@ -1,55 +1,58 @@
 {
     "boxes": {
         "box1": {
-            "images": [
-                "../images/asset2.png",
-                "../images/asset2.png",
-                "../images/asset2.png"
-            ],
-            "titles": [
-                "Multiple Weapons",
-                "Weapon Customization",
-                "Weapon Testing"
-            ],
-            "texts": [
-                "Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.",
-                "Customize weapons with various attachments and skins to suit your gameplay style.",
-                "Test weapons in a dedicated environment with real-time feedback and analytics."
-            ]
-        },
-        "box2": {
-            "images": [
-                "../images/asset2.png",
-                "../images/asset2.png",
-                "../images/asset2.png"
-            ],
-            "titles": [
-                "Recoil and Aiming System",
-                "Advanced Recoil Patterns",
-                "Aiming Mechanics"
-            ],
-            "texts": [
-                "The asset features a custom recoil system...",
-                "Explore advanced recoil patterns...",
-                "Fine-tune aiming mechanics..."
-            ]
-        },
-        "box3": {
-            "images": [
-                "../images/asset2.png",
-                "../images/asset2.png",
-                "../images/asset2.png"
-            ],
-            "titles": [
-                "Ballistics",
-                "Physics-Based Projectiles",
-                "Customizable Trajectories"
-            ],
-            "texts": [
-                "There are bullet ballistics present...",
-                "Experience realistic projectile motion...",
-                "Adjust bullet trajectories..."
-            ]
-        }
+        "images": [
+          "../images/asset2.png",
+          "../images/asset2.png",
+          "../images/asset2.png"
+        ],
+        "titles": [
+          "Multiple Weapons",
+          "Weapon Customization",
+          "Weapon Testing"
+        ],
+        "texts": [
+          "Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.",
+          "Customize weapons with various attachments and skins to suit your gameplay style.",
+          "Test weapons in a dedicated environment with real-time feedback and analytics."
+        ],
+        "currentIndex": 0
+      },
+      "box2": {
+        "images": [
+          "../images/asset2.png",
+          "../images/asset2.png",
+          "../images/asset2.png"
+        ],
+        "titles": [
+          "Recoil and Aiming System",
+          "Advanced Recoil Patterns",
+          "Aiming Mechanics"
+        ],
+        "texts": [
+          "The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.",
+          "Explore advanced recoil patterns that add realism and challenge to each weapon.",
+          "Fine-tune aiming mechanics with adjustable sensitivity and ADS options."
+        ],
+        "currentIndex": 0
+      },
+      "box3": {
+        "images": [
+          "../images/asset2.png",
+          "../images/asset2.png",
+          "../images/asset2.png"
+        ],
+        "titles": [
+          "Ballistics",
+          "Physics-Based Projectiles",
+          "Customizable Trajectories"
+        ],
+        "texts": [
+          "There are bullet ballistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.",
+          "Experience realistic projectile motion influenced by environmental factors.",
+          "Adjust bullet trajectories to match your desired gameplay experience."
+        ],
+        "currentIndex": 0
+      }
     }
 }
