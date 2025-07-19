@@ -1,0 +1,55 @@
+{
+  "boxes": {
+    "box1": {
+      "images": [
+        "../images/asset2.png",
+        "../images/asset2.png",
+        "../images/asset2.png"
+      ],
+      "titles": [
+        "Multiple Weapons",
+        "Weapon Customization",
+        "Weapon Testing"
+      ],
+      "texts": [
+        "Get right into the asset with 5+ weapons...",
+        "Customize weapons with various attachments...",
+        "Test weapons in a dedicated environment..."
+      ]
+    },
+    "box2": {
+      "images": [
+        "../images/asset2.png",
+        "../images/asset2.png",
+        "../images/asset2.png"
+      ],
+      "titles": [
+        "Recoil and Aiming System",
+        "Advanced Recoil Patterns",
+        "Aiming Mechanics"
+      ],
+      "texts": [
+        "The asset features a custom recoil system...",
+        "Explore advanced recoil patterns...",
+        "Fine-tune aiming mechanics..."
+      ]
+    },
+    "box3": {
+      "images": [
+        "../images/asset2.png",
+        "../images/asset2.png",
+        "../images/asset2.png"
+      ],
+      "titles": [
+        "Ballistics",
+        "Physics-Based Projectiles",
+        "Customizable Trajectories"
+      ],
+      "texts": [
+        "There are bullet ballistics present...",
+        "Experience realistic projectile motion...",
+        "Adjust bullet trajectories..."
+      ]
+    }
+  }
+}
