@@ -124,34 +124,6 @@
         display: block;
       }
     }
-
-    .image {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.container:hover .image {
-  opacity: 0.3;
-}
-
-.container:hover .middle {
-  opacity: 1;
-}
   </style>
 
 </head>
@@ -204,7 +176,6 @@
           </div>
         </div>
       </div>
-
       <div class="w3-col m4 w3-margin-bottom">
         <div class="w3-light-grey">
           <img src="/fpcc/assets/images/asset2.png" alt="featureTwo" style="width:100%">
@@ -217,9 +188,8 @@
           </div>
         </div>
       </div>
-
-      <div class="w3-col m4 w3-margin-bottom container">
-        <div class="w3-light-grey image middle">
+      <div class="w3-col m4 w3-margin-bottom">
+        <div class="w3-light-grey">
           <img src="/fpcc/assets/images/asset2.png" alt="featureThree" style="width:100%">
           <div class="w3-container">
             <h3>Ballistics</h3>
@@ -230,7 +200,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
