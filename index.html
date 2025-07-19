@@ -89,50 +89,39 @@
     }
 
     /* Apply styles for tablets and similar smaller devices (≤ 992px wide) */
-    /* Modify the media query for tablets */
-@media screen and (max-width: 992px) {
-  .sidebar-links {
-    margin-top: 16px;
-  }
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
 
-  .w3-main {
-    margin-left: 0 !important;
-  }
+      .w3-main {
+        margin-left: 0 !important;
+      }
 
-  .custom-two-box {
-    margin-bottom: 48px !important;
-  }
+      .custom-two-box {
+        margin-bottom: 48px !important;
+      }
 
-  .custom-two-box-row {
-    display: block !important;
-    padding: 0 16px; /* Add some padding to prevent edge sticking */
-  }
+      .custom-two-box-row {
+        display: block !important;
+      }
 
-  .custom-two-box {
-    flex: none !important;
-    width: calc(100% - 32px) !important; /* Account for padding */
-    max-width: 600px;
-    margin: 0 auto 48px !important; /* Simplified margin */
-  }
+      .custom-two-box {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 600px;
+        /* Limit the box width */
+        margin: 0 auto 48px auto !important;
+        /* Center it */
+      }
 
-  nav.w3-sidebar#mySidebar {
-    width: 200px !important;
-    left: 0;
-  }
-
-  /* Add this to adjust the main content margin to match sidebar */
-  .main-content-margin {
-    margin-left: 200px !important;
-  }
-}
-
-/* For the welcome message center alignment */
-@media screen and (max-width: 992px) and (min-width: 601px) {
-  .welcome-msg-center {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
+      nav.w3-sidebar#mySidebar {
+        width: 200px !important;
+        /* Narrower width for mobile */
+        left: 0;
+        /* Ensure it stays positioned at the left edge */
+      }
+    }
 
     /* Apply styles for small phones and very narrow screens (≤ 600px wide) */
     @media screen and (max-width: 600px) {
