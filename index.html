@@ -89,55 +89,48 @@
     }
 
     /* Apply styles for tablets and similar smaller devices (≤ 992px wide) */
-@media screen and (max-width: 992px) {
-  .sidebar-links {
-    margin-top: 16px;
-  }
+    @media screen and (max-width: 992px) {
+      .sidebar-links {
+        margin-top: 16px;
+      }
 
-  .w3-main {
-    margin-left: 0 !important;
-  }
+      .w3-main {
+        margin-left: 0 !important;
+      }
 
-  .main-content-margin {
-    margin-left: 200px; /* Match the sidebar width */
-  }
+      .custom-two-box {
+        margin-bottom: 48px !important;
+      }
 
-  .custom-two-box-row {
-    justify-content: center; /* Ensure centering */
-    padding: 0 16px; /* Add padding to prevent boxes from touching edges */
-  }
+      .custom-two-box-row {
+        display: block !important;
+      }
 
-  .custom-two-box {
-    flex: 1 1 300px;
-    max-width: 400px;
-    margin-bottom: 48px;
-  }
+      .custom-two-box {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 600px;
+        /* Limit the box width */
+        margin: 0 auto 48px auto !important;
+        /* Center it */
+      }
 
-  nav.w3-sidebar#mySidebar {
-    width: 200px !important;
-    left: 0;
-  }
-}
+      nav.w3-sidebar#mySidebar {
+        width: 200px !important;
+        /* Narrower width for mobile */
+        left: 0;
+        /* Ensure it stays positioned at the left edge */
+      }
+    }
 
-/* Apply styles for small phones and very narrow screens (≤ 600px wide) */
-@media screen and (max-width: 600px) {
-  .main-content-margin {
-    margin-left: 0; /* Remove margin for mobile when sidebar is hidden */
-  }
+    /* Apply styles for small phones and very narrow screens (≤ 600px wide) */
+    @media screen and (max-width: 600px) {
 
-  .custom-two-box {
-    margin-bottom: 40px;
-    max-width: 100%; /* Full width for small screens */
-  }
-
-  .custom-two-box-row {
-    padding: 0 8px; /* Adjust padding for smaller screens */
-  }
-
-  nav.w3-sidebar#mySidebar {
-    display: none; /* Hide sidebar on small screens (handled by hamburger menu) */
-  }
-}
+      /* Slightly smaller gap on very small screens */
+      .custom-two-box {
+        margin-bottom: 40px !important;
+      }
+    }
 
     .container {
       position: relative;
