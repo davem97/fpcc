@@ -1,55 +1,55 @@
 {
-  "boxes": {
-    "box1": {
-      "images": [
-        "../images/asset2.png",
-        "../images/asset2.png",
-        "../images/asset2.png"
-      ],
-      "titles": [
-        "Multiple Weapons",
-        "Weapon Customization",
-        "Weapon Testing"
-      ],
-      "texts": [
-        "Get right into the asset with 5+ weapons...",
-        "Customize weapons with various attachments...",
-        "Test weapons in a dedicated environment..."
-      ]
-    },
-    "box2": {
-      "images": [
-        "../images/asset2.png",
-        "../images/asset2.png",
-        "../images/asset2.png"
-      ],
-      "titles": [
-        "Recoil and Aiming System",
-        "Advanced Recoil Patterns",
-        "Aiming Mechanics"
-      ],
-      "texts": [
-        "The asset features a custom recoil system...",
-        "Explore advanced recoil patterns...",
-        "Fine-tune aiming mechanics..."
-      ]
-    },
-    "box3": {
-      "images": [
-        "../images/asset2.png",
-        "../images/asset2.png",
-        "../images/asset2.png"
-      ],
-      "titles": [
-        "Ballistics",
-        "Physics-Based Projectiles",
-        "Customizable Trajectories"
-      ],
-      "texts": [
-        "There are bullet ballistics present...",
-        "Experience realistic projectile motion...",
-        "Adjust bullet trajectories..."
-      ]
+    "boxes": {
+        "box1": {
+            "images": [
+                "../images/asset2.png",
+                "../images/asset2.png",
+                "../images/asset2.png"
+            ],
+            "titles": [
+                "Multiple Weapons",
+                "Weapon Customization",
+                "Weapon Testing"
+            ],
+            "texts": [
+                "Get right into the asset with 5+ weapons that can be immediately tested, including a pistol, rifle, shotgun and sniper. You can use the different features in the main scene to test the weapons and receive visual feedback for proper testing purposes.",
+                "Customize weapons with various attachments and skins to suit your gameplay style.",
+                "Test weapons in a dedicated environment with real-time feedback and analytics."
+            ]
+        },
+        "box2": {
+            "images": [
+                "../images/asset2.png",
+                "../images/asset2.png",
+                "../images/asset2.png"
+            ],
+            "titles": [
+                "Recoil and Aiming System",
+                "Advanced Recoil Patterns",
+                "Aiming Mechanics"
+            ],
+            "texts": [
+                "The asset features a custom recoil system...",
+                "Explore advanced recoil patterns...",
+                "Fine-tune aiming mechanics..."
+            ]
+        },
+        "box3": {
+            "images": [
+                "../images/asset2.png",
+                "../images/asset2.png",
+                "../images/asset2.png"
+            ],
+            "titles": [
+                "Ballistics",
+                "Physics-Based Projectiles",
+                "Customizable Trajectories"
+            ],
+            "texts": [
+                "There are bullet ballistics present...",
+                "Experience realistic projectile motion...",
+                "Adjust bullet trajectories..."
+            ]
+        }
     }
-  }
 }
