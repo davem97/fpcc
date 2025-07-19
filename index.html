@@ -45,18 +45,10 @@
 
     .custom-two-box-row {
       display: flex;
-      /* REMOVE the justify-content property */
-      /* justify-content: center; */
-
+      justify-content: center;
       flex-wrap: wrap;
       gap: 32px;
       /* Adjust spacing between boxes */
-
-      /* ADD these three lines for robust centering */
-      max-width: 864px;
-      /* (2 * 400px box width) + 32px gap + 32px for padding */
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .custom-two-box {
@@ -96,49 +88,46 @@
       margin-left: 300px;
     }
 
-    /* Apply styles for tablets and similar smaller devices (≤ 992px wide) */
-    @media screen and (max-width: 992px) {
-      .sidebar-links {
+    /* --- NEW: Tablet Styles (e.g., screens <= 1100px) --- */
+@media screen and (max-width: 1100px) {
+    /* Shrink the sidebar */
+    nav.w3-sidebar#mySidebar {
+        width: 200px !important;
+    }
+    /* Adjust the main content margin to match the smaller sidebar */
+    .main-content-margin {
+        margin-left: 200px;
+    }
+}
+
+/* --- MODIFIED: Mobile Styles (e.g., screens <= 992px) --- */
+@media screen and (max-width: 992px) {
+    .sidebar-links {
         margin-top: 16px;
-      }
-
-      .w3-main {
+    }
+    /* On mobile, remove the margin completely so content is full-width */
+    .w3-main {
         margin-left: 0 !important;
-      }
-
-      .custom-two-box {
-        margin-bottom: 48px !important;
-      }
-
-      .custom-two-box-row {
+    }
+    /* Stack the two boxes vertically */
+    .custom-two-box-row {
         display: block !important;
-      }
-
-      .custom-two-box {
+    }
+    /* Center the stacked boxes */
+    .custom-two-box {
         flex: none !important;
         width: 100% !important;
-        max-width: 600px;
-        /* Limit the box width */
-        margin: 0 auto 48px auto !important;
-        /* Center it */
-      }
-
-      nav.w3-sidebar#mySidebar {
-        width: 200px !important;
-        /* Narrower width for mobile */
-        left: 0;
-        /* Ensure it stays positioned at the left edge */
-      }
+        max-width: 600px; /* Limit the box width */
+        margin: 0 auto 48px auto !important; /* Center it */
     }
+}
 
-    /* Apply styles for small phones and very narrow screens (≤ 600px wide) */
-    @media screen and (max-width: 600px) {
-
-      /* Slightly smaller gap on very small screens */
-      .custom-two-box {
+/* --- Optional: Styles for very small phones --- */
+@media screen and (max-width: 600px) {
+    .custom-two-box {
         margin-bottom: 40px !important;
-      }
     }
+}
 
     .container {
       position: relative;
@@ -173,6 +162,7 @@
     .image:hover+.middle {
       opacity: 1;
     }
+
   </style>
 </head>
 
