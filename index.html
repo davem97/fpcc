@@ -131,40 +131,6 @@
         margin-bottom: 40px !important;
       }
     }
-
-    .container {
-      position: relative;
-      width: 50%;
-    }
-
-    .image {
-      opacity: 1;
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: .5s ease;
-      backface-visibility: hidden;
-    }
-
-    .middle {
-      transition: .5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-    .image:hover {
-      opacity: 0.6;
-    }
-
-    /* Show the overlay when the image is hovered */
-    .image:hover+.middle {
-      opacity: 1;
-    }
   </style>
 </head>
 
@@ -210,9 +176,9 @@
   <div class="w3-main main-content-margin">
     <div class="w3-row-padding custom-two-box-row custom-padding">
 
-      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+      <div class="w3-light-grey custom-two-box w3-margin-bottom">
         <a href="/fpcc/assets/fpcc">
-          <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" class="full-width-img image">
+          <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" class="full-width-img">
         </a>
         <div class="w3-container">
           <h3>FPSCharController</h3>
@@ -221,9 +187,9 @@
         </div>
       </div>
 
-      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+      <div class="w3-light-grey custom-two-box w3-margin-bottom">
         <a href="/fpcc/assets/westernguns/">
-          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img image">
+          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img">
         </a>
         <div class="w3-container">
           <h3>Western Weapons System</h3>
