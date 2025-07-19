@@ -131,6 +131,39 @@
         margin-bottom: 40px !important;
       }
     }
+
+    .container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
   </style>
 </head>
 
@@ -187,9 +220,9 @@
         </div>
       </div>
 
-      <div class="w3-light-grey custom-two-box w3-margin-bottom">
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
         <a href="/fpcc/assets/westernguns/">
-          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img">
+          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img image">
         </a>
         <div class="w3-container">
           <h3>Western Weapons System</h3>
