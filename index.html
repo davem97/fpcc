@@ -45,10 +45,18 @@
 
     .custom-two-box-row {
       display: flex;
-      justify-content: center;
+      /* REMOVE the justify-content property */
+      /* justify-content: center; */
+
       flex-wrap: wrap;
       gap: 32px;
       /* Adjust spacing between boxes */
+
+      /* ADD these three lines for robust centering */
+      max-width: 864px;
+      /* (2 * 400px box width) + 32px gap + 32px for padding */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .custom-two-box {
@@ -165,7 +173,6 @@
     .image:hover+.middle {
       opacity: 1;
     }
-
   </style>
 </head>
 
