@@ -88,11 +88,6 @@
       margin-left: 300px;
     }
 
-    .content-wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
     /* Apply styles for tablets and similar smaller devices (≤ 992px wide) */
     @media screen and (max-width: 992px) {
       .sidebar-links {
@@ -125,16 +120,6 @@
         /* Narrower width for mobile */
         left: 0;
         /* Ensure it stays positioned at the left edge */
-      }
-
-      .main-content-margin {
-        margin-left: 0 !important;
-      }
-
-      .content-wrapper {
-        max-width: 100%;
-        padding: 0 16px;
-        /* optional padding for spacing on small screens */
       }
     }
 
@@ -180,6 +165,7 @@
     .image:hover+.middle {
       opacity: 1;
     }
+
   </style>
 </head>
 
@@ -223,33 +209,32 @@
   </div>
 
   <div class="w3-main main-content-margin">
-    <div class="content-wrapper"> <!-- New wrapper -->
-      <div class="w3-row-padding custom-two-box-row custom-padding">
+    <div class="w3-row-padding custom-two-box-row custom-padding">
 
-        <div class="w3-light-grey custom-two-box w3-margin-bottom container">
-          <a href="/fpcc/assets/fpcc">
-            <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" class="full-width-img image">
-          </a>
-          <div class="w3-container">
-            <h3>FPSCharController</h3>
-            <p>A custom and robust, easy-to-use first-person character controller aimed at improving
-              the same standard in-built Unity component with adjusted movement and features.</p>
-          </div>
-        </div>
-
-        <div class="w3-light-grey custom-two-box w3-margin-bottom container">
-          <a href="/fpcc/assets/westernguns/">
-            <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img image">
-          </a>
-          <div class="w3-container">
-            <h3>Western Weapons System</h3>
-            <p>A weapon and ballistic system focusing on Wild West era weapons with features such as hipfire, aiming,
-              recoil,
-              recoil recovery and much more.
-            </p>
-          </div>
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+        <a href="/fpcc/assets/fpcc">
+          <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" class="full-width-img image">
+        </a>
+        <div class="w3-container">
+          <h3>FPSCharController</h3>
+          <p>A custom and robust, easy-to-use first-person character controller aimed at improving
+            the same standard in-built Unity component with adjusted movement and features.</p>
         </div>
       </div>
+
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+        <a href="/fpcc/assets/westernguns/">
+          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img image">
+        </a>
+        <div class="w3-container">
+          <h3>Western Weapons System</h3>
+          <p>A weapon and ballistic system focusing on Wild West era weapons with features such as hipfire, aiming,
+            recoil,
+            recoil recovery and much more.
+          </p>
+        </div>
+      </div>
+
     </div> <!-- closes w3-row-padding -->
   </div> <!-- closes w3-main -->
 
