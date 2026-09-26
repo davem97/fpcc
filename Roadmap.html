@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Sidebar Only</title>
+  <title>Roadmap</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/w3.css">
@@ -96,6 +96,239 @@
         margin-bottom: 40px !important;
       }
     }
+
+    /* ================= Roadmap panel ================= */
+    :root {
+      --rm-gap: 40px;            /* space between panel and edges of the content area */
+      --rm-max-width: 640px;     /* widest the panel gets on big screens */
+      --rm-sidebar-w: 300px;     /* matches the w3 sidebar width */
+      --header-h: 68px;          /* small-screen top bar; updated by script below */
+
+      --rm-fill: #5c5552;
+      --rm-fill-dark: #514b48;
+      --rm-cream: #d2ba7a;
+      --rm-cream-light: #e4d29c;
+      --rm-cream-dark: #a58b4e;  /* shaded edges of the bevel */
+      --rm-ink: #efe4c8;        /* text */
+    }
+
+    /* Fixed area covering the content part of the screen (everything right of the sidebar) */
+    .roadmap-stage {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: var(--rm-sidebar-w);
+      right: 0;
+      padding: var(--rm-gap);
+      display: flex;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .roadmap-panel {
+      /* Taller than wide: capped by max width, and by ~0.72x the available height on short screens */
+      width: min(100%, var(--rm-max-width), calc((100vh - 2 * var(--rm-gap)) * 0.72));
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      color: var(--rm-ink);
+
+      /* Thick bevelled cream frame: light top/left, shaded bottom/right */
+      border: 12px solid var(--rm-cream);
+      border-top-color: var(--rm-cream-light);
+      border-left-color: var(--rm-cream-light);
+      border-bottom-color: var(--rm-cream-dark);
+      border-right-color: var(--rm-cream-dark);
+      border-radius: 6px;
+      box-shadow:
+        0 0 0 1px #5b5043,                    /* thin dark outer edge */
+        0 18px 40px rgba(0, 0, 0, 0.45),      /* lift off the background */
+        inset 0 0 0 1px #5b5043,              /* dark edge where frame meets fill */
+        inset 0 4px 12px rgba(0, 0, 0, 0.35); /* fill sits slightly recessed */
+
+      /* Scratched surface: fine grain + light scratch streaks over the grey-brown fill */
+      background-color: var(--rm-fill);
+            background-image:
+        /* cracks: top right, right edge (vertical), bottom middle */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='100'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M126 0 L121 10 L128 21 L117 30 L119 43 L106 55 L102 70 M128 21 L141 27 L149 40 M117 30 L104 29' stroke='rgba(246,238,217,0.26)' stroke-width='1.0' transform='translate(0.8 1)'/%3E%3Cpath d='M126 0 L121 10 L128 21 L117 30 L119 43 L106 55 L102 70 M128 21 L141 27 L149 40 M117 30 L104 29' stroke='rgba(30,24,18,0.5)' stroke-width='1.1'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='240'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M50 6 L41 14 L44 26 L36 37 L40 50 L33 61 L37 76 L29 88 L34 101 L27 115 L32 128 L25 141 L30 156 L24 170 L29 186 L22 199 L26 214 L18 226 M36 37 L27 42 M34 101 L23 104 L18 112 M30 156 L39 166' stroke='rgba(246,238,217,0.28)' stroke-width='1.1' transform='translate(0.8 1)'/%3E%3Cpath d='M50 6 L41 14 L44 26 L36 37 L40 50 L33 61 L37 76 L29 88 L34 101 L27 115 L32 128 L25 141 L30 156 L24 170 L29 186 L22 199 L26 214 L18 226 M36 37 L27 42 M34 101 L23 104 L18 112 M30 156 L39 166' stroke='rgba(30,24,18,0.55)' stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='90'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M92 90 L96 78 L88 67 L94 55 L85 46 L90 34 L81 27 M88 67 L74 63 L62 69 L50 64 M94 55 L108 50 L117 56 L130 49 M85 46 L78 38' stroke='rgba(246,238,217,0.24)' stroke-width='0.9' transform='translate(0.8 1)'/%3E%3Cpath d='M92 90 L96 78 L88 67 L94 55 L85 46 L90 34 L81 27 M88 67 L74 63 L62 69 L50 64 M94 55 L108 50 L117 56 L130 49 M85 46 L78 38' stroke='rgba(30,24,18,0.45)' stroke-width='1.0'/%3E%3C/g%3E%3C/svg%3E"),
+        /* scratches, grain, base shading */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='1400'%3E%3Cfilter id='a' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0025 0.5' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0.97 0 0 0 0 0.94 0 0 0 0 0.86 3.2 0 0 0 -2.35'/%3E%3C/filter%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.003 0.55' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0 0.1 3 0 0 0 -2.22'/%3E%3C/filter%3E%3Cg transform='rotate%28-28 450 700%29'%3E%3Crect x='-600' y='-400' width='2100' height='2200' filter='url%28%23a%29'/%3E%3C/g%3E%3Cg transform='rotate%2852 450 700%29'%3E%3Crect x='-600' y='-400' width='2100' height='2200' filter='url%28%23b%29'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.12 0 0 0 0 0.1 0.9 0 0 0 -0.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+        radial-gradient(ellipse at 50% 30%, var(--rm-fill) 0%, var(--rm-fill-dark) 100%);
+      background-size: 160px 100px, 50px 240px, 180px 90px, cover, 200px 200px, auto;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat, no-repeat;
+      background-position: right top, right 55%, center bottom, center, center, center;
+    }
+
+    /* Fixed heading at the top of the panel */
+    .roadmap-header {
+      flex: none;
+      padding: 20px 28px 16px;
+      text-align: center;
+      /* Engraved divider: dark line with a light line under it */
+      border-bottom: 2px solid rgba(42, 35, 28, 0.55);
+      box-shadow: 0 2px 0 rgba(246, 238, 217, 0.35);
+    }
+
+    .roadmap-header h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--rm-ink);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5); /* stamped-in look */
+    }
+
+    /* Scrollable content area under the heading */
+    .roadmap-body {
+      flex: 1 1 auto;
+      min-height: 0;             /* lets the flex child shrink so it can scroll */
+      overflow-y: auto;
+      padding: 20px 28px 28px;
+      line-height: 1.6;
+      overflow-wrap: break-word; /* long URLs etc. wrap instead of overflowing */
+      scrollbar-gutter: stable both-edges;
+      scrollbar-width: thin;
+      scrollbar-color: var(--rm-cream-dark) transparent;
+    }
+
+    .roadmap-body::-webkit-scrollbar { width: 10px; }
+    .roadmap-body::-webkit-scrollbar-track { background: transparent; }
+    .roadmap-body::-webkit-scrollbar-thumb {
+      background: var(--rm-cream-dark);
+      border-radius: 5px;
+      border: 2px solid var(--rm-fill);
+    }
+
+    .roadmap-body:focus-visible {
+      outline: 2px solid var(--rm-cream-light);
+      outline-offset: -4px;
+    }
+
+    .roadmap-body p:first-child { margin-top: 0; }
+    .roadmap-body p:last-child { margin-bottom: 0; }
+
+    /* Medium and small screens: sidebar is hidden, top bar is shown */
+    @media screen and (max-width: 992px) {
+      :root { --rm-gap: 24px; }
+
+      .roadmap-stage {
+        left: 0;
+        top: var(--header-h);
+      }
+
+      .roadmap-panel {
+        width: min(100%, var(--rm-max-width));
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      :root { --rm-gap: 12px; }
+
+      .roadmap-panel { border-width: 8px; }
+      .roadmap-header { padding: 14px 18px 12px; }
+      .roadmap-body { padding: 16px 18px 20px; }
+    }
+
+    
+    /* ================= Roadmap items ================= */
+    :root {
+      --rm-check-border: #3a3533;      /* checkbox frame, lower/right edges */
+      --rm-check-border-dark: #24201f; /* checkbox frame, upper/left edges (recessed look) */
+      --rm-tick: #6fbf3f;              /* green tick */
+      --rm-gun-line: #1d1a19;          /* gun outlines */
+    }
+
+    .roadmap-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .rm-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0;
+    }
+
+    .rm-label {
+      min-width: 0;   /* lets long text wrap instead of stretching the row */
+      font-size: 17px;
+    }
+
+    /* Checkbox: display-only, thick recessed grey frame, empty inside */
+    .rm-check {
+      appearance: none;
+      -webkit-appearance: none;
+      flex: none;
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      border: 5px solid var(--rm-check-border);
+      border-top-color: var(--rm-check-border-dark);
+      border-left-color: var(--rm-check-border-dark);
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.12);
+      box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.45),   /* inside sits lower than the panel */
+        0 1px 0 rgba(246, 238, 217, 0.18);     /* faint lit lip under the frame */
+      cursor: default;
+      opacity: 1;
+    }
+
+    /* Thick green tick, with a dark edge so it reads on any fill */
+    .rm-check:checked {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3.5 12.5 L9.5 18.5 L20.5 4.5' fill='none' stroke='%231c1a18' stroke-width='7.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.5 12.5 L9.5 18.5 L20.5 4.5' fill='none' stroke='%236fbf3f' stroke-width='4.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    /* Weapons milestone: outline cluster, kept to the left */
+    .rm-milestone {
+      padding-top: 4px;
+      padding-bottom: 20px;
+    }
+
+    .gun-cluster {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      overflow: visible;
+    }
+
+    .gun-cluster path {
+      fill: none;
+      stroke: var(--rm-gun-line);
+      stroke-width: 1.6;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke; /* same thin line at any size */
+    }
+
+    /* Done option 1: fill the guns with colour */
+    .rm-milestone.done-fill .wood  { fill: #7a4e2b; }
+    .rm-milestone.done-fill .metal { fill: #3d3e42; }
+    .rm-milestone.done-fill .poly  { fill: #25252a; }
+    .rm-milestone.done-fill .mag   { fill: #2c2d31; }
+
+    /* Done option 2: green tick beside the cluster */
+    .gun-cluster .cluster-tick { display: none; }
+    .rm-milestone.done-tick .cluster-tick {
+      display: inline;
+      stroke: var(--rm-tick);
+      stroke-width: 7;
+      filter: drop-shadow(0 0 0 #1c1a18) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6));
+    }
+
+    @media screen and (max-width: 600px) {
+      .rm-item { gap: 12px; }
+      .rm-check { width: 28px; height: 28px; border-width: 4px; }
+      .rm-label { font-size: 16px; }
+    }
   </style>
 </head>
 
@@ -126,15 +359,77 @@
       <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
     </div>
   </nav>
-   <div class="w3-main" style="margin-left:300px">
-    <div class="w3-container text-center" style="padding-top:64px">
-      <h1>Roadmap</h1>
-    </div>
+  <div class="w3-main" style="margin-left:300px">
+    <!-- Roadmap panel: fixed over the background, sized to the content area -->
+    <div class="roadmap-stage">
+      <section class="roadmap-panel" aria-labelledby="roadmap-title">
+        <header class="roadmap-header">
+          <h1 id="roadmap-title">Roadmap</h1>
+        </header>
 
-    <div class="w3-container">
-      <p>Link 1 here</p>
-      <p>Link 2 here</p>
-      <p>Other info</p>
+        <div class="roadmap-body" tabindex="0">
+                    <ol class="roadmap-list">
+            <!-- Item 1: weapons milestone. Add class "done-fill" (coloured guns) or "done-tick" (green tick) when finished -->
+            <li class="rm-item rm-milestone">
+              <svg class="gun-cluster" viewBox="0 0 360 180" role="img" aria-label="AK-47, pistol and double-barrel shotgun">
+                <!-- AK-47 -->
+                <g transform="translate(10 8) rotate(-5 150 50) scale(0.8)">
+                  <path class="wood" d="M80 33 L6 41 Q2 42 2 46 L4 63 Q5 67 9 66 L62 53 Q72 50 80 49 Z"/>
+                  <path class="metal" d="M80 30 L156 30 Q162 30 164 34 L164 50 L80 50 Z"/>
+                  <path class="metal" d="M150 30 L152 26 L160 26 L162 30"/>
+                  <path class="wood" d="M96 50 L111 50 L103 79 Q102 82 98 82 L89 81 Q86 80 87 77 Z"/>
+                  <path class="line" d="M111 50 Q112 61 120 61 L134 61 Q138 60 138 50 M121 50 Q120 55 123 58"/>
+                  <path class="mag" d="M138 50 L156 50 Q162 76 182 96 L166 105 Q146 82 138 50 Z"/>
+                  <path class="wood" d="M164 30 L216 30 Q219 30 219 33 L219 36 L164 36 Z"/>
+                  <path class="wood" d="M164 38 L208 38 Q212 38 212 42 L212 47 Q212 50 208 50 L164 50 Z"/>
+                  <path class="metal" d="M219 30 L226 30 L226 44 L212 44 L212 38 L219 38 Z"/>
+                  <path class="metal" d="M226 38 L292 38 L292 43 L226 43 Z"/>
+                  <path class="line" d="M212 46.5 L256 46.5"/>
+                  <path class="metal" d="M256 43 L256 32 L264 32 L264 43 Z M258 32 L260 25 L262 32"/>
+                  <path class="metal" d="M292 36 L300 36 L300 45 L292 45 Z"/>
+                </g>
+                <!-- Pistol -->
+                <g transform="translate(8 98) rotate(9 56 45) scale(0.76)">
+                  <path class="poly" d="M12 27 L110 27 L110 33 Q110 36 106 36 L44 36 Q44 41 42 44 Q43 50 40 54 Q41 60 38 64 Q39 70 36 74 L35 80 Q34 83 30 83 L9 83 Q5 83 5 79 L10 40 Q10 33 12 27 Z"/>
+                  <path class="line" d="M44 36 L44 50 Q44 55 49 55 L67 55 Q72 55 72 50 L72 36 M54 36 Q57 42 53 49 M86 31 L100 31"/>
+                  <path class="metal" d="M5 8 L108 8 Q112 8 112 12 L112 27 L5 27 Q2 27 2 24 L2 11 Q2 8 5 8 Z"/>
+                  <path class="line" d="M9 11 L7 24 M14 11 L12 24 M19 11 L17 24 M24 11 L22 24 M66 12 L88 12"/>
+                  <path class="metal" d="M8 8 L9 4 L15 4 L16 8 M104 8 L105 5 L108 5 L109 8"/>
+                </g>
+                <!-- Double-barrel shotgun -->
+                <g transform="translate(106 108) rotate(-3 150 35) scale(0.8)">
+                  <path class="wood" d="M88 22 L6 25 Q2 25 2 29 L4 54 Q5 58 9 57 L66 40 Q78 36 88 37 Z"/>
+                  <path class="metal" d="M120 20 L298 22 L298 31 L120 33 Z"/>
+                  <path class="line" d="M120 26.5 L298 26.5 M294 22 L295 19.5 L296 22"/>
+                  <path class="wood" d="M120 33 L170 32 Q175 33 173 37 L120 41 Z"/>
+                  <path class="metal" d="M88 20 L120 20 L120 36 Q113 42 101 42 L88 37 Z"/>
+                  <path class="line" d="M86 20 L84 16 L94 16 M95 41 Q94 52 103 52 L110 52 Q116 51 115 40 M101 42 Q100 46 102 49 M107 41 Q106 45 108 48"/>
+                </g>
+                <!-- Green tick, shown with "done-tick" -->
+                <path class="cluster-tick" d="M284 66 L300 82 L330 44"/>
+              </svg>
+            </li>
+
+            <!-- Checklist items: add the word "checked" inside <input ...> to tick one -->
+            <li class="rm-item">
+              <input type="checkbox" class="rm-check" disabled checked>
+              <span class="rm-label">Checklist item 2 (ticked example)</span>
+            </li>
+            <li class="rm-item">
+              <input type="checkbox" class="rm-check" disabled>
+              <span class="rm-label">Checklist item 3</span>
+            </li>
+            <li class="rm-item">
+              <input type="checkbox" class="rm-check" disabled>
+              <span class="rm-label">Checklist item 4, with a longer description to show how text wraps next to the checkbox</span>
+            </li>
+            <li class="rm-item">
+              <input type="checkbox" class="rm-check" disabled>
+              <span class="rm-label">Checklist item 5</span>
+            </li>
+          </ol>
+        </div>
+      </section>
     </div>
   </div> <!-- closes w3-main -->
 
@@ -160,6 +455,18 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
+
+    // Keep the roadmap clear of the small-screen top bar, whatever height it ends up
+    // (it gets taller if the site name wraps on very narrow phones).
+    (function () {
+      var bar = document.querySelector("header.w3-top");
+      function syncHeaderHeight() {
+        var h = bar.offsetHeight; // 0 while the bar is hidden on large screens
+        if (h > 0) document.documentElement.style.setProperty("--header-h", h + "px");
+      }
+      syncHeaderHeight();
+      window.addEventListener("resize", syncHeaderHeight);
+    })();
   </script>
 
 </body>
