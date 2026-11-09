@@ -6,6 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/w3.css">
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="sidebar.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <style>
     body,
@@ -17,48 +19,19 @@
       font-family: "Poppins", sans-serif;
     }
 
-    body {
-      font-size: 16px;
-      position: relative;
-      /* Required for ::before positioning */
-      z-index: 0;
-      /* Ensure content stays above the background */
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Background image using a fixed pseudo-element */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('assets/images/project_background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;
-      /* Push behind all content */
-    }
-
+    /* --- 3x2 Grid Layout & Box Styling --- */
     .custom-two-box-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 32px;
-      /* Adjust spacing between boxes */
+      gap: 32px; /* Even gaps/padding around all boxes */
+      padding: 32px 16px;
     }
 
     .custom-two-box {
-      flex: 1 1 300px;
-      /* Flexible width with min size */
-      max-width: 400px;
-    }
-
-    .text-center {
-      text-align: center;
+      flex: 0 0 calc(33.333% - 22px); /* Forces exactly 3 items per row on desktop */
+      max-width: 380px;
+      box-sizing: border-box;
     }
 
     .logo-image {
@@ -68,10 +41,6 @@
 
     .full-width-img {
       width: 100%;
-    }
-
-    .custom-padding {
-      padding: 32px 16px;
     }
 
     .welcome-msg-center {
@@ -85,53 +54,13 @@
     }
 
     .main-content-margin {
-      margin-left: 300px;
+      margin-left: 200px; /* Aligned with sidebar width */
     }
 
-    /* --- NEW: Tablet Styles (e.g., screens <= 1100px) --- */
-@media screen and (max-width: 1100px) {
-    /* Shrink the sidebar */
-    nav.w3-sidebar#mySidebar {
-        width: 200px !important;
-    }
-    /* Adjust the main content margin to match the smaller sidebar */
-    .main-content-margin {
-        margin-left: 200px;
-    }
-}
-
-/* --- MODIFIED: Mobile Styles (e.g., screens <= 992px) --- */
-@media screen and (max-width: 992px) {
-    .sidebar-links {
-        margin-top: 16px;
-    }
-    /* On mobile, remove the margin completely so content is full-width */
-    .w3-main {
-        margin-left: 0 !important;
-    }
-    /* Stack the two boxes vertically */
-    .custom-two-box-row {
-        display: block !important;
-    }
-    /* Center the stacked boxes */
-    .custom-two-box {
-        flex: none !important;
-        width: 100% !important;
-        max-width: 600px; /* Limit the box width */
-        margin: 0 auto 48px auto !important; /* Center it */
-    }
-}
-
-/* --- Optional: Styles for very small phones --- */
-@media screen and (max-width: 600px) {
-    .custom-two-box {
-        margin-bottom: 40px !important;
-    }
-}
-
+    /* Image hover animation container */
     .container {
       position: relative;
-      width: 50%;
+      width: 100%;
     }
 
     .image {
@@ -143,41 +72,48 @@
       backface-visibility: hidden;
     }
 
-    .middle {
-      transition: .5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
     .image:hover {
       opacity: 0.6;
     }
 
-    /* Show the overlay when the image is hovered */
-    .image:hover+.middle {
-      opacity: 1;
+    /* --- Responsive Media Queries --- */
+
+    /* Tablet/Medium Screens (<= 1100px) */
+    @media screen and (max-width: 1100px) {
+      .main-content-margin {
+        margin-left: 200px;
+      }
     }
 
+    /* Laptops/Smaller Desktops: Drop to 2 items per row (<= 1024px) */
+    @media screen and (max-width: 1024px) {
+      .custom-two-box {
+        flex: 0 0 calc(50% - 16px);
+      }
+    }
+
+    /* Mobile Screens: Stack 1 item per row (<= 700px, matches sidebar.css breakpoint) */
+    @media screen and (max-width: 700px) {
+      .main-content-margin {
+        margin-left: 0 !important;
+      }
+      .custom-two-box {
+        flex: 0 0 100% !important;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding w3-padding-top-32"
-    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+  <!-- Sidebar/menu using sidebar.css classes -->
+  <nav class="sidebar" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
       style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
 
-    <div class="w3-padding-16 w3-hide-large"></div>
-
     <div class="w3-container w3-center w3-hide-small w3-hide-medium">
-      <a href="/fpcc/">
-        <img src="assets/images/Switchback Games logo.png" alt="Logo" class="w3-image logo-image">
+      <a href="/fpcc/" class="logo-link">
+        <img src="assets/images/Switchback Games logo.png" alt="Logo" class="sidebar-logo">
       </a>
     </div>
 
@@ -185,12 +121,12 @@
       <hr class="horizontal-line">
     </div>
 
-    <div class="w3-bar-block sidebar-links">
-      <a href="/fpcc/" class="w3-bar-item w3-button w3-hover-white">Home</a>
-      <a href="/fpcc/about" class="w3-bar-item w3-button w3-hover-white">About</a>
-      <a href="/fpcc/documentation" class="w3-bar-item w3-button w3-hover-white">Documentation</a>
-      <a href="/fpcc/roadmap" class="w3-bar-item w3-button w3-hover-white">Roadmap</a>
-      <a href="/fpcc/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    <div class="sidebar-links">
+      <a href="/fpcc/" class="active">Home</a>
+      <a href="/fpcc/about">About</a>
+      <a href="/fpcc/documentation">Documentation</a>
+      <a href="/fpcc/roadmap">Roadmap</a>
+      <a href="/fpcc/contact">Contact</a>
     </div>
   </nav>
   <!-- End of sidebar -->
@@ -198,44 +134,82 @@
   <!-- Start of main content -->
   <div class="w3-main main-content-margin">
     <div class="w3-container w3-center welcome-msg-center">
-      <h1>Welcome</h1>
-      <p>This website contains all the relevant information and links to do with my published assets on the Unity3D
-        Asset
-        Store.</p>
+      <h1 class="highlight">Welcome</h1>
+      <p>This website contains all the relevant information and links to do with my published assets on the Unity3D Asset Store.</p>
       <p>Any future assets will be updated onto this website along with all their relevant information.</p>
     </div>
-  </div>
 
-  <div class="w3-main main-content-margin">
-    <div class="w3-row-padding custom-two-box-row custom-padding">
+    <!-- 6 Asset Boxes Grid (2 rows of 3) -->
+    <div class="custom-two-box-row">
 
+      <!-- Box 1 (Original) -->
       <div class="w3-light-grey custom-two-box w3-margin-bottom container">
         <a href="/fpcc/assets/fpcc">
-          <img src="/fpcc/assets/images/Game Photo.png" alt="assetOne" class="full-width-img image">
+          <img src="/fpcc/assets/images/Game Photo.png" alt="FPSCharController" class="full-width-img image">
         </a>
         <div class="w3-container">
           <h3>FPSCharController</h3>
-          <p>A custom and robust, easy-to-use first-person character controller aimed at improving
-            the same standard in-built Unity component with adjusted movement and features.</p>
+          <p>A custom and robust, easy-to-use first-person character controller aimed at improving the standard in-built Unity component.</p>
         </div>
       </div>
 
+      <!-- Box 2 (Original) -->
       <div class="w3-light-grey custom-two-box w3-margin-bottom container">
         <a href="/fpcc/assets/westernguns/">
-          <img src="/fpcc/assets/images/asset2.png" alt="assetTwo" class="full-width-img image">
+          <img src="/fpcc/assets/images/asset2.png" alt="Western Weapons System" class="full-width-img image">
         </a>
         <div class="w3-container">
           <h3>Western Weapons System</h3>
-          <p>A weapon and ballistic system focusing on Wild West era weapons with features such as hipfire, aiming,
-            recoil,
-            recoil recovery and much more.
-          </p>
+          <p>A weapon and ballistic system focusing on Wild West era firearms with hipfire, aiming, recoil, and recoil recovery features.</p>
         </div>
       </div>
 
-    </div> <!-- closes w3-row-padding -->
-  </div> <!-- closes w3-main -->
+      <!-- Box 3 (Placeholder 1) -->
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+        <a href="/fpcc/assets/inventory/">
+          <img src="/fpcc/assets/images/asset3.png" alt="Inventory System" class="full-width-img image">
+        </a>
+        <div class="w3-container">
+          <h3>Inventory & Crafting System</h3>
+          <p>A flexible grid-based inventory framework complete with drag-and-drop item management, stacking, and crafting recipes.</p>
+        </div>
+      </div>
 
+      <!-- Box 4 (Placeholder 2) -->
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+        <a href="/fpcc/assets/quest/">
+          <img src="/fpcc/assets/images/asset4.png" alt="Quest Manager" class="full-width-img image">
+        </a>
+        <div class="w3-container">
+          <h3>Modular Quest Manager</h3>
+          <p>Easily create branching storylines, track objectives, handle dialogue triggers, and reward players with a node-based workflow.</p>
+        </div>
+      </div>
+
+      <!-- Box 5 (Placeholder 3) -->
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+        <a href="/fpcc/assets/audiomanager/">
+          <img src="/fpcc/assets/images/asset5.png" alt="Audio Manager" class="full-width-img image">
+        </a>
+        <div class="w3-container">
+          <h3>Dynamic Audio Manager</h3>
+          <p>Control 3D spatial sounds, ambient audio zones, music crossfading, and sound mixer groups cleanly through a centralized singleton.</p>
+        </div>
+      </div>
+
+      <!-- Box 6 (Placeholder 4) -->
+      <div class="w3-light-grey custom-two-box w3-margin-bottom container">
+        <a href="/fpcc/assets/ai-combat/">
+          <img src="/fpcc/assets/images/asset6.png" alt="AI Combat System" class="full-width-img image">
+        </a>
+        <div class="w3-container">
+          <h3>Advanced AI Combat System</h3>
+          <p>Behavior tree-driven enemy AI featuring line-of-sight detection, cover usage, tactical flanking behaviors, and melee/ranged attacks.</p>
+        </div>
+      </div>
+
+    </div> <!-- closes custom-two-box-row -->
+  </div> <!-- closes w3-main -->
 
   <!-- Top menu on small screens -->
   <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
@@ -244,9 +218,7 @@
   </header>
 
   <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
-    id="myOverlay"></div>
-  <!-- End of menu on small screens code -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
   <script>
     function w3_open() {
