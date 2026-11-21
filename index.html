@@ -44,19 +44,24 @@
     }
 
     .custom-two-box-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 400px));
     justify-content: center;
-    flex-wrap: nowrap;
     gap: 32px;
 }
 
 .custom-two-box {
-    flex: 1 1 0;
+    width: 100%;
     min-width: 0;
     max-width: 400px;
     border: 1px solid #333;
     display: flex;
     flex-direction: column;
+    margin-bottom: 0 !important;
+}
+
+.custom-two-box.container {
+    width: 100%;
 }
 
     .text-center {
@@ -258,6 +263,45 @@
         <p>
             Simple Bullet Tracers, Smoke Trail and Muzzle Flash effects for your Unity projects.
         </p>
+    </div>
+</div>
+
+<!-- Fourth Box -->
+<div class="w3-light-grey custom-two-box w3-margin-bottom container asset-box-border">
+    <a href="#">
+        <img src="/fpcc/assets/images/placeholder.png"
+             alt="assetFour"
+             class="full-width-img image">
+    </a>
+    <div class="w3-container asset-text">
+        <h3>Future Asset 4</h3>
+        <p>Coming soon.</p>
+    </div>
+</div>
+
+<!-- Fifth Box -->
+<div class="w3-light-grey custom-two-box w3-margin-bottom container asset-box-border">
+    <a href="#">
+        <img src="/fpcc/assets/images/placeholder.png"
+             alt="assetFive"
+             class="full-width-img image">
+    </a>
+    <div class="w3-container asset-text">
+        <h3>Future Asset 5</h3>
+        <p>Coming soon.</p>
+    </div>
+</div>
+
+<!-- Sixth Box -->
+<div class="w3-light-grey custom-two-box w3-margin-bottom container asset-box-border">
+    <a href="#">
+        <img src="/fpcc/assets/images/placeholder.png"
+             alt="assetSix"
+             class="full-width-img image">
+    </a>
+    <div class="w3-container asset-text">
+        <h3>Future Asset 6</h3>
+        <p>Coming soon.</p>
     </div>
 </div>
 
