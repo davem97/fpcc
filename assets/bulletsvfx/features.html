@@ -21,14 +21,20 @@
         .w3-row-padding {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .w3-row-padding::before,
+        .w3-row-padding::after {
+            display: none;
         }
 
         .w3-col.m4 {
             display: flex;
-            flex: 1 1 33.3333%;
+            flex: 0 1 33.3333%;
             box-sizing: border-box;
             padding: 0 8px;
-            /* optional spacing between columns */
+            float: none;
         }
 
         .w3-light-grey {
@@ -197,54 +203,17 @@
             <div class="w3-col m4 w3-margin-bottom" id="box1">
                 <div class="w3-light-grey">
                     <div class="image-container">
-                        <img src="../images/Bullet_Tracers.png" alt="featureOne" style="width:100%" class="feature-image">
+                        <img src="../images/Bullet_Tracers.png" alt="featureOne" style="width:100%"
+                            class="feature-image">
                         <button class="arrow-left" onclick="changeContent('box1', -1)">←</button>
                         <button class="arrow-right" onclick="changeContent('box1', 1)">→</button>
 
                     </div>
                     <div class="w3-container">
                         <h3 class="feature-title">Bullet Tracers</h3>
-                        <p class="feature-text">The primary feature of this asset, these bullet tracers are simple but effective, 
+                        <p class="feature-text">The primary feature of this asset, these bullet tracers are simple but
+                            effective,
                             visually travel, with plenty of customization options to fit your project.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Box 2 -->
-            <div class="w3-col m4 w3-margin-bottom" id="box2">
-                <div class="w3-light-grey">
-                    <div class="image-container">
-                        <img src="../images/asset2small.png" alt="featureTwo" style="width:100%" class="feature-image">
-                        <button class="arrow-left" onclick="changeContent('box2', -1)">←</button>
-                        <button class="arrow-right" onclick="changeContent('box2', 1)">→</button>
-                    </div>
-                    <div class="w3-container">
-                        <h3 class="feature-title">Recoil and Aiming System</h3>
-                        <p class="feature-text">The asset features a custom recoil system implemented to handle
-                            customizable
-                            vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil
-                            recovery, random
-                            recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming
-                            down sights.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Box 3 -->
-            <div class="w3-col m4 w3-margin-bottom" id="box3">
-                <div class="w3-light-grey">
-                    <div class="image-container">
-                        <img src="../images/asset2small.png" alt="featureThree" style="width:100%"
-                            class="feature-image">
-                        <button class="arrow-left" onclick="changeContent('box3', -1)">←</button>
-                        <button class="arrow-right" onclick="changeContent('box3', 1)">→</button>
-                    </div>
-                    <div class="w3-container">
-                        <h3 class="feature-title">Ballistics</h3>
-                        <p class="feature-text">There are bullet ballistics present in this asset which include bullet
-                            velocity and
-                            drop affected by physics and gravity. There is no rigidbody present and the bullets can be
-                            fired at any
-                            desired speed with every feature being fully customizable.</p>
                     </div>
                 </div>
             </div>
@@ -275,61 +244,39 @@
 
         // Data for each box: images, titles, and texts
         const boxContent = {
-            box1: {
-                images: [
-                    "../images/Bullet_Tracers.png",
-                    "../images/Muzzle_Smoke.png",
-                    "../images/Muzzle_Effects.png"
-                ],
-                titles: [
-                    "Bullet Tracers",
-                    "Smoke Trails",
-                    "Muzzle Effects"
-                ],
-                texts: [
-                    "The primary feature of this asset, these bullet tracers are simple but effective, visually travel, with plenty of customization options to fit your project.",
-                    "Straight-forward smoke trails that can be toggled on or off for each weapon, with adjustable textures and inspector settings to slightly change their appearance",
-                    "Other effects including muzzle flash, muzzle sparks and muzzle smoke which are all included in this asset and are enabled by default, and also come with multiple visual variants."
-                ],
-                currentIndex: 0
-            },
-            box2: {
-                images: [
-                    "../images/asset2small.png",
-                    "../images/asset2small.png",
-                    "../images/asset2small.png"
-                ],
-                titles: [
-                    "Recoil and Aiming System",
-                    "Advanced Recoil Patterns",
-                    "Aiming Mechanics"
-                ],
-                texts: [
-                    "The asset features a custom recoil system implemented to handle customizable vertical and horizontal recoil for both hipfire and aiming down sights, idle sway, recoil recovery, random recoil patterns for each gun, different recoil based on whether you are hipfiring or aiming down sights.",
-                    "Explore advanced recoil patterns that add realism and challenge to each weapon.",
-                    "Fine-tune aiming mechanics with adjustable sensitivity and ADS options."
-                ],
-                currentIndex: 0
-            },
-            box3: {
-                images: [
-                    "../images/asset2small.png",
-                    "../images/asset2small.png",
-                    "../images/asset2small.png"
-                ],
-                titles: [
-                    "Ballistics",
-                    "Physics-Based Projectiles",
-                    "Customizable Trajectories"
-                ],
-                texts: [
-                    "There are bullet ballistics present in this asset which include bullet velocity and drop affected by physics and gravity. There is no rigidbody present and the bullets can be fired at any desired speed with every feature being fully customizable.",
-                    "Experience realistic projectile motion influenced by environmental factors.",
-                    "Adjust bullet trajectories to match your desired gameplay experience."
-                ],
-                currentIndex: 0
-            }
-        };
+    box1: {
+        images: [
+            "../images/Bullet_Tracers.png",
+            "../images/Muzzle_Smoke.png",
+            "../images/Muzzle_Effects.png",
+            "../images/feature4.png",
+            "../images/feature5.png",
+            "../images/feature6.png"
+        ],
+        titles: [
+            "Bullet Tracers",
+            "Smoke Trails",
+            "Muzzle Effects",
+            "Feature 4",
+            "Feature 5",
+            "Feature 6"
+        ],
+        texts: [
+            "The primary feature of this asset, these bullet tracers are simple but effective, visually travel, with plenty of customization options to fit your project.",
+
+            "Straight-forward smoke trails that can be toggled on or off for each weapon, with adjustable textures and inspector settings to slightly change their appearance",
+
+            "Other effects including muzzle flash, muzzle sparks and muzzle smoke which are all included in this asset and are enabled by default, and also come with multiple visual variants.",
+
+            "Description for feature 4.",
+
+            "Description for feature 5.",
+
+            "Description for feature 6."
+        ],
+        currentIndex: 0
+    }
+};
 
         // Function to change content for a specific box
         function changeContent(boxId, direction) {
