@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sidebar Only</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      position: relative;
+      /* Required for ::before positioning */
+      z-index: 0;
+      /* Ensure content stays above the background */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Background image using a fixed pseudo-element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../images/project_background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      /* Push behind all content */
+    }
+
+    #changelog-container {
+      max-width: 800px;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    /* In your <style> block */
+
+    .changelog-btn {
+      width: 100%;
+      background-color: #444;
+      color: white;
+      border: 1px solid #666;
+      /* Subtle gray border */
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      font-weight: bold;
+      user-select: none;
+      /* Removed margin-bottom: 2px as per your change */
+    }
+
+    .changelog-content {
+      max-height: 0;
+      overflow: hidden;
+      background-color: #f1f1f1;
+      padding: 0 16px;
+      font-size: 14px;
+      opacity: 0;
+      margin-top: -1px;
+      /* This helps align it tightly with the button when open */
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+      /* margin-bottom is already removed from here in the previous step, which is correct */
+    }
+
+    .changelog-btn::before {
+      content: '+ ';
+      display: inline-block;
+      width: 20px;
+    }
+
+    .changelog-btn.active::before {
+      content: '− ';
+    }
+
+    .changelog-content.open {
+      padding: 0 16px 12px 16px;
+      /* Only padding at bottom */
+      opacity: 1;
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 992px) {
+      nav.w3-sidebar#mySidebar {
+        width: 200px !important;
+        /* Narrower width for mobile */
+        left: 0;
+        /* Ensure it stays positioned at the left edge */
+      }
+
+      .sidebar-links {
+        margin-top: 16px;
+      }
+
+      .w3-main {
+        margin-left: 0 !important;
+      }
+
+      .w3-col.m4 {
+        margin-bottom: 48px !important;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .w3-col.m4 {
+        margin-bottom: 40px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding w3-padding-top-32"
+    style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width:100%;font-size:22px;border:2px solid white;">Close Menu</a>
+    <div class="w3-padding-16 w3-hide-large"></div>
+
+    <div class="w3-container w3-center w3-hide-small w3-hide-medium">
+      <a href="/fpcc/">
+        <img src="../images/Switchback Games logo.png" alt="Logo" style="width: 80%; max-width: 180px;"
+          class="w3-image">
+      </a>
+    </div>
+
+    <div class="w3-container w3-hide-small w3-hide-medium">
+      <hr style="border: 1px solid white; width: 80%; margin: 32px auto;">
+    </div>
+    <div class="w3-bar-block sidebar-links">
+      <a href="/fpcc/assets/westernguns" class="w3-bar-item w3-button w3-hover-white">Home</a>
+      <a href="/fpcc/assets/westernguns/features" class="w3-bar-item w3-button w3-hover-white">Features</a>
+      <a href="/fpcc/assets/westernguns/changelog" class="w3-bar-item w3-button w3-hover-white">Changelog</a>
+      <a href="/fpcc/assets/westernguns/faq" class="w3-bar-item w3-button w3-hover-white">FAQ</a>
+      <a href="/fpcc/assets/westernguns/contact" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+  </nav>
+
+  <div class="w3-main" style="margin-left:300px;">
+    <div class="w3-container w3-center" style="padding-top:64px;">
+      <h1>Changelog</h1>
+    </div>
+    <div id="changelog-container" style="max-width:800px; width:90%;">
+      <!-- Changelog entries will be dynamically inserted here -->
+    </div>
+  </div>
+  </div>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-dark-grey w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-dark-grey w3-margin-right" onclick="w3_open()">☰</a>
+    <a href="/fpcc/" style="color: white; text-decoration: none; font-weight: bold;">Switchback Games</a>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+    id="myOverlay"></div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Your changelog data as a JavaScript array of objects
+    document.addEventListener('DOMContentLoaded', async () => {
+      const changelogContainer = document.getElementById('changelog-container');
+
+      try {
+        const response = await fetch('../westernguns/updates.json'); // Adjust path if needed
+        const changelogEntries = await response.json();
+
+        changelogEntries.forEach(entry => {
+          const button = document.createElement('button');
+          button.classList.add('changelog-btn');
+          button.textContent = `Version ${entry.version}: ${entry.title}`;
+
+          const contentDiv = document.createElement('div');
+          contentDiv.classList.add('changelog-content');
+
+          const p = document.createElement('p');
+          p.textContent = entry.description;
+
+          contentDiv.appendChild(p);
+          changelogContainer.appendChild(button);
+          changelogContainer.appendChild(contentDiv);
+        });
+
+        // Activate toggle buttons
+        document.querySelectorAll('.changelog-btn').forEach(button => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+
+            if (isOpen) {
+              content.style.maxHeight = null;
+              content.classList.remove('open');
+              button.classList.remove('active');
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+              content.classList.add('open');
+              button.classList.add('active');
+            }
+          });
+        });
+      } catch (err) {
+        console.error("Failed to load changelog:", err);
+        changelogContainer.innerHTML = "<p>Could not load changelog.</p>";
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => { // Ensure DOM is loaded
+      const changelogContainer = document.getElementById('changelog-container');
+
+      changelogEntries.forEach(entry => {
+        // Create the button element
+        const button = document.createElement('button');
+        button.classList.add('changelog-btn');
+        button.textContent = `Version ${entry.version}: ${entry.title}`; // Or just entry.version
+
+        // Create the content div
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('changelog-content');
+
+        // Create the paragraph for the description
+        const p = document.createElement('p');
+        p.textContent = entry.description;
+
+        // Append paragraph to content div
+        contentDiv.appendChild(p);
+
+        // Append button and content div to the container
+        changelogContainer.appendChild(button);
+        changelogContainer.appendChild(contentDiv);
+      });
+
+      // Now, attach the event listeners to ALL buttons (including the newly created ones)
+      // This part of your existing JS logic is still needed, just ensure it runs AFTER creation
+      document.querySelectorAll('.changelog-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const isOpen = content.classList.contains('open');
+
+          if (isOpen) {
+            content.style.maxHeight = null;
+            content.classList.remove('open');
+            button.classList.remove('active');
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('open');
+            button.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
