@@ -44,18 +44,17 @@
     }
 
     .custom-two-box-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 32px;
-      /* Adjust spacing between boxes */
-    }
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 32px;
+}
 
-    .custom-two-box {
-      flex: 1 1 300px;
-      /* Flexible width with min size */
-      max-width: 400px;
-    }
+.custom-two-box {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 400px;
+}
 
     .text-center {
       text-align: center;
@@ -232,6 +231,22 @@
           </p>
         </div>
       </div>
+
+      <!-- Third Box -->
+<div class="w3-light-grey custom-two-box w3-margin-bottom container">
+    <a href="/fpcc/assets/thirdasset/">
+        <img src="/fpcc/assets/images/asset3.png"
+             alt="assetThree"
+             class="full-width-img image">
+    </a>
+
+    <div class="w3-container">
+        <h3>Third Asset Name</h3>
+        <p>
+            Description of your third Unity asset goes here.
+        </p>
+    </div>
+</div>
 
     </div> <!-- closes w3-row-padding -->
   </div> <!-- closes w3-main -->
