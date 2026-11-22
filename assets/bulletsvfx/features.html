@@ -29,13 +29,17 @@
             display: none;
         }
 
-        .w3-col.m4 {
-            display: flex;
-            flex: 0 1 33.3333%;
-            box-sizing: border-box;
-            padding: 0 8px;
-            float: none;
-        }
+        /* Main slideshow container */
+#box1 {
+    display: flex;
+    flex: 0 1 680px;
+    width: 100%;
+    max-width: 680px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0 8px;
+    float: none;
+}
 
         .w3-light-grey {
             display: flex;
@@ -150,41 +154,50 @@
         }
 
         @media screen and (max-width: 992px) {
-            .sidebar-links {
-                margin-top: 16px;
-            }
+    .sidebar-links {
+        margin-top: 16px;
+    }
 
-            nav.w3-sidebar#mySidebar {
-                width: 200px !important;
-                /* Narrower width for mobile */
-                left: 0;
-                /* Ensure it stays positioned at the left edge */
-            }
+    nav.w3-sidebar#mySidebar {
+        width: 200px !important;
+        left: 0;
+    }
 
-            .w3-main {
-                margin-left: 0 !important;
-            }
+    .w3-main {
+        margin-left: 0 !important;
+    }
 
-            /* Increase gap between boxes on small screens */
-            .w3-col.m4 {
-                margin-bottom: 48px !important;
-                /* Adjust the value as you like */
-            }
-        }
+    /* Allow slideshow to use available tablet/mobile width */
+    #box1 {
+        flex: 0 1 680px;
+        width: 100%;
+        max-width: 680px;
+        margin-bottom: 48px !important;
+    }
+}
 
-        /* Adjust arrow size for small screens */
         @media screen and (max-width: 600px) {
-            .w3-col.m4 {
-                margin-bottom: 40px !important;
-            }
+    #box1 {
+        flex: 0 1 100%;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 40px !important;
+    }
 
-            .arrow-left,
-            .arrow-right {
-                font-size: 20px;
-                /* Slightly smaller arrows for mobile */
-                padding: 6px;
-            }
-        }
+    .arrow-left,
+    .arrow-right {
+        font-size: 20px;
+        padding: 6px;
+    }
+
+    /* Smaller replay button for mobile */
+    .replay-button {
+        font-size: 13px;
+        padding: 8px 12px;
+        max-width: calc(100% - 80px);
+        white-space: nowrap;
+    }
+}
     </style>
 </head>
 
