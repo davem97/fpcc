@@ -83,9 +83,11 @@
 
         /* Style for the image container to position arrows */
         .image-container {
-            position: relative;
-            width: 100%;
-        }
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1200 / 811;
+    overflow: hidden;
+}
 
         .arrow-left,
         .arrow-right {
@@ -124,10 +126,11 @@
 
         /* Ensure images remain responsive */
         .feature-image {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
         /* Replay button for video slides */
         .replay-button {
