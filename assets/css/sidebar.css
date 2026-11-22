@@ -95,9 +95,3 @@ div.content {
         width: 30px; /* Even smaller logo for very small screens */
     }
 }
-
-.sidebar img.sidebar-logo,
-#mySidebar img.logo-image {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-}
